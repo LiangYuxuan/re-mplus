@@ -3,14 +3,9 @@ import fs from 'node:fs/promises';
 
 import { mapLimit, timesLimit } from 'async';
 
+import type { Run } from './types.ts';
 import type Runs from './types/rio/Runs.ts';
 import type StaticData from './types/rio/StaticData.ts';
-
-interface Run {
-    map: string,
-    score: number,
-    specs: string[],
-}
 
 const expansionID = 10; // TWW
 const season = 'season-tww-1';
@@ -30,10 +25,15 @@ const runs: Run[] = [];
 await mapLimit(regions, 1, async (region: string) => {
     await mapLimit(seasonDungeons, 1, async (dungeon: string) => {
         await timesLimit(maxPage, 1, async (page: number) => {
+            // eslint-disable-next-line no-console
+            console.log(`Fetching ${region} ${dungeon} page ${page.toString()}/${maxPage.toString()}`);
+
             const response = await fetch(`https://raider.io/api/v1/mythic-plus/runs?season=${season}&region=${region}&dungeon=${dungeon}&affixes=all&page=${page.toString()}`);
             const data = await response.json() as Runs;
 
             data.rankings.forEach(({ score, run }) => {
+                const id = run.keystone_run_id;
+                const level = run.mythic_level;
                 const map = run.dungeon.name;
                 const specs = run.roster.map(({ character }) => {
                     const specName = character.spec.name;
@@ -42,7 +42,13 @@ await mapLimit(regions, 1, async (region: string) => {
                     return `${specName} ${className}`;
                 });
 
-                runs.push({ map, score, specs });
+                runs.push({
+                    id,
+                    map,
+                    level,
+                    score,
+                    specs,
+                });
             });
         });
     });
