@@ -11,10 +11,12 @@
     "lint:fix": "eslint src/ --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "async": "^3.2.6",
     "tsx": "^4.19.1",
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@types/async": "^3.2.24",
     "@types/node": "^20.16.5",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
