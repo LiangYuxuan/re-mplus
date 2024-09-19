@@ -53,4 +53,4 @@ await mapLimit(RIO_REGIONS, 1, async (region: string) => {
     });
 });
 
-await fs.writeFile('runs.json', JSON.stringify(runs, null, 4));
+await fs.writeFile('runs.json', JSON.stringify(runs));
