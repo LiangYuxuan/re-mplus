@@ -1,7 +1,7 @@
 export interface Run {
     id: number,
-    map: string,
+    map: number,
     level: number,
     score: number,
-    specs: string[],
+    specs: number[],
 }
