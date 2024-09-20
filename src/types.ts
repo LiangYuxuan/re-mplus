@@ -5,3 +5,8 @@ export interface Run {
     score: number,
     specs: number[],
 }
+
+export interface RunFile {
+    date: string,
+    runs: Run[],
+}
