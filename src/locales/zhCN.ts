@@ -1,3 +1,13 @@
+export const textDungeon = '地下城';
+
+export const textTank = '坦克';
+
+export const textHealer = '治疗';
+
+export const textMelee = '近战';
+
+export const textRanged = '远程';
+
 export const specNames = new Map<number, string>([
     [62, '奥法'], // Arcane Mage
     [63, '火法'], // Fire Mage
