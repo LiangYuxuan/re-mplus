@@ -6,7 +6,7 @@ import analyse from '../analyse.ts';
 import fetcher from '../fetcher.ts';
 import { RIO_MIN_LEVEL } from '../config.ts';
 
-import type { Run } from '../types.ts';
+import type { Run, DataFile } from '../types.ts';
 
 const dungeonXRuns = new Map<number, Run[]>();
 const specXRuns = new Map<number, Run[]>();
@@ -30,7 +30,7 @@ runs.forEach((run) => {
     });
 });
 
-const data = {
+const data: DataFile = {
     date: new Date().toISOString(),
     dungeons: analyse(dungeonXRuns),
     specs: analyse(specXRuns),

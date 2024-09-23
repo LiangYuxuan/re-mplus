@@ -1,28 +1,9 @@
 import ckmeans from './ckmeans.ts';
 import tInterval from './tInterval.ts';
 
-import type { Run } from './types.ts';
+import type { Run, AnalyseResult } from './types.ts';
 
 const tierNames = ['S', 'A', 'B', 'C', 'D', 'F'];
-
-interface AnalyseResult {
-    key: number,
-    n: number,
-    mean: number,
-    sd: number,
-    ci: number,
-    tier: string,
-    maxRun: {
-        id: number,
-        level: number,
-        score: number,
-    },
-    minRun: {
-        id: number,
-        level: number,
-        score: number,
-    },
-}
 
 const calculateAverage = (data: number[]) => {
     const mean = data.reduce((acc, value) => acc + value, 0) / data.length;
