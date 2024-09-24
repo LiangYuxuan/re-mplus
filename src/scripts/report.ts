@@ -8,23 +8,20 @@ import { RIO_MIN_LEVEL } from '../config.ts';
 import {
     tanks, healers, melees, rangeds,
 } from '../data.ts';
-import {
-    textDungeon,
-    textTank,
-    textHealer,
-    textMelee,
-    textRanged,
-    specNames,
-    mapNames,
-} from '../locales/zhCN.ts';
+
+import { getLocaleString } from '../locale.ts';
+import '../locales/en.ts';
+import '../locales/zhCN.ts';
 
 import type { Run } from '../types.ts';
 
+const language = 'zh-CN';
+
 const specsData = [
-    { name: textTank, specs: tanks },
-    { name: textHealer, specs: healers },
-    { name: textMelee, specs: melees },
-    { name: textRanged, specs: rangeds },
+    { name: getLocaleString('tank', language), specs: tanks },
+    { name: getLocaleString('healer', language), specs: healers },
+    { name: getLocaleString('melee', language), specs: melees },
+    { name: getLocaleString('ranged', language), specs: rangeds },
 ];
 
 const dungeonXRuns = new Map<number, Run[]>();
@@ -49,13 +46,13 @@ runs.forEach((run) => {
     });
 });
 
-let reportText = `${textDungeon}\n`;
+let reportText = `${getLocaleString('dungeon', language)}\n`;
 
 const dungeonsResult = analyse(dungeonXRuns);
 dungeonsResult.forEach(({
     key, tier, n, ci, minRun, maxRun,
 }) => {
-    const displayName = mapNames.get(key) ?? key.toString();
+    const displayName = getLocaleString(`map-${key.toString()}`, language);
     const minLevelValue = minRun.level.toString();
     const maxLevelValue = maxRun.level.toString();
 
@@ -73,7 +70,7 @@ specsData.forEach(({ name, specs }) => {
             return;
         }
 
-        const displayName = specNames.get(key) ?? key.toString();
+        const displayName = getLocaleString(`spec-${key.toString()}`, language);
         const minLevelValue = minRun.level.toString();
         const maxLevelValue = maxRun.level.toString();
 
