@@ -40,5 +40,5 @@ const dataText = JSON.stringify(data);
 const root = path.resolve(fileURLToPath(import.meta.url), '..', '..', '..');
 const resultFilePath = path.join(root, 'data', 'data.json');
 await fs.writeFile(resultFilePath, dataText);
-const resultPublicFilePath = path.join(root, 'public', 'static', 'data.json');
+const resultPublicFilePath = path.join(root, 'public', 'data.json');
 await fs.writeFile(resultPublicFilePath, dataText);
