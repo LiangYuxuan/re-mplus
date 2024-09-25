@@ -16,7 +16,7 @@ import type StaticData from './types/rio/StaticData.ts';
 const root = path.resolve(fileURLToPath(import.meta.url), '..', '..');
 const cacheFilePath = path.join(root, 'data', 'runs.json');
 
-export default async (force = false): Promise<Run[]> => {
+export default async (force = false): Promise<RunFile> => {
     if (!force) {
         try {
             const text = await fs.readFile(cacheFilePath, 'utf-8');
@@ -26,7 +26,7 @@ export default async (force = false): Promise<Run[]> => {
             const now = new Date();
 
             if (now.getTime() - date.getTime() < 1000 * 60 * 60) {
-                return data.runs;
+                return data;
             }
         } catch (error) {
             // do nothing
@@ -73,10 +73,12 @@ export default async (force = false): Promise<Run[]> => {
         });
     });
 
-    await fs.writeFile(cacheFilePath, JSON.stringify({
+    const data: RunFile = {
         date: new Date().toISOString(),
         runs,
-    }));
+    };
 
-    return runs;
+    await fs.writeFile(cacheFilePath, JSON.stringify(data));
+
+    return data;
 };

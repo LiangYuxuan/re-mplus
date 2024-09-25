@@ -27,7 +27,7 @@ const specsData = [
 const dungeonXRuns = new Map<number, Run[]>();
 const specXRuns = new Map<number, Run[]>();
 
-const runs = await fetcher();
+const { runs } = await fetcher();
 runs.forEach((run) => {
     if (run.level < RIO_MIN_LEVEL) {
         return;

@@ -11,7 +11,7 @@ import type { Run, DataFile } from '../types.ts';
 const dungeonXRuns = new Map<number, Run[]>();
 const specXRuns = new Map<number, Run[]>();
 
-const runs = await fetcher();
+const { date, runs } = await fetcher();
 runs.forEach((run) => {
     if (run.level < RIO_MIN_LEVEL) {
         return;
@@ -31,7 +31,7 @@ runs.forEach((run) => {
 });
 
 const data: DataFile = {
-    date: new Date().toISOString(),
+    date,
     dungeons: analyse(dungeonXRuns),
     specs: analyse(specXRuns),
 };
