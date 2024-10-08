@@ -1,55 +1,72 @@
 import assert from 'node:assert';
-import fs from 'node:fs/promises';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 
-import { mapLimit } from 'async';
+import { mapLimit, retry } from 'async';
 
 import {
-    RIO_MAX_PAGE, RIO_REGIONS, RIO_EXPANSION_ID, RIO_SEASON,
+    ANALYSE_LIMIT,
+    RIO_MAX_PAGE,
+    RIO_REGIONS,
+    RIO_EXPANSION_ID,
+    RIO_SEASON,
+    RIO_MIN_LEVEL,
+    RIO_MIN_SCORE,
 } from './config.ts';
+import specializations, { Specialization } from './data.ts';
 
-import type { Run, RunFile } from './types.ts';
-import type Runs from './types/rio/Runs.ts';
+import type { BasicRun, AnalyseInput, RioData } from './types.ts';
 import type StaticData from './types/rio/StaticData.ts';
+import type Runs from './types/rio/Runs.ts';
+import type Specs from './types/rio/Specs.ts';
 
-const root = path.resolve(fileURLToPath(import.meta.url), '..', '..');
-const cacheFilePath = path.join(root, 'data', 'runs.json');
+interface Run {
+    id: number,
+    mapID: number,
+    level: number,
+    score: number,
+    specs: number[],
+}
 
-export default async (force = false): Promise<RunFile> => {
-    if (!force) {
-        try {
-            const text = await fs.readFile(cacheFilePath, 'utf-8');
-            const data = JSON.parse(text) as RunFile;
+const getDungeonTopRuns = async (
+    region: string,
+    dungeon: string,
+    page = 0,
+): Promise<Runs> => {
+    const response = await fetch(`https://raider.io/api/v1/mythic-plus/runs?season=${RIO_SEASON}&region=${region}&dungeon=${dungeon}&affixes=all&page=${page.toString()}`);
+    const data = await response.json() as Runs;
+    return data;
+};
 
-            const date = new Date(data.date);
-            const now = new Date();
+const getSpecTopCharacters = async (
+    className: string,
+    specName: string,
+    page = 0,
+): Promise<Specs> => {
+    const response = await fetch(`https://raider.io/api/mythic-plus/rankings/specs?season=${RIO_SEASON}&region=world&class=${className}&spec=${specName}&page=${page.toString()}`);
+    const data = await response.json() as Specs;
+    return data;
+};
 
-            if (now.getTime() - date.getTime() < 1000 * 60 * 60) {
-                return data;
-            }
-        } catch (error) {
-            // do nothing
-        }
-    }
-
+export default async (): Promise<RioData> => {
     const staticData = await (await fetch(`https://raider.io/api/v1/mythic-plus/static-data?expansion_id=${RIO_EXPANSION_ID.toString()}`)).json() as StaticData;
     const seasonStaticData = staticData.seasons.find((s) => s.slug === RIO_SEASON);
     assert(seasonStaticData, `Season ${RIO_SEASON} not found`);
 
-    const seasonDungeons = seasonStaticData.dungeons.map((d) => d.slug);
+    const dungeonCount = seasonStaticData.dungeons.length;
+    const dungeonSlugs = seasonStaticData.dungeons.map((d) => d.slug);
+    const dungeonMapIDs = seasonStaticData.dungeons.map((d) => d.challenge_mode_id);
 
-    const runs: Run[] = [];
+    const topRuns: Run[] = [];
     await mapLimit(RIO_REGIONS, 1, async (region: string) => {
-        await mapLimit(seasonDungeons, 1, async (dungeon: string) => {
+        await mapLimit(dungeonSlugs, 1, async (dungeon: string) => {
             for (let page = 0; page < RIO_MAX_PAGE; page += 1) {
                 // eslint-disable-next-line no-console
                 console.log(`Fetching ${region} ${dungeon} page ${(page + 1).toString()}/${RIO_MAX_PAGE.toString()}`);
 
                 // eslint-disable-next-line no-await-in-loop
-                const response = await fetch(`https://raider.io/api/v1/mythic-plus/runs?season=${RIO_SEASON}&region=${region}&dungeon=${dungeon}&affixes=all&page=${page.toString()}`);
-                // eslint-disable-next-line no-await-in-loop
-                const data = await response.json() as Runs;
+                const data = await retry(
+                    { times: 3, interval: 1000 },
+                    async () => getDungeonTopRuns(region, dungeon, page),
+                );
 
                 if (data.rankings.length === 0) {
                     break;
@@ -58,27 +75,128 @@ export default async (force = false): Promise<RunFile> => {
                 data.rankings.forEach(({ score, run }) => {
                     const id = run.keystone_run_id;
                     const level = run.mythic_level;
-                    const map = run.dungeon.map_challenge_mode_id;
+                    const mapID = run.dungeon.map_challenge_mode_id;
                     const specs = run.roster.map(({ character }) => character.spec.id);
 
-                    runs.push({
-                        id,
-                        map,
-                        level,
-                        score,
-                        specs,
-                    });
+                    if (level >= RIO_MIN_LEVEL && score >= RIO_MIN_SCORE) {
+                        topRuns.push({
+                            id,
+                            mapID,
+                            level,
+                            score,
+                            specs,
+                        });
+                    }
                 });
+
+                if (data.rankings[data.rankings.length - 1].score < RIO_MIN_SCORE) {
+                    break;
+                }
             }
         });
     });
 
-    const data: RunFile = {
-        date: new Date().toISOString(),
-        runs,
-    };
+    const dungeonsByRuns: AnalyseInput[] = dungeonMapIDs.map((key) => {
+        const runs = topRuns
+            .filter((run) => run.mapID === key)
+            .sort((a, b) => b.score - a.score)
+            .slice(0, ANALYSE_LIMIT);
+        const scores = runs.map((run) => run.score);
+        const max = runs[0];
+        const min = runs[runs.length - 1];
 
-    await fs.writeFile(cacheFilePath, JSON.stringify(data));
+        return {
+            key,
+            scores,
+            min,
+            max,
+        };
+    });
+
+    const specsByRuns: AnalyseInput[] = specializations.map(({ id }) => {
+        const runs = topRuns
+            .filter((run) => run.specs.includes(id))
+            .sort((a, b) => b.score - a.score)
+            .slice(0, ANALYSE_LIMIT);
+        const scores = runs.map((run) => run.score);
+        const max = runs[0];
+        const min = runs[runs.length - 1];
+
+        return {
+            key: id,
+            scores,
+            min,
+            max,
+        };
+    });
+
+    const specsByCharacters = await mapLimit(specializations, 1, async (
+        specialization: Specialization,
+    ): Promise<AnalyseInput> => {
+        const { id: key, className, specName } = specialization;
+
+        const scores: number[] = [];
+        const allRuns: BasicRun[] = [];
+
+        for (let page = 0; page < RIO_MAX_PAGE; page += 1) {
+            // eslint-disable-next-line no-console
+            console.log(`Fetching ${specName} ${className} page ${(page + 1).toString()}/${RIO_MAX_PAGE.toString()}`);
+
+            // eslint-disable-next-line no-await-in-loop
+            const data = await retry(
+                { times: 3, interval: 1000 },
+                async () => getSpecTopCharacters(className, specName, page),
+            );
+
+            if (data.rankings.rankedCharacters.length === 0) {
+                break;
+            }
+
+            data.rankings.rankedCharacters.forEach(({ score, runs }) => {
+                if (scores.length < ANALYSE_LIMIT && runs.length >= dungeonCount) {
+                    scores.push(score);
+                    allRuns.push(...runs.map((run) => {
+                        const id = run.keystoneRunId;
+                        const level = run.mythicLevel;
+                        const runScore = run.score;
+
+                        return {
+                            id,
+                            level,
+                            score: runScore,
+                        };
+                    }));
+                }
+            });
+
+            if (scores.length >= ANALYSE_LIMIT) {
+                break;
+            }
+        }
+
+        const min = allRuns.reduce(
+            (prev, run) => (run.score < prev.score ? run : prev),
+            allRuns[0],
+        );
+        const max = allRuns.reduce(
+            (prev, run) => (run.score > prev.score ? run : prev),
+            allRuns[0],
+        );
+
+        return {
+            key,
+            scores,
+            min,
+            max,
+        };
+    });
+
+    const data: RioData = {
+        date: new Date().toISOString(),
+        dungeonsByRuns,
+        specsByRuns,
+        specsByCharacters,
+    };
 
     return data;
 };

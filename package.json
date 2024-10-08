@@ -5,8 +5,11 @@
   "private": true,
   "scripts": {
     "build": "tsc --project ./",
-    "dev": "NODE_ENV=development tsx watch src/main.ts",
-    "start": "NODE_ENV=production tsx src/main.ts",
+    "build:cron": "esbuild src/scripts/analyse.ts --bundle --platform=node --outfile=dist/analyse.js",
+    "build:data": "tsx src/scripts/analyse.ts public/data.json",
+    "build:public": "esbuild src/browser/main.ts --bundle --minify --outfile=public/main.js",
+    "dev": "esbuild src/browser/main.ts --bundle --outdir=public --watch --servedir=public",
+    "start": "serve public",
     "lint": "eslint src/ --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --ignore-path .gitignore",
     "lint:fix": "eslint src/ --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },

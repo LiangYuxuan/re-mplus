@@ -1,3 +1,5 @@
+let selectedLanguage = 'en';
+
 const localeStrings = new Map<string, Map<string, string>>();
 
 export const registerLocaleString = (key: string, content: string, language: string) => {
@@ -19,14 +21,18 @@ export const registerLocaleString = (key: string, content: string, language: str
     }
 };
 
-export const getLocaleString = (key: string, language: string): string => {
-    const bestMatch = localeStrings.get(language)?.get(key);
+export const selectLanguage = (language: string) => {
+    selectedLanguage = language;
+};
+
+export const getLocaleString = (key: string): string => {
+    const bestMatch = localeStrings.get(selectedLanguage)?.get(key);
     if (bestMatch) {
         return bestMatch;
     }
 
-    if (language.includes('-')) {
-        const [lang] = language.split('-');
+    if (selectedLanguage.includes('-')) {
+        const [lang] = selectedLanguage.split('-');
         const subMatch = localeStrings.get(lang)?.get(key);
         if (subMatch) {
             return subMatch;

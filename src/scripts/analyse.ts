@@ -1,44 +1,33 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 
 import analyse from '../analyse.ts';
 import fetcher from '../fetcher.ts';
-import { RIO_MIN_LEVEL } from '../config.ts';
 
-import type { Run, DataFile } from '../types.ts';
+import type { AnalyseDataFile } from '../types.ts';
 
-const dungeonXRuns = new Map<number, Run[]>();
-const specXRuns = new Map<number, Run[]>();
+const outputFilePath = path.resolve(process.argv[2]);
 
-const { date, runs } = await fetcher();
-runs.forEach((run) => {
-    if (run.level < RIO_MIN_LEVEL) {
-        return;
-    }
+fetcher()
+    .then(({
+        date,
+        dungeonsByRuns,
+        specsByRuns,
+        specsByCharacters,
+    }) => {
+        const data: AnalyseDataFile = {
+            date,
+            dungeonsByRuns: analyse(dungeonsByRuns),
+            specsByRuns: analyse(specsByRuns),
+            specsByCharacters: analyse(specsByCharacters),
+        };
+        const dataText = JSON.stringify(data);
 
-    if (!dungeonXRuns.has(run.map)) {
-        dungeonXRuns.set(run.map, []);
-    }
-    dungeonXRuns.get(run.map)?.push(run);
-
-    run.specs.forEach((spec) => {
-        if (!specXRuns.has(spec)) {
-            specXRuns.set(spec, []);
-        }
-        specXRuns.get(spec)?.push(run);
+        return fs.writeFile(outputFilePath, dataText);
+    })
+    .then()
+    .catch((error: unknown) => {
+        // eslint-disable-next-line no-console
+        console.error(error);
+        process.exit(1);
     });
-});
-
-const data: DataFile = {
-    date,
-    dungeons: analyse(dungeonXRuns),
-    specs: analyse(specXRuns),
-};
-const dataText = JSON.stringify(data);
-
-const root = path.resolve(fileURLToPath(import.meta.url), '..', '..', '..');
-const resultFilePath = path.join(root, 'data', 'data.json');
-await fs.writeFile(resultFilePath, dataText);
-const resultPublicFilePath = path.join(root, 'public', 'data.json');
-await fs.writeFile(resultPublicFilePath, dataText);

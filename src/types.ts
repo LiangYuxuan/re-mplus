@@ -1,14 +1,21 @@
-export interface Run {
+export interface BasicRun {
     id: number,
-    map: number,
     level: number,
     score: number,
-    specs: number[],
 }
 
-export interface RunFile {
+export interface AnalyseInput {
+    key: number,
+    scores: number[],
+    min: BasicRun,
+    max: BasicRun,
+}
+
+export interface RioData {
     date: string,
-    runs: Run[],
+    dungeonsByRuns: AnalyseInput[],
+    specsByRuns: AnalyseInput[],
+    specsByCharacters: AnalyseInput[],
 }
 
 export interface AnalyseResult {
@@ -18,20 +25,13 @@ export interface AnalyseResult {
     sd: number,
     ci: number,
     tier: string,
-    maxRun: {
-        id: number,
-        level: number,
-        score: number,
-    },
-    minRun: {
-        id: number,
-        level: number,
-        score: number,
-    },
+    max: BasicRun,
+    min: BasicRun,
 }
 
-export interface DataFile {
+export interface AnalyseDataFile {
     date: string,
-    dungeons: AnalyseResult[],
-    specs: AnalyseResult[],
+    dungeonsByRuns: AnalyseResult[],
+    specsByRuns: AnalyseResult[],
+    specsByCharacters: AnalyseResult[],
 }

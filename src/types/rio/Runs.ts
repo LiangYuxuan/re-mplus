@@ -71,6 +71,12 @@ export interface Stream {
     thumbnail_url: string,
 }
 
+export interface RecruitmentProfile {
+    activity_type: string,
+    entity_type: string,
+    recruitment_profile_id: number,
+}
+
 export interface Character {
     id: number,
     persona_id: number,
@@ -84,7 +90,7 @@ export interface Character {
     realm: Realm,
     region: Region,
     stream?: Stream,
-    recruitmentProfiles: [],
+    recruitmentProfiles: RecruitmentProfile[],
 }
 
 export interface Video {
