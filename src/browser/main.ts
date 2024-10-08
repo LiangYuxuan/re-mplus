@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    lastUpdate.addEventListener('click', () => {
+    lastUpdate.addEventListener('dblclick', () => {
         USE_ALT_TIER_NAMES = !USE_ALT_TIER_NAMES;
         updateData(selectors, lastUpdate, cardContainer).catch((err: unknown) => {
             console.error(err);
