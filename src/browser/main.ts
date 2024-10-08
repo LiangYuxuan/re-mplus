@@ -138,7 +138,7 @@ const updateData = async (
     lastUpdate: HTMLDivElement,
     cardContainer: HTMLDivElement,
 ) => {
-    const data = await (await fetch('/data.json')).json() as AnalyseDataFile;
+    const data = await (await fetch('data.json')).json() as AnalyseDataFile;
     const {
         date, dungeonsByRuns, specsByRuns, specsByCharacters,
     } = data;
