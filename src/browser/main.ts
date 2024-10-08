@@ -1,6 +1,7 @@
 /* eslint-env browser */
 /* eslint-disable no-console */
 
+import { RIO_SEASON } from '../config.ts';
 import { specID2ImageName, mapID2ImageName } from './data.ts';
 import specializations from '../data.ts';
 
@@ -20,9 +21,10 @@ const tierListData = [
 ];
 
 let SELECTOR_USING_INDEX = 0;
+let USE_DETAIL_VIEW = false;
 let USE_ALT_TIER_NAMES = false;
 
-const renderData = (root: HTMLDivElement, tierType: 'map' | 'spec', title:string, res: AnalyseResult[]) => {
+const renderData = (root: HTMLDivElement, tierType: 'map' | 'spec', title:string, data: AnalyseResult[]) => {
     const card = document.createElement('div');
     card.classList.add('card');
     root.appendChild(card);
@@ -32,50 +34,103 @@ const renderData = (root: HTMLDivElement, tierType: 'map' | 'spec', title:string
     cardTitle.textContent = title;
     card.appendChild(cardTitle);
 
-    tierListData.forEach(({ tier, tierName, className }) => {
-        const tierRow = document.createElement('div');
-        tierRow.classList.add('tier-row');
-        card.appendChild(tierRow);
+    if (USE_DETAIL_VIEW) {
+        const table = document.createElement('table');
+        table.classList.add('table');
+        card.appendChild(table);
 
-        const tierTitle = document.createElement('div');
-        tierTitle.classList.add('tier-title');
-        tierTitle.classList.add(className);
-        tierRow.appendChild(tierTitle);
+        const thead = document.createElement('thead');
+        table.appendChild(thead);
 
-        const tierText = document.createElement('div');
-        tierTitle.classList.add(USE_ALT_TIER_NAMES ? 'alt-name' : 'normal-name');
-        tierText.textContent = USE_ALT_TIER_NAMES ? tierName : tier;
-        tierTitle.appendChild(tierText);
+        const theadTr = document.createElement('tr');
+        thead.appendChild(theadTr);
 
-        const tierList = document.createElement('div');
-        tierList.classList.add('tier-list');
-        tierRow.appendChild(tierList);
+        const theadName = document.createElement('th');
+        theadName.textContent = getLocaleString('name');
+        theadTr.appendChild(theadName);
 
-        const tierContent = document.createElement('div');
-        tierContent.classList.add('tier-content');
-        tierList.appendChild(tierContent);
+        const theadN = document.createElement('th');
+        theadN.textContent = getLocaleString('n');
+        theadTr.appendChild(theadN);
 
-        const tierData = res.filter((item) => item.tier === tier);
-        tierData.forEach((item) => {
-            const imageName = tierType === 'map' ? mapID2ImageName.get(item.key) : specID2ImageName.get(item.key);
-            if (!imageName) {
-                console.error(`Image name not found for key: ${tierType} ${item.key.toString()}`);
-                return;
-            }
+        const theadMax = document.createElement('th');
+        theadMax.textContent = getLocaleString('max');
+        theadTr.appendChild(theadMax);
 
-            const imageURL = tierType === 'map'
-                ? `https://assets.rpglogs.com/img/warcraft/bosses/${imageName}-icon.jpg`
-                : `https://assets.rpglogs.com/img/warcraft/icons/large/${imageName}.jpg`;
+        const theadCI = document.createElement('th');
+        theadCI.textContent = getLocaleString('ci');
+        theadTr.appendChild(theadCI);
 
-            const tierItem = document.createElement('div');
-            tierItem.classList.add('tier-item');
-            tierContent.appendChild(tierItem);
+        data.forEach((item) => {
+            const tr = document.createElement('tr');
+            table.appendChild(tr);
 
-            const tierImage = document.createElement('img');
-            tierImage.src = imageURL;
-            tierItem.appendChild(tierImage);
+            const name = document.createElement('td');
+            name.textContent = getLocaleString(tierType === 'map' ? `map-${item.key.toString()}` : `spec-${item.key.toString()}`);
+            tr.appendChild(name);
+
+            const n = document.createElement('td');
+            n.textContent = item.n.toString();
+            tr.appendChild(n);
+
+            const max = document.createElement('td');
+            tr.appendChild(max);
+
+            const maxLink = document.createElement('a');
+            maxLink.href = `https://raider.io/mythic-plus-runs/${RIO_SEASON}/${item.max.id.toString()}`;
+            maxLink.textContent = item.max.level.toString();
+            max.appendChild(maxLink);
+
+            const ci = document.createElement('td');
+            ci.textContent = item.ci.toFixed(1);
+            tr.appendChild(ci);
         });
-    });
+    } else {
+        tierListData.forEach(({ tier, tierName, className }) => {
+            const tierRow = document.createElement('div');
+            tierRow.classList.add('tier-row');
+            card.appendChild(tierRow);
+
+            const tierTitle = document.createElement('div');
+            tierTitle.classList.add('tier-title');
+            tierTitle.classList.add(className);
+            tierRow.appendChild(tierTitle);
+
+            const tierText = document.createElement('div');
+            tierTitle.classList.add(USE_ALT_TIER_NAMES ? 'alt-name' : 'normal-name');
+            tierText.textContent = USE_ALT_TIER_NAMES ? tierName : tier;
+            tierTitle.appendChild(tierText);
+
+            const tierList = document.createElement('div');
+            tierList.classList.add('tier-list');
+            tierRow.appendChild(tierList);
+
+            const tierContent = document.createElement('div');
+            tierContent.classList.add('tier-content');
+            tierList.appendChild(tierContent);
+
+            const tierData = data.filter((item) => item.tier === tier);
+            tierData.forEach((item) => {
+                const imageName = tierType === 'map' ? mapID2ImageName.get(item.key) : specID2ImageName.get(item.key);
+                if (!imageName) {
+                    console.error(`Image name not found for key: ${tierType} ${item.key.toString()}`);
+                    return;
+                }
+
+                const imageURL = tierType === 'map'
+                    ? `https://assets.rpglogs.com/img/warcraft/bosses/${imageName}-icon.jpg`
+                    : `https://assets.rpglogs.com/img/warcraft/icons/large/${imageName}.jpg`;
+
+                const tierItem = document.createElement('div');
+                tierItem.classList.add('tier-item');
+                tierContent.appendChild(tierItem);
+
+                const tierImage = document.createElement('img');
+                tierImage.src = imageURL;
+                tierItem.appendChild(tierImage);
+            });
+        });
+    }
 };
 
 const updateData = async (
@@ -153,6 +208,13 @@ document.addEventListener('DOMContentLoaded', () => {
             updateData(selectors, lastUpdate, cardContainer).catch((err: unknown) => {
                 console.error(err);
             });
+        });
+    });
+
+    lastUpdate.addEventListener('click', () => {
+        USE_DETAIL_VIEW = !USE_DETAIL_VIEW;
+        updateData(selectors, lastUpdate, cardContainer).catch((err: unknown) => {
+            console.error(err);
         });
     });
 

@@ -12,6 +12,11 @@ registerLocaleString('healer', 'Healer', language);
 registerLocaleString('melee', 'Melee', language);
 registerLocaleString('ranged', 'Ranged', language);
 
+registerLocaleString('name', 'Name', language);
+registerLocaleString('n', 'N', language);
+registerLocaleString('max', 'Max', language);
+registerLocaleString('ci', 'ci', language);
+
 registerLocaleString('spec-62', 'Arcane Mage', language);
 registerLocaleString('spec-63', 'Fire Mage', language);
 registerLocaleString('spec-64', 'Frost Mage', language);

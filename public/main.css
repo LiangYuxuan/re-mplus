@@ -69,6 +69,32 @@ body {
     margin-bottom: 1rem;
 }
 
+.card table {
+    width: 100%;
+    table-layout: auto;
+    border-collapse: collapse;
+    border-radius: 0.25rem;
+    border: 1px solid rgb(226 232 240);
+}
+
+.card table thead th {
+    text-align: left;
+    background-color: rgb(241 245 249);
+    border-bottom: 1px solid rgb(226 232 240);
+    padding: 0.5rem;
+}
+
+.card table td {
+    background-color: rgb(248 250 252);
+    border-bottom: 1px solid rgb(226 232 240);
+    padding: 0.5rem;
+}
+
+.card table a {
+    text-decoration: none;
+    color: rgb(0 112 221);
+}
+
 .tier-row {
     display: flex;
     flex-direction: row;

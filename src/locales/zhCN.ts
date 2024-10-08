@@ -12,6 +12,11 @@ registerLocaleString('healer', '治疗', language);
 registerLocaleString('melee', '近战', language);
 registerLocaleString('ranged', '远程', language);
 
+registerLocaleString('name', '名称', language);
+registerLocaleString('n', '样本', language);
+registerLocaleString('max', '最高', language);
+registerLocaleString('ci', 'ci', language);
+
 registerLocaleString('spec-62', '奥法', language);
 registerLocaleString('spec-63', '火法', language);
 registerLocaleString('spec-64', '冰法', language);
