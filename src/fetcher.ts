@@ -148,28 +148,40 @@ export default async (): Promise<RioData> => {
                 async () => getSpecTopCharacters(className, specName, page),
             );
 
-            if (data.rankings.rankedCharacters.length === 0) {
+            const characters = data.rankings.rankedCharacters;
+
+            if (characters.length === 0) {
                 break;
             }
 
-            data.rankings.rankedCharacters.forEach(({ score, runs }) => {
+            characters.forEach(({ score, runs }) => {
                 if (scores.length < ANALYSE_LIMIT && runs.length >= dungeonCount) {
-                    scores.push(score);
-                    allRuns.push(...runs.map((run) => {
-                        const id = run.keystoneRunId;
-                        const level = run.mythicLevel;
-                        const runScore = run.score;
+                    const isAllDungeonsValid = runs
+                        .every((run) => run.mythicLevel >= RIO_MIN_LEVEL
+                            && run.score >= RIO_MIN_SCORE);
 
-                        return {
-                            id,
-                            level,
-                            score: runScore,
-                        };
-                    }));
+                    if (isAllDungeonsValid) {
+                        scores.push(score);
+                        allRuns.push(...runs.map((run) => {
+                            const id = run.keystoneRunId;
+                            const level = run.mythicLevel;
+                            const runScore = run.score;
+
+                            return {
+                                id,
+                                level,
+                                score: runScore,
+                            };
+                        }));
+                    }
                 }
             });
 
             if (scores.length >= ANALYSE_LIMIT) {
+                break;
+            }
+
+            if (characters[characters.length - 1].score < RIO_MIN_SCORE * dungeonCount) {
                 break;
             }
         }
