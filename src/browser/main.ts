@@ -2,9 +2,9 @@
 
 import { RIO_SEASON } from '../core/config.ts';
 import specializations from '../core/data.ts';
-import { selectLanguage, getLocaleString } from '../core/locales/index.ts';
 
 import { specID2ImageName, mapID2ImageName } from './data.ts';
+import { selectLanguage, getLocaleString } from './locales/index.ts';
 
 import type { AnalyseResult, AnalyseDataFile } from '../core/types.ts';
 
