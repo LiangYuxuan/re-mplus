@@ -1,7 +1,7 @@
 import type { LocaleData } from './type';
 
 export default {
-    language: 'en',
+    language: 'zh-CN',
     strings: new Map([
         ['title', '史诗钥石排行榜'],
         ['by-region-best-run', '由区域最佳记录'],
