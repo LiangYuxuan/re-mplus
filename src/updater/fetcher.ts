@@ -14,10 +14,10 @@ import {
 import specializations from '../core/data.ts';
 
 import type { Specialization } from '../core/data.ts';
-import type Runs from '../core/types/rio/Runs.ts';
-import type Specs from '../core/types/rio/Specs.ts';
-import type StaticData from '../core/types/rio/StaticData.ts';
 import type { BasicRun, AnalyseInput, RioData } from '../core/types.ts';
+import type Runs from './types/Runs.ts';
+import type Specs from './types/Specs.ts';
+import type StaticData from './types/StaticData.ts';
 
 interface Run {
     id: number,
