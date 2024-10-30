@@ -1,4 +1,6 @@
-export interface Run {
+/* eslint-disable @typescript-eslint/naming-convention */
+
+interface Run {
     zoneId: number,
     keystoneRunId: number,
     clearTimeMs: number,
@@ -10,20 +12,20 @@ export interface Run {
     numChests: number,
 }
 
-export interface Class {
+interface Class {
     id: number,
     name: string,
     slug: string,
 }
 
-export interface Race {
+interface Race {
     id: number,
     name: string,
     slug: string,
     faction: string,
 }
 
-export interface Spec {
+interface Spec {
     id: number,
     name: string,
     slug: string,
@@ -33,7 +35,7 @@ export interface Spec {
     patch: string,
 }
 
-export interface Realm {
+interface Realm {
     id: number,
     connectedRealmId: number,
     wowRealmId: number,
@@ -47,13 +49,13 @@ export interface Realm {
     realmType: string,
 }
 
-export interface Region {
+interface Region {
     name: string,
     slug: string,
     short_name: string,
 }
 
-export interface Stream {
+interface Stream {
     id: string,
     name: string,
     user_id: string,
@@ -67,13 +69,13 @@ export interface Stream {
     thumbnail_url: string,
 }
 
-export interface RecruitmentProfile {
+interface RecruitmentProfile {
     activity_type: string,
     entity_type: string,
     recruitment_profile_id: number,
 }
 
-export interface Character {
+interface Character {
     id: number,
     persona_id: number,
     name: string,
@@ -91,7 +93,7 @@ export interface Character {
     anonymized?: boolean,
 }
 
-export interface Guild {
+interface Guild {
     id: number,
     name: string,
     faction: string,
@@ -102,7 +104,7 @@ export interface Guild {
     color?: string,
 }
 
-export interface PatronLevel {
+interface PatronLevel {
     level: number,
     name: string,
     slug: string,

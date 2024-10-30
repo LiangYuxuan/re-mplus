@@ -1,10 +1,13 @@
+/* eslint-disable import-x/no-unused-modules */
+
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
-import analyse from '../analyse.ts';
-import fetcher from '../fetcher.ts';
+import analyse from '../core/analyse.ts';
 
-import type { AnalyseDataFile } from '../types.ts';
+import fetcher from './fetcher.ts';
+
+import type { AnalyseDataFile } from '../core/types.ts';
 
 const outputFilePath = path.resolve(process.argv[2]);
 
@@ -27,7 +30,6 @@ fetcher()
     })
     .then()
     .catch((error: unknown) => {
-        // eslint-disable-next-line no-console
         console.error(error);
         process.exit(1);
     });

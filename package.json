@@ -5,28 +5,26 @@
   "private": true,
   "scripts": {
     "build": "tsc --project ./",
-    "build:cron": "esbuild src/scripts/analyse.ts --bundle --platform=node --outfile=dist/analyse.js",
-    "build:data": "tsx src/scripts/analyse.ts public/data.json",
+    "build:cron": "esbuild src/updater/analyse.ts --bundle --platform=node --outfile=dist/analyse.js",
     "build:public": "esbuild src/browser/main.ts --bundle --minify --outfile=public/main.js",
     "dev": "esbuild src/browser/main.ts --bundle --outdir=public --watch --servedir=public",
+    "update:data": "tsx src/updater/analyse.ts public/data.json",
     "start": "serve public",
-    "lint": "eslint src/ --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --ignore-path .gitignore",
-    "lint:fix": "eslint src/ --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "async": "^3.2.6",
-    "tsx": "^4.19.1",
+    "tsx": "^4.19.2",
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@rhyster/eslint-config": "^1.1.0",
     "@types/async": "^3.2.24",
-    "@types/node": "^20.16.5",
-    "@typescript-eslint/eslint-plugin": "^7.18.0",
-    "@typescript-eslint/parser": "^7.18.0",
+    "@types/node": "^22.8.4",
     "esbuild": "^0.24.0",
-    "eslint": "^8.57.1",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-airbnb-typescript": "^18.0.0",
-    "typescript": "^5.6.2"
+    "eslint": "^9.13.0",
+    "serve": "^14.2.4",
+    "typescript": "^5.6.3"
   }
 }

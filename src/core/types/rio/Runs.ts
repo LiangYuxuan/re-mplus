@@ -1,4 +1,6 @@
-export interface Dungeon {
+/* eslint-disable @typescript-eslint/naming-convention */
+
+interface Dungeon {
     type: string,
     id: number,
     name: string,
@@ -14,20 +16,20 @@ export interface Dungeon {
     group_finder_activity_ids: number[],
 }
 
-export interface Class {
+interface Class {
     id: number,
     name: string,
     slug: string,
 }
 
-export interface Race {
+interface Race {
     id: number,
     name: string,
     slug: string,
     faction: string,
 }
 
-export interface Spec {
+interface Spec {
     id: number,
     name: string,
     slug: string,
@@ -37,7 +39,7 @@ export interface Spec {
     patch: string,
 }
 
-export interface Realm {
+interface Realm {
     id: number,
     connectedRealmId: number,
     wowRealmId: number,
@@ -51,13 +53,13 @@ export interface Realm {
     realmType: string,
 }
 
-export interface Region {
+interface Region {
     name: string,
     slug: string,
     short_name: string,
 }
 
-export interface Stream {
+interface Stream {
     id: string,
     name: string,
     user_id: string,
@@ -71,13 +73,13 @@ export interface Stream {
     thumbnail_url: string,
 }
 
-export interface RecruitmentProfile {
+interface RecruitmentProfile {
     activity_type: string,
     entity_type: string,
     recruitment_profile_id: number,
 }
 
-export interface Character {
+interface Character {
     id: number,
     persona_id: number,
     name: string,
@@ -93,7 +95,7 @@ export interface Character {
     recruitmentProfiles: RecruitmentProfile[],
 }
 
-export interface Video {
+interface Video {
     id: number,
     seasonSlug: string,
     createdByUserId: number,
@@ -104,7 +106,7 @@ export interface Video {
     character: Character,
 }
 
-export interface WeeklyModifier {
+interface WeeklyModifier {
     id: number,
     icon: string,
     name: string,
@@ -112,14 +114,14 @@ export interface WeeklyModifier {
     description: string,
 }
 
-export interface Roster {
+interface Roster {
     character: Character,
     oldCharacter?: Character,
     isTransfer: boolean,
     role: string,
 }
 
-export interface Run {
+interface Run {
     keystone_team_id: number,
     season: string,
     status: string,

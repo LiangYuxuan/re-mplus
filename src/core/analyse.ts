@@ -3,7 +3,14 @@ import tInterval from './tInterval.ts';
 
 import type { AnalyseInput, AnalyseResult } from './types.ts';
 
-const tierNames = ['S', 'A', 'B', 'C', 'D', 'F'];
+const tierNames = [
+    'S',
+    'A',
+    'B',
+    'C',
+    'D',
+    'F',
+];
 
 const calculateAverage = (data: number[]) => {
     const mean = data.reduce((acc, value) => acc + value, 0) / data.length;

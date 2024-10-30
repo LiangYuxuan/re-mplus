@@ -1,4 +1,6 @@
-export interface RegionsDate {
+/* eslint-disable @typescript-eslint/naming-convention */
+
+interface RegionsDate {
     us: string,
     eu: string,
     tw: string,
@@ -6,7 +8,7 @@ export interface RegionsDate {
     cn: string,
 }
 
-export interface Dungeon {
+interface Dungeon {
     id: number,
     challenge_mode_id: number,
     slug: string,
@@ -14,7 +16,7 @@ export interface Dungeon {
     short_name: string,
 }
 
-export interface Season {
+interface Season {
     slug: string,
     name: string,
     short_name: string,

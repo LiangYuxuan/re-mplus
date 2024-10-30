@@ -1,6 +1,6 @@
 type Role = 'tank' | 'healer' | 'melee' | 'ranged';
 
-export interface Specialization {
+interface Specialization {
     id: number,
     role: Role,
     className: string,
@@ -244,3 +244,5 @@ const specializations: Specialization[] = [
     },
 ];
 export default specializations;
+
+export type { Specialization };

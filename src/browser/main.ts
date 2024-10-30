@@ -1,15 +1,12 @@
-/* eslint-env browser */
-/* eslint-disable no-console */
+/* eslint-disable import-x/no-unused-modules */
 
-import { RIO_SEASON } from '../config.ts';
+import { RIO_SEASON } from '../core/config.ts';
+import specializations from '../core/data.ts';
+import { selectLanguage, getLocaleString } from '../core/locales/index.ts';
+
 import { specID2ImageName, mapID2ImageName } from './data.ts';
-import specializations from '../data.ts';
 
-import { selectLanguage, getLocaleString } from '../locale.ts';
-import '../locales/en.ts';
-import '../locales/zhCN.ts';
-
-import type { AnalyseResult, AnalyseDataFile } from '../types.ts';
+import type { AnalyseResult, AnalyseDataFile } from '../core/types.ts';
 
 const tierListData = [
     { tier: 'S', tierName: 'UR', className: 'legendary' },
@@ -117,9 +114,7 @@ const renderData = (root: HTMLDivElement, tierType: 'map' | 'spec', title:string
                     return;
                 }
 
-                const imageURL = tierType === 'map'
-                    ? `https://assets.rpglogs.com/img/warcraft/bosses/${imageName}-icon.jpg`
-                    : `https://assets.rpglogs.com/img/warcraft/icons/large/${imageName}.jpg`;
+                const imageURL = `https://assets.rpglogs.com/img/warcraft/${tierType === 'map' ? `bosses/${imageName}-icon` : `icons/large/${imageName}`}.jpg`;
 
                 const tierItem = document.createElement('div');
                 tierItem.classList.add('tier-item');

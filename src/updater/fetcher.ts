@@ -10,13 +10,14 @@ import {
     RIO_SEASON,
     RIO_MIN_LEVEL,
     RIO_MIN_SCORE,
-} from './config.ts';
-import specializations, { Specialization } from './data.ts';
+} from '../core/config.ts';
+import specializations from '../core/data.ts';
 
-import type { BasicRun, AnalyseInput, RioData } from './types.ts';
-import type StaticData from './types/rio/StaticData.ts';
-import type Runs from './types/rio/Runs.ts';
-import type Specs from './types/rio/Specs.ts';
+import type { Specialization } from '../core/data.ts';
+import type Runs from '../core/types/rio/Runs.ts';
+import type Specs from '../core/types/rio/Specs.ts';
+import type StaticData from '../core/types/rio/StaticData.ts';
+import type { BasicRun, AnalyseInput, RioData } from '../core/types.ts';
 
 interface Run {
     id: number,
