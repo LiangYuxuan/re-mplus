@@ -1,4 +1,4 @@
-import type { LocaleData } from './type';
+import type { LocaleData } from './type.ts';
 
 export default {
     language: 'zh-CN',
