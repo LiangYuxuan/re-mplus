@@ -1,9 +1,9 @@
 import en from './en.ts';
 import zhCN from './zhCN.ts';
 
-const localeStrings = new Map([
-    ['en', en.strings],
-    ['zhCN', zhCN.strings],
+const localeStrings = new Map<string, Map<string, string>>([
+    [en.language, en.strings],
+    [zhCN.language, zhCN.strings],
 ]);
 
 let selectedLanguage = 'en';
