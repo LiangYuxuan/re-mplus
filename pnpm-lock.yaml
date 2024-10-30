@@ -11,12 +11,6 @@ importers:
       async:
         specifier: ^3.2.6
         version: 3.2.6
-      tsx:
-        specifier: ^4.19.2
-        version: 4.19.2
-      zod:
-        specifier: ^3.23.8
-        version: 3.23.8
     devDependencies:
       '@rhyster/eslint-config':
         specifier: ^1.1.0
@@ -36,6 +30,9 @@ importers:
       serve:
         specifier: ^14.2.4
         version: 14.2.4
+      tsx:
+        specifier: ^4.19.2
+        version: 4.19.2
       typescript:
         specifier: ^5.6.3
         version: 5.6.3
@@ -1259,9 +1256,6 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
 
-  zod@3.23.8:
-    resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
-
 snapshots:
 
   '@esbuild/aix-ppc64@0.23.1':
@@ -2387,5 +2381,3 @@ snapshots:
       strip-ansi: 7.1.0
 
   yocto-queue@0.1.0: {}
-
-  zod@3.23.8: {}

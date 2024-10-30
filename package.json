@@ -8,15 +8,13 @@
     "build:cron": "esbuild src/updater/analyse.ts --bundle --platform=node --outfile=dist/analyse.js",
     "build:public": "esbuild src/browser/main.ts --bundle --minify --outfile=public/main.js",
     "dev": "esbuild src/browser/main.ts --bundle --outdir=public --watch --servedir=public",
-    "update:data": "tsx src/updater/analyse.ts public/data.json",
+    "dev:data": "tsx src/updater/analyse.ts public/data.json",
     "start": "serve public",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "async": "^3.2.6",
-    "tsx": "^4.19.2",
-    "zod": "^3.23.8"
+    "async": "^3.2.6"
   },
   "devDependencies": {
     "@rhyster/eslint-config": "^1.1.0",
@@ -25,6 +23,7 @@
     "esbuild": "^0.24.0",
     "eslint": "^9.13.0",
     "serve": "^14.2.4",
+    "tsx": "^4.19.2",
     "typescript": "^5.6.3"
   }
 }
