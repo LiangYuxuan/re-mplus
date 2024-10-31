@@ -8,6 +8,35 @@ import { selectLanguage, getLocaleString } from './locales/index.ts';
 
 import type { AnalyseResult, AnalyseDataFile } from '../core/types.ts';
 
+interface ButtonData {
+    isRefresh?: boolean,
+    isActive: () => boolean,
+    onClick?: () => void,
+}
+
+interface SelectorData {
+    label: () => string,
+    select: (data: AnalyseDataFile) => AnalyseResult[],
+}
+
+const selectorData: SelectorData[] = [
+    {
+        label: () => getLocaleString('based-on-region-best-run'),
+        select: (data: AnalyseDataFile) => data.specsByRuns,
+    },
+    {
+        label: () => getLocaleString('based-on-character-best-record'),
+        select: (data: AnalyseDataFile) => data.specsByCharacters,
+    },
+];
+
+const roleDisplayOrder = [
+    'tank',
+    'healer',
+    'melee',
+    'ranged',
+];
+
 const tierListData = [
     { tier: 'S', tierName: 'UR', className: 'legendary' },
     { tier: 'A', tierName: 'SSR', className: 'epic' },
@@ -21,147 +50,311 @@ let SELECTOR_USING_INDEX = 0;
 let USE_DETAIL_VIEW = false;
 let USE_ALT_TIER_NAMES = false;
 
-const renderData = (root: HTMLDivElement, tierType: 'map' | 'spec', title:string, data: AnalyseResult[]) => {
-    const card = document.createElement('div');
-    card.classList.add('card');
-    root.appendChild(card);
+const buttonData: ButtonData[] = [
+    {
+        isRefresh: true,
+        isActive: () => false,
+    },
+    {
+        isActive: () => false,
+        onClick: () => {
+            SELECTOR_USING_INDEX += 1;
+            if (SELECTOR_USING_INDEX >= selectorData.length) {
+                SELECTOR_USING_INDEX = 0;
+            }
+        },
+    },
+    {
+        isActive: () => USE_DETAIL_VIEW,
+        onClick: () => {
+            USE_DETAIL_VIEW = !USE_DETAIL_VIEW;
+        },
+    },
+    {
+        isActive: () => USE_ALT_TIER_NAMES,
+        onClick: () => {
+            USE_ALT_TIER_NAMES = !USE_ALT_TIER_NAMES;
+        },
+    },
+];
 
-    const cardTitle = document.createElement('div');
-    cardTitle.classList.add('card-title');
-    cardTitle.textContent = title;
-    card.appendChild(cardTitle);
+const renderDetailTable = (
+    parent: HTMLDivElement,
+    title: string,
+    prefix: string,
+    data: AnalyseResult[],
+) => {
+    const header = document.createElement('div');
+    header.classList.add('title');
+    header.textContent = title;
+    parent.appendChild(header);
+
+    const table = document.createElement('table');
+    table.classList.add('table');
+    parent.appendChild(table);
+
+    const thead = document.createElement('thead');
+    table.appendChild(thead);
+
+    const theadTr = document.createElement('tr');
+    thead.appendChild(theadTr);
+
+    const theadName = document.createElement('th');
+    theadName.textContent = getLocaleString('name');
+    theadTr.appendChild(theadName);
+
+    const theadTier = document.createElement('th');
+    theadTier.textContent = getLocaleString('tier');
+    theadTr.appendChild(theadTier);
+
+    const theadN = document.createElement('th');
+    theadN.textContent = getLocaleString('n');
+    theadTr.appendChild(theadN);
+
+    const theadMin = document.createElement('th');
+    theadMin.textContent = getLocaleString('min');
+    theadTr.appendChild(theadMin);
+
+    const theadMax = document.createElement('th');
+    theadMax.textContent = getLocaleString('max');
+    theadTr.appendChild(theadMax);
+
+    const theadMean = document.createElement('th');
+    theadMean.textContent = getLocaleString('mean');
+    theadTr.appendChild(theadMean);
+
+    const theadSD = document.createElement('th');
+    theadSD.textContent = getLocaleString('sd');
+    theadTr.appendChild(theadSD);
+
+    const theadCI = document.createElement('th');
+    theadCI.textContent = getLocaleString('ci');
+    theadTr.appendChild(theadCI);
+
+    data.forEach((item) => {
+        const tr = document.createElement('tr');
+        table.appendChild(tr);
+
+        const name = document.createElement('td');
+        name.textContent = getLocaleString(`${prefix}-${item.key.toString()}`);
+        tr.appendChild(name);
+
+        const tier = document.createElement('td');
+        tier.textContent = item.tier;
+        tr.appendChild(tier);
+
+        const n = document.createElement('td');
+        n.textContent = item.n.toString();
+        tr.appendChild(n);
+
+        const min = document.createElement('td');
+        tr.appendChild(min);
+
+        const minLink = document.createElement('a');
+        minLink.href = `https://raider.io/mythic-plus-runs/${RIO_SEASON}/${item.min.id.toString()}`;
+        minLink.textContent = item.min.level.toString();
+        min.appendChild(minLink);
+
+        const max = document.createElement('td');
+        tr.appendChild(max);
+
+        const maxLink = document.createElement('a');
+        maxLink.href = `https://raider.io/mythic-plus-runs/${RIO_SEASON}/${item.max.id.toString()}`;
+        maxLink.textContent = item.max.level.toString();
+        max.appendChild(maxLink);
+
+        const mean = document.createElement('td');
+        mean.textContent = item.mean.toFixed(1);
+        tr.appendChild(mean);
+
+        const sd = document.createElement('td');
+        sd.textContent = item.sd.toFixed(1);
+        tr.appendChild(sd);
+
+        const ci = document.createElement('td');
+        ci.textContent = item.ci.toFixed(1);
+        tr.appendChild(ci);
+    });
+};
+
+const renderPage = (
+    tierContent: HTMLDivElement,
+    dataFile: AnalyseDataFile,
+) => {
+    tierContent.replaceChildren();
+
+    const dungeons = dataFile.dungeonsByRuns;
+    const specs = selectorData[SELECTOR_USING_INDEX].select(dataFile);
 
     if (USE_DETAIL_VIEW) {
-        const table = document.createElement('table');
-        table.classList.add('table');
-        card.appendChild(table);
+        tierContent.classList.remove('tier-list');
+        tierContent.classList.add('tier-detail');
 
-        const thead = document.createElement('thead');
-        table.appendChild(thead);
+        renderDetailTable(tierContent, getLocaleString('dungeon'), 'map', dungeons);
 
-        const theadTr = document.createElement('tr');
-        thead.appendChild(theadTr);
+        roleDisplayOrder.forEach((role) => {
+            const roleSpecs = specs.filter((spec) => specializations
+                .find((s) => s.id === spec.key)?.role === role);
 
-        const theadName = document.createElement('th');
-        theadName.textContent = getLocaleString('name');
-        theadTr.appendChild(theadName);
-
-        const theadN = document.createElement('th');
-        theadN.textContent = getLocaleString('n');
-        theadTr.appendChild(theadN);
-
-        const theadMax = document.createElement('th');
-        theadMax.textContent = getLocaleString('max');
-        theadTr.appendChild(theadMax);
-
-        const theadCI = document.createElement('th');
-        theadCI.textContent = getLocaleString('ci');
-        theadTr.appendChild(theadCI);
-
-        data.forEach((item) => {
-            const tr = document.createElement('tr');
-            table.appendChild(tr);
-
-            const name = document.createElement('td');
-            name.textContent = getLocaleString(tierType === 'map' ? `map-${item.key.toString()}` : `spec-${item.key.toString()}`);
-            tr.appendChild(name);
-
-            const n = document.createElement('td');
-            n.textContent = item.n.toString();
-            tr.appendChild(n);
-
-            const max = document.createElement('td');
-            tr.appendChild(max);
-
-            const maxLink = document.createElement('a');
-            maxLink.href = `https://raider.io/mythic-plus-runs/${RIO_SEASON}/${item.max.id.toString()}`;
-            maxLink.textContent = item.max.level.toString();
-            max.appendChild(maxLink);
-
-            const ci = document.createElement('td');
-            ci.textContent = item.ci.toFixed(1);
-            tr.appendChild(ci);
+            renderDetailTable(tierContent, getLocaleString(role), 'spec', roleSpecs);
         });
     } else {
-        tierListData.forEach(({ tier, tierName, className }) => {
-            const tierRow = document.createElement('div');
-            tierRow.classList.add('tier-row');
-            card.appendChild(tierRow);
+        tierContent.classList.remove('tier-detail');
+        tierContent.classList.add('tier-list');
+
+        [
+            getLocaleString('dungeon'),
+            ...roleDisplayOrder.map((role) => getLocaleString(role)),
+        ].forEach((text, index) => {
+            const header = document.createElement('div');
+            header.style.gridColumn = (index + 2).toString();
+            header.style.gridRow = '1';
+            header.classList.add('tier-header');
+            header.textContent = text;
+            tierContent.appendChild(header);
+        });
+
+        tierListData.forEach((tierData, index) => {
+            const gridRow = (index + 2).toString();
+            const tierDungeons = dungeons.filter((dungeon) => dungeon.tier === tierData.tier);
+            const tierSpecs = specs.filter((spec) => spec.tier === tierData.tier);
 
             const tierTitle = document.createElement('div');
-            tierTitle.classList.add('tier-title');
-            tierTitle.classList.add(className);
-            tierRow.appendChild(tierTitle);
+            tierTitle.style.gridColumn = '1';
+            tierTitle.style.gridRow = gridRow;
+            tierTitle.classList.add('tier-title', tierData.className, USE_ALT_TIER_NAMES ? 'alt-name' : 'normal-name');
+            tierTitle.textContent = USE_ALT_TIER_NAMES ? tierData.tierName : tierData.tier;
+            tierContent.appendChild(tierTitle);
 
-            const tierText = document.createElement('div');
-            tierTitle.classList.add(USE_ALT_TIER_NAMES ? 'alt-name' : 'normal-name');
-            tierText.textContent = USE_ALT_TIER_NAMES ? tierName : tier;
-            tierTitle.appendChild(tierText);
+            const tierDungeonContainer = document.createElement('div');
+            tierDungeonContainer.style.gridColumn = '2';
+            tierDungeonContainer.style.gridRow = gridRow;
+            tierDungeonContainer.classList.add('tier-container');
+            tierContent.appendChild(tierDungeonContainer);
 
-            const tierList = document.createElement('div');
-            tierList.classList.add('tier-list');
-            tierRow.appendChild(tierList);
+            tierDungeons.forEach((dungeon) => {
+                const imageName = mapID2ImageName.get(dungeon.key) ?? dungeon.key.toString();
 
-            const tierContent = document.createElement('div');
-            tierContent.classList.add('tier-content');
-            tierList.appendChild(tierContent);
+                const entry = document.createElement('div');
+                entry.classList.add('tier-item');
+                tierDungeonContainer.appendChild(entry);
 
-            const tierData = data.filter((item) => item.tier === tier);
-            tierData.forEach((item) => {
-                const imageName = tierType === 'map' ? mapID2ImageName.get(item.key) : specID2ImageName.get(item.key);
-                if (!imageName) {
-                    console.error(`Image name not found for key: ${tierType} ${item.key.toString()}`);
-                    return;
-                }
+                const image = document.createElement('img');
+                image.src = `https://assets.rpglogs.com/img/warcraft/bosses/${imageName}-icon.jpg`;
+                entry.appendChild(image);
+            });
 
-                const imageURL = `https://assets.rpglogs.com/img/warcraft/${tierType === 'map' ? `bosses/${imageName}-icon` : `icons/large/${imageName}`}.jpg`;
+            roleDisplayOrder.forEach((role, i) => {
+                const roleData = tierSpecs.filter((spec) => specializations
+                    .find((s) => s.id === spec.key)?.role === role);
 
-                const tierItem = document.createElement('div');
-                tierItem.classList.add('tier-item');
-                tierContent.appendChild(tierItem);
+                const tierContainer = document.createElement('div');
+                tierContainer.style.gridColumn = (3 + i).toString();
+                tierContainer.style.gridRow = gridRow;
+                tierContainer.classList.add('tier-container');
+                tierContent.appendChild(tierContainer);
 
-                const tierImage = document.createElement('img');
-                tierImage.src = imageURL;
-                tierItem.appendChild(tierImage);
+                roleData.forEach((spec) => {
+                    const imageName = specID2ImageName.get(spec.key) ?? spec.key.toString();
+
+                    const entry = document.createElement('div');
+                    entry.classList.add('tier-item');
+                    tierContainer.appendChild(entry);
+
+                    const image = document.createElement('img');
+                    image.src = `https://assets.rpglogs.com/img/warcraft/icons/large/${imageName}.jpg`;
+                    entry.appendChild(image);
+                });
             });
         });
     }
 };
 
-const updateData = async (
-    selectors: HTMLDivElement[],
-    lastUpdate: HTMLDivElement,
-    cardContainer: HTMLDivElement,
+const updatePageDisplay = (
+    title: HTMLDivElement,
+    subTitle: HTMLDivElement,
+    lastUpdated: HTMLDivElement,
+    buttonContainer: HTMLDivElement,
+    dataFile: AnalyseDataFile,
 ) => {
-    const data = await (await fetch('data.json')).json() as AnalyseDataFile;
-    const {
-        date, dungeonsByRuns, specsByRuns, specsByCharacters,
-    } = data;
+    // eslint-disable-next-line no-param-reassign
+    title.textContent = getLocaleString('title');
+    // eslint-disable-next-line no-param-reassign
+    subTitle.textContent = selectorData[SELECTOR_USING_INDEX].label();
+    // eslint-disable-next-line no-param-reassign
+    lastUpdated.textContent = new Date(dataFile.date).toLocaleString();
 
-    const sources = [specsByRuns, specsByCharacters];
-    const source = sources[SELECTOR_USING_INDEX];
-    const tank = source.filter((spec) => specializations.find((s) => s.id === spec.key)?.role === 'tank');
-    const healer = source.filter((spec) => specializations.find((s) => s.id === spec.key)?.role === 'healer');
-    const melee = source.filter((spec) => specializations.find((s) => s.id === spec.key)?.role === 'melee');
-    const ranged = source.filter((spec) => specializations.find((s) => s.id === spec.key)?.role === 'ranged');
+    [...buttonContainer.children].forEach((child, index) => {
+        if (buttonData[index]) {
+            if (buttonData[index].isActive()) {
+                child.classList.add('active');
+            } else {
+                child.classList.remove('active');
+            }
+        }
+    });
+};
 
-    selectors.forEach((selector, index) => {
-        if (index === SELECTOR_USING_INDEX) {
-            selector.classList.add('using');
-        } else {
-            selector.classList.remove('using');
+const initializePage = async () => {
+    let dataFile = await (await fetch('data.json')).json() as AnalyseDataFile;
+
+    const title = document.getElementById('title');
+    if (!(title instanceof HTMLDivElement)) {
+        console.error('Failing to find #title');
+        return;
+    }
+
+    const subTitle = document.getElementById('subTitle');
+    if (!(subTitle instanceof HTMLDivElement)) {
+        console.error('Failing to find #subTitle');
+        return;
+    }
+
+    const lastUpdated = document.getElementById('lastUpdated');
+    if (!(lastUpdated instanceof HTMLDivElement)) {
+        console.error('Failing to find #lastUpdated');
+        return;
+    }
+
+    const buttonContainer = document.getElementById('buttonContainer');
+    if (!(buttonContainer instanceof HTMLDivElement)) {
+        console.error('Failing to find #buttonContainer');
+        return;
+    }
+
+    const tierContent = document.getElementById('tierContent');
+    if (!(tierContent instanceof HTMLDivElement)) {
+        console.error('Failing to find #tierContent');
+        return;
+    }
+
+    [...buttonContainer.children].forEach((child, index) => {
+        if (buttonData[index]) {
+            if (buttonData[index].isRefresh) {
+                child.addEventListener('click', () => {
+                    fetch('data.json')
+                        .then((res) => res.json())
+                        .then((newDataFile: AnalyseDataFile) => {
+                            dataFile = newDataFile;
+                            renderPage(tierContent, dataFile);
+                        })
+                        .catch((error: unknown) => {
+                            console.error(error);
+                        });
+                });
+            } else if (buttonData[index].onClick) {
+                child.addEventListener('click', () => {
+                    buttonData[index].onClick?.();
+
+                    updatePageDisplay(title, subTitle, lastUpdated, buttonContainer, dataFile);
+                    renderPage(tierContent, dataFile);
+                });
+            }
         }
     });
 
-    // eslint-disable-next-line no-param-reassign
-    lastUpdate.textContent = new Date(date).toLocaleString();
-
-    cardContainer.replaceChildren();
-    renderData(cardContainer, 'map', getLocaleString('dungeon'), dungeonsByRuns);
-    renderData(cardContainer, 'spec', getLocaleString('tank'), tank);
-    renderData(cardContainer, 'spec', getLocaleString('healer'), healer);
-    renderData(cardContainer, 'spec', getLocaleString('melee'), melee);
-    renderData(cardContainer, 'spec', getLocaleString('ranged'), ranged);
+    updatePageDisplay(title, subTitle, lastUpdated, buttonContainer, dataFile);
+    renderPage(tierContent, dataFile);
 };
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -169,58 +362,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.title = getLocaleString('title');
 
-    const selectorContainer = document.querySelector('#app .card-type-selector');
-    if (!(selectorContainer instanceof HTMLDivElement)) {
-        console.error('Failing to find .card-type-selector');
-        return;
-    }
-
-    const regionBest = document.createElement('div');
-    regionBest.textContent = getLocaleString('by-region-best-run');
-    selectorContainer.appendChild(regionBest);
-
-    const characterBest = document.createElement('div');
-    characterBest.textContent = getLocaleString('by-character-best-record');
-    selectorContainer.appendChild(characterBest);
-
-    const selectors = [regionBest, characterBest];
-
-    const lastUpdate = document.querySelector('#app .last-update');
-    if (!(lastUpdate instanceof HTMLDivElement)) {
-        console.error('Failing to find .last-update');
-        return;
-    }
-
-    const cardContainer = document.querySelector('#app .card-container');
-    if (!(cardContainer instanceof HTMLDivElement)) {
-        console.error('Failing to find .card-container');
-        return;
-    }
-
-    selectors.forEach((selector, index) => {
-        selector.addEventListener('click', () => {
-            SELECTOR_USING_INDEX = index;
-            updateData(selectors, lastUpdate, cardContainer).catch((err: unknown) => {
-                console.error(err);
-            });
+    initializePage()
+        .catch((error: unknown) => {
+            console.error(error);
         });
-    });
-
-    lastUpdate.addEventListener('click', () => {
-        USE_DETAIL_VIEW = !USE_DETAIL_VIEW;
-        updateData(selectors, lastUpdate, cardContainer).catch((err: unknown) => {
-            console.error(err);
-        });
-    });
-
-    lastUpdate.addEventListener('dblclick', () => {
-        USE_ALT_TIER_NAMES = !USE_ALT_TIER_NAMES;
-        updateData(selectors, lastUpdate, cardContainer).catch((err: unknown) => {
-            console.error(err);
-        });
-    });
-
-    updateData(selectors, lastUpdate, cardContainer).catch((err: unknown) => {
-        console.error(err);
-    });
 });

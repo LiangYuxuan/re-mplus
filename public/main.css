@@ -1,51 +1,9 @@
-body {
-    margin: 0;
-    background-color: rgb(226 232 240);
-}
-
-.nav-bar {
-    position: relative;
-    height: 3rem;
+.container {
+    height: 100%;
     width: 100%;
-    margin-bottom: 1rem;
-    padding: 0.25rem 0;
-    background-color: rgb(248 250 252);
-    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.nav-bar .left {
-    display: flex;
-    flex-direction: row;
-    padding: 0 1.5rem;
-    gap: 0.25rem;
-}
-
-.nav-bar .left .card-type-selector {
-    display: flex;
-    flex-direction: row;
-    gap: 0.25rem;
-}
-
-.nav-bar .left .card-type-selector div {
-    cursor: pointer;
-}
-
-.nav-bar .left .card-type-selector .using {
-    font-weight: bold;
-}
-
-.nav-bar .right {
-    padding: 0 1.5rem;
-}
-
-.card-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: flex-start;
 }
 
@@ -55,21 +13,62 @@ body {
     border-radius: 0.25rem;
     box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
     background-color: rgb(241 245 249);
-    height: 85vh;
-    width: 18vw;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
 }
 
-.card-title {
-    font-size: 1.5rem;
-    font-weight: bold;
+.card .header {
     margin-bottom: 1rem;
 }
 
-.card table {
+.card .title {
+    padding-left: 0.5rem;
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.card .last-updated {
+    padding-left: 0.5rem;
+    display: inline-block;
+    font-size: 1rem;
+}
+
+.card .button-container {
+    margin-bottom: 1rem;
+    padding-left: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    gap: 0.25rem;
+}
+
+.card .button-container a {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 0.25rem;
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+.card .button-container a:hover {
+    background-color: rgb(226 232 240);
+}
+
+.card .button-container a.active {
+    background-color: rgb(0 112 221);
+    color: rgb(255 255 255);
+}
+
+.card .tier-detail {
+    width: 58rem;
+}
+
+.card .tier-detail table {
+    margin-bottom: 1rem;
     width: 100%;
     table-layout: auto;
     border-collapse: collapse;
@@ -77,68 +76,89 @@ body {
     border: 1px solid rgb(226 232 240);
 }
 
-.card table thead th {
+.card .tier-detail table thead th {
     text-align: left;
     background-color: rgb(241 245 249);
     border-bottom: 1px solid rgb(226 232 240);
     padding: 0.5rem;
 }
 
-.card table td {
+.card .tier-detail table td {
     background-color: rgb(248 250 252);
     border-bottom: 1px solid rgb(226 232 240);
     padding: 0.5rem;
 }
 
-.card table a {
+.card .tier-detail table a {
     text-decoration: none;
     color: rgb(0 112 221);
 }
 
-.tier-row {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
-    width: 100%;
-    height: 14vh;
+.card .tier-list {
+    width: 58rem;
+    display: grid;
+    gap: 0.1rem;
+    grid-template-columns: auto repeat(5, minmax(auto, 11rem));
+    grid-template-rows: auto repeat(6, minmax(5rem, auto));
 }
 
-.tier-title {
+.card .tier-header {
+    padding-left: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.card .tier-title {
     width: 3rem;
-    height: 100%;
-    flex-shrink: 0;
+    border-style: solid;
+    border-color: rgb(226 232 240);
+    border-radius: 0.25rem;
+    background-color: rgb(248 250 252);
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
 
-.tier-title.normal-name {
+.card .tier-title.normal-name {
     font-size: 3rem;
     font-weight: bold;
 }
 
-.tier-title.alt-name {
+.card .tier-title.alt-name {
     font-size: 1.5rem;
     font-weight: bold;
 }
 
-.tier-list {
-    width: 100%;
-    height: 100%;
-    flex-grow: 1;
+.card .tier-title.legendary {
+    background-color: rgb(255, 128, 0);
+}
+
+.card .tier-title.epic {
+    background-color: rgb(163, 53, 238);
+}
+
+.card .tier-title.rare {
+    background-color: rgb(0, 112, 221);
+}
+
+.card .tier-title.uncommon {
+    background-color: rgb(30, 255, 0);
+}
+
+.card .tier-title.common {
+    background-color: rgb(255, 255, 255);
+}
+
+.card .tier-title.poor {
+    background-color: rgb(157, 157, 157);
+}
+
+.card .tier-container {
+    padding: 0.5rem;
     border-style: solid;
     border-color: rgb(226 232 240);
     background-color: rgb(248 250 252);
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.tier-content {
-    margin: 0.5rem;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -147,38 +167,14 @@ body {
     gap: 0.25rem;
 }
 
-.tier-item {
+.card .tier-item {
     width: 3rem;
     height: 3rem;
 }
 
-.tier-item img {
+.card .tier-item img {
     width: 100%;
     height: 100%;
     object-fit: contain;
     border-radius: 0.25rem;
-}
-
-.legendary {
-    background-color: rgb(255, 128, 0);
-}
-
-.epic {
-    background-color: rgb(163, 53, 238);
-}
-
-.rare {
-    background-color: rgb(0, 112, 221);
-}
-
-.uncommon {
-    background-color: rgb(30, 255, 0);
-}
-
-.common {
-    background-color: rgb(255, 255, 255);
-}
-
-.poor {
-    background-color: rgb(157, 157, 157);
 }
