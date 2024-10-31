@@ -64,7 +64,7 @@
 }
 
 .card .tier-detail {
-    width: 58rem;
+    width: 60rem;
 }
 
 .card .tier-detail table {
@@ -95,7 +95,7 @@
 }
 
 .card .tier-list {
-    width: 58rem;
+    width: 60rem;
     display: grid;
     gap: 0.1rem;
     grid-template-columns: auto repeat(5, minmax(auto, 11rem));
