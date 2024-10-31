@@ -228,23 +228,25 @@ const renderPage = (
             tierTitle.textContent = USE_ALT_TIER_NAMES ? tierData.tierName : tierData.tier;
             tierContent.appendChild(tierTitle);
 
-            const tierDungeonContainer = document.createElement('div');
-            tierDungeonContainer.style.gridColumn = '2';
-            tierDungeonContainer.style.gridRow = gridRow;
-            tierDungeonContainer.classList.add('tier-container');
-            tierContent.appendChild(tierDungeonContainer);
+            {
+                const tierContainer = document.createElement('div');
+                tierContainer.style.gridColumn = '2';
+                tierContainer.style.gridRow = gridRow;
+                tierContainer.classList.add('tier-container');
+                tierContent.appendChild(tierContainer);
 
-            tierDungeons.forEach((dungeon) => {
-                const imageName = mapID2ImageName.get(dungeon.key) ?? dungeon.key.toString();
+                tierDungeons.forEach((dungeon) => {
+                    const imageName = mapID2ImageName.get(dungeon.key) ?? dungeon.key.toString();
 
-                const entry = document.createElement('div');
-                entry.classList.add('tier-item');
-                tierDungeonContainer.appendChild(entry);
+                    const entry = document.createElement('div');
+                    entry.classList.add('tier-item');
+                    tierContainer.appendChild(entry);
 
-                const image = document.createElement('img');
-                image.src = `https://assets.rpglogs.com/img/warcraft/bosses/${imageName}-icon.jpg`;
-                entry.appendChild(image);
-            });
+                    const image = document.createElement('img');
+                    image.src = `https://assets.rpglogs.com/img/warcraft/bosses/${imageName}-icon.jpg`;
+                    entry.appendChild(image);
+                });
+            }
 
             roleDisplayOrder.forEach((role, i) => {
                 const roleData = tierSpecs.filter((spec) => specializations
