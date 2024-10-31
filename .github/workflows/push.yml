@@ -30,31 +30,33 @@ jobs:
 
       - run: pnpm build:public
 
-      # - uses: easingthemes/ssh-deploy@v5.1.0
-      #   with:
-      #     SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-      #     REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-      #     REMOTE_USER: ${{ secrets.REMOTE_USER }}
-      #     REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
-      #     SOURCE: "dist/analyse.js"
-      #     TARGET: ${{ secrets.REMOTE_TARGET_CRON }}
-      #     ARGS: "-avz"
-
-      # - uses: easingthemes/ssh-deploy@v5.1.0
-      #   with:
-      #     SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-      #     REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-      #     REMOTE_USER: ${{ secrets.REMOTE_USER }}
-      #     REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
-      #     SOURCE: "public/"
-      #     TARGET: ${{ secrets.REMOTE_TARGET_PUBLIC }}
-      #     ARGS: "-avz"
-
-      - uses: appleboy/ssh-action@v1.1.0
+      - uses: easingthemes/ssh-deploy@v5.1.0
         with:
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          host: ${{ secrets.REMOTE_HOST }}
-          port: ${{ secrets.REMOTE_PORT }}
-          username: ${{ secrets.REMOTE_USER }}
-          script: |
-            ls
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
+          SOURCE: "dist/analyse.js"
+          TARGET: ${{ secrets.REMOTE_TARGET_CRON }}
+          ARGS: "-avz"
+          SCRIPT_BEFORE: ls
+
+      - uses: easingthemes/ssh-deploy@v5.1.0
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
+          SOURCE: "public/"
+          TARGET: ${{ secrets.REMOTE_TARGET_PUBLIC }}
+          ARGS: "-avz"
+          SCRIPT_BEFORE: ls
+
+      # - uses: appleboy/ssh-action@v1.1.0
+      #   with:
+      #     key: ${{ secrets.SSH_PRIVATE_KEY }}
+      #     host: ${{ secrets.REMOTE_HOST }}
+      #     port: ${{ secrets.REMOTE_PORT }}
+      #     username: ${{ secrets.REMOTE_USER }}
+      #     script: |
+      #       ls
