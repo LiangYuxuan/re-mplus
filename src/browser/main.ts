@@ -47,6 +47,7 @@ const tierListData = [
 ];
 
 let SELECTOR_USING_INDEX = 0;
+let USE_DESCRIPTION_TEXT = false;
 let USE_DETAIL_VIEW = false;
 let USE_ALT_TIER_NAMES = false;
 
@@ -62,6 +63,12 @@ const buttonData: ButtonData[] = [
             if (SELECTOR_USING_INDEX >= selectorData.length) {
                 SELECTOR_USING_INDEX = 0;
             }
+        },
+    },
+    {
+        isActive: () => USE_DESCRIPTION_TEXT,
+        onClick: () => {
+            USE_DESCRIPTION_TEXT = !USE_DESCRIPTION_TEXT;
         },
     },
     {
@@ -245,6 +252,13 @@ const renderPage = (
                     const image = document.createElement('img');
                     image.src = `https://assets.rpglogs.com/img/warcraft/bosses/${imageName}-icon.jpg`;
                     entry.appendChild(image);
+
+                    if (USE_DESCRIPTION_TEXT) {
+                        const description = document.createElement('div');
+                        description.classList.add('description');
+                        description.textContent = getLocaleString(`map-${dungeon.key.toString()}`).substring(0, 2);
+                        entry.appendChild(description);
+                    }
                 });
             }
 
@@ -268,6 +282,13 @@ const renderPage = (
                     const image = document.createElement('img');
                     image.src = `https://assets.rpglogs.com/img/warcraft/icons/large/${imageName}.jpg`;
                     entry.appendChild(image);
+
+                    if (USE_DESCRIPTION_TEXT) {
+                        const description = document.createElement('div');
+                        description.classList.add('description');
+                        description.textContent = getLocaleString(`spec-${spec.key.toString()}`).substring(0, 2);
+                        entry.appendChild(description);
+                    }
                 });
             });
         });
