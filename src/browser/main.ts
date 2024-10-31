@@ -9,6 +9,7 @@ import { selectLanguage, getLocaleString } from './locales/index.ts';
 import type { AnalyseResult, AnalyseDataFile } from '../core/types.ts';
 
 interface ButtonData {
+    getTitle: () => string,
     isRefresh?: boolean,
     isActive: () => boolean,
     onClick?: () => void,
@@ -53,10 +54,12 @@ let USE_ALT_TIER_NAMES = false;
 
 const buttonData: ButtonData[] = [
     {
+        getTitle: () => getLocaleString('button-refresh'),
         isRefresh: true,
         isActive: () => false,
     },
     {
+        getTitle: () => getLocaleString('button-switch'),
         isActive: () => false,
         onClick: () => {
             SELECTOR_USING_INDEX += 1;
@@ -66,18 +69,21 @@ const buttonData: ButtonData[] = [
         },
     },
     {
+        getTitle: () => getLocaleString('button-toggle-description'),
         isActive: () => USE_DESCRIPTION_TEXT,
         onClick: () => {
             USE_DESCRIPTION_TEXT = !USE_DESCRIPTION_TEXT;
         },
     },
     {
+        getTitle: () => getLocaleString('button-toggle-details'),
         isActive: () => USE_DETAIL_VIEW,
         onClick: () => {
             USE_DETAIL_VIEW = !USE_DETAIL_VIEW;
         },
     },
     {
+        getTitle: () => getLocaleString('button-toggle-emoji'),
         isActive: () => USE_ALT_TIER_NAMES,
         onClick: () => {
             USE_ALT_TIER_NAMES = !USE_ALT_TIER_NAMES;
@@ -355,6 +361,8 @@ const initializePage = async () => {
 
     [...buttonContainer.children].forEach((child, index) => {
         if (buttonData[index]) {
+            child.setAttribute('title', buttonData[index].getTitle());
+
             if (buttonData[index].isRefresh) {
                 child.addEventListener('click', () => {
                     fetch('data.json')
