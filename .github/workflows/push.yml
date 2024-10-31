@@ -38,6 +38,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: "dist/analyse.js"
           target: ${{ secrets.REMOTE_TARGET_CRON }}
+          strip_components: 1
 
       - uses: appleboy/scp-action@v0.1.7
         with:
@@ -47,3 +48,4 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: "public/*"
           target: ${{ secrets.REMOTE_TARGET_PUBLIC }}
+          strip_components: 1
