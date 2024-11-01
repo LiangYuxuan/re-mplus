@@ -316,7 +316,7 @@ const updatePageDisplay = (
     lastUpdated.textContent = new Date(dataFile.date).toLocaleString();
 
     [...buttonContainer.children].forEach((child, index) => {
-        if (buttonData[index]) {
+        if (buttonData.length > index) {
             if (buttonData[index].isActive()) {
                 child.classList.add('active');
             } else {
@@ -360,10 +360,10 @@ const initializePage = async () => {
     }
 
     [...buttonContainer.children].forEach((child, index) => {
-        if (buttonData[index]) {
+        if (buttonData.length > index) {
             child.setAttribute('title', buttonData[index].getTitle());
 
-            if (buttonData[index].isRefresh) {
+            if (buttonData[index].isRefresh !== undefined) {
                 child.addEventListener('click', () => {
                     fetch('data.json')
                         .then((res) => res.json())

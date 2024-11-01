@@ -20,13 +20,13 @@ export const selectLanguage = (language: string) => {
 
 export const getLocaleString = (key: string): string => {
     const bestMatch = localeStrings.get(selectedLanguage)?.get(key);
-    if (bestMatch) {
+    if (bestMatch !== undefined) {
         return bestMatch;
     }
 
-    if (selectedLanguageParent) {
+    if (selectedLanguageParent !== undefined) {
         const subMatch = localeStrings.get(selectedLanguageParent)?.get(key);
-        if (subMatch) {
+        if (subMatch !== undefined) {
             return subMatch;
         }
     }
