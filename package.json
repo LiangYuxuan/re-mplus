@@ -21,7 +21,7 @@
     "@types/async": "^3.2.24",
     "@types/node": "^22.8.6",
     "esbuild": "^0.24.0",
-    "eslint": "^9.13.0",
+    "eslint": "^9.14.0",
     "serve": "^14.2.4",
     "tsx": "^4.19.2",
     "typescript": "^5.6.3"
