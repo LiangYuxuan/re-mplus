@@ -19,7 +19,7 @@
   "devDependencies": {
     "@rhyster/eslint-config": "^1.2.0",
     "@types/async": "^3.2.24",
-    "@types/node": "^22.8.6",
+    "@types/node": "^22.8.7",
     "esbuild": "^0.24.0",
     "eslint": "^9.14.0",
     "serve": "^14.2.4",
