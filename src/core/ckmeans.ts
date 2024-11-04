@@ -99,7 +99,7 @@ const fillDPMatrix = (
 };
 
 export default (sorted: number[], nClusters: number) => {
-    // const sorted = [...data].sort((a, b) => a - b);
+    // const sorted = [...data].toSorted((a, b) => a - b);
     const n = sorted.length;
 
     const S = createMatrix(nClusters, n);

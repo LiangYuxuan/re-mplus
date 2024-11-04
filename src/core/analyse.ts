@@ -57,7 +57,7 @@ export default (data: AnalyseInput[]): AnalyseResult[] => {
             };
         }
 
-        const sorted = scores.sort((a, b) => b - a);
+        const sorted = scores.toSorted((a, b) => b - a);
         const sd = calculateStandardDeviation(sorted);
         const mean = calculateAverage(sorted);
         const lowerBound = -tInterval[sorted.length - 1];
@@ -74,7 +74,7 @@ export default (data: AnalyseInput[]): AnalyseResult[] => {
             max,
         };
         return res;
-    }).sort((a, b) => a.ci - b.ci);
+    }).toSorted((a, b) => a.ci - b.ci);
 
     const buckets = ckmeans(analyzedData.map((r) => r.ci), 6).reverse();
     const result = analyzedData.map((entry, index) => {

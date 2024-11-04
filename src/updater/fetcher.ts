@@ -100,7 +100,7 @@ export default async (): Promise<RioData> => {
     const dungeonsByRuns: AnalyseInput[] = dungeonMapIDs.map((key) => {
         const runs = topRuns
             .filter((run) => run.mapID === key)
-            .sort((a, b) => b.score - a.score)
+            .toSorted((a, b) => b.score - a.score)
             .slice(0, ANALYSE_LIMIT);
         const scores = runs.map((run) => run.score);
         const max = runs[0];
@@ -117,7 +117,7 @@ export default async (): Promise<RioData> => {
     const specsByRuns: AnalyseInput[] = specializations.map(({ id }) => {
         const runs = topRuns
             .filter((run) => run.specs.includes(id))
-            .sort((a, b) => b.score - a.score)
+            .toSorted((a, b) => b.score - a.score)
             .slice(0, ANALYSE_LIMIT);
         const scores = runs.map((run) => run.score);
         const max = runs[0];
