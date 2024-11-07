@@ -153,9 +153,9 @@ const renderDetailTable = (
         tr.appendChild(name);
 
         const tier = document.createElement('td');
-        tier.textContent = USE_ALT_TIER_NAMES ? (
-            tierListData.find((d) => d.tier === item.tier)?.tierName ?? item.tier
-        ) : item.tier;
+        tier.textContent = USE_ALT_TIER_NAMES
+            ? tierListData.find((d) => d.tier === item.tier)?.tierName ?? item.tier
+            : item.tier;
         tr.appendChild(tier);
 
         const n = document.createElement('td');
