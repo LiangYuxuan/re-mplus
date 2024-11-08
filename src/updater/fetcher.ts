@@ -60,8 +60,7 @@ export default async (): Promise<RioData> => {
     await mapLimit(RIO_REGIONS, 1, async (region: string) => {
         await mapLimit(dungeonSlugs, 1, async (dungeon: string) => {
             for (let page = 0; page < RIO_MAX_PAGE; page += 1) {
-                // eslint-disable-next-line no-console
-                console.log(`Fetching ${region} ${dungeon} page ${(page + 1).toString()}/${RIO_MAX_PAGE.toString()}`);
+                console.info(`Fetching ${region} ${dungeon} page ${(page + 1).toString()}/${RIO_MAX_PAGE.toString()}`);
 
                 // eslint-disable-next-line no-await-in-loop
                 const data = await retry(
@@ -140,8 +139,7 @@ export default async (): Promise<RioData> => {
         const allRuns: BasicRun[] = [];
 
         for (let page = 0; page < RIO_MAX_PAGE; page += 1) {
-            // eslint-disable-next-line no-console
-            console.log(`Fetching ${specName} ${className} page ${(page + 1).toString()}/${RIO_MAX_PAGE.toString()}`);
+            console.info(`Fetching ${specName} ${className} page ${(page + 1).toString()}/${RIO_MAX_PAGE.toString()}`);
 
             // eslint-disable-next-line no-await-in-loop
             const data = await retry(
