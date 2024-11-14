@@ -1,8 +1,9 @@
 {
   "name": "re-mplus",
-  "version": "1.0.0",
   "type": "module",
   "private": true,
+  "author": "Rhythm",
+  "license": "MIT",
   "scripts": {
     "build": "tsc --project ./",
     "build:cron": "esbuild src/updater/analyse.ts --bundle --platform=node --outfile=dist/analyse.js",
