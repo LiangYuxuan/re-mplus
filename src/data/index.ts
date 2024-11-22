@@ -55,6 +55,28 @@ const loadDB2 = async (fileDataID: number, localeFlag: number) => {
     return parser;
 };
 
+const blpFileCutToPNG = async (fileDataID: number) => {
+    const data = await loadFile(fileDataID, CASCClient.LocaleFlags.enUS);
+    const { rgba, width, height } = new BLPReader(new Uint8Array(data.buffer)).processMipmap(0);
+
+    const xCutSize = Math.floor(width / 16);
+    const yCutSize = Math.floor(height / 16);
+
+    const newWidth = width - 2 * xCutSize;
+    const newHeight = height - 2 * yCutSize;
+
+    const buffer = Buffer.alloc(newWidth * newHeight * 4);
+    for (let i = 0; i < newHeight; i += 1) {
+        const src = (i + yCutSize) * width * 4 + xCutSize * 4;
+        buffer.set(rgba.slice(src, src + newWidth * 4), i * newWidth * 4);
+    }
+
+    const image = new Jimp({ data: buffer, width: newWidth, height: newHeight });
+    const png = await image.getBuffer('image/png');
+
+    return png;
+};
+
 console.info(new Date().toISOString(), '[INFO]: Loading DB2 files');
 const [
     expansions,
@@ -143,24 +165,7 @@ console.info(new Date().toISOString(), '[INFO]: Generated data files');
 console.info(new Date().toISOString(), '[INFO]: Downloading icons');
 await fs.mkdir(path.join(root, 'static', 'maps'), { recursive: true });
 await Promise.all(challengeMapID2IconID.entries().map(async ([mapID, iconID]) => {
-    const data = await loadFile(iconID, CASCClient.LocaleFlags.enUS);
-    const { rgba, width, height } = new BLPReader(new Uint8Array(data.buffer)).processMipmap(0);
-
-    const xCutSize = Math.floor(width / 16);
-    const yCutSize = Math.floor(height / 16);
-
-    const newWidth = width - 2 * xCutSize;
-    const newHeight = height - 2 * yCutSize;
-
-    const buffer = Buffer.alloc(newWidth * newHeight * 4);
-    for (let i = 0; i < newHeight; i += 1) {
-        const src = (i + yCutSize) * width * 4 + xCutSize * 4;
-        buffer.set(rgba.slice(src, src + newWidth * 4), i * newWidth * 4);
-    }
-
-    const image = new Jimp({ data: buffer, width: newWidth, height: newHeight });
-    const png = await image.getBuffer('image/png');
-
+    const png = await blpFileCutToPNG(iconID);
     await fs.writeFile(path.join(root, 'static', 'maps', `${mapID.toString()}.png`), png);
 }));
 console.info(new Date().toISOString(), '[INFO]: Downloaded icons');
