@@ -27,3 +27,13 @@ jobs:
           message: |
             chore: update static data
           add: static/* src/data/generated/*
+
+      - uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          port: ${{ secrets.REMOTE_PORT }}
+          username: ${{ secrets.REMOTE_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: "static"
+          target: ${{ secrets.REMOTE_TARGET_PUBLIC }}
+          strip_components: 1
