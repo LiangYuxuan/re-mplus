@@ -7,6 +7,10 @@ export default [
     })),
     ...node.map((config) => ({
         ...config,
+        files: ['src/data/**/*.ts'],
+    })),
+    ...node.map((config) => ({
+        ...config,
         files: ['src/fetcher/**/*.ts'],
     })),
     ...browser.map((config) => ({

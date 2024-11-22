@@ -1,0 +1,29 @@
+name: regenerate
+
+on:
+  workflow_dispatch:
+
+jobs:
+  regenerate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - run: corepack enable
+
+      - run: pnpm install
+
+      - run: pnpm build:static
+
+      - uses: EndBug/add-and-commit@v9
+        with:
+          author_name: GitHub Action
+          author_email: github-actions[bot]@users.noreply.github.com
+          message: |
+            chore: update static data
+          add: static/* src/data/generated/*
