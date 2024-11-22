@@ -24,6 +24,23 @@ const challengeMapID2SpecialIconID = new Map<number, number>([
     [464, 5247561], // Dawn of the Infinite: Murozond's Rise
 ]);
 
+const ignoredSpecialization = [
+    1444, // Initial Shaman
+    1446, // Initial Warrior
+    1447, // Initial Druid
+    1448, // Initial Hunter
+    1449, // Initial Mage
+    1450, // Initial Monk
+    1451, // Initial Paladin
+    1452, // Initial Priest
+    1453, // Initial Rogue
+    1454, // Initial Warlock
+    1455, // Initial Death Knight
+    1456, // Initial Demon Hunter
+    1465, // Initial Evoker
+    1478, // Adventurer Adventurer
+];
+
 const root = path.resolve(fileURLToPath(import.meta.url), '..', '..', '..');
 
 const client = new CASCClient('us', latestVersion.product, latestVersion.version);
@@ -83,19 +100,19 @@ const [
     journalInstance,
     mapChallengeMode,
     mapChallengeModeCN,
-    // chrSpecialization,
-    // chrSpecializationCN,
-    // chrClasses,
-    // chrClassesCN,
+    chrSpecialization,
+    chrSpecializationCN,
+    chrClasses,
+    chrClassesCN,
 ] = await Promise.all([
     loadDB2(1729547, CASCClient.LocaleFlags.enUS), // dbfilesclient/uiexpansiondisplayinfo.db2
     loadDB2(1237438, CASCClient.LocaleFlags.enUS), // dbfilesclient/journalinstance.db2
     loadDB2(801709, CASCClient.LocaleFlags.enUS), // dbfilesclient/mapchallengemode.db2
     loadDB2(801709, CASCClient.LocaleFlags.zhCN), // dbfilesclient/mapchallengemode.db2
-    // loadDB2(1343390, CASCClient.LocaleFlags.enUS), // dbfilesclient/chrspecialization.db2
-    // loadDB2(1343390, CASCClient.LocaleFlags.zhCN), // dbfilesclient/chrspecialization.db2
-    // loadDB2(1361031, CASCClient.LocaleFlags.enUS), // dbfilesclient/chrclasses.db2
-    // loadDB2(1361031, CASCClient.LocaleFlags.zhCN), // dbfilesclient/chrclasses.db2
+    loadDB2(1343390, CASCClient.LocaleFlags.enUS), // dbfilesclient/chrspecialization.db2
+    loadDB2(1343390, CASCClient.LocaleFlags.zhCN), // dbfilesclient/chrspecialization.db2
+    loadDB2(1361031, CASCClient.LocaleFlags.enUS), // dbfilesclient/chrclasses.db2
+    loadDB2(1361031, CASCClient.LocaleFlags.zhCN), // dbfilesclient/chrclasses.db2
 ]);
 console.info(new Date().toISOString(), '[INFO]: Loaded DB2 files');
 
@@ -133,6 +150,98 @@ mapChallengeModeCN.getAllIDs().forEach((id) => {
     assert(typeof name === 'string', `No name found for challenge map ID ${id.toString()}`);
     challengeMapID2NameCN.set(id, name);
 });
+
+const classID2Name = new Map<number, string>(chrClasses.getAllIDs().map((id) => {
+    const row = chrClasses.getRowData(id);
+    const name = row?.Name_lang;
+
+    assert(typeof name === 'string', `No name found for class ID ${id.toString()}`);
+
+    return [id, name] as const;
+}));
+
+const classID2NameCN = new Map<number, string>(chrClassesCN.getAllIDs().map((id) => {
+    const row = chrClassesCN.getRowData(id);
+    const name = row?.Name_lang;
+
+    assert(typeof name === 'string', `No name found for class ID ${id.toString()}`);
+
+    return [id, name] as const;
+}));
+
+const specID2IconID = new Map<number, number>();
+
+const specializations = chrSpecialization.getAllIDs().map((id) => {
+    const row = chrSpecialization.getRowData(id);
+    const classID = row?.ClassID as number;
+    const role = row?.Role as number;
+    const spellIconFileID = row?.SpellIconFileID as number;
+    const primaryStatPriority = row?.PrimaryStatPriority as number;
+    const name = row?.Name_lang;
+
+    assert(typeof name === 'string', `No name found for specialization ID ${id.toString()}`);
+
+    if (classID === 0 || ignoredSpecialization.includes(id)) {
+        return undefined;
+    }
+
+    const rowCN = chrSpecializationCN.getRowData(id);
+    const nameCN = rowCN?.Name_lang;
+
+    assert(typeof nameCN === 'string', `No name found for specialization ID ${id.toString()}`);
+
+    const className = classID2Name.get(classID);
+
+    assert(className !== undefined, `No class name found for specialization ID ${id.toString()}`);
+
+    const classNameCN = classID2NameCN.get(classID);
+
+    assert(classNameCN !== undefined, `No class name found for specialization ID ${id.toString()}`);
+
+    specID2IconID.set(id, spellIconFileID);
+
+    if (role === 0) {
+        return {
+            id,
+            role: 'tank',
+            className: className.toLocaleLowerCase().replace(' ', '-'),
+            specName: name.toLocaleLowerCase().replace(' ', '-'),
+            en: `${name} ${className}`,
+            cn: `${nameCN}${classNameCN}`,
+        };
+    }
+
+    if (role === 1) {
+        return {
+            id,
+            role: 'healer',
+            className: className.toLocaleLowerCase().replace(' ', '-'),
+            specName: name.toLocaleLowerCase().replace(' ', '-'),
+            en: `${name} ${className}`,
+            cn: `${nameCN}${classNameCN}`,
+        };
+    }
+
+    if (role === 2 && primaryStatPriority === 0) {
+        return {
+            id,
+            role: 'ranged',
+            className: className.toLocaleLowerCase().replace(' ', '-'),
+            specName: name.toLocaleLowerCase().replace(' ', '-'),
+            en: `${name} ${className}`,
+            cn: `${nameCN}${classNameCN}`,
+        };
+    }
+
+    return {
+        id,
+        role: 'melee',
+        className: className.toLocaleLowerCase().replace(' ', '-'),
+        specName: name.toLocaleLowerCase().replace(' ', '-'),
+        en: `${name} ${className}`,
+        cn: `${nameCN}${classNameCN}`,
+    };
+}).filter((spec) => spec !== undefined);
 console.info(new Date().toISOString(), '[INFO]: Parsed DB2 files');
 
 console.info(new Date().toISOString(), '[INFO]: Parsing Raider.IO static data');
@@ -160,6 +269,7 @@ await fs.writeFile(path.join(root, 'src', 'data', 'generated', 'map.json'), JSON
     en: [...challengeMapID2Name],
     cn: [...challengeMapID2NameCN],
 }, null, 4));
+await fs.writeFile(path.join(root, 'src', 'data', 'generated', 'spec.json'), JSON.stringify(specializations, null, 4));
 console.info(new Date().toISOString(), '[INFO]: Generated data files');
 
 console.info(new Date().toISOString(), '[INFO]: Downloading icons');
@@ -167,5 +277,14 @@ await fs.mkdir(path.join(root, 'static', 'maps'), { recursive: true });
 await Promise.all(challengeMapID2IconID.entries().map(async ([mapID, iconID]) => {
     const png = await blpFileCutToPNG(iconID);
     await fs.writeFile(path.join(root, 'static', 'maps', `${mapID.toString()}.png`), png);
+}));
+
+await fs.mkdir(path.join(root, 'static', 'specs'), { recursive: true });
+await Promise.all(specializations.map(async ({ id }) => {
+    const iconID = specID2IconID.get(id);
+    assert(iconID !== undefined, `No iconID found for specialization ID ${id.toString()}`);
+
+    const png = await blpFileCutToPNG(iconID);
+    await fs.writeFile(path.join(root, 'static', 'specs', `${id.toString()}.png`), png);
 }));
 console.info(new Date().toISOString(), '[INFO]: Downloaded icons');
