@@ -19,14 +19,14 @@ importers:
         version: 1.6.0
     devDependencies:
       '@rhyster/eslint-config':
-        specifier: ^1.4.6
-        version: 1.4.6(@typescript-eslint/parser@8.15.0(eslint@9.15.0)(typescript@5.7.2))(eslint@9.15.0)(typescript@5.7.2)
+        specifier: ^1.4.7
+        version: 1.4.7(@typescript-eslint/parser@8.15.0(eslint@9.15.0)(typescript@5.7.2))(eslint@9.15.0)(typescript@5.7.2)
       '@types/async':
         specifier: ^3.2.24
         version: 3.2.24
       '@types/node':
-        specifier: ^22.9.1
-        version: 22.9.1
+        specifier: ^22.9.3
+        version: 22.9.3
       esbuild:
         specifier: ^0.24.0
         version: 0.24.0
@@ -515,8 +515,8 @@ packages:
     resolution: {integrity: sha512-nn5ozdjYQpUCZlWGuxcJY/KpxkWQs4DcbMCmKojjyrYDEAGy4Ce19NN4v5MduafTwJlbKc99UA8YhSVqq9yPZA==}
     engines: {node: '>=12.4.0'}
 
-  '@rhyster/eslint-config@1.4.6':
-    resolution: {integrity: sha512-JvFqEmCnpSlm3jQfbuj/Cl/570sHQcDVR3TkPVkYCJOpxPHyKka/wH4aOAf8SKo6NcPCQIP/r03b6kZbUSNgvA==}
+  '@rhyster/eslint-config@1.4.7':
+    resolution: {integrity: sha512-GGSocPF5bNbY7xfAUzL+lZ0m7Sa7U1BybhRa+xir5VGokZDiKf7SfsHxGLKETKPeumIVJIbpsGx4gaItZRH4fg==}
     peerDependencies:
       eslint: '>= 9'
 
@@ -544,8 +544,8 @@ packages:
   '@types/node@16.9.1':
     resolution: {integrity: sha512-QpLcX9ZSsq3YYUUnD3nFDY8H7wctAhQj/TFKL8Ya8v5fMm3CFXxo8zStsLAl780ltoYoo1WvKUVGBQK+1ifr7g==}
 
-  '@types/node@22.9.1':
-    resolution: {integrity: sha512-p8Yy/8sw1caA8CdRIQBG5tiLHmxtQKObCijiAa9Ez+d4+PRffM4054xbju0msf+cvhJpnFEeNjxmVT/0ipktrg==}
+  '@types/node@22.9.3':
+    resolution: {integrity: sha512-F3u1fs/fce3FFk+DAxbxc78DF8x0cY09RRL8GnXLmkJ1jvx3TtPdWoTT5/NiYfI5ASqXBmfqJi9dZ3gxMx4lzw==}
 
   '@typescript-eslint/eslint-plugin@8.15.0':
     resolution: {integrity: sha512-+zkm9AR1Ds9uLWN3fkoeXgFppaQ+uEVtfOV62dDmsy9QCNqlRHWNEck4yarvRNrvRcHQLGfqBNui3cimoz8XAg==}
@@ -1916,7 +1916,7 @@ snapshots:
 
   '@nolyfill/is-core-module@1.0.39': {}
 
-  '@rhyster/eslint-config@1.4.6(@typescript-eslint/parser@8.15.0(eslint@9.15.0)(typescript@5.7.2))(eslint@9.15.0)(typescript@5.7.2)':
+  '@rhyster/eslint-config@1.4.7(@typescript-eslint/parser@8.15.0(eslint@9.15.0)(typescript@5.7.2))(eslint@9.15.0)(typescript@5.7.2)':
     dependencies:
       '@eslint/js': 9.15.0
       '@stylistic/eslint-plugin': 2.11.0(eslint@9.15.0)(typescript@5.7.2)
@@ -1962,7 +1962,7 @@ snapshots:
 
   '@types/node@16.9.1': {}
 
-  '@types/node@22.9.1':
+  '@types/node@22.9.3':
     dependencies:
       undici-types: 6.19.8
 
