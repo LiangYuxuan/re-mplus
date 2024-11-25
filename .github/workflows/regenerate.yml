@@ -26,7 +26,7 @@ jobs:
           author_email: github-actions[bot]@users.noreply.github.com
           message: |
             chore: update static data
-          add: static/* src/data/generated/*
+          add: public/static/* src/data/generated/*
 
       - uses: appleboy/scp-action@v0.1.7
         with:
@@ -34,6 +34,6 @@ jobs:
           port: ${{ secrets.REMOTE_PORT }}
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: "static/*"
+          source: "public/static/*"
           target: ${{ secrets.REMOTE_TARGET_PUBLIC }}/static
           strip_components: 1
