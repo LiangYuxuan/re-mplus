@@ -273,18 +273,18 @@ await fs.writeFile(path.join(root, 'src', 'data', 'generated', 'spec.json'), JSO
 console.info(new Date().toISOString(), '[INFO]: Generated data files');
 
 console.info(new Date().toISOString(), '[INFO]: Downloading icons');
-await fs.mkdir(path.join(root, 'static', 'maps'), { recursive: true });
+await fs.mkdir(path.join(root, 'public', 'static', 'maps'), { recursive: true });
 await Promise.all(challengeMapID2IconID.entries().map(async ([mapID, iconID]) => {
     const png = await blpFileCutToPNG(iconID);
-    await fs.writeFile(path.join(root, 'static', 'maps', `${mapID.toString()}.png`), png);
+    await fs.writeFile(path.join(root, 'public', 'static', 'maps', `${mapID.toString()}.png`), png);
 }));
 
-await fs.mkdir(path.join(root, 'static', 'specs'), { recursive: true });
+await fs.mkdir(path.join(root, 'public', 'static', 'specs'), { recursive: true });
 await Promise.all(specializations.map(async ({ id }) => {
     const iconID = specID2IconID.get(id);
     assert(iconID !== undefined, `No iconID found for specialization ID ${id.toString()}`);
 
     const png = await blpFileCutToPNG(iconID);
-    await fs.writeFile(path.join(root, 'static', 'specs', `${id.toString()}.png`), png);
+    await fs.writeFile(path.join(root, 'public', 'static', 'specs', `${id.toString()}.png`), png);
 }));
 console.info(new Date().toISOString(), '[INFO]: Downloaded icons');
