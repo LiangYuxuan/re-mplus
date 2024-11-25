@@ -1,10 +1,16 @@
 /* eslint-disable import-x/no-unused-modules */
 
 import { RIO_SEASON } from '../core/config.ts';
-import specializations from '../core/data.ts';
+import specializations from '../data/generated/specializations.json' with { type: 'json' };
 
-import { specID2ImageName, mapID2ImageName } from './data.ts';
-import { selectLanguage, getLocaleString } from './locales/index.ts';
+import {
+    selectLanguage,
+    getLocaleString,
+    getDungeonShortName,
+    getSpecializationShortName,
+    getDungeonName,
+    gettSpecializationName,
+} from './locales/index.ts';
 
 import type { AnalyseResult, AnalyseDataFile } from '../core/types.ts';
 
@@ -94,7 +100,7 @@ const buttonData: ButtonData[] = [
 const renderDetailTable = (
     parent: HTMLDivElement,
     title: string,
-    prefix: string,
+    prefix: 'dungeon' | 'specialization',
     data: AnalyseResult[],
 ) => {
     const header = document.createElement('div');
@@ -149,7 +155,7 @@ const renderDetailTable = (
         table.appendChild(tr);
 
         const name = document.createElement('td');
-        name.textContent = getLocaleString(`${prefix}-${item.key.toString()}`);
+        name.textContent = prefix === 'dungeon' ? getDungeonName(item.key) : gettSpecializationName(item.key);
         tr.appendChild(name);
 
         const tier = document.createElement('td');
@@ -205,13 +211,13 @@ const renderPage = (
         tierContent.classList.remove('tier-list');
         tierContent.classList.add('tier-detail');
 
-        renderDetailTable(tierContent, getLocaleString('dungeon'), 'map', dungeons);
+        renderDetailTable(tierContent, getLocaleString('dungeon'), 'dungeon', dungeons);
 
         roleDisplayOrder.forEach((role) => {
             const roleSpecs = specs.filter((spec) => specializations
                 .find((s) => s.id === spec.key)?.role === role);
 
-            renderDetailTable(tierContent, getLocaleString(role), 'spec', roleSpecs);
+            renderDetailTable(tierContent, getLocaleString(role), 'specialization', roleSpecs);
         });
     } else {
         tierContent.classList.remove('tier-detail');
@@ -249,20 +255,18 @@ const renderPage = (
                 tierContent.appendChild(tierContainer);
 
                 tierDungeons.forEach((dungeon) => {
-                    const imageName = mapID2ImageName.get(dungeon.key) ?? dungeon.key.toString();
-
                     const entry = document.createElement('div');
                     entry.classList.add('tier-item');
                     tierContainer.appendChild(entry);
 
                     const image = document.createElement('img');
-                    image.src = `https://assets.rpglogs.com/img/warcraft/bosses/${imageName}-icon.jpg`;
+                    image.src = `static/dungeons/${dungeon.key.toString()}.png`;
                     entry.appendChild(image);
 
                     if (USE_DESCRIPTION_TEXT) {
                         const description = document.createElement('div');
                         description.classList.add('description');
-                        description.textContent = getLocaleString(`map-${dungeon.key.toString()}`).substring(0, 2);
+                        description.textContent = getDungeonShortName(dungeon.key);
                         entry.appendChild(description);
                     }
                 });
@@ -279,20 +283,18 @@ const renderPage = (
                 tierContent.appendChild(tierContainer);
 
                 roleData.forEach((spec) => {
-                    const imageName = specID2ImageName.get(spec.key) ?? spec.key.toString();
-
                     const entry = document.createElement('div');
                     entry.classList.add('tier-item');
                     tierContainer.appendChild(entry);
 
                     const image = document.createElement('img');
-                    image.src = `https://assets.rpglogs.com/img/warcraft/icons/large/${imageName}.jpg`;
+                    image.src = `static/specializations/${spec.key.toString()}.png`;
                     entry.appendChild(image);
 
                     if (USE_DESCRIPTION_TEXT) {
                         const description = document.createElement('div');
                         description.classList.add('description');
-                        description.textContent = getLocaleString(`spec-${spec.key.toString()}`).substring(0, 2);
+                        description.textContent = getSpecializationShortName(spec.key);
                         entry.appendChild(description);
                     }
                 });

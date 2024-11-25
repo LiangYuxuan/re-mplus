@@ -1,3 +1,6 @@
+import dungeons from '../../data/generated/dungeons.json' with { type: 'json' };
+import specializations from '../../data/generated/specializations.json' with { type: 'json' };
+
 import type { LocaleData } from './type.ts';
 
 export default {
@@ -24,52 +27,19 @@ export default {
         ['mean', 'mean'],
         ['sd', 'sd'],
         ['ci', 'ci'],
-        ['spec-62', 'Arcane Mage'],
-        ['spec-63', 'Fire Mage'],
-        ['spec-64', 'Frost Mage'],
-        ['spec-65', 'Holy Paladin'],
-        ['spec-66', 'Protection Paladin'],
-        ['spec-70', 'Retribution Paladin'],
-        ['spec-71', 'Arms Warrior'],
-        ['spec-72', 'Fury Warrior'],
-        ['spec-73', 'Protection Warrior'],
-        ['spec-102', 'Balance Druid'],
-        ['spec-103', 'Feral Druid'],
-        ['spec-104', 'Guardian Druid'],
-        ['spec-105', 'Restoration Druid'],
-        ['spec-250', 'Blood Death Knight'],
-        ['spec-251', 'Frost Death Knight'],
-        ['spec-252', 'Unholy Death Knight'],
-        ['spec-253', 'Beast Mastery Hunter'],
-        ['spec-254', 'Marksmanship Hunter'],
-        ['spec-255', 'Survival Hunter'],
-        ['spec-256', 'Discipline Priest'],
-        ['spec-257', 'Holy Priest'],
-        ['spec-258', 'Shadow Priest'],
-        ['spec-259', 'Assassination Rogue'],
-        ['spec-260', 'Outlaw Rogue'],
-        ['spec-261', 'Subtlety Rogue'],
-        ['spec-262', 'Elemental Shaman'],
-        ['spec-263', 'Enhancement Shaman'],
-        ['spec-264', 'Restoration Shaman'],
-        ['spec-265', 'Affliction Warlock'],
-        ['spec-266', 'Demonology Warlock'],
-        ['spec-267', 'Destruction Warlock'],
-        ['spec-268', 'Brewmaster Monk'],
-        ['spec-269', 'Windwalker Monk'],
-        ['spec-270', 'Mistweaver Monk'],
-        ['spec-577', 'Havoc Demon Hunter'],
-        ['spec-581', 'Vengeance Demon Hunter'],
-        ['spec-1467', 'Devastation Evoker'],
-        ['spec-1468', 'Preservation Evoker'],
-        ['spec-1473', 'Augmentation Evoker'],
-        ['map-353', 'Siege of Boralus'],
-        ['map-375', 'Mists of Tirna Scithe'],
-        ['map-376', 'The Necrotic Wake'],
-        ['map-501', 'The Stonevault'],
-        ['map-502', 'City of Threads'],
-        ['map-503', 'Ara-Kara, City of Echoes'],
-        ['map-505', 'The Dawnbreaker'],
-        ['map-507', 'Grim Batol'],
     ]),
+    specializationsShortName: new Map(
+        specializations.map(({ id, en }) => [id, en.substring(0, 4)] as const),
+    ),
+    dungeonsShortName: new Map(
+        dungeons
+            .map(({ id, en, shortName }) => {
+                if (shortName !== undefined) {
+                    return [id, shortName] as const;
+                }
+                return [id, en] as const;
+            }),
+    ),
+    specializations: new Map(specializations.map(({ id, en }) => [id, en] as const)),
+    dungeons: new Map(dungeons.map(({ id, en }) => [id, en] as const)),
 } satisfies LocaleData;

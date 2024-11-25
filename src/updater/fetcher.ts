@@ -11,9 +11,8 @@ import {
     RIO_MIN_LEVEL,
     RIO_MIN_SCORE,
 } from '../core/config.ts';
-import specializations from '../core/data.ts';
+import specializations from '../data/generated/specializations.json' with { type: 'json' };
 
-import type { Specialization } from '../core/data.ts';
 import type { BasicRun, AnalyseInput, RioData } from '../core/types.ts';
 import type Runs from './types/Runs.ts';
 import type Specs from './types/Specs.ts';
@@ -131,7 +130,7 @@ export default async (): Promise<RioData> => {
     });
 
     const specsByCharacters = await mapLimit(specializations, 1, async (
-        specialization: Specialization,
+        specialization: typeof specializations[number],
     ): Promise<AnalyseInput> => {
         const { id: key, className, specName } = specialization;
 
