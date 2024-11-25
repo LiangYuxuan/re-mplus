@@ -35,5 +35,5 @@ jobs:
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: "public/static/*"
-          target: ${{ secrets.REMOTE_TARGET_PUBLIC }}/static
+          target: ${{ secrets.REMOTE_TARGET_PUBLIC }}
           strip_components: 1
