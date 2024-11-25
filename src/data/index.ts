@@ -207,7 +207,7 @@ const specializations = chrSpecialization.getAllIDs().map((id) => {
             className: className.toLocaleLowerCase().replace(' ', '-'),
             specName: name.toLocaleLowerCase().replace(' ', '-'),
             en: `${name} ${className}`,
-            cn: `${nameCN}${classNameCN}`,
+            cn: `${nameCN} ${classNameCN}`,
         };
     }
 
@@ -218,7 +218,7 @@ const specializations = chrSpecialization.getAllIDs().map((id) => {
             className: className.toLocaleLowerCase().replace(' ', '-'),
             specName: name.toLocaleLowerCase().replace(' ', '-'),
             en: `${name} ${className}`,
-            cn: `${nameCN}${classNameCN}`,
+            cn: `${nameCN} ${classNameCN}`,
         };
     }
 
@@ -229,7 +229,7 @@ const specializations = chrSpecialization.getAllIDs().map((id) => {
             className: className.toLocaleLowerCase().replace(' ', '-'),
             specName: name.toLocaleLowerCase().replace(' ', '-'),
             en: `${name} ${className}`,
-            cn: `${nameCN}${classNameCN}`,
+            cn: `${nameCN} ${classNameCN}`,
         };
     }
 
