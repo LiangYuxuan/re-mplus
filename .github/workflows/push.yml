@@ -44,6 +44,6 @@ jobs:
           port: ${{ secrets.REMOTE_PORT }}
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: "public/index.html,public/main.js,public/main.css"
+          source: "public/*,!public/static/*"
           target: ${{ secrets.REMOTE_TARGET_PUBLIC }}
           strip_components: 1
