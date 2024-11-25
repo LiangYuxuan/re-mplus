@@ -1,0 +1,428 @@
+[
+    {
+        "id": 2,
+        "en": "Temple of the Jade Serpent",
+        "cn": "青龙寺",
+        "shortName": "TJS"
+    },
+    {
+        "id": 56,
+        "en": "Stormstout Brewery",
+        "cn": "风暴烈酒酿造厂"
+    },
+    {
+        "id": 57,
+        "en": "Gate of the Setting Sun",
+        "cn": "残阳关"
+    },
+    {
+        "id": 58,
+        "en": "Shado-Pan Monastery",
+        "cn": "影踪禅院"
+    },
+    {
+        "id": 59,
+        "en": "Siege of Niuzao Temple",
+        "cn": "围攻砮皂寺"
+    },
+    {
+        "id": 60,
+        "en": "Mogu'shan Palace",
+        "cn": "魔古山宫殿"
+    },
+    {
+        "id": 76,
+        "en": "Scholomance",
+        "cn": "通灵学院"
+    },
+    {
+        "id": 77,
+        "en": "Scarlet Halls",
+        "cn": "血色大厅"
+    },
+    {
+        "id": 78,
+        "en": "Scarlet Monastery",
+        "cn": "血色修道院"
+    },
+    {
+        "id": 161,
+        "en": "Skyreach",
+        "cn": "通天峰"
+    },
+    {
+        "id": 163,
+        "en": "Bloodmaul Slag Mines",
+        "cn": "血槌炉渣矿井"
+    },
+    {
+        "id": 164,
+        "en": "Auchindoun",
+        "cn": "奥金顿"
+    },
+    {
+        "id": 165,
+        "en": "Shadowmoon Burial Grounds",
+        "cn": "影月墓地",
+        "shortName": "SBG"
+    },
+    {
+        "id": 166,
+        "en": "Grimrail Depot",
+        "cn": "恐轨车站",
+        "shortName": "GD"
+    },
+    {
+        "id": 167,
+        "en": "Upper Blackrock Spire",
+        "cn": "黑石塔上层"
+    },
+    {
+        "id": 168,
+        "en": "The Everbloom",
+        "cn": "永茂林地",
+        "shortName": "EB"
+    },
+    {
+        "id": 169,
+        "en": "Iron Docks",
+        "cn": "钢铁码头",
+        "shortName": "ID"
+    },
+    {
+        "id": 197,
+        "en": "Eye of Azshara",
+        "cn": "艾萨拉之眼",
+        "shortName": "EOA"
+    },
+    {
+        "id": 198,
+        "en": "Darkheart Thicket",
+        "cn": "黑心林地",
+        "shortName": "DHT"
+    },
+    {
+        "id": 199,
+        "en": "Black Rook Hold",
+        "cn": "黑鸦堡垒",
+        "shortName": "BRH"
+    },
+    {
+        "id": 200,
+        "en": "Halls of Valor",
+        "cn": "英灵殿",
+        "shortName": "HOV"
+    },
+    {
+        "id": 206,
+        "en": "Neltharion's Lair",
+        "cn": "奈萨里奥的巢穴",
+        "shortName": "NL"
+    },
+    {
+        "id": 207,
+        "en": "Vault of the Wardens",
+        "cn": "守望者地窟",
+        "shortName": "VOTW"
+    },
+    {
+        "id": 208,
+        "en": "Maw of Souls",
+        "cn": "噬魂之喉",
+        "shortName": "MOS"
+    },
+    {
+        "id": 209,
+        "en": "The Arcway",
+        "cn": "魔法回廊",
+        "shortName": "ARC"
+    },
+    {
+        "id": 210,
+        "en": "Court of Stars",
+        "cn": "群星庭院",
+        "shortName": "COS"
+    },
+    {
+        "id": 227,
+        "en": "Return to Karazhan: Lower",
+        "cn": "重返卡拉赞（下层）",
+        "shortName": "LOWR"
+    },
+    {
+        "id": 233,
+        "en": "Cathedral of Eternal Night",
+        "cn": "永夜大教堂",
+        "shortName": "COEN"
+    },
+    {
+        "id": 234,
+        "en": "Return to Karazhan: Upper",
+        "cn": "重返卡拉赞（上层）",
+        "shortName": "UPPR"
+    },
+    {
+        "id": 239,
+        "en": "Seat of the Triumvirate",
+        "cn": "执政团之座",
+        "shortName": "SEAT"
+    },
+    {
+        "id": 244,
+        "en": "Atal'Dazar",
+        "cn": "阿塔达萨",
+        "shortName": "AD"
+    },
+    {
+        "id": 245,
+        "en": "Freehold",
+        "cn": "自由镇",
+        "shortName": "FH"
+    },
+    {
+        "id": 246,
+        "en": "Tol Dagor",
+        "cn": "托尔达戈",
+        "shortName": "TD"
+    },
+    {
+        "id": 247,
+        "en": "The MOTHERLODE!!",
+        "cn": "暴富矿区！！",
+        "shortName": "ML"
+    },
+    {
+        "id": 248,
+        "en": "Waycrest Manor",
+        "cn": "维克雷斯庄园",
+        "shortName": "WM"
+    },
+    {
+        "id": 249,
+        "en": "Kings' Rest",
+        "cn": "诸王之眠",
+        "shortName": "KR"
+    },
+    {
+        "id": 250,
+        "en": "Temple of Sethraliss",
+        "cn": "塞塔里斯神庙",
+        "shortName": "TOS"
+    },
+    {
+        "id": 251,
+        "en": "The Underrot",
+        "cn": "地渊孢林",
+        "shortName": "UNDR"
+    },
+    {
+        "id": 252,
+        "en": "Shrine of the Storm",
+        "cn": "风暴神殿",
+        "shortName": "SOTS"
+    },
+    {
+        "id": 353,
+        "en": "Siege of Boralus",
+        "cn": "围攻伯拉勒斯",
+        "shortName": "SIEGE"
+    },
+    {
+        "id": 369,
+        "en": "Operation: Mechagon - Junkyard",
+        "cn": "麦卡贡行动 - 垃圾场",
+        "shortName": "YARD"
+    },
+    {
+        "id": 370,
+        "en": "Operation: Mechagon - Workshop",
+        "cn": "麦卡贡行动 - 车间",
+        "shortName": "WORK"
+    },
+    {
+        "id": 375,
+        "en": "Mists of Tirna Scithe",
+        "cn": "塞兹仙林的迷雾",
+        "shortName": "MISTS"
+    },
+    {
+        "id": 376,
+        "en": "The Necrotic Wake",
+        "cn": "通灵战潮",
+        "shortName": "NW"
+    },
+    {
+        "id": 377,
+        "en": "De Other Side",
+        "cn": "彼界",
+        "shortName": "DOS"
+    },
+    {
+        "id": 378,
+        "en": "Halls of Atonement",
+        "cn": "赎罪大厅",
+        "shortName": "HOA"
+    },
+    {
+        "id": 379,
+        "en": "Plaguefall",
+        "cn": "凋魂之殇",
+        "shortName": "PF"
+    },
+    {
+        "id": 380,
+        "en": "Sanguine Depths",
+        "cn": "赤红深渊",
+        "shortName": "SD"
+    },
+    {
+        "id": 381,
+        "en": "Spires of Ascension",
+        "cn": "晋升高塔",
+        "shortName": "SOA"
+    },
+    {
+        "id": 382,
+        "en": "Theater of Pain",
+        "cn": "伤逝剧场",
+        "shortName": "TOP"
+    },
+    {
+        "id": 391,
+        "en": "Tazavesh: Streets of Wonder",
+        "cn": "塔扎维什：琳彩天街",
+        "shortName": "STRT"
+    },
+    {
+        "id": 392,
+        "en": "Tazavesh: So'leah's Gambit",
+        "cn": "塔扎维什：索·莉亚的宏图",
+        "shortName": "GMBT"
+    },
+    {
+        "id": 399,
+        "en": "Ruby Life Pools",
+        "cn": "红玉新生法池",
+        "shortName": "RLP"
+    },
+    {
+        "id": 400,
+        "en": "The Nokhud Offensive",
+        "cn": "诺库德阻击战",
+        "shortName": "NO"
+    },
+    {
+        "id": 401,
+        "en": "The Azure Vault",
+        "cn": "碧蓝魔馆",
+        "shortName": "AV"
+    },
+    {
+        "id": 402,
+        "en": "Algeth'ar Academy",
+        "cn": "艾杰斯亚学院",
+        "shortName": "AA"
+    },
+    {
+        "id": 403,
+        "en": "Uldaman: Legacy of Tyr",
+        "cn": "奥达曼：提尔的遗产",
+        "shortName": "ULD"
+    },
+    {
+        "id": 404,
+        "en": "Neltharus",
+        "cn": "奈萨鲁斯",
+        "shortName": "NELT"
+    },
+    {
+        "id": 405,
+        "en": "Brackenhide Hollow",
+        "cn": "蕨皮山谷",
+        "shortName": "BH"
+    },
+    {
+        "id": 406,
+        "en": "Halls of Infusion",
+        "cn": "注能大厅",
+        "shortName": "HOI"
+    },
+    {
+        "id": 438,
+        "en": "The Vortex Pinnacle",
+        "cn": "旋云之巅",
+        "shortName": "VP"
+    },
+    {
+        "id": 456,
+        "en": "Throne of the Tides",
+        "cn": "潮汐王座",
+        "shortName": "TOTT"
+    },
+    {
+        "id": 463,
+        "en": "Dawn of the Infinite: Galakrond's Fall",
+        "cn": "永恒黎明：迦拉克隆的陨落",
+        "shortName": "FALL"
+    },
+    {
+        "id": 464,
+        "en": "Dawn of the Infinite: Murozond's Rise",
+        "cn": "永恒黎明：姆诺兹多的崛起",
+        "shortName": "RISE"
+    },
+    {
+        "id": 499,
+        "en": "Priory of the Sacred Flame",
+        "cn": "圣焰隐修院",
+        "shortName": "PSF"
+    },
+    {
+        "id": 500,
+        "en": "The Rookery",
+        "cn": "驭雷栖巢",
+        "shortName": "ROOK"
+    },
+    {
+        "id": 501,
+        "en": "The Stonevault",
+        "cn": "矶石宝库",
+        "shortName": "SV"
+    },
+    {
+        "id": 502,
+        "en": "City of Threads",
+        "cn": "千丝之城",
+        "shortName": "COT"
+    },
+    {
+        "id": 503,
+        "en": "Ara-Kara, City of Echoes",
+        "cn": "艾拉-卡拉，回响之城",
+        "shortName": "ARAK"
+    },
+    {
+        "id": 504,
+        "en": "Darkflame Cleft",
+        "cn": "暗焰裂口",
+        "shortName": "DFC"
+    },
+    {
+        "id": 505,
+        "en": "The Dawnbreaker",
+        "cn": "破晨号",
+        "shortName": "DAWN"
+    },
+    {
+        "id": 506,
+        "en": "Cinderbrew Meadery",
+        "cn": "燧酿酒庄",
+        "shortName": "BREW"
+    },
+    {
+        "id": 507,
+        "en": "Grim Batol",
+        "cn": "格瑞姆巴托",
+        "shortName": "GB"
+    }
+]

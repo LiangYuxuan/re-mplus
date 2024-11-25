@@ -1,0 +1,314 @@
+[
+    {
+        "id": 62,
+        "role": "ranged",
+        "className": "mage",
+        "specName": "arcane",
+        "en": "Arcane Mage",
+        "cn": "奥术法师"
+    },
+    {
+        "id": 63,
+        "role": "ranged",
+        "className": "mage",
+        "specName": "fire",
+        "en": "Fire Mage",
+        "cn": "火焰法师"
+    },
+    {
+        "id": 64,
+        "role": "ranged",
+        "className": "mage",
+        "specName": "frost",
+        "en": "Frost Mage",
+        "cn": "冰霜法师"
+    },
+    {
+        "id": 65,
+        "role": "healer",
+        "className": "paladin",
+        "specName": "holy",
+        "en": "Holy Paladin",
+        "cn": "神圣圣骑士"
+    },
+    {
+        "id": 66,
+        "role": "tank",
+        "className": "paladin",
+        "specName": "protection",
+        "en": "Protection Paladin",
+        "cn": "防护圣骑士"
+    },
+    {
+        "id": 70,
+        "role": "melee",
+        "className": "paladin",
+        "specName": "retribution",
+        "en": "Retribution Paladin",
+        "cn": "惩戒圣骑士"
+    },
+    {
+        "id": 71,
+        "role": "melee",
+        "className": "warrior",
+        "specName": "arms",
+        "en": "Arms Warrior",
+        "cn": "武器战士"
+    },
+    {
+        "id": 72,
+        "role": "melee",
+        "className": "warrior",
+        "specName": "fury",
+        "en": "Fury Warrior",
+        "cn": "狂怒战士"
+    },
+    {
+        "id": 73,
+        "role": "tank",
+        "className": "warrior",
+        "specName": "protection",
+        "en": "Protection Warrior",
+        "cn": "防护战士"
+    },
+    {
+        "id": 102,
+        "role": "ranged",
+        "className": "druid",
+        "specName": "balance",
+        "en": "Balance Druid",
+        "cn": "平衡德鲁伊"
+    },
+    {
+        "id": 103,
+        "role": "melee",
+        "className": "druid",
+        "specName": "feral",
+        "en": "Feral Druid",
+        "cn": "野性德鲁伊"
+    },
+    {
+        "id": 104,
+        "role": "tank",
+        "className": "druid",
+        "specName": "guardian",
+        "en": "Guardian Druid",
+        "cn": "守护德鲁伊"
+    },
+    {
+        "id": 105,
+        "role": "healer",
+        "className": "druid",
+        "specName": "restoration",
+        "en": "Restoration Druid",
+        "cn": "恢复德鲁伊"
+    },
+    {
+        "id": 250,
+        "role": "tank",
+        "className": "death-knight",
+        "specName": "blood",
+        "en": "Blood Death Knight",
+        "cn": "鲜血死亡骑士"
+    },
+    {
+        "id": 251,
+        "role": "melee",
+        "className": "death-knight",
+        "specName": "frost",
+        "en": "Frost Death Knight",
+        "cn": "冰霜死亡骑士"
+    },
+    {
+        "id": 252,
+        "role": "melee",
+        "className": "death-knight",
+        "specName": "unholy",
+        "en": "Unholy Death Knight",
+        "cn": "邪恶死亡骑士"
+    },
+    {
+        "id": 253,
+        "role": "melee",
+        "className": "hunter",
+        "specName": "beast-mastery",
+        "en": "Beast Mastery Hunter",
+        "cn": "野兽控制猎人"
+    },
+    {
+        "id": 254,
+        "role": "melee",
+        "className": "hunter",
+        "specName": "marksmanship",
+        "en": "Marksmanship Hunter",
+        "cn": "射击猎人"
+    },
+    {
+        "id": 255,
+        "role": "melee",
+        "className": "hunter",
+        "specName": "survival",
+        "en": "Survival Hunter",
+        "cn": "生存猎人"
+    },
+    {
+        "id": 256,
+        "role": "healer",
+        "className": "priest",
+        "specName": "discipline",
+        "en": "Discipline Priest",
+        "cn": "戒律牧师"
+    },
+    {
+        "id": 257,
+        "role": "healer",
+        "className": "priest",
+        "specName": "holy",
+        "en": "Holy Priest",
+        "cn": "神圣牧师"
+    },
+    {
+        "id": 258,
+        "role": "ranged",
+        "className": "priest",
+        "specName": "shadow",
+        "en": "Shadow Priest",
+        "cn": "暗影牧师"
+    },
+    {
+        "id": 259,
+        "role": "melee",
+        "className": "rogue",
+        "specName": "assassination",
+        "en": "Assassination Rogue",
+        "cn": "奇袭潜行者"
+    },
+    {
+        "id": 260,
+        "role": "melee",
+        "className": "rogue",
+        "specName": "outlaw",
+        "en": "Outlaw Rogue",
+        "cn": "狂徒潜行者"
+    },
+    {
+        "id": 261,
+        "role": "melee",
+        "className": "rogue",
+        "specName": "subtlety",
+        "en": "Subtlety Rogue",
+        "cn": "敏锐潜行者"
+    },
+    {
+        "id": 262,
+        "role": "ranged",
+        "className": "shaman",
+        "specName": "elemental",
+        "en": "Elemental Shaman",
+        "cn": "元素萨满祭司"
+    },
+    {
+        "id": 263,
+        "role": "melee",
+        "className": "shaman",
+        "specName": "enhancement",
+        "en": "Enhancement Shaman",
+        "cn": "增强萨满祭司"
+    },
+    {
+        "id": 264,
+        "role": "healer",
+        "className": "shaman",
+        "specName": "restoration",
+        "en": "Restoration Shaman",
+        "cn": "恢复萨满祭司"
+    },
+    {
+        "id": 265,
+        "role": "ranged",
+        "className": "warlock",
+        "specName": "affliction",
+        "en": "Affliction Warlock",
+        "cn": "痛苦术士"
+    },
+    {
+        "id": 266,
+        "role": "ranged",
+        "className": "warlock",
+        "specName": "demonology",
+        "en": "Demonology Warlock",
+        "cn": "恶魔学识术士"
+    },
+    {
+        "id": 267,
+        "role": "ranged",
+        "className": "warlock",
+        "specName": "destruction",
+        "en": "Destruction Warlock",
+        "cn": "毁灭术士"
+    },
+    {
+        "id": 268,
+        "role": "tank",
+        "className": "monk",
+        "specName": "brewmaster",
+        "en": "Brewmaster Monk",
+        "cn": "酒仙武僧"
+    },
+    {
+        "id": 269,
+        "role": "melee",
+        "className": "monk",
+        "specName": "windwalker",
+        "en": "Windwalker Monk",
+        "cn": "踏风武僧"
+    },
+    {
+        "id": 270,
+        "role": "healer",
+        "className": "monk",
+        "specName": "mistweaver",
+        "en": "Mistweaver Monk",
+        "cn": "织雾武僧"
+    },
+    {
+        "id": 577,
+        "role": "melee",
+        "className": "demon-hunter",
+        "specName": "havoc",
+        "en": "Havoc Demon Hunter",
+        "cn": "浩劫恶魔猎手"
+    },
+    {
+        "id": 581,
+        "role": "tank",
+        "className": "demon-hunter",
+        "specName": "vengeance",
+        "en": "Vengeance Demon Hunter",
+        "cn": "复仇恶魔猎手"
+    },
+    {
+        "id": 1467,
+        "role": "ranged",
+        "className": "evoker",
+        "specName": "devastation",
+        "en": "Devastation Evoker",
+        "cn": "湮灭唤魔师"
+    },
+    {
+        "id": 1468,
+        "role": "healer",
+        "className": "evoker",
+        "specName": "preservation",
+        "en": "Preservation Evoker",
+        "cn": "恩护唤魔师"
+    },
+    {
+        "id": 1473,
+        "role": "ranged",
+        "className": "evoker",
+        "specName": "augmentation",
+        "en": "Augmentation Evoker",
+        "cn": "增辉唤魔师"
+    }
+]
