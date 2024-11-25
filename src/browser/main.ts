@@ -304,14 +304,11 @@ const renderPage = (
 };
 
 const updatePageDisplay = (
-    title: HTMLDivElement,
     subTitle: HTMLDivElement,
     lastUpdated: HTMLDivElement,
     buttonContainer: HTMLDivElement,
     dataFile: AnalyseDataFile,
 ) => {
-    // eslint-disable-next-line no-param-reassign
-    title.textContent = getLocaleString('title');
     // eslint-disable-next-line no-param-reassign
     subTitle.textContent = selectorData[SELECTOR_USING_INDEX].label();
     // eslint-disable-next-line no-param-reassign
@@ -371,6 +368,8 @@ const initializePage = async () => {
                         .then((res) => res.json())
                         .then((newDataFile: AnalyseDataFile) => {
                             dataFile = newDataFile;
+
+                            updatePageDisplay(subTitle, lastUpdated, buttonContainer, dataFile);
                             renderPage(tierContent, dataFile);
                         })
                         .catch((error: unknown) => {
@@ -381,14 +380,15 @@ const initializePage = async () => {
                 child.addEventListener('click', () => {
                     buttonData[index].onClick?.();
 
-                    updatePageDisplay(title, subTitle, lastUpdated, buttonContainer, dataFile);
+                    updatePageDisplay(subTitle, lastUpdated, buttonContainer, dataFile);
                     renderPage(tierContent, dataFile);
                 });
             }
         }
     });
 
-    updatePageDisplay(title, subTitle, lastUpdated, buttonContainer, dataFile);
+    title.textContent = getLocaleString('title');
+    updatePageDisplay(subTitle, lastUpdated, buttonContainer, dataFile);
     renderPage(tierContent, dataFile);
 };
 
