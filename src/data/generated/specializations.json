@@ -5,7 +5,7 @@
         "className": "mage",
         "specName": "arcane",
         "en": "Arcane Mage",
-        "cn": "奥术法师"
+        "cn": "奥术 法师"
     },
     {
         "id": 63,
@@ -13,7 +13,7 @@
         "className": "mage",
         "specName": "fire",
         "en": "Fire Mage",
-        "cn": "火焰法师"
+        "cn": "火焰 法师"
     },
     {
         "id": 64,
@@ -21,7 +21,7 @@
         "className": "mage",
         "specName": "frost",
         "en": "Frost Mage",
-        "cn": "冰霜法师"
+        "cn": "冰霜 法师"
     },
     {
         "id": 65,
@@ -29,7 +29,7 @@
         "className": "paladin",
         "specName": "holy",
         "en": "Holy Paladin",
-        "cn": "神圣圣骑士"
+        "cn": "神圣 圣骑士"
     },
     {
         "id": 66,
@@ -37,7 +37,7 @@
         "className": "paladin",
         "specName": "protection",
         "en": "Protection Paladin",
-        "cn": "防护圣骑士"
+        "cn": "防护 圣骑士"
     },
     {
         "id": 70,
@@ -69,7 +69,7 @@
         "className": "warrior",
         "specName": "protection",
         "en": "Protection Warrior",
-        "cn": "防护战士"
+        "cn": "防护 战士"
     },
     {
         "id": 102,
@@ -77,7 +77,7 @@
         "className": "druid",
         "specName": "balance",
         "en": "Balance Druid",
-        "cn": "平衡德鲁伊"
+        "cn": "平衡 德鲁伊"
     },
     {
         "id": 103,
@@ -93,7 +93,7 @@
         "className": "druid",
         "specName": "guardian",
         "en": "Guardian Druid",
-        "cn": "守护德鲁伊"
+        "cn": "守护 德鲁伊"
     },
     {
         "id": 105,
@@ -101,7 +101,7 @@
         "className": "druid",
         "specName": "restoration",
         "en": "Restoration Druid",
-        "cn": "恢复德鲁伊"
+        "cn": "恢复 德鲁伊"
     },
     {
         "id": 250,
@@ -109,7 +109,7 @@
         "className": "death-knight",
         "specName": "blood",
         "en": "Blood Death Knight",
-        "cn": "鲜血死亡骑士"
+        "cn": "鲜血 死亡骑士"
     },
     {
         "id": 251,
@@ -157,7 +157,7 @@
         "className": "priest",
         "specName": "discipline",
         "en": "Discipline Priest",
-        "cn": "戒律牧师"
+        "cn": "戒律 牧师"
     },
     {
         "id": 257,
@@ -165,7 +165,7 @@
         "className": "priest",
         "specName": "holy",
         "en": "Holy Priest",
-        "cn": "神圣牧师"
+        "cn": "神圣 牧师"
     },
     {
         "id": 258,
@@ -173,7 +173,7 @@
         "className": "priest",
         "specName": "shadow",
         "en": "Shadow Priest",
-        "cn": "暗影牧师"
+        "cn": "暗影 牧师"
     },
     {
         "id": 259,
@@ -205,7 +205,7 @@
         "className": "shaman",
         "specName": "elemental",
         "en": "Elemental Shaman",
-        "cn": "元素萨满祭司"
+        "cn": "元素 萨满祭司"
     },
     {
         "id": 263,
@@ -221,7 +221,7 @@
         "className": "shaman",
         "specName": "restoration",
         "en": "Restoration Shaman",
-        "cn": "恢复萨满祭司"
+        "cn": "恢复 萨满祭司"
     },
     {
         "id": 265,
@@ -229,7 +229,7 @@
         "className": "warlock",
         "specName": "affliction",
         "en": "Affliction Warlock",
-        "cn": "痛苦术士"
+        "cn": "痛苦 术士"
     },
     {
         "id": 266,
@@ -237,7 +237,7 @@
         "className": "warlock",
         "specName": "demonology",
         "en": "Demonology Warlock",
-        "cn": "恶魔学识术士"
+        "cn": "恶魔学识 术士"
     },
     {
         "id": 267,
@@ -245,7 +245,7 @@
         "className": "warlock",
         "specName": "destruction",
         "en": "Destruction Warlock",
-        "cn": "毁灭术士"
+        "cn": "毁灭 术士"
     },
     {
         "id": 268,
@@ -253,7 +253,7 @@
         "className": "monk",
         "specName": "brewmaster",
         "en": "Brewmaster Monk",
-        "cn": "酒仙武僧"
+        "cn": "酒仙 武僧"
     },
     {
         "id": 269,
@@ -269,7 +269,7 @@
         "className": "monk",
         "specName": "mistweaver",
         "en": "Mistweaver Monk",
-        "cn": "织雾武僧"
+        "cn": "织雾 武僧"
     },
     {
         "id": 577,
@@ -285,7 +285,7 @@
         "className": "demon-hunter",
         "specName": "vengeance",
         "en": "Vengeance Demon Hunter",
-        "cn": "复仇恶魔猎手"
+        "cn": "复仇 恶魔猎手"
     },
     {
         "id": 1467,
@@ -293,7 +293,7 @@
         "className": "evoker",
         "specName": "devastation",
         "en": "Devastation Evoker",
-        "cn": "湮灭唤魔师"
+        "cn": "湮灭 唤魔师"
     },
     {
         "id": 1468,
@@ -301,7 +301,7 @@
         "className": "evoker",
         "specName": "preservation",
         "en": "Preservation Evoker",
-        "cn": "恩护唤魔师"
+        "cn": "恩护 唤魔师"
     },
     {
         "id": 1473,
@@ -309,6 +309,6 @@
         "className": "evoker",
         "specName": "augmentation",
         "en": "Augmentation Evoker",
-        "cn": "增辉唤魔师"
+        "cn": "增辉 唤魔师"
     }
 ]
