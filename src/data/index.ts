@@ -239,7 +239,7 @@ const specializations = chrSpecialization.getAllIDs().map((id) => {
         className: className.toLocaleLowerCase().replace(' ', '-'),
         specName: name.toLocaleLowerCase().replace(' ', '-'),
         en: `${name} ${className}`,
-        cn: `${nameCN}${classNameCN}`,
+        cn: `${nameCN} ${classNameCN}`,
     };
 }).filter((spec) => spec !== undefined);
 console.info(new Date().toISOString(), '[INFO]: Parsed DB2 files');
