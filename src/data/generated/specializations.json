@@ -45,7 +45,7 @@
         "className": "paladin",
         "specName": "retribution",
         "en": "Retribution Paladin",
-        "cn": "惩戒圣骑士"
+        "cn": "惩戒 圣骑士"
     },
     {
         "id": 71,
@@ -53,7 +53,7 @@
         "className": "warrior",
         "specName": "arms",
         "en": "Arms Warrior",
-        "cn": "武器战士"
+        "cn": "武器 战士"
     },
     {
         "id": 72,
@@ -61,7 +61,7 @@
         "className": "warrior",
         "specName": "fury",
         "en": "Fury Warrior",
-        "cn": "狂怒战士"
+        "cn": "狂怒 战士"
     },
     {
         "id": 73,
@@ -85,7 +85,7 @@
         "className": "druid",
         "specName": "feral",
         "en": "Feral Druid",
-        "cn": "野性德鲁伊"
+        "cn": "野性 德鲁伊"
     },
     {
         "id": 104,
@@ -117,7 +117,7 @@
         "className": "death-knight",
         "specName": "frost",
         "en": "Frost Death Knight",
-        "cn": "冰霜死亡骑士"
+        "cn": "冰霜 死亡骑士"
     },
     {
         "id": 252,
@@ -125,7 +125,7 @@
         "className": "death-knight",
         "specName": "unholy",
         "en": "Unholy Death Knight",
-        "cn": "邪恶死亡骑士"
+        "cn": "邪恶 死亡骑士"
     },
     {
         "id": 253,
@@ -133,7 +133,7 @@
         "className": "hunter",
         "specName": "beast-mastery",
         "en": "Beast Mastery Hunter",
-        "cn": "野兽控制猎人"
+        "cn": "野兽控制 猎人"
     },
     {
         "id": 254,
@@ -141,7 +141,7 @@
         "className": "hunter",
         "specName": "marksmanship",
         "en": "Marksmanship Hunter",
-        "cn": "射击猎人"
+        "cn": "射击 猎人"
     },
     {
         "id": 255,
@@ -149,7 +149,7 @@
         "className": "hunter",
         "specName": "survival",
         "en": "Survival Hunter",
-        "cn": "生存猎人"
+        "cn": "生存 猎人"
     },
     {
         "id": 256,
@@ -181,7 +181,7 @@
         "className": "rogue",
         "specName": "assassination",
         "en": "Assassination Rogue",
-        "cn": "奇袭潜行者"
+        "cn": "奇袭 潜行者"
     },
     {
         "id": 260,
@@ -189,7 +189,7 @@
         "className": "rogue",
         "specName": "outlaw",
         "en": "Outlaw Rogue",
-        "cn": "狂徒潜行者"
+        "cn": "狂徒 潜行者"
     },
     {
         "id": 261,
@@ -197,7 +197,7 @@
         "className": "rogue",
         "specName": "subtlety",
         "en": "Subtlety Rogue",
-        "cn": "敏锐潜行者"
+        "cn": "敏锐 潜行者"
     },
     {
         "id": 262,
@@ -213,7 +213,7 @@
         "className": "shaman",
         "specName": "enhancement",
         "en": "Enhancement Shaman",
-        "cn": "增强萨满祭司"
+        "cn": "增强 萨满祭司"
     },
     {
         "id": 264,
@@ -261,7 +261,7 @@
         "className": "monk",
         "specName": "windwalker",
         "en": "Windwalker Monk",
-        "cn": "踏风武僧"
+        "cn": "踏风 武僧"
     },
     {
         "id": 270,
@@ -277,7 +277,7 @@
         "className": "demon-hunter",
         "specName": "havoc",
         "en": "Havoc Demon Hunter",
-        "cn": "浩劫恶魔猎手"
+        "cn": "浩劫 恶魔猎手"
     },
     {
         "id": 581,
