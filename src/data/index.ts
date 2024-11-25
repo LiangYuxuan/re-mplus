@@ -263,28 +263,38 @@ await timesSeries(expansionLength, async (i: number) => {
 console.info(new Date().toISOString(), '[INFO]: Parsed Raider.IO static data');
 
 console.info(new Date().toISOString(), '[INFO]: Generating data files');
+const dungeons = [...challengeMapID2Name.entries()].map(([id, name]) => {
+    const shortName = shortNames.get(id);
+    const cn = challengeMapID2NameCN.get(id);
+
+    assert(cn !== undefined, `No CN name found for challenge map ID ${id.toString()}`);
+
+    return {
+        id,
+        en: name,
+        cn,
+        shortName,
+    };
+});
+
 await fs.mkdir(path.join(root, 'src', 'data', 'generated'), { recursive: true });
-await fs.writeFile(path.join(root, 'src', 'data', 'generated', 'map.json'), JSON.stringify({
-    abbr: [...shortNames],
-    en: [...challengeMapID2Name],
-    cn: [...challengeMapID2NameCN],
-}, null, 4));
-await fs.writeFile(path.join(root, 'src', 'data', 'generated', 'spec.json'), JSON.stringify(specializations, null, 4));
+await fs.writeFile(path.join(root, 'src', 'data', 'generated', 'dungeons.json'), JSON.stringify(dungeons, null, 4));
+await fs.writeFile(path.join(root, 'src', 'data', 'generated', 'specializations.json'), JSON.stringify(specializations, null, 4));
 console.info(new Date().toISOString(), '[INFO]: Generated data files');
 
 console.info(new Date().toISOString(), '[INFO]: Downloading icons');
-await fs.mkdir(path.join(root, 'public', 'static', 'maps'), { recursive: true });
-await Promise.all(challengeMapID2IconID.entries().map(async ([mapID, iconID]) => {
+await fs.mkdir(path.join(root, 'public', 'static', 'dungeons'), { recursive: true });
+await Promise.all(challengeMapID2IconID.entries().map(async ([id, iconID]) => {
     const png = await blpFileCutToPNG(iconID);
-    await fs.writeFile(path.join(root, 'public', 'static', 'maps', `${mapID.toString()}.png`), png);
+    await fs.writeFile(path.join(root, 'public', 'static', 'dungeons', `${id.toString()}.png`), png);
 }));
 
-await fs.mkdir(path.join(root, 'public', 'static', 'specs'), { recursive: true });
+await fs.mkdir(path.join(root, 'public', 'static', 'specializations'), { recursive: true });
 await Promise.all(specializations.map(async ({ id }) => {
     const iconID = specID2IconID.get(id);
     assert(iconID !== undefined, `No iconID found for specialization ID ${id.toString()}`);
 
     const png = await blpFileCutToPNG(iconID);
-    await fs.writeFile(path.join(root, 'public', 'static', 'specs', `${id.toString()}.png`), png);
+    await fs.writeFile(path.join(root, 'public', 'static', 'specializations', `${id.toString()}.png`), png);
 }));
 console.info(new Date().toISOString(), '[INFO]: Downloaded icons');
