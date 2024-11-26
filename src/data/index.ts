@@ -222,7 +222,11 @@ const specializations = chrSpecialization.getAllIDs().map((id) => {
         };
     }
 
-    if (role === 2 && primaryStatPriority === 0) {
+    if (
+        (role === 2 && primaryStatPriority === 0) // Damage Dealer and use Intellect as primary stat
+        || id === 253 // Beast Mastery Hunter
+        || id === 254 // Marksmanship Hunter
+    ) {
         return {
             id,
             role: 'ranged',
