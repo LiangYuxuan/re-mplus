@@ -129,7 +129,7 @@
     },
     {
         "id": 253,
-        "role": "melee",
+        "role": "ranged",
         "className": "hunter",
         "specName": "beast-mastery",
         "en": "Beast Mastery Hunter",
@@ -137,7 +137,7 @@
     },
     {
         "id": 254,
-        "role": "melee",
+        "role": "ranged",
         "className": "hunter",
         "specName": "marksmanship",
         "en": "Marksmanship Hunter",
