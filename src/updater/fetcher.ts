@@ -54,6 +54,8 @@ export default async (): Promise<RioData> => {
     const dungeonSlugs = seasonStaticData.dungeons.map((d) => d.slug);
     const dungeonMapIDs = seasonStaticData.dungeons.map((d) => d.challenge_mode_id);
 
+    const characterScoreThreshold = RIO_MIN_SCORE * dungeonCount;
+
     const topRuns: Run[] = [];
     await mapLimit(RIO_REGIONS, 1, async (region: string) => {
         await mapLimit(dungeonSlugs, 1, async (dungeon: string) => {
@@ -76,7 +78,7 @@ export default async (): Promise<RioData> => {
                     const mapID = run.dungeon.map_challenge_mode_id;
                     const specs = run.roster.map(({ character }) => character.spec.id);
 
-                    if (level >= RIO_MIN_LEVEL && score >= RIO_MIN_SCORE) {
+                    if (level >= RIO_MIN_LEVEL) {
                         topRuns.push({
                             id,
                             mapID,
@@ -87,7 +89,7 @@ export default async (): Promise<RioData> => {
                     }
                 });
 
-                if (data.rankings[data.rankings.length - 1].score < RIO_MIN_SCORE) {
+                if (data.rankings[data.rankings.length - 1].run.mythic_level < RIO_MIN_LEVEL) {
                     break;
                 }
             }
@@ -151,11 +153,9 @@ export default async (): Promise<RioData> => {
 
             characters.forEach(({ score, runs }) => {
                 if (runs.length >= dungeonCount) {
-                    const isAllDungeonsValid = runs
-                        .every((run) => run.mythicLevel >= RIO_MIN_LEVEL
-                            && run.score >= RIO_MIN_SCORE);
+                    const isAllDungeonsValid = runs.every((run) => run.mythicLevel >= RIO_MIN_LEVEL);
 
-                    if (isAllDungeonsValid) {
+                    if (isAllDungeonsValid && score >= characterScoreThreshold) {
                         scores.push(score);
                         allRuns.push(...runs.map((run) => {
                             const id = run.keystoneRunId;
@@ -172,7 +172,7 @@ export default async (): Promise<RioData> => {
                 }
             });
 
-            if (characters[characters.length - 1].score < RIO_MIN_SCORE * dungeonCount) {
+            if (characters[characters.length - 1].score < characterScoreThreshold) {
                 break;
             }
         }
