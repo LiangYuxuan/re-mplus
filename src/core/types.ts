@@ -7,8 +7,8 @@ export interface BasicRun {
 export interface AnalyseInput {
     key: number,
     scores: number[],
-    min: BasicRun,
-    max: BasicRun,
+    min?: BasicRun,
+    max?: BasicRun,
 }
 
 export interface RioData {
@@ -25,8 +25,8 @@ export interface AnalyseResult {
     sd: number,
     ci: number,
     tier: string,
-    max: BasicRun,
-    min: BasicRun,
+    max?: BasicRun,
+    min?: BasicRun,
 }
 
 export interface AnalyseDataFile {

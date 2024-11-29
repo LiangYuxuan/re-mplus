@@ -172,16 +172,16 @@ const renderDetailTable = (
         tr.appendChild(min);
 
         const minLink = document.createElement('a');
-        minLink.href = `https://raider.io/mythic-plus-runs/${season}/${item.min.id.toString()}`;
-        minLink.textContent = item.min.level.toString();
+        minLink.href = item.min ? `https://raider.io/mythic-plus-runs/${season}/${item.min.id.toString()}` : '';
+        minLink.textContent = item.min ? item.min.level.toString() : '';
         min.appendChild(minLink);
 
         const max = document.createElement('td');
         tr.appendChild(max);
 
         const maxLink = document.createElement('a');
-        maxLink.href = `https://raider.io/mythic-plus-runs/${season}/${item.max.id.toString()}`;
-        maxLink.textContent = item.max.level.toString();
+        maxLink.href = item.max ? `https://raider.io/mythic-plus-runs/${season}/${item.max.id.toString()}` : '';
+        maxLink.textContent = item.max ? item.max.level.toString() : '';
         max.appendChild(maxLink);
 
         const mean = document.createElement('td');
