@@ -110,7 +110,7 @@ interface PatronLevel {
     slug: string,
 }
 
-export default interface Specs {
+export default interface Characters {
     rankings: {
         rankedCharacters: {
             rank: number,

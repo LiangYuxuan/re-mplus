@@ -45,7 +45,7 @@ interface Realm {
     wowRealmId: number,
     wowConnectedRealmId: number,
     name: string,
-    altName: null,
+    altName?: string,
     slug: string,
     altSlug: string,
     locale: string,

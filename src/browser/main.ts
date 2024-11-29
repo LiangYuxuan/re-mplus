@@ -171,18 +171,32 @@ const renderDetailTable = (
         const min = document.createElement('td');
         tr.appendChild(min);
 
-        const minLink = document.createElement('a');
-        minLink.href = item.min ? `https://raider.io/mythic-plus-runs/${season}/${item.min.id.toString()}` : '';
-        minLink.textContent = item.min ? item.min.level.toString() : '';
-        min.appendChild(minLink);
+        if (item.min?.type === 'run') {
+            const minLink = document.createElement('a');
+            minLink.href = `https://raider.io/mythic-plus-runs/${season}/${item.min.id.toString()}`;
+            minLink.textContent = item.min.level.toString();
+            min.appendChild(minLink);
+        } else if (item.min?.type === 'character') {
+            const minLink = document.createElement('a');
+            minLink.href = `https://raider.io/characters/${item.min.path}`;
+            minLink.textContent = item.min.score.toString();
+            min.appendChild(minLink);
+        }
 
         const max = document.createElement('td');
         tr.appendChild(max);
 
-        const maxLink = document.createElement('a');
-        maxLink.href = item.max ? `https://raider.io/mythic-plus-runs/${season}/${item.max.id.toString()}` : '';
-        maxLink.textContent = item.max ? item.max.level.toString() : '';
-        max.appendChild(maxLink);
+        if (item.max?.type === 'run') {
+            const maxLink = document.createElement('a');
+            maxLink.href = `https://raider.io/mythic-plus-runs/${season}/${item.max.id.toString()}`;
+            maxLink.textContent = item.max.level.toString();
+            max.appendChild(maxLink);
+        } else if (item.max?.type === 'character') {
+            const maxLink = document.createElement('a');
+            maxLink.href = `https://raider.io/characters/${item.max.path}`;
+            maxLink.textContent = item.max.score.toString();
+            max.appendChild(maxLink);
+        }
 
         const mean = document.createElement('td');
         mean.textContent = item.mean.toFixed(1);

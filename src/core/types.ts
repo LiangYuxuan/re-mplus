@@ -1,14 +1,24 @@
-export interface BasicRun {
+export interface Run {
+    type: 'run',
     id: number,
+    mapID: number,
     level: number,
     score: number,
+    specs: number[],
+}
+
+export interface Character {
+    type: 'character',
+    path: string,
+    score: number,
+    spec: number,
 }
 
 export interface AnalyseInput {
     key: number,
     scores: number[],
-    min?: BasicRun,
-    max?: BasicRun,
+    min?: Run | Character,
+    max?: Run | Character,
 }
 
 export interface RioData {
@@ -25,8 +35,8 @@ export interface AnalyseResult {
     sd: number,
     ci: number,
     tier: string,
-    max?: BasicRun,
-    min?: BasicRun,
+    min?: Run | Character,
+    max?: Run | Character,
 }
 
 export interface AnalyseDataFile {
