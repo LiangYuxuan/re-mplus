@@ -25,9 +25,6 @@ const calculateStandardDeviation = (data: number[]) => {
 };
 
 export default (data: AnalyseInput[]): AnalyseResult[] => {
-    const allScore = data.flatMap(({ scores }) => scores);
-    const allScoreSD = allScore.length >= 2 ? calculateStandardDeviation(allScore) : 1;
-
     const analyzedData = data.map(({
         key, scores, min, max,
     }): AnalyseResult => {
@@ -57,15 +54,14 @@ export default (data: AnalyseInput[]): AnalyseResult[] => {
             };
         }
 
-        const sorted = scores.toSorted((a, b) => b - a);
-        const sd = calculateStandardDeviation(sorted);
-        const mean = calculateAverage(sorted);
-        const lowerBound = -tInterval[sorted.length - 1];
-        const ci = mean + ((lowerBound * allScoreSD) / Math.sqrt(sorted.length));
+        const sd = calculateStandardDeviation(scores);
+        const mean = calculateAverage(scores);
+        const lowerBound = -tInterval(scores.length - 1);
+        const ci = mean + ((lowerBound * sd) / Math.sqrt(scores.length));
 
         const res: AnalyseResult = {
             key,
-            n: sorted.length,
+            n: scores.length,
             mean,
             sd,
             ci,

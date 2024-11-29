@@ -31,6 +31,7 @@ export interface AnalyseResult {
 
 export interface AnalyseDataFile {
     date: string,
+    season: string,
     dungeonsByRuns: AnalyseResult[],
     specsByRuns: AnalyseResult[],
     specsByCharacters: AnalyseResult[],

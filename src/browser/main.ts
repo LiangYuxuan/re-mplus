@@ -1,6 +1,5 @@
 /* eslint-disable import-x/no-unused-modules */
 
-import { RIO_SEASON } from '../core/config.ts';
 import specializations from '../data/generated/specializations.json' with { type: 'json' };
 
 import {
@@ -99,6 +98,7 @@ const buttonData: ButtonData[] = [
 
 const renderDetailTable = (
     parent: HTMLDivElement,
+    season: string,
     title: string,
     prefix: 'dungeon' | 'specialization',
     data: AnalyseResult[],
@@ -172,7 +172,7 @@ const renderDetailTable = (
         tr.appendChild(min);
 
         const minLink = document.createElement('a');
-        minLink.href = `https://raider.io/mythic-plus-runs/${RIO_SEASON}/${item.min.id.toString()}`;
+        minLink.href = `https://raider.io/mythic-plus-runs/${season}/${item.min.id.toString()}`;
         minLink.textContent = item.min.level.toString();
         min.appendChild(minLink);
 
@@ -180,7 +180,7 @@ const renderDetailTable = (
         tr.appendChild(max);
 
         const maxLink = document.createElement('a');
-        maxLink.href = `https://raider.io/mythic-plus-runs/${RIO_SEASON}/${item.max.id.toString()}`;
+        maxLink.href = `https://raider.io/mythic-plus-runs/${season}/${item.max.id.toString()}`;
         maxLink.textContent = item.max.level.toString();
         max.appendChild(maxLink);
 
@@ -211,13 +211,13 @@ const renderPage = (
         tierContent.classList.remove('tier-list');
         tierContent.classList.add('tier-detail');
 
-        renderDetailTable(tierContent, getLocaleString('dungeon'), 'dungeon', dungeons);
+        renderDetailTable(tierContent, dataFile.season, getLocaleString('dungeon'), 'dungeon', dungeons);
 
         roleDisplayOrder.forEach((role) => {
             const roleSpecs = specs.filter((spec) => specializations
                 .find((s) => s.id === spec.key)?.role === role);
 
-            renderDetailTable(tierContent, getLocaleString(role), 'specialization', roleSpecs);
+            renderDetailTable(tierContent, dataFile.season, getLocaleString(role), 'specialization', roleSpecs);
         });
     } else {
         tierContent.classList.remove('tier-detail');

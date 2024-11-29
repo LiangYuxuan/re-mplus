@@ -3,14 +3,13 @@ import assert from 'node:assert';
 import { mapLimit, retry } from 'async';
 
 import {
-    ANALYSE_LIMIT,
     RIO_MAX_PAGE,
     RIO_REGIONS,
     RIO_EXPANSION_ID,
     RIO_SEASON,
     RIO_MIN_LEVEL,
     RIO_MIN_SCORE,
-} from '../core/config.ts';
+} from './config.ts';
 import specializations from '../data/generated/specializations.json' with { type: 'json' };
 
 import type { BasicRun, AnalyseInput, RioData } from '../core/types.ts';
@@ -98,8 +97,7 @@ export default async (): Promise<RioData> => {
     const dungeonsByRuns: AnalyseInput[] = dungeonMapIDs.map((key) => {
         const runs = topRuns
             .filter((run) => run.mapID === key)
-            .toSorted((a, b) => b.score - a.score)
-            .slice(0, ANALYSE_LIMIT);
+            .toSorted((a, b) => b.score - a.score);
         const scores = runs.map((run) => run.score);
         const max = runs[0];
         const min = runs[runs.length - 1];
@@ -115,8 +113,7 @@ export default async (): Promise<RioData> => {
     const specsByRuns: AnalyseInput[] = specializations.map(({ id }) => {
         const runs = topRuns
             .filter((run) => run.specs.includes(id))
-            .toSorted((a, b) => b.score - a.score)
-            .slice(0, ANALYSE_LIMIT);
+            .toSorted((a, b) => b.score - a.score);
         const scores = runs.map((run) => run.score);
         const max = runs[0];
         const min = runs[runs.length - 1];
@@ -153,7 +150,7 @@ export default async (): Promise<RioData> => {
             }
 
             characters.forEach(({ score, runs }) => {
-                if (scores.length < ANALYSE_LIMIT && runs.length >= dungeonCount) {
+                if (runs.length >= dungeonCount) {
                     const isAllDungeonsValid = runs
                         .every((run) => run.mythicLevel >= RIO_MIN_LEVEL
                             && run.score >= RIO_MIN_SCORE);
@@ -174,10 +171,6 @@ export default async (): Promise<RioData> => {
                     }
                 }
             });
-
-            if (scores.length >= ANALYSE_LIMIT) {
-                break;
-            }
 
             if (characters[characters.length - 1].score < RIO_MIN_SCORE * dungeonCount) {
                 break;
