@@ -1,4 +1,4 @@
-export const RIO_MAX_PAGE = 25;
+export const RIO_MAX_PAGE = 50;
 
 export const RIO_REGIONS = [
     'us',
