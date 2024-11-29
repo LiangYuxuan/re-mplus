@@ -177,14 +177,28 @@ export default async (): Promise<RioData> => {
             }
         }
 
-        const min = allRuns.reduce(
-            (prev, run) => (run.score < prev.score ? run : prev),
-            allRuns[0],
-        );
-        const max = allRuns.reduce(
-            (prev, run) => (run.score > prev.score ? run : prev),
-            allRuns[0],
-        );
+        const min = allRuns.reduce((prev, run) => {
+            if (run.level < prev.level) {
+                return run;
+            }
+
+            if (run.level === prev.level && run.score < prev.score) {
+                return run;
+            }
+
+            return prev;
+        }, allRuns[0]);
+        const max = allRuns.reduce((prev, run) => {
+            if (run.level > prev.level) {
+                return run;
+            }
+
+            if (run.level === prev.level && run.score > prev.score) {
+                return run;
+            }
+
+            return prev;
+        }, allRuns[0]);
 
         return {
             key,
