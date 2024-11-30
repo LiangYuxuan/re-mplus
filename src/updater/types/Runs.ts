@@ -146,16 +146,28 @@ interface Run {
 
 export default interface Runs {
     rankings: {
-        rank: number,
-        score: number,
-        run: Run,
-    }[],
-    leaderboard_url: string,
-    params: {
-        season: string,
-        region: string,
-        dungeon: string,
-        affixes: string,
-        page: number,
+        rankedGroups: {
+            rank: number,
+            score: number,
+            run: Run,
+        }[]
+        ui: {
+            region: string,
+            season: string,
+            dungeon: string,
+            strict: boolean,
+            page: number,
+            limit: number,
+            minMythicLevel: number,
+            maxMythicLevel: number,
+            eventId: number,
+            faction: string,
+            realm: string,
+            period: number,
+            recent: boolean,
+            lastPage: number,
+        },
+        region: Region,
+        dungeon: Dungeon,
     }
 }

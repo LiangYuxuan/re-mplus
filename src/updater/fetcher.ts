@@ -17,7 +17,7 @@ const getDungeonTopRuns = async (
     dungeon: string,
     page = 0,
 ): Promise<Runs> => {
-    const response = await fetch(`https://raider.io/api/v1/mythic-plus/runs?region=world&season=${season}&dungeon=${dungeon}&affixes=all&page=${page.toString()}`);
+    const response = await fetch(`https://raider.io/api/mythic-plus/rankings/runs?region=world&season=${season}&dungeon=${dungeon}&strict=true&page=${page.toString()}&limit=0&minMythicLevel=0&maxMythicLevel=0&eventId=0&faction=&realm=&period=0&recent=false`);
     const data = await response.json() as Runs;
     return data;
 };
@@ -68,11 +68,13 @@ export default async (
                 async () => getDungeonTopRuns(season, dungeon, page),
             );
 
-            if (data.rankings.length === 0) {
+            const runs = data.rankings.rankedGroups;
+
+            if (runs.length === 0) {
                 break;
             }
 
-            data.rankings.forEach(({ score, run }) => {
+            runs.forEach(({ score, run }) => {
                 const id = run.keystone_run_id;
                 const level = run.mythic_level;
                 const mapID = run.dungeon.map_challenge_mode_id;
@@ -90,7 +92,7 @@ export default async (
                 }
             });
 
-            if (data.rankings[data.rankings.length - 1].run.mythic_level < minLevel) {
+            if (runs[runs.length - 1].run.mythic_level < minLevel) {
                 break;
             }
         }
