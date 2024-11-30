@@ -199,21 +199,15 @@ export default async (
         };
     });
 
+    const dungeonMinLevels = dungeonsByRuns
+        .map((d) => (d.min?.type === 'run' ? d.min.level : undefined))
+        .filter((level) => level !== undefined);
+
     const data: RioData = {
         date: new Date().toISOString(),
         dungeonMinLevel: {
-            min: Math.min(
-                2,
-                ...dungeonsByRuns
-                    .map((d) => (d.min?.type === 'run' ? d.min.level : undefined))
-                    .filter((level) => level !== undefined),
-            ),
-            max: Math.max(
-                2,
-                ...dungeonsByRuns
-                    .map((d) => (d.max?.type === 'run' ? d.max.level : undefined))
-                    .filter((level) => level !== undefined),
-            ),
+            min: dungeonMinLevels.length === 0 ? 0 : Math.min(...dungeonMinLevels),
+            max: dungeonMinLevels.length === 0 ? 0 : Math.max(...dungeonMinLevels),
         },
         characterMinScore,
         dungeonsByRuns,
