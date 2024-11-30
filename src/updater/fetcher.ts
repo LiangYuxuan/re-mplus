@@ -4,18 +4,20 @@ import { mapLimit, retry } from 'async';
 
 import specializations from '../data/generated/specializations.json' with { type: 'json' };
 
-import type { Run, Character, AnalyseInput, RioData } from '../core/types.ts';
-import type Runs from './types/Runs.ts';
 import type Characters from './types/Characters.ts';
+import type Runs from './types/Runs.ts';
+import type Specs from './types/Specs.ts';
 import type StaticData from './types/StaticData.ts';
+import type {
+    Run, Character, AnalyseInput, RioData,
+} from '../core/types.ts';
 
 const getDungeonTopRuns = async (
     season: string,
-    region: string,
     dungeon: string,
     page = 0,
 ): Promise<Runs> => {
-    const response = await fetch(`https://raider.io/api/v1/mythic-plus/runs?season=${season}&region=${region}&dungeon=${dungeon}&affixes=all&page=${page.toString()}`);
+    const response = await fetch(`https://raider.io/api/v1/mythic-plus/runs?region=world&season=${season}&dungeon=${dungeon}&affixes=all&page=${page.toString()}`);
     const data = await response.json() as Runs;
     return data;
 };
@@ -29,10 +31,20 @@ const getTopCharacters = async (
     return data;
 };
 
+const getSpecTopCharacters = async (
+    season: string,
+    className: string,
+    specName: string,
+    page = 0,
+): Promise<Specs> => {
+    const response = await fetch(`https://raider.io/api/mythic-plus/rankings/specs?season=${season}&region=world&class=${className}&spec=${specName}&page=${page.toString()}`);
+    const data = await response.json() as Specs;
+    return data;
+};
+
 export default async (
     expansion: number,
     season: string,
-    regions: string[],
     maxPage: number,
     minLevel: number,
     minScore: number,
@@ -46,44 +58,42 @@ export default async (
     const dungeonMapIDs = seasonStaticData.dungeons.map((d) => d.challenge_mode_id);
 
     const topRuns: Run[] = [];
-    await mapLimit(regions, 1, async (region: string) => {
-        await mapLimit(dungeonSlugs, 1, async (dungeon: string) => {
-            for (let page = 0; page < maxPage; page += 1) {
-                console.info(`Fetching ${region} ${dungeon} page ${(page + 1).toString()}/${maxPage.toString()}`);
+    await mapLimit(dungeonSlugs, 1, async (dungeon: string) => {
+        for (let page = 0; page < maxPage; page += 1) {
+            console.info(`Fetching ${dungeon} page ${(page + 1).toString()}/${maxPage.toString()}`);
 
-                // eslint-disable-next-line no-await-in-loop
-                const data = await retry(
-                    { times: 3, interval: 1000 },
-                    async () => getDungeonTopRuns(season, region, dungeon, page),
-                );
+            // eslint-disable-next-line no-await-in-loop
+            const data = await retry(
+                { times: 3, interval: 1000 },
+                async () => getDungeonTopRuns(season, dungeon, page),
+            );
 
-                if (data.rankings.length === 0) {
-                    break;
-                }
-
-                data.rankings.forEach(({ score, run }) => {
-                    const id = run.keystone_run_id;
-                    const level = run.mythic_level;
-                    const mapID = run.dungeon.map_challenge_mode_id;
-                    const specs = run.roster.map(({ character }) => character.spec.id);
-
-                    if (level >= minLevel) {
-                        topRuns.push({
-                            type: 'run',
-                            id,
-                            mapID,
-                            level,
-                            score,
-                            specs,
-                        });
-                    }
-                });
-
-                if (data.rankings[data.rankings.length - 1].run.mythic_level < minLevel) {
-                    break;
-                }
+            if (data.rankings.length === 0) {
+                break;
             }
-        });
+
+            data.rankings.forEach(({ score, run }) => {
+                const id = run.keystone_run_id;
+                const level = run.mythic_level;
+                const mapID = run.dungeon.map_challenge_mode_id;
+                const specs = run.roster.map(({ character }) => character.spec.id);
+
+                if (level >= minLevel) {
+                    topRuns.push({
+                        type: 'run',
+                        id,
+                        mapID,
+                        level,
+                        score,
+                        specs,
+                    });
+                }
+            });
+
+            if (data.rankings[data.rankings.length - 1].run.mythic_level < minLevel) {
+                break;
+            }
+        }
     });
 
     const dungeonsByRuns: AnalyseInput[] = dungeonMapIDs.map((key) => {
@@ -118,50 +128,61 @@ export default async (
         };
     });
 
-    const topCharacters: Character[] = [];
-    const characterMaxPage = maxPage * regions.length * 5;
-    const characterScoreThreshold = minScore * dungeonCount;
-    for (let page = 0; page < characterMaxPage; page += 1) {
-        console.info(`Fetching top characters page ${(page + 1).toString()}/${characterMaxPage.toString()}`);
+    const characterMaxPage = maxPage * 5;
+    const minCharactersData = await retry(
+        { times: 3, interval: 1000 },
+        async () => getTopCharacters(season, characterMaxPage - 1),
+    );
+    const minCharacterScore = minCharactersData.rankings.rankedCharacters.length > 0
+        ? minCharactersData.rankings.rankedCharacters[
+            minCharactersData.rankings.rankedCharacters.length - 1
+        ].score
+        : 0;
+    const characterScoreThreshold = Math.max(minScore * dungeonCount, minCharacterScore);
 
-        // eslint-disable-next-line no-await-in-loop
-        const data = await retry(
-            { times: 3, interval: 1000 },
-            async () => getTopCharacters(season, page),
-        );
+    const specsByCharacters = await mapLimit(specializations, 1, async (
+        { id, className, specName }: typeof specializations[number],
+    ): Promise<AnalyseInput> => {
+        const specCharacters: Character[] = [];
 
-        const characters = data.rankings.rankedCharacters;
+        for (let page = 0; page < characterMaxPage; page += 1) {
+            console.info(`Fetching ${specName} ${className} page ${(page + 1).toString()}/${characterMaxPage.toString()}`);
 
-        if (characters.length === 0) {
-            break;
-        }
+            // eslint-disable-next-line no-await-in-loop
+            const data = await retry(
+                { times: 3, interval: 1000 },
+                async () => getSpecTopCharacters(season, className, specName, page),
+            );
 
-        characters.forEach(({ score, runs, character: { path, spec: { id } } }) => {
-            if (score >= characterScoreThreshold && runs.length >= dungeonCount) {
-                const isAllDungeonsValid = runs.every((run) => run.mythicLevel >= minLevel);
+            const characters = data.rankings.rankedCharacters;
 
-                if (isAllDungeonsValid) {
-                    topCharacters.push({
-                        type: 'character',
-                        path: path.replace(/^\/characters\//, ''),
-                        score,
-                        spec: id,
-                    });
-                }
+            if (characters.length === 0) {
+                break;
             }
-        });
 
-        if (characters[characters.length - 1].score < characterScoreThreshold) {
-            break;
+            characters.forEach(({ score, runs, character: { path } }) => {
+                if (score >= characterScoreThreshold && runs.length >= dungeonCount) {
+                    const isAllDungeonsValid = runs.every((run) => run.mythicLevel >= minLevel);
+
+                    if (isAllDungeonsValid) {
+                        specCharacters.push({
+                            type: 'character',
+                            path: path.replace(/^\/characters\//, ''),
+                            score,
+                            spec: id,
+                        });
+                    }
+                }
+            });
+
+            if (characters[characters.length - 1].score < characterScoreThreshold) {
+                break;
+            }
         }
-    }
 
-    const specsByCharacters = specializations.map(({ id }): AnalyseInput => {
-        const characters = topCharacters
-            .filter((character) => character.spec === id);
-        const scores = characters.map((character) => character.score);
-        const max = characters[0];
-        const min = characters[characters.length - 1];
+        const scores = specCharacters.map((character) => character.score);
+        const max = specCharacters[0];
+        const min = specCharacters[specCharacters.length - 1];
 
         return {
             key: id,

@@ -1,12 +1,4 @@
-export const RIO_MAX_PAGE = 50;
-
-export const RIO_REGIONS = [
-    'us',
-    'eu',
-    'kr',
-    'tw',
-    'cn',
-];
+export const RIO_MAX_PAGE = 250;
 
 export const RIO_EXPANSION_ID = 10;
 
