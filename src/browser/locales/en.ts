@@ -7,7 +7,7 @@ export default {
     language: 'en',
     strings: new Map([
         ['title', 'Mythic Plus Tier List'],
-        ['based-on-region-best-run', 'Based on Region Best Run'],
+        ['based-on-dungeon-best-run', 'Based on Dungeon Best Run'],
         ['based-on-character-best-record', 'Based on Character Best Record'],
         ['button-refresh', 'Refresh'],
         ['button-switch', 'Switch Data Source'],

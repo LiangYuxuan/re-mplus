@@ -27,7 +27,7 @@ interface SelectorData {
 
 const selectorData: SelectorData[] = [
     {
-        label: () => getLocaleString('based-on-region-best-run'),
+        label: () => getLocaleString('based-on-dungeon-best-run'),
         select: (data: AnalyseDataFile) => data.specsByRuns,
     },
     {

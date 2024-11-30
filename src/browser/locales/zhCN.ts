@@ -7,7 +7,7 @@ export default {
     language: 'zh-CN',
     strings: new Map([
         ['title', '史诗钥石排行榜'],
-        ['based-on-region-best-run', '基于区域最佳记录'],
+        ['based-on-dungeon-best-run', '基于地下城最佳记录'],
         ['based-on-character-best-record', '基于角色最佳记录'],
         ['button-refresh', '刷新'],
         ['button-switch', '切换数据来源'],
