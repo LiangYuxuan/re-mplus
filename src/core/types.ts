@@ -23,7 +23,11 @@ export interface AnalyseInput {
 
 export interface RioData {
     date: string,
-    characterScoreThreshold: number,
+    dungeonMinLevel: {
+        min: number,
+        max: number,
+    },
+    characterMinScore: number,
     dungeonsByRuns: AnalyseInput[],
     specsByRuns: AnalyseInput[],
     specsByCharacters: AnalyseInput[],
@@ -42,8 +46,15 @@ export interface AnalyseResult {
 
 export interface AnalyseDataFile {
     date: string,
+    expansion: number,
     season: string,
-    characterScoreThreshold: number,
+    maxPage: number,
+    minLevel: number,
+    dungeonMinLevel: {
+        min: number,
+        max: number,
+    },
+    characterMinScore: number,
     dungeonsByRuns: AnalyseResult[],
     specsByRuns: AnalyseResult[],
     specsByCharacters: AnalyseResult[],

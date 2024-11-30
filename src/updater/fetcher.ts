@@ -5,6 +5,7 @@ import { mapLimit, retry } from 'async';
 import specializations from '../data/generated/specializations.json' with { type: 'json' };
 
 import type Characters from './types/Characters.ts';
+import type Cutoffs from './types/Cutoffs.ts';
 import type Runs from './types/Runs.ts';
 import type Specs from './types/Specs.ts';
 import type StaticData from './types/StaticData.ts';
@@ -47,11 +48,15 @@ export default async (
     season: string,
     maxPage: number,
     minLevel: number,
-    minScore: number,
 ): Promise<RioData> => {
     const staticData = await (await fetch(`https://raider.io/api/v1/mythic-plus/static-data?expansion_id=${expansion.toString()}`)).json() as StaticData;
     const seasonStaticData = staticData.seasons.find((s) => s.slug === season);
     assert(seasonStaticData, `Season ${season} not found`);
+
+    const cutoffsData = await (await fetch(`https://raider.io/api/v1/mythic-plus/season-cutoffs?season=${season}&region=us`)).json() as Cutoffs;
+    // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+    const allMinLevelScore = cutoffsData.cutoffs[`allTimed${minLevel}`].score;
+    assert(allMinLevelScore, `Cutoffs for level ${minLevel.toString()} not found`);
 
     const dungeonCount = seasonStaticData.dungeons.length;
     const dungeonSlugs = seasonStaticData.dungeons.map((d) => d.slug);
@@ -131,16 +136,16 @@ export default async (
     });
 
     const characterMaxPage = maxPage * 5;
-    const minCharactersData = await retry(
+    const lastCharactersData = await retry(
         { times: 3, interval: 1000 },
         async () => getTopCharacters(season, characterMaxPage - 1),
     );
-    const minCharacterScore = minCharactersData.rankings.rankedCharacters.length > 0
-        ? minCharactersData.rankings.rankedCharacters[
-            minCharactersData.rankings.rankedCharacters.length - 1
+    const lastCharacterScore = lastCharactersData.rankings.rankedCharacters.length > 0
+        ? lastCharactersData.rankings.rankedCharacters[
+            lastCharactersData.rankings.rankedCharacters.length - 1
         ].score
         : 0;
-    const characterScoreThreshold = Math.max(minScore * dungeonCount, minCharacterScore);
+    const characterMinScore = Math.max(allMinLevelScore, lastCharacterScore);
 
     const specsByCharacters = await mapLimit(specializations, 1, async (
         { id, className, specName }: typeof specializations[number],
@@ -163,7 +168,7 @@ export default async (
             }
 
             characters.forEach(({ score, runs, character: { path } }) => {
-                if (score >= characterScoreThreshold && runs.length >= dungeonCount) {
+                if (score >= characterMinScore && runs.length >= dungeonCount) {
                     const isAllDungeonsValid = runs.every((run) => run.mythicLevel >= minLevel);
 
                     if (isAllDungeonsValid) {
@@ -177,7 +182,7 @@ export default async (
                 }
             });
 
-            if (characters[characters.length - 1].score < characterScoreThreshold) {
+            if (characters[characters.length - 1].score < characterMinScore) {
                 break;
             }
         }
@@ -196,7 +201,21 @@ export default async (
 
     const data: RioData = {
         date: new Date().toISOString(),
-        characterScoreThreshold,
+        dungeonMinLevel: {
+            min: Math.min(
+                2,
+                ...dungeonsByRuns
+                    .map((d) => (d.min?.type === 'run' ? d.min.level : undefined))
+                    .filter((level) => level !== undefined),
+            ),
+            max: Math.max(
+                2,
+                ...dungeonsByRuns
+                    .map((d) => (d.max?.type === 'run' ? d.max.level : undefined))
+                    .filter((level) => level !== undefined),
+            ),
+        },
+        characterMinScore,
         dungeonsByRuns,
         specsByRuns,
         specsByCharacters,

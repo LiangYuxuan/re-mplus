@@ -10,7 +10,6 @@ import {
     RIO_EXPANSION_ID,
     RIO_SEASON,
     RIO_MIN_LEVEL,
-    RIO_MIN_SCORE,
 } from './config.ts';
 import fetcher from './fetcher.ts';
 
@@ -23,19 +22,23 @@ fetcher(
     RIO_SEASON,
     RIO_MAX_PAGE,
     RIO_MIN_LEVEL,
-    RIO_MIN_SCORE,
 )
     .then(({
         date,
-        characterScoreThreshold,
+        dungeonMinLevel,
+        characterMinScore,
         dungeonsByRuns,
         specsByRuns,
         specsByCharacters,
     }) => {
         const data: AnalyseDataFile = {
             date,
+            expansion: RIO_EXPANSION_ID,
             season: RIO_SEASON,
-            characterScoreThreshold,
+            maxPage: RIO_MAX_PAGE,
+            minLevel: RIO_MIN_LEVEL,
+            dungeonMinLevel,
+            characterMinScore,
             dungeonsByRuns: analyse(dungeonsByRuns),
             specsByRuns: analyse(specsByRuns),
             specsByCharacters: analyse(specsByCharacters),
