@@ -11,7 +11,7 @@ export default [
     })),
     ...node.map((config) => ({
         ...config,
-        files: ['src/fetcher/**/*.ts'],
+        files: ['src/updater/**/*.ts'],
     })),
     ...browser.map((config) => ({
         ...config,
