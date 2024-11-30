@@ -27,6 +27,7 @@ fetcher(
 )
     .then(({
         date,
+        characterScoreThreshold,
         dungeonsByRuns,
         specsByRuns,
         specsByCharacters,
@@ -34,6 +35,7 @@ fetcher(
         const data: AnalyseDataFile = {
             date,
             season: RIO_SEASON,
+            characterScoreThreshold,
             dungeonsByRuns: analyse(dungeonsByRuns),
             specsByRuns: analyse(specsByRuns),
             specsByCharacters: analyse(specsByCharacters),

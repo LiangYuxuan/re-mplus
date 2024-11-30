@@ -194,6 +194,7 @@ export default async (
 
     const data: RioData = {
         date: new Date().toISOString(),
+        characterScoreThreshold,
         dungeonsByRuns,
         specsByRuns,
         specsByCharacters,
