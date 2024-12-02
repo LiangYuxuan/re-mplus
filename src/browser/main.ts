@@ -20,19 +20,71 @@ interface ButtonData {
     onClick?: () => void,
 }
 
+interface ConfigDisplay {
+    name: string,
+    value: string,
+}
+
 interface SelectorData {
     label: () => string,
     select: (data: AnalyseDataFile) => AnalyseResult[],
+    configs: (data: AnalyseDataFile) => ConfigDisplay[],
 }
 
 const selectorData: SelectorData[] = [
     {
         label: () => getLocaleString('based-on-dungeon-best-run'),
         select: (data: AnalyseDataFile) => data.specsByRuns,
+        configs: (data: AnalyseDataFile) => ([
+            {
+                name: getLocaleString('expansion'),
+                value: (data.expansion + 1).toString(),
+            },
+            {
+                name: getLocaleString('season'),
+                value: data.season,
+            },
+            {
+                name: getLocaleString('config-max-page'),
+                value: data.maxPage.toString(),
+            },
+            {
+                name: getLocaleString('config-min-level'),
+                value: data.minLevel.toString(),
+            },
+            {
+                name: getLocaleString('dungeon-min-level'),
+                value: data.dungeonMinLevel.min === data.dungeonMinLevel.max
+                    ? data.dungeonMinLevel.min.toString()
+                    : `${data.dungeonMinLevel.min.toString()} - ${data.dungeonMinLevel.max.toString()}`,
+            },
+        ]),
     },
     {
         label: () => getLocaleString('based-on-character-best-record'),
         select: (data: AnalyseDataFile) => data.specsByCharacters,
+        configs: (data: AnalyseDataFile) => ([
+            {
+                name: getLocaleString('expansion'),
+                value: (data.expansion + 1).toString(),
+            },
+            {
+                name: getLocaleString('season'),
+                value: data.season,
+            },
+            {
+                name: getLocaleString('config-max-page'),
+                value: data.maxPage.toString(),
+            },
+            {
+                name: getLocaleString('config-min-level'),
+                value: data.minLevel.toString(),
+            },
+            {
+                name: getLocaleString('character-min-score'),
+                value: data.characterMinScore.toString(),
+            },
+        ]),
     },
 ];
 
@@ -95,6 +147,36 @@ const buttonData: ButtonData[] = [
         },
     },
 ];
+
+const renderConfigTable = (
+    parent: HTMLDivElement,
+    displays: ConfigDisplay[],
+) => {
+    const table = document.createElement('table');
+    table.classList.add('table');
+    parent.appendChild(table);
+
+    const thead = document.createElement('thead');
+    table.appendChild(thead);
+
+    const theadTr = document.createElement('tr');
+    thead.appendChild(theadTr);
+
+    displays.forEach((config) => {
+        const th = document.createElement('th');
+        th.textContent = config.name;
+        theadTr.appendChild(th);
+    });
+
+    const tr = document.createElement('tr');
+    table.appendChild(tr);
+
+    displays.forEach((config) => {
+        const td = document.createElement('td');
+        td.textContent = config.value;
+        tr.appendChild(td);
+    });
+};
 
 const renderDetailTable = (
     parent: HTMLDivElement,
@@ -224,6 +306,8 @@ const renderPage = (
     if (USE_DETAIL_VIEW) {
         tierContent.classList.remove('tier-list');
         tierContent.classList.add('tier-detail');
+
+        renderConfigTable(tierContent, selectorData[SELECTOR_USING_INDEX].configs(dataFile));
 
         renderDetailTable(tierContent, dataFile.season, getLocaleString('dungeon'), 'dungeon', dungeons);
 
