@@ -45,12 +45,15 @@ export default async (
     season: keyof typeof seasons,
     runMinLevel: number,
     runMinScore: number,
+    ignoreSpecs: number[] = [],
 ): Promise<RioData> => {
     const seasonData = seasons[season];
 
     const dungeonCount = seasonData.dungeons.length;
     const dungeonSlugs = seasonData.dungeons.map((d) => d.slug);
     const dungeonMapIDs = seasonData.dungeons.map((d) => d.challengeMapID);
+
+    const usingSpecs = specializations.filter(({ id }) => !ignoreSpecs.includes(id));
 
     const topRuns: Run[] = [];
     await mapLimit(dungeonSlugs, 1, async (dungeon: string) => {
@@ -109,7 +112,7 @@ export default async (
         };
     });
 
-    const specsByRuns: AnalyseInput[] = specializations.map(({ id }) => {
+    const specsByRuns: AnalyseInput[] = usingSpecs.map(({ id }) => {
         const runs = topRuns
             .filter((run) => run.specs.includes(id))
             .toSorted((a, b) => b.score - a.score);
@@ -137,8 +140,8 @@ export default async (
         : 0;
     const characterMinScore = Math.max(runMinScore * dungeonCount, lastCharacterScore);
 
-    const specsByCharacters = await mapLimit(specializations, 1, async (
-        { id, className, specName }: typeof specializations[number],
+    const specsByCharacters = await mapLimit(usingSpecs, 1, async (
+        { id, className, specName }: typeof usingSpecs[number],
     ): Promise<AnalyseInput> => {
         const specCharacters: Character[] = [];
 

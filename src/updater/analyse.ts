@@ -18,7 +18,12 @@ import type { AnalyseDataFile } from '../core/types.ts';
 
 const outputFilePath = path.resolve(process.argv[2]);
 
-const { season, runMinLevel, runMinScore } = (() => {
+const {
+    season,
+    level: runMinLevel,
+    score: runMinScore,
+    ignoreSpecs,
+} = (() => {
     const useOldSeason = process.argv.length > 3;
     if (useOldSeason) {
         const inputSeason = process.argv[3];
@@ -27,21 +32,19 @@ const { season, runMinLevel, runMinScore } = (() => {
         }
 
         const slug = inputSeason as keyof typeof seasons;
-        const { level, score } = getSeasonInfo(slug);
+        const info = getSeasonInfo(slug);
 
         return {
             season: slug,
-            runMinLevel: level,
-            runMinScore: score,
+            ...info,
         };
     }
 
-    const { level, score } = getSeasonInfo(RIO_CURRENT_SEASON, RIO_CURRENT_SEASON_MIN_LEVEL);
+    const info = getSeasonInfo(RIO_CURRENT_SEASON, RIO_CURRENT_SEASON_MIN_LEVEL);
 
     return {
         season: RIO_CURRENT_SEASON,
-        runMinLevel: level,
-        runMinScore: score,
+        ...info,
     };
 })();
 
@@ -50,6 +53,7 @@ fetcher(
     season,
     runMinLevel,
     runMinScore,
+    ignoreSpecs,
 )
     .then(({
         date,
@@ -66,6 +70,7 @@ fetcher(
                 season,
                 runMinLevel,
                 runMinScore,
+                ignoreSpecs,
             },
             dungeonMinLevel,
             characterMinScore,

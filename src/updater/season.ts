@@ -14,6 +14,7 @@ interface SeasonEntry {
     prefix: string,
     rule: BlizzardScoreRule,
     maxRewardLevel: number,
+    ignoreSpecs: number[],
 }
 
 const tww1: BlizzardScoreRule = {
@@ -167,66 +168,113 @@ const seasonRules: SeasonEntry[] = [
         prefix: 'season-tww-1',
         rule: tww1,
         maxRewardLevel: 10,
+        ignoreSpecs: [],
     },
     {
         prefix: 'season-df-4',
         rule: df4,
         maxRewardLevel: 10,
+        ignoreSpecs: [],
     },
     {
         prefix: 'season-df-3',
         rule: df2,
         maxRewardLevel: 20,
+        ignoreSpecs: [],
     },
     {
         prefix: 'season-df-2',
         rule: df2,
         maxRewardLevel: 20,
+        ignoreSpecs: [],
     },
     {
         prefix: 'season-df-1',
         rule: df1,
         maxRewardLevel: 20,
+        ignoreSpecs: [
+            1473, // Augmentation Evoker
+        ],
     },
     {
         prefix: 'season-sl-4',
         rule: sl2,
         maxRewardLevel: 15,
+        ignoreSpecs: [
+            1467, // Devastation Evoker
+            1468, // Preservation Evoker
+            1473, // Augmentation Evoker
+        ],
     },
     {
         prefix: 'season-sl-3',
         rule: sl2,
         maxRewardLevel: 15,
+        ignoreSpecs: [
+            1467, // Devastation Evoker
+            1468, // Preservation Evoker
+            1473, // Augmentation Evoker
+        ],
     },
     {
         prefix: 'season-sl-2',
         rule: sl2,
         maxRewardLevel: 15,
+        ignoreSpecs: [
+            1467, // Devastation Evoker
+            1468, // Preservation Evoker
+            1473, // Augmentation Evoker
+        ],
     },
     {
         prefix: 'season-sl-1',
         rule: rio,
         maxRewardLevel: 15,
+        ignoreSpecs: [
+            1467, // Devastation Evoker
+            1468, // Preservation Evoker
+            1473, // Augmentation Evoker
+        ],
     },
     {
         prefix: 'season-bfa-4',
         rule: rio,
         maxRewardLevel: 15,
+        ignoreSpecs: [
+            1467, // Devastation Evoker
+            1468, // Preservation Evoker
+            1473, // Augmentation Evoker
+        ],
     },
     {
         prefix: 'season-bfa-3',
         rule: rio,
         maxRewardLevel: 10,
+        ignoreSpecs: [
+            1467, // Devastation Evoker
+            1468, // Preservation Evoker
+            1473, // Augmentation Evoker
+        ],
     },
     {
         prefix: 'season-bfa-2',
         rule: rio,
         maxRewardLevel: 10,
+        ignoreSpecs: [
+            1467, // Devastation Evoker
+            1468, // Preservation Evoker
+            1473, // Augmentation Evoker
+        ],
     },
     {
         prefix: 'season-bfa-1',
         rule: rio,
         maxRewardLevel: 10,
+        ignoreSpecs: [
+            1467, // Devastation Evoker
+            1468, // Preservation Evoker
+            1473, // Augmentation Evoker
+        ],
     },
 ];
 
@@ -239,10 +287,11 @@ const getSeasonInfo = (
         return {
             level: overrideLevel,
             score: 250, // Keystone Master
+            ignoreSpecs: [],
         };
     }
 
-    const { rule, maxRewardLevel } = entry;
+    const { rule, maxRewardLevel, ignoreSpecs } = entry;
     const { baseScores, levelScore, allWeeksMultiplier } = rule;
     const providedLevel = baseScores.length + 1;
 
@@ -254,6 +303,7 @@ const getSeasonInfo = (
     return {
         level,
         score: score * allWeeksMultiplier,
+        ignoreSpecs,
     };
 };
 
