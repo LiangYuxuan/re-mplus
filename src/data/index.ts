@@ -13,6 +13,14 @@ import BLPReader from './blp.ts';
 import { latestVersion } from './client.ts';
 import { getMythicPlusStaticData } from './rio.ts';
 
+interface Season {
+    slug: string,
+    dungeons: {
+        challengeMapID: number,
+        slug: string,
+    }[],
+}
+
 const challengeMapID2SpecialIconID = new Map<number, number>([
     [227, 1530372], // Return to Karazhan: Lower
     [234, 1417424], // Return to Karazhan: Upper
@@ -250,11 +258,20 @@ console.info(new Date().toISOString(), '[INFO]: Parsed DB2 files');
 
 console.info(new Date().toISOString(), '[INFO]: Parsing Raider.IO static data');
 const expansionLength = expansions.getAllIDs().length;
+const seasons: Season[] = [];
 const shortNames = new Map<number, string>();
 await timesSeries(expansionLength, async (i: number) => {
     const res = await getMythicPlusStaticData(i);
     if ('seasons' in res) {
         res.seasons.forEach((season) => {
+            seasons.push({
+                slug: season.slug,
+                dungeons: season.dungeons.map(({ challenge_mode_id: challengeMapID, slug }) => ({
+                    challengeMapID,
+                    slug,
+                })),
+            });
+
             season.dungeons.forEach(({ challenge_mode_id: id, short_name: shortName }) => {
                 shortNames.set(id, shortName);
             });
@@ -282,6 +299,7 @@ const dungeons = [...challengeMapID2Name.entries()].map(([id, name]) => {
 });
 
 await fs.mkdir(path.join(root, 'src', 'data', 'generated'), { recursive: true });
+await fs.writeFile(path.join(root, 'src', 'data', 'generated', 'seasons.json'), JSON.stringify(seasons, null, 4));
 await fs.writeFile(path.join(root, 'src', 'data', 'generated', 'dungeons.json'), JSON.stringify(dungeons, null, 4));
 await fs.writeFile(path.join(root, 'src', 'data', 'generated', 'specializations.json'), JSON.stringify(specializations, null, 4));
 console.info(new Date().toISOString(), '[INFO]: Generated data files');
