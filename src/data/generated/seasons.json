@@ -1,5 +1,5 @@
-[
-    {
+{
+    "season-pre-bfa": {
         "slug": "season-pre-bfa",
         "dungeons": [
             {
@@ -56,7 +56,7 @@
             }
         ]
     },
-    {
+    "season-post-legion": {
         "slug": "season-post-legion",
         "dungeons": [
             {
@@ -113,7 +113,7 @@
             }
         ]
     },
-    {
+    "season-7.3.2": {
         "slug": "season-7.3.2",
         "dungeons": [
             {
@@ -170,7 +170,7 @@
             }
         ]
     },
-    {
+    "season-7.3.0": {
         "slug": "season-7.3.0",
         "dungeons": [
             {
@@ -227,7 +227,7 @@
             }
         ]
     },
-    {
+    "season-7.2.5": {
         "slug": "season-7.2.5",
         "dungeons": [
             {
@@ -284,7 +284,7 @@
             }
         ]
     },
-    {
+    "season-7.2.0": {
         "slug": "season-7.2.0",
         "dungeons": [
             {
@@ -341,7 +341,7 @@
             }
         ]
     },
-    {
+    "season-bfa-4-post": {
         "slug": "season-bfa-4-post",
         "dungeons": [
             {
@@ -394,7 +394,7 @@
             }
         ]
     },
-    {
+    "season-bfa-4": {
         "slug": "season-bfa-4",
         "dungeons": [
             {
@@ -447,7 +447,7 @@
             }
         ]
     },
-    {
+    "season-bfa-3-post": {
         "slug": "season-bfa-3-post",
         "dungeons": [
             {
@@ -500,7 +500,7 @@
             }
         ]
     },
-    {
+    "season-bfa-3": {
         "slug": "season-bfa-3",
         "dungeons": [
             {
@@ -545,7 +545,7 @@
             }
         ]
     },
-    {
+    "season-bfa-2-post": {
         "slug": "season-bfa-2-post",
         "dungeons": [
             {
@@ -598,7 +598,7 @@
             }
         ]
     },
-    {
+    "season-bfa-2": {
         "slug": "season-bfa-2",
         "dungeons": [
             {
@@ -651,7 +651,7 @@
             }
         ]
     },
-    {
+    "season-bfa-1": {
         "slug": "season-bfa-1",
         "dungeons": [
             {
@@ -704,7 +704,7 @@
             }
         ]
     },
-    {
+    "season-sl-4-post": {
         "slug": "season-sl-4-post",
         "dungeons": [
             {
@@ -741,7 +741,7 @@
             }
         ]
     },
-    {
+    "season-sl-4-patch-10-0": {
         "slug": "season-sl-4-patch-10-0",
         "dungeons": [
             {
@@ -778,7 +778,7 @@
             }
         ]
     },
-    {
+    "season-sl-4": {
         "slug": "season-sl-4",
         "dungeons": [
             {
@@ -815,7 +815,7 @@
             }
         ]
     },
-    {
+    "season-sl-4-legion-timewalking": {
         "slug": "season-sl-4-legion-timewalking",
         "dungeons": [
             {
@@ -844,7 +844,7 @@
             }
         ]
     },
-    {
+    "season-sl-4-break-the-meta": {
         "slug": "season-sl-4-break-the-meta",
         "dungeons": [
             {
@@ -881,7 +881,7 @@
             }
         ]
     },
-    {
+    "season-sl-3": {
         "slug": "season-sl-3",
         "dungeons": [
             {
@@ -926,7 +926,7 @@
             }
         ]
     },
-    {
+    "season-sl-3-post-925": {
         "slug": "season-sl-3-post-925",
         "dungeons": [
             {
@@ -971,7 +971,7 @@
             }
         ]
     },
-    {
+    "season-sl-3-legion-timewalking": {
         "slug": "season-sl-3-legion-timewalking",
         "dungeons": [
             {
@@ -1000,7 +1000,7 @@
             }
         ]
     },
-    {
+    "season-sl-2": {
         "slug": "season-sl-2",
         "dungeons": [
             {
@@ -1037,7 +1037,7 @@
             }
         ]
     },
-    {
+    "season-sl-2-post": {
         "slug": "season-sl-2-post",
         "dungeons": [
             {
@@ -1074,7 +1074,7 @@
             }
         ]
     },
-    {
+    "season-sl-2-post-915": {
         "slug": "season-sl-2-post-915",
         "dungeons": [
             {
@@ -1111,7 +1111,7 @@
             }
         ]
     },
-    {
+    "season-sl-2-legion-timewalking": {
         "slug": "season-sl-2-legion-timewalking",
         "dungeons": [
             {
@@ -1140,7 +1140,7 @@
             }
         ]
     },
-    {
+    "season-sl-1-post": {
         "slug": "season-sl-1-post",
         "dungeons": [
             {
@@ -1177,7 +1177,7 @@
             }
         ]
     },
-    {
+    "season-sl-1": {
         "slug": "season-sl-1",
         "dungeons": [
             {
@@ -1214,7 +1214,7 @@
             }
         ]
     },
-    {
+    "season-df-4-cutoffs": {
         "slug": "season-df-4-cutoffs",
         "dungeons": [
             {
@@ -1251,7 +1251,7 @@
             }
         ]
     },
-    {
+    "season-df-4": {
         "slug": "season-df-4",
         "dungeons": [
             {
@@ -1288,7 +1288,7 @@
             }
         ]
     },
-    {
+    "season-df-4-post": {
         "slug": "season-df-4-post",
         "dungeons": [
             {
@@ -1325,7 +1325,7 @@
             }
         ]
     },
-    {
+    "season-df-4-break-the-meta": {
         "slug": "season-df-4-break-the-meta",
         "dungeons": [
             {
@@ -1362,7 +1362,7 @@
             }
         ]
     },
-    {
+    "season-df-4-ptr": {
         "slug": "season-df-4-ptr",
         "dungeons": [
             {
@@ -1399,7 +1399,7 @@
             }
         ]
     },
-    {
+    "season-df-3": {
         "slug": "season-df-3",
         "dungeons": [
             {
@@ -1436,7 +1436,7 @@
             }
         ]
     },
-    {
+    "season-df-3-ptr": {
         "slug": "season-df-3-ptr",
         "dungeons": [
             {
@@ -1473,7 +1473,7 @@
             }
         ]
     },
-    {
+    "season-df-3-meta-vs-meta": {
         "slug": "season-df-3-meta-vs-meta",
         "dungeons": [
             {
@@ -1510,7 +1510,7 @@
             }
         ]
     },
-    {
+    "season-df-3-break-the-meta": {
         "slug": "season-df-3-break-the-meta",
         "dungeons": [
             {
@@ -1547,7 +1547,7 @@
             }
         ]
     },
-    {
+    "season-df-2": {
         "slug": "season-df-2",
         "dungeons": [
             {
@@ -1584,7 +1584,7 @@
             }
         ]
     },
-    {
+    "season-df-2-post": {
         "slug": "season-df-2-post",
         "dungeons": [
             {
@@ -1621,7 +1621,7 @@
             }
         ]
     },
-    {
+    "season-df-2-post-1017": {
         "slug": "season-df-2-post-1017",
         "dungeons": [
             {
@@ -1658,7 +1658,7 @@
             }
         ]
     },
-    {
+    "season-df-2-post-1015": {
         "slug": "season-df-2-post-1015",
         "dungeons": [
             {
@@ -1695,7 +1695,7 @@
             }
         ]
     },
-    {
+    "season-df-2-break-the-meta": {
         "slug": "season-df-2-break-the-meta",
         "dungeons": [
             {
@@ -1732,7 +1732,7 @@
             }
         ]
     },
-    {
+    "season-df-1": {
         "slug": "season-df-1",
         "dungeons": [
             {
@@ -1769,7 +1769,7 @@
             }
         ]
     },
-    {
+    "season-df-1-post": {
         "slug": "season-df-1-post",
         "dungeons": [
             {
@@ -1806,7 +1806,7 @@
             }
         ]
     },
-    {
+    "season-df-1-break-the-meta": {
         "slug": "season-df-1-break-the-meta",
         "dungeons": [
             {
@@ -1843,7 +1843,7 @@
             }
         ]
     },
-    {
+    "season-tww-1": {
         "slug": "season-tww-1",
         "dungeons": [
             {
@@ -1880,7 +1880,7 @@
             }
         ]
     },
-    {
+    "season-tww-1-beta": {
         "slug": "season-tww-1-beta",
         "dungeons": [
             {
@@ -1917,7 +1917,7 @@
             }
         ]
     },
-    {
+    "season-tww-1-break-the-meta": {
         "slug": "season-tww-1-break-the-meta",
         "dungeons": [
             {
@@ -1954,4 +1954,4 @@
             }
         ]
     }
-]
+}
