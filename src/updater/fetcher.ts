@@ -1,14 +1,11 @@
-import assert from 'node:assert';
-
 import { mapLimit, retry } from 'async';
 
+import seasons from '../data/generated/seasons.json' with { type: 'json' };
 import specializations from '../data/generated/specializations.json' with { type: 'json' };
 
 import type Characters from './types/Characters.ts';
-import type Cutoffs from './types/Cutoffs.ts';
 import type Runs from './types/Runs.ts';
 import type Specs from './types/Specs.ts';
-import type StaticData from './types/StaticData.ts';
 import type {
     Run, Character, AnalyseInput, RioData,
 } from '../core/types.ts';
@@ -44,23 +41,16 @@ const getSpecTopCharacters = async (
 };
 
 export default async (
-    expansion: number,
-    season: string,
     maxPage: number,
-    minLevel: number,
+    season: keyof typeof seasons,
+    runMinLevel: number,
+    runMinScore: number,
 ): Promise<RioData> => {
-    const staticData = await (await fetch(`https://raider.io/api/v1/mythic-plus/static-data?expansion_id=${expansion.toString()}`)).json() as StaticData;
-    const seasonStaticData = staticData.seasons.find((s) => s.slug === season);
-    assert(seasonStaticData, `Season ${season} not found`);
+    const seasonData = seasons[season];
 
-    const cutoffsData = await (await fetch(`https://raider.io/api/v1/mythic-plus/season-cutoffs?season=${season}&region=us`)).json() as Cutoffs;
-    // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-    const allMinLevelScore = cutoffsData.cutoffs[`allTimed${minLevel}`].score;
-    assert(allMinLevelScore, `Cutoffs for level ${minLevel.toString()} not found`);
-
-    const dungeonCount = seasonStaticData.dungeons.length;
-    const dungeonSlugs = seasonStaticData.dungeons.map((d) => d.slug);
-    const dungeonMapIDs = seasonStaticData.dungeons.map((d) => d.challenge_mode_id);
+    const dungeonCount = seasonData.dungeons.length;
+    const dungeonSlugs = seasonData.dungeons.map((d) => d.slug);
+    const dungeonMapIDs = seasonData.dungeons.map((d) => d.challengeMapID);
 
     const topRuns: Run[] = [];
     await mapLimit(dungeonSlugs, 1, async (dungeon: string) => {
@@ -82,14 +72,14 @@ export default async (
             runs.forEach(({ score, run }) => {
                 const id = run.keystone_run_id;
                 const level = run.mythic_level;
-                const mapID = run.dungeon.map_challenge_mode_id;
+                const challengeMapID = run.dungeon.map_challenge_mode_id;
                 const specs = run.roster.map(({ character }) => character.spec.id);
 
-                if (level >= minLevel) {
+                if (level >= runMinLevel) {
                     topRuns.push({
                         type: 'run',
                         id,
-                        mapID,
+                        challengeMapID,
                         level,
                         score,
                         specs,
@@ -97,7 +87,7 @@ export default async (
                 }
             });
 
-            if (runs[runs.length - 1].run.mythic_level < minLevel) {
+            if (runs[runs.length - 1].run.mythic_level < runMinLevel) {
                 break;
             }
         }
@@ -105,7 +95,7 @@ export default async (
 
     const dungeonsByRuns: AnalyseInput[] = dungeonMapIDs.map((key) => {
         const runs = topRuns
-            .filter((run) => run.mapID === key)
+            .filter((run) => run.challengeMapID === key)
             .toSorted((a, b) => b.score - a.score);
         const scores = runs.map((run) => run.score);
         const max = runs[0];
@@ -145,7 +135,7 @@ export default async (
             lastCharactersData.rankings.rankedCharacters.length - 1
         ].score
         : 0;
-    const characterMinScore = Math.max(allMinLevelScore, lastCharacterScore);
+    const characterMinScore = Math.max(runMinScore * dungeonCount, lastCharacterScore);
 
     const specsByCharacters = await mapLimit(specializations, 1, async (
         { id, className, specName }: typeof specializations[number],
@@ -169,7 +159,8 @@ export default async (
 
             characters.forEach(({ score, runs, character: { path } }) => {
                 if (score >= characterMinScore && runs.length >= dungeonCount) {
-                    const isAllDungeonsValid = runs.every((run) => run.mythicLevel >= minLevel);
+                    const isAllDungeonsValid = runs.every((run) => run.mythicLevel >= runMinLevel
+                        && run.score >= runMinScore);
 
                     if (isAllDungeonsValid) {
                         specCharacters.push({

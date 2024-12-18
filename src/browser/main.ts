@@ -37,20 +37,20 @@ const selectorData: SelectorData[] = [
         select: (data: AnalyseDataFile) => data.specsByRuns,
         configs: (data: AnalyseDataFile) => ([
             {
-                name: getLocaleString('expansion'),
-                value: (data.expansion + 1).toString(),
-            },
-            {
                 name: getLocaleString('season'),
-                value: data.season,
+                value: data.config.season,
             },
             {
                 name: getLocaleString('config-max-page'),
-                value: data.maxPage.toString(),
+                value: data.config.maxPage.toString(),
             },
             {
                 name: getLocaleString('config-min-level'),
-                value: data.minLevel.toString(),
+                value: data.config.runMinLevel.toString(),
+            },
+            {
+                name: getLocaleString('config-min-score'),
+                value: data.config.runMinScore.toString(),
             },
             {
                 name: getLocaleString('dungeon-min-level'),
@@ -65,20 +65,20 @@ const selectorData: SelectorData[] = [
         select: (data: AnalyseDataFile) => data.specsByCharacters,
         configs: (data: AnalyseDataFile) => ([
             {
-                name: getLocaleString('expansion'),
-                value: (data.expansion + 1).toString(),
-            },
-            {
                 name: getLocaleString('season'),
-                value: data.season,
+                value: data.config.season,
             },
             {
                 name: getLocaleString('config-max-page'),
-                value: data.maxPage.toString(),
+                value: data.config.maxPage.toString(),
             },
             {
                 name: getLocaleString('config-min-level'),
-                value: data.minLevel.toString(),
+                value: data.config.runMinLevel.toString(),
+            },
+            {
+                name: getLocaleString('config-min-score'),
+                value: data.config.runMinScore.toString(),
             },
             {
                 name: getLocaleString('character-min-score'),
@@ -309,13 +309,13 @@ const renderPage = (
 
         renderConfigTable(tierContent, selectorData[SELECTOR_USING_INDEX].configs(dataFile));
 
-        renderDetailTable(tierContent, dataFile.season, getLocaleString('dungeon'), 'dungeon', dungeons);
+        renderDetailTable(tierContent, dataFile.config.season, getLocaleString('dungeon'), 'dungeon', dungeons);
 
         roleDisplayOrder.forEach((role) => {
             const roleSpecs = specs.filter((spec) => specializations
                 .find((s) => s.id === spec.key)?.role === role);
 
-            renderDetailTable(tierContent, dataFile.season, getLocaleString(role), 'specialization', roleSpecs);
+            renderDetailTable(tierContent, dataFile.config.season, getLocaleString(role), 'specialization', roleSpecs);
         });
     } else {
         tierContent.classList.remove('tier-detail');

@@ -23,6 +23,7 @@ export default {
         ['season', 'Season'],
         ['config-max-page', 'Config Max Page'],
         ['config-min-level', 'Config Min Level'],
+        ['config-min-score', 'Config Min Score'],
         ['dungeon-min-level', 'Dungeon Min Level'],
         ['character-min-score', 'Character Min Score'],
         ['name', 'Name'],

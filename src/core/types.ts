@@ -1,7 +1,7 @@
 export interface Run {
     type: 'run',
     id: number,
-    mapID: number,
+    challengeMapID: number,
     level: number,
     score: number,
     specs: number[],
@@ -46,10 +46,12 @@ export interface AnalyseResult {
 
 export interface AnalyseDataFile {
     date: string,
-    expansion: number,
-    season: string,
-    maxPage: number,
-    minLevel: number,
+    config: {
+        maxPage: number,
+        season: string,
+        runMinLevel: number,
+        runMinScore: number,
+    },
     dungeonMinLevel: {
         min: number,
         max: number,

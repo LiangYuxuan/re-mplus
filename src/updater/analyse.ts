@@ -4,24 +4,52 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 
 import analyse from '../core/analyse.ts';
+import seasons from '../data/generated/seasons.json' with { type: 'json' };
 
 import {
     RIO_MAX_PAGE,
-    RIO_EXPANSION_ID,
-    RIO_SEASON,
-    RIO_MIN_LEVEL,
+    RIO_CURRENT_SEASON,
+    RIO_CURRENT_SEASON_MIN_LEVEL,
 } from './config.ts';
 import fetcher from './fetcher.ts';
+import getSeasonInfo from './season.ts';
 
 import type { AnalyseDataFile } from '../core/types.ts';
 
 const outputFilePath = path.resolve(process.argv[2]);
 
+const { season, runMinLevel, runMinScore } = (() => {
+    const useOldSeason = process.argv.length > 3;
+    if (useOldSeason) {
+        const inputSeason = process.argv[3];
+        if (!(inputSeason in seasons)) {
+            throw new Error(`Unknown season: ${inputSeason}`);
+        }
+
+        const slug = inputSeason as keyof typeof seasons;
+        const { level, score } = getSeasonInfo(slug);
+
+        return {
+            season: slug,
+            runMinLevel: level,
+            runMinScore: score,
+        };
+    }
+
+    const { level, score } = getSeasonInfo(RIO_CURRENT_SEASON, RIO_CURRENT_SEASON_MIN_LEVEL);
+
+    return {
+        season: RIO_CURRENT_SEASON,
+        runMinLevel: level,
+        runMinScore: score,
+    };
+})();
+
 fetcher(
-    RIO_EXPANSION_ID,
-    RIO_SEASON,
     RIO_MAX_PAGE,
-    RIO_MIN_LEVEL,
+    season,
+    runMinLevel,
+    runMinScore,
 )
     .then(({
         date,
@@ -33,10 +61,12 @@ fetcher(
     }) => {
         const data: AnalyseDataFile = {
             date,
-            expansion: RIO_EXPANSION_ID,
-            season: RIO_SEASON,
-            maxPage: RIO_MAX_PAGE,
-            minLevel: RIO_MIN_LEVEL,
+            config: {
+                maxPage: RIO_MAX_PAGE,
+                season,
+                runMinLevel,
+                runMinScore,
+            },
             dungeonMinLevel,
             characterMinScore,
             dungeonsByRuns: analyse(dungeonsByRuns),

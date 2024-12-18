@@ -23,6 +23,7 @@ export default {
         ['season', '赛季'],
         ['config-max-page', '配置：最大页数'],
         ['config-min-level', '配置：最低层数'],
+        ['config-min-score', '配置：最低分数'],
         ['dungeon-min-level', '地下城最低层数'],
         ['character-min-score', '角色最低分数'],
         ['name', '名称'],
