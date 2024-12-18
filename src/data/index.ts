@@ -258,19 +258,19 @@ console.info(new Date().toISOString(), '[INFO]: Parsed DB2 files');
 
 console.info(new Date().toISOString(), '[INFO]: Parsing Raider.IO static data');
 const expansionLength = expansions.getAllIDs().length;
-const seasons: Season[] = [];
+const seasons: Record<string, Season> = {};
 const shortNames = new Map<number, string>();
 await timesSeries(expansionLength, async (i: number) => {
     const res = await getMythicPlusStaticData(i);
     if ('seasons' in res) {
         res.seasons.forEach((season) => {
-            seasons.push({
+            seasons[season.slug] = {
                 slug: season.slug,
                 dungeons: season.dungeons.map(({ challenge_mode_id: challengeMapID, slug }) => ({
                     challengeMapID,
                     slug,
                 })),
-            });
+            };
 
             season.dungeons.forEach(({ challenge_mode_id: id, short_name: shortName }) => {
                 shortNames.set(id, shortName);
