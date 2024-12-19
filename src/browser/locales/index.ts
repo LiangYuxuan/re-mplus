@@ -116,3 +116,14 @@ export const getDungeonName = (id: number): string => {
 
     return id.toString();
 };
+
+export const getSeasonName = (slug: string): string => {
+    const res = selectedLocale.seasons.get(slug);
+    if (res !== undefined) {
+        return res;
+    }
+
+    console.warn(`Missing key ${slug} in locale seasons`);
+
+    return slug;
+};

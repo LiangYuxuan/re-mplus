@@ -5,4 +5,5 @@ export interface LocaleData {
     dungeonsShortName: Map<number, string>,
     specializations: Map<number, string>,
     dungeons: Map<number, string>,
+    seasons: Map<string, string>,
 }
