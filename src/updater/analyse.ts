@@ -22,6 +22,7 @@ const {
     season,
     level: runMinLevel,
     score: runMinScore,
+    allWeeksMultiplier,
     ignoreSpecs,
 } = (() => {
     const useOldSeason = process.argv.length > 3;
@@ -53,6 +54,7 @@ fetcher(
     season,
     runMinLevel,
     runMinScore,
+    allWeeksMultiplier,
     ignoreSpecs,
 )
     .then(({
@@ -70,6 +72,7 @@ fetcher(
                 season,
                 runMinLevel,
                 runMinScore,
+                allWeeksMultiplier,
                 ignoreSpecs,
             },
             dungeonMinLevel,

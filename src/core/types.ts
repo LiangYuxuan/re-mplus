@@ -51,6 +51,7 @@ export interface AnalyseDataFile {
         season: string,
         runMinLevel: number,
         runMinScore: number,
+        allWeeksMultiplier: number,
         ignoreSpecs: number[],
     },
     dungeonMinLevel: {

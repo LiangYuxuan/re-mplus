@@ -45,6 +45,7 @@ export default async (
     season: keyof typeof seasons,
     runMinLevel: number,
     runMinScore: number,
+    allWeeksMultiplier: number,
     ignoreSpecs: number[] = [],
 ): Promise<RioData> => {
     const seasonData = seasons[season];
@@ -78,7 +79,7 @@ export default async (
                 const challengeMapID = run.dungeon.map_challenge_mode_id;
                 const specs = run.roster.map(({ character }) => character.spec.id);
 
-                if (level >= runMinLevel) {
+                if (level >= runMinLevel && score >= runMinScore) {
                     topRuns.push({
                         type: 'run',
                         id,
@@ -90,7 +91,7 @@ export default async (
                 }
             });
 
-            if (runs[runs.length - 1].run.mythic_level < runMinLevel) {
+            if (runs[runs.length - 1].score < runMinScore) {
                 break;
             }
         }
@@ -138,7 +139,10 @@ export default async (
             lastCharactersData.rankings.rankedCharacters.length - 1
         ].score
         : 0;
-    const characterMinScore = Math.max(runMinScore * dungeonCount, lastCharacterScore);
+    const characterMinScore = Math.max(
+        runMinScore * allWeeksMultiplier * dungeonCount,
+        lastCharacterScore,
+    );
 
     const specsByCharacters = await mapLimit(usingSpecs, 1, async (
         { id, className, specName }: typeof usingSpecs[number],

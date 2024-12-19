@@ -287,6 +287,7 @@ const getSeasonInfo = (
         return {
             level: overrideLevel,
             score: 250, // Keystone Master
+            allWeeksMultiplier: 1,
             ignoreSpecs: [],
         };
     }
@@ -302,7 +303,8 @@ const getSeasonInfo = (
 
     return {
         level,
-        score: score * allWeeksMultiplier,
+        score,
+        allWeeksMultiplier,
         ignoreSpecs,
     };
 };
