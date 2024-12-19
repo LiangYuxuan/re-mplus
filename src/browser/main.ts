@@ -9,6 +9,7 @@ import {
     getSpecializationShortName,
     getDungeonName,
     gettSpecializationName,
+    getSeasonName,
 } from './locales/index.ts';
 
 import type { AnalyseResult, AnalyseDataFile } from '../core/types.ts';
@@ -260,7 +261,7 @@ const renderDetailTable = (
             min.appendChild(minLink);
         } else if (item.min?.type === 'character') {
             const minLink = document.createElement('a');
-            minLink.href = `https://raider.io/characters/${item.min.path}`;
+            minLink.href = `https://raider.io/characters/${item.min.path}?season=${season}`;
             minLink.textContent = item.min.score.toString();
             min.appendChild(minLink);
         }
@@ -275,7 +276,7 @@ const renderDetailTable = (
             max.appendChild(maxLink);
         } else if (item.max?.type === 'character') {
             const maxLink = document.createElement('a');
-            maxLink.href = `https://raider.io/characters/${item.max.path}`;
+            maxLink.href = `https://raider.io/characters/${item.max.path}?season=${season}`;
             maxLink.textContent = item.max.score.toString();
             max.appendChild(maxLink);
         }
@@ -456,24 +457,32 @@ const initializePage = async () => {
         return;
     }
 
+    const seasonSelector = document.getElementById('seasonSelector');
+    if (!(seasonSelector instanceof HTMLSelectElement)) {
+        console.error('Failing to find #seasonSelector');
+        return;
+    }
+
+    const refresh = () => {
+        fetch(seasonSelector.value === 'current' ? 'data.json' : `legacy/${seasonSelector.value}.json`)
+            .then((res) => res.json())
+            .then((newDataFile: AnalyseDataFile) => {
+                dataFile = newDataFile;
+
+                updatePageDisplay(subTitle, lastUpdated, buttonContainer, dataFile);
+                renderPage(tierContent, dataFile);
+            })
+            .catch((error: unknown) => {
+                console.error(error);
+            });
+    };
+
     [...buttonContainer.children].forEach((child, index) => {
         if (buttonData.length > index) {
             child.setAttribute('title', buttonData[index].getTitle());
 
             if (buttonData[index].isRefresh !== undefined) {
-                child.addEventListener('click', () => {
-                    fetch('data.json')
-                        .then((res) => res.json())
-                        .then((newDataFile: AnalyseDataFile) => {
-                            dataFile = newDataFile;
-
-                            updatePageDisplay(subTitle, lastUpdated, buttonContainer, dataFile);
-                            renderPage(tierContent, dataFile);
-                        })
-                        .catch((error: unknown) => {
-                            console.error(error);
-                        });
-                });
+                child.addEventListener('click', refresh);
             } else if (buttonData[index].onClick) {
                 child.addEventListener('click', () => {
                     buttonData[index].onClick?.();
@@ -484,6 +493,18 @@ const initializePage = async () => {
             }
         }
     });
+
+    [...seasonSelector.options].forEach((option) => {
+        if (option.value === 'current') {
+            // eslint-disable-next-line no-param-reassign
+            option.textContent = `${getLocaleString('current-season')} - ${getSeasonName(dataFile.config.season)}`;
+        } else {
+            // eslint-disable-next-line no-param-reassign
+            option.textContent = getSeasonName(option.value);
+        }
+    });
+
+    seasonSelector.addEventListener('change', refresh);
 
     title.textContent = getLocaleString('title');
     updatePageDisplay(subTitle, lastUpdated, buttonContainer, dataFile);
