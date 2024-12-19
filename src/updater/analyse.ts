@@ -24,6 +24,7 @@ const {
     score: runMinScore,
     allWeeksMultiplier,
     ignoreSpecs,
+    skipCharacterBest,
 } = (() => {
     const useOldSeason = process.argv.length > 3;
     if (useOldSeason) {
@@ -56,6 +57,7 @@ fetcher(
     runMinScore,
     allWeeksMultiplier,
     ignoreSpecs,
+    skipCharacterBest,
 )
     .then(({
         date,
@@ -74,6 +76,7 @@ fetcher(
                 runMinScore,
                 allWeeksMultiplier,
                 ignoreSpecs,
+                skipCharacterBest,
             },
             dungeonMinLevel,
             characterMinScore,

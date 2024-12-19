@@ -15,6 +15,7 @@ interface SeasonEntry {
     rule: BlizzardScoreRule,
     maxRewardLevel: number,
     ignoreSpecs: number[],
+    skipCharacterBest?: boolean,
 }
 
 const tww1: BlizzardScoreRule = {
@@ -265,6 +266,7 @@ const seasonRules: SeasonEntry[] = [
             1468, // Preservation Evoker
             1473, // Augmentation Evoker
         ],
+        skipCharacterBest: true,
     },
     {
         prefix: 'season-bfa-1',
@@ -275,6 +277,7 @@ const seasonRules: SeasonEntry[] = [
             1468, // Preservation Evoker
             1473, // Augmentation Evoker
         ],
+        skipCharacterBest: true,
     },
 ];
 
@@ -292,7 +295,9 @@ const getSeasonInfo = (
         };
     }
 
-    const { rule, maxRewardLevel, ignoreSpecs } = entry;
+    const {
+        rule, maxRewardLevel, ignoreSpecs, skipCharacterBest,
+    } = entry;
     const { baseScores, levelScore, allWeeksMultiplier } = rule;
     const providedLevel = baseScores.length + 1;
 
@@ -306,6 +311,7 @@ const getSeasonInfo = (
         score,
         allWeeksMultiplier,
         ignoreSpecs,
+        skipCharacterBest,
     };
 };
 

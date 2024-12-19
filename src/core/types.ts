@@ -53,6 +53,7 @@ export interface AnalyseDataFile {
         runMinScore: number,
         allWeeksMultiplier: number,
         ignoreSpecs: number[],
+        skipCharacterBest?: boolean,
     },
     dungeonMinLevel: {
         min: number,
