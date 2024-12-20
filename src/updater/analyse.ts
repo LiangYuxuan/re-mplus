@@ -65,6 +65,7 @@ fetcher(
         characterMinScore,
         dungeonsByRuns,
         specsByRuns,
+        dungeonsByCharacters,
         specsByCharacters,
     }) => {
         const data: AnalyseDataFile = {
@@ -82,7 +83,7 @@ fetcher(
             characterMinScore,
             dungeonsByRuns: analyse(dungeonsByRuns),
             specsByRuns: analyse(specsByRuns),
-            dungeonsByCharacters: analyse(dungeonsByRuns),
+            dungeonsByCharacters: analyse(dungeonsByCharacters),
             specsByCharacters: analyse(specsByCharacters),
         };
         const dataText = JSON.stringify(data);

@@ -152,6 +152,7 @@ export default async (
         lastCharacterScore,
     );
 
+    const recordedRuns = new Set<number>();
     const topCharacterRuns: Run[] = [];
     const specsByCharacters = await mapLimit(characterUsingSpecs, 1, async (
         { id, className, specName }: typeof usingSpecs[number],
@@ -188,7 +189,11 @@ export default async (
                     }
 
                     runs.forEach((run) => {
-                        if (run.mythicLevel >= runMinLevel && run.score >= runMinScore) {
+                        if (
+                            !recordedRuns.has(run.keystoneRunId)
+                            && run.mythicLevel >= runMinLevel
+                            && run.score >= runMinScore
+                        ) {
                             const challengeMapID = rioID2MapID.get(run.zoneId);
 
                             assert(challengeMapID !== undefined, `Failed to get challengeMapID for ${run.zoneId.toString()}`);
@@ -201,6 +206,8 @@ export default async (
                                 score: run.score,
                                 specs: [],
                             });
+
+                            recordedRuns.add(run.keystoneRunId);
                         }
                     });
                 }
