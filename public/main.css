@@ -63,6 +63,18 @@
     color: rgb(255 255 255);
 }
 
+.card .hidden {
+    display: none;
+}
+
+.card .missing {
+    width: 100%;
+    padding: 0.5rem 0;
+    background-color: rgb(254, 247, 237);
+    border: 1px solid rgb(250, 224, 181);
+    text-align: center;
+}
+
 .card .tier-detail table {
     margin-bottom: 1rem;
     width: 100%;

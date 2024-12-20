@@ -28,14 +28,22 @@ interface ConfigDisplay {
 
 interface SelectorData {
     label: () => string,
-    select: (data: AnalyseDataFile) => AnalyseResult[],
+    select: (data: AnalyseDataFile) => {
+        dungeons: AnalyseResult[],
+        specs: AnalyseResult[],
+        isMissing: boolean,
+    },
     configs: (data: AnalyseDataFile) => ConfigDisplay[],
 }
 
 const selectorData: SelectorData[] = [
     {
         label: () => getLocaleString('based-on-dungeon-best-run'),
-        select: (data: AnalyseDataFile) => data.specsByRuns,
+        select: (data: AnalyseDataFile) => ({
+            dungeons: data.dungeonsByRuns,
+            specs: data.specsByRuns,
+            isMissing: false,
+        }),
         configs: (data: AnalyseDataFile) => ([
             {
                 name: getLocaleString('season'),
@@ -63,7 +71,11 @@ const selectorData: SelectorData[] = [
     },
     {
         label: () => getLocaleString('based-on-character-best-record'),
-        select: (data: AnalyseDataFile) => data.specsByCharacters,
+        select: (data: AnalyseDataFile) => ({
+            dungeons: data.dungeonsByCharacters,
+            specs: data.specsByCharacters,
+            isMissing: data.config.skipCharacterBest === true,
+        }),
         configs: (data: AnalyseDataFile) => ([
             {
                 name: getLocaleString('season'),
@@ -296,13 +308,24 @@ const renderDetailTable = (
 };
 
 const renderPage = (
+    missingAlert: HTMLDivElement,
     tierContent: HTMLDivElement,
     dataFile: AnalyseDataFile,
 ) => {
     tierContent.replaceChildren();
 
-    const dungeons = dataFile.dungeonsByRuns;
-    const specs = selectorData[SELECTOR_USING_INDEX].select(dataFile);
+    const { dungeons, specs, isMissing } = selectorData[SELECTOR_USING_INDEX].select(dataFile);
+
+    if (isMissing) {
+        tierContent.classList.remove('tier-list');
+        tierContent.classList.add('tier-detail');
+
+        missingAlert.classList.remove('hidden');
+
+        return;
+    }
+
+    missingAlert.classList.add('hidden');
 
     if (USE_DETAIL_VIEW) {
         tierContent.classList.remove('tier-list');
@@ -451,15 +474,21 @@ const initializePage = async () => {
         return;
     }
 
-    const tierContent = document.getElementById('tierContent');
-    if (!(tierContent instanceof HTMLDivElement)) {
-        console.error('Failing to find #tierContent');
-        return;
-    }
-
     const seasonSelector = document.getElementById('seasonSelector');
     if (!(seasonSelector instanceof HTMLSelectElement)) {
         console.error('Failing to find #seasonSelector');
+        return;
+    }
+
+    const missingAlert = document.getElementById('missingAlert');
+    if (!(missingAlert instanceof HTMLDivElement)) {
+        console.error('Failing to find #missingAlert');
+        return;
+    }
+
+    const tierContent = document.getElementById('tierContent');
+    if (!(tierContent instanceof HTMLDivElement)) {
+        console.error('Failing to find #tierContent');
         return;
     }
 
@@ -470,7 +499,7 @@ const initializePage = async () => {
                 dataFile = newDataFile;
 
                 updatePageDisplay(subTitle, lastUpdated, buttonContainer, dataFile);
-                renderPage(tierContent, dataFile);
+                renderPage(missingAlert, tierContent, dataFile);
             })
             .catch((error: unknown) => {
                 console.error(error);
@@ -488,7 +517,7 @@ const initializePage = async () => {
                     buttonData[index].onClick?.();
 
                     updatePageDisplay(subTitle, lastUpdated, buttonContainer, dataFile);
-                    renderPage(tierContent, dataFile);
+                    renderPage(missingAlert, tierContent, dataFile);
                 });
             }
         }
@@ -505,10 +534,11 @@ const initializePage = async () => {
     });
 
     seasonSelector.addEventListener('change', refresh);
+    missingAlert.textContent = getLocaleString('missing-character-best-record');
 
     title.textContent = getLocaleString('title');
     updatePageDisplay(subTitle, lastUpdated, buttonContainer, dataFile);
-    renderPage(tierContent, dataFile);
+    renderPage(missingAlert, tierContent, dataFile);
 };
 
 document.addEventListener('DOMContentLoaded', () => {

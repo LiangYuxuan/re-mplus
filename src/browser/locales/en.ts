@@ -15,6 +15,7 @@ export default {
         ['button-toggle-details', 'Toggle Detailed Data'],
         ['button-toggle-emoji', 'Toggle Emoji'],
         ['current-season', 'Current Season'],
+        ['missing-character-best-record', 'Due to Raider.IO is not providing Spec Leaderboard data, Character Best Record is not available.'],
         ['dungeon', 'Dungeon'],
         ['tank', 'Tank'],
         ['healer', 'Healer'],

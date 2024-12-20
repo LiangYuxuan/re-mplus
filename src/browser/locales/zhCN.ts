@@ -15,6 +15,7 @@ export default {
         ['button-toggle-details', '显示/隐藏详细数据'],
         ['button-toggle-emoji', '这下看懂了'],
         ['current-season', '当前赛季'],
+        ['missing-character-best-record', '由于 Raider.IO 未提供专精排行榜数据，角色最佳记录不可用。'],
         ['dungeon', '地下城'],
         ['tank', '坦克'],
         ['healer', '治疗'],
