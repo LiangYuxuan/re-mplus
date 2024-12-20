@@ -1,3 +1,5 @@
+import assert from 'node:assert';
+
 import { mapLimit, retry } from 'async';
 
 import seasons from '../data/generated/seasons.json' with { type: 'json' };
@@ -54,6 +56,10 @@ export default async (
     const dungeonCount = seasonData.dungeons.length;
     const dungeonSlugs = seasonData.dungeons.map((d) => d.slug);
     const dungeonMapIDs = seasonData.dungeons.map((d) => d.challengeMapID);
+
+    const rioID2MapID = new Map<number, number>(
+        seasonData.dungeons.map((d) => [d.rioID, d.challengeMapID] as const),
+    );
 
     const usingSpecs = specializations.filter(({ id }) => !ignoreSpecs.includes(id));
     const characterUsingSpecs = skipCharacterBest === true ? [] : usingSpecs;
@@ -146,6 +152,7 @@ export default async (
         lastCharacterScore,
     );
 
+    const topCharacterRuns: Run[] = [];
     const specsByCharacters = await mapLimit(characterUsingSpecs, 1, async (
         { id, className, specName }: typeof usingSpecs[number],
     ): Promise<AnalyseInput> => {
@@ -179,6 +186,23 @@ export default async (
                             spec: id,
                         });
                     }
+
+                    runs.forEach((run) => {
+                        if (run.mythicLevel >= runMinLevel && run.score >= runMinScore) {
+                            const challengeMapID = rioID2MapID.get(run.zoneId);
+
+                            assert(challengeMapID !== undefined, `Failed to get challengeMapID for ${run.zoneId.toString()}`);
+
+                            topCharacterRuns.push({
+                                type: 'run',
+                                id: run.keystoneRunId,
+                                challengeMapID,
+                                level: run.mythicLevel,
+                                score: run.score,
+                                specs: [],
+                            });
+                        }
+                    });
                 }
             });
 
@@ -199,6 +223,22 @@ export default async (
         };
     });
 
+    const dungeonsByCharacters: AnalyseInput[] = dungeonMapIDs.map((key) => {
+        const runs = topCharacterRuns
+            .filter((run) => run.challengeMapID === key)
+            .toSorted((a, b) => b.score - a.score);
+        const scores = runs.map((run) => run.score);
+        const max = runs[0];
+        const min = runs[runs.length - 1];
+
+        return {
+            key,
+            scores,
+            min,
+            max,
+        };
+    });
+
     const dungeonMinLevels = dungeonsByRuns
         .map((d) => (d.min?.type === 'run' ? d.min.level : undefined))
         .filter((level) => level !== undefined);
@@ -212,6 +252,7 @@ export default async (
         characterMinScore,
         dungeonsByRuns,
         specsByRuns,
+        dungeonsByCharacters,
         specsByCharacters,
     };
 

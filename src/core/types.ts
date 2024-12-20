@@ -30,6 +30,7 @@ export interface RioData {
     characterMinScore: number,
     dungeonsByRuns: AnalyseInput[],
     specsByRuns: AnalyseInput[],
+    dungeonsByCharacters: AnalyseInput[],
     specsByCharacters: AnalyseInput[],
 }
 
@@ -62,5 +63,6 @@ export interface AnalyseDataFile {
     characterMinScore: number,
     dungeonsByRuns: AnalyseResult[],
     specsByRuns: AnalyseResult[],
+    dungeonsByCharacters: AnalyseResult[],
     specsByCharacters: AnalyseResult[],
 }

@@ -82,6 +82,7 @@ fetcher(
             characterMinScore,
             dungeonsByRuns: analyse(dungeonsByRuns),
             specsByRuns: analyse(specsByRuns),
+            dungeonsByCharacters: analyse(dungeonsByRuns),
             specsByCharacters: analyse(specsByCharacters),
         };
         const dataText = JSON.stringify(data);
