@@ -266,10 +266,30 @@ await timesSeries(expansionLength, async (i: number) => {
         res.seasons.forEach((season) => {
             seasons[season.slug] = {
                 slug: season.slug,
-                dungeons: season.dungeons.map(({ challenge_mode_id: challengeMapID, slug }) => ({
+                dungeons: season.dungeons.map(({
+                    id: rioID, challenge_mode_id: challengeMapID, slug,
+                }) => ({
+                    rioID,
                     challengeMapID,
                     slug,
-                })),
+                })).filter(({ slug }) => {
+                    if (
+                        (
+                            season.slug === 'season-bfa-2-post'
+                            || season.slug === 'season-bfa-2'
+                            || season.slug === 'season-bfa-1'
+                        ) && (
+                            slug === 'operation-mechagon-junkyard'
+                            || slug === 'operation-mechagon-workshop'
+                        )
+                    ) {
+                        // fake static data for bfa s1 & s2
+                        // which don't have these two dungeons available
+                        return false;
+                    }
+
+                    return true;
+                }),
             };
 
             season.dungeons.forEach(({ challenge_mode_id: id, short_name: shortName }) => {
