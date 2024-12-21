@@ -16,7 +16,7 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "@rhyster/wow-casc-dbc": "^2.7.3",
+    "@rhyster/wow-casc-dbc": "^2.7.4",
     "async": "^3.2.6",
     "jimp": "^1.6.0"
   },
