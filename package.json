@@ -21,7 +21,7 @@
     "jimp": "^1.6.0"
   },
   "devDependencies": {
-    "@rhyster/eslint-config": "^1.6.11",
+    "@rhyster/eslint-config": "^1.6.12",
     "@types/async": "^3.2.24",
     "@types/node": "^22.10.2",
     "esbuild": "^0.24.2",
@@ -30,5 +30,5 @@
     "tsx": "^4.19.2",
     "typescript": "^5.7.2"
   },
-  "packageManager": "pnpm@9.15.1"
+  "packageManager": "pnpm@9.15.2"
 }
