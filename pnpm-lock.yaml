@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@rhyster/wow-casc-dbc':
-        specifier: ^2.8.0
-        version: 2.8.0
+        specifier: ^2.8.2
+        version: 2.8.2
       async:
         specifier: ^3.2.6
         version: 3.2.6
@@ -25,8 +25,8 @@ importers:
         specifier: ^3.2.24
         version: 3.2.24
       '@types/node':
-        specifier: ^22.10.3
-        version: 22.10.3
+        specifier: ^22.10.4
+        version: 22.10.4
       esbuild:
         specifier: ^0.24.2
         version: 0.24.2
@@ -526,8 +526,8 @@ packages:
     peerDependencies:
       eslint: '>= 9'
 
-  '@rhyster/wow-casc-dbc@2.8.0':
-    resolution: {integrity: sha512-dqkX/IYapo79SAkbCmd3hdw+ZGFLWNiD/3SL5eiG3/wqN7RJlfkYR5zoeOwDxJM3YiLMf8NCtQSTDRfnu4cdog==}
+  '@rhyster/wow-casc-dbc@2.8.2':
+    resolution: {integrity: sha512-t5B4pSbsBKj3wof6zEOcfBO0Ap3wWvs5Km1l771UQnNX+Kquqlvd9RZy9hgn8MOsarT4qFOYBZvl2ZcS3cMbfg==}
 
   '@stylistic/eslint-plugin@2.12.1':
     resolution: {integrity: sha512-fubZKIHSPuo07FgRTn6S4Nl0uXPRPYVNpyZzIDGfp7Fny6JjNus6kReLD7NI380JXi4HtUTSOZ34LBuNPO1XLQ==}
@@ -553,8 +553,8 @@ packages:
   '@types/node@16.9.1':
     resolution: {integrity: sha512-QpLcX9ZSsq3YYUUnD3nFDY8H7wctAhQj/TFKL8Ya8v5fMm3CFXxo8zStsLAl780ltoYoo1WvKUVGBQK+1ifr7g==}
 
-  '@types/node@22.10.3':
-    resolution: {integrity: sha512-DifAyw4BkrufCILvD3ucnuN8eydUfc/C1GlyrnI+LK6543w5/L3VeVgf05o3B4fqSXP1dKYLOZsKfutpxPzZrw==}
+  '@types/node@22.10.4':
+    resolution: {integrity: sha512-99l6wv4HEzBQhvaU/UGoeBoCK61SCROQaCCGyQSgX2tEQ3rKkNZ2S7CEWnS/4s1LV+8ODdK21UeyR1fHP2mXug==}
 
   '@typescript-eslint/eslint-plugin@8.19.0':
     resolution: {integrity: sha512-NggSaEZCdSrFddbctrVjkVZvFC6KGfKfNK0CU7mNK/iKHGKbzT4Wmgm08dKpcZECBu9f5FypndoMyRHkdqfT1Q==}
@@ -1986,7 +1986,7 @@ snapshots:
       - supports-color
       - typescript
 
-  '@rhyster/wow-casc-dbc@2.8.0':
+  '@rhyster/wow-casc-dbc@2.8.2':
     dependencies:
       async: 3.2.6
       cli-progress: 3.12.0
@@ -2015,7 +2015,7 @@ snapshots:
 
   '@types/node@16.9.1': {}
 
-  '@types/node@22.10.3':
+  '@types/node@22.10.4':
     dependencies:
       undici-types: 6.20.0
 
