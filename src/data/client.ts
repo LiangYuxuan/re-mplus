@@ -4,6 +4,7 @@ import type { Version } from '@rhyster/wow-casc-dbc';
 
 const region = 'us';
 const products = [
+    'wow',
     'wowt',
     'wowxptr',
     'wow_beta',
