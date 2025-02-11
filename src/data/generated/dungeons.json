@@ -424,5 +424,11 @@
         "en": "Grim Batol",
         "cn": "格瑞姆巴托",
         "shortName": "GB"
+    },
+    {
+        "id": 525,
+        "en": "Operation: Floodgate",
+        "cn": "水闸行动",
+        "shortName": "FLOOD"
     }
 ]
