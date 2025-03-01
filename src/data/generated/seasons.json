@@ -2354,8 +2354,8 @@
             }
         ]
     },
-    "season-tww-1-beta": {
-        "slug": "season-tww-1-beta",
+    "season-tww-1-post": {
+        "slug": "season-tww-1-post",
         "dungeons": [
             {
                 "rioID": 15093,
@@ -2401,6 +2401,51 @@
     },
     "season-tww-1-break-the-meta": {
         "slug": "season-tww-1-break-the-meta",
+        "dungeons": [
+            {
+                "rioID": 15093,
+                "challengeMapID": 503,
+                "slug": "arakara-city-of-echoes"
+            },
+            {
+                "rioID": 14979,
+                "challengeMapID": 502,
+                "slug": "city-of-threads"
+            },
+            {
+                "rioID": 4950,
+                "challengeMapID": 507,
+                "slug": "grim-batol"
+            },
+            {
+                "rioID": 13334,
+                "challengeMapID": 375,
+                "slug": "mists-of-tirna-scithe"
+            },
+            {
+                "rioID": 9354,
+                "challengeMapID": 353,
+                "slug": "siege-of-boralus"
+            },
+            {
+                "rioID": 14971,
+                "challengeMapID": 505,
+                "slug": "the-dawnbreaker"
+            },
+            {
+                "rioID": 12916,
+                "challengeMapID": 376,
+                "slug": "the-necrotic-wake"
+            },
+            {
+                "rioID": 14883,
+                "challengeMapID": 501,
+                "slug": "the-stonevault"
+            }
+        ]
+    },
+    "season-tww-1-beta": {
+        "slug": "season-tww-1-beta",
         "dungeons": [
             {
                 "rioID": 15093,
