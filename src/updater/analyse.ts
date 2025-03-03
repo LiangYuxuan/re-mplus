@@ -19,14 +19,7 @@ import type { AnalyseDataFile } from '../core/types.ts';
 
 const outputFilePath = path.resolve(process.argv[2]);
 
-const {
-    season,
-    dungeonMinLevel,
-    characterMinScore,
-    skipCharacterBest,
-    usingSpecIDs,
-    includePostSeason,
-} = await (async () => {
+(async () => {
     const useOldSeason = process.argv.length > 3;
     if (useOldSeason) {
         const inputSeason = process.argv[3];
@@ -52,26 +45,24 @@ const {
         characterMinScore: seasons[RIO_CURRENT_SEASON].dungeons.length
             * RIO_CURRENT_SEASON_MIN_PER_DUNGEON_SCORE,
     };
-})();
-
-fetcher(
-    RIO_MAX_PAGE,
-    season,
-    dungeonMinLevel,
-    characterMinScore,
-    skipCharacterBest,
-    usingSpecIDs,
-)
+})()
     .then(({
-        date,
-        statistics,
-        dungeonsByRuns,
-        specsByRuns,
-        dungeonsByCharacters,
-        specsByCharacters,
-    }) => {
-        const data: AnalyseDataFile = {
-            date,
+        season,
+        dungeonMinLevel,
+        characterMinScore,
+        skipCharacterBest,
+        usingSpecIDs,
+        includePostSeason,
+    }) => fetcher(
+        RIO_MAX_PAGE,
+        season,
+        dungeonMinLevel,
+        characterMinScore,
+        skipCharacterBest,
+        usingSpecIDs,
+    )
+        .then((rioData) => ({
+            rioData,
             config: {
                 maxPage: RIO_MAX_PAGE,
                 season,
@@ -79,6 +70,21 @@ fetcher(
                 characterMinScore,
                 skipCharacterBest,
             },
+            includePostSeason,
+        })))
+    .then(({ rioData, config, includePostSeason }) => {
+        const {
+            date,
+            statistics,
+            dungeonsByRuns,
+            specsByRuns,
+            dungeonsByCharacters,
+            specsByCharacters,
+        } = rioData;
+
+        const dataFile: AnalyseDataFile = {
+            date,
+            config,
             statistics: {
                 ...statistics,
                 includePostSeason,
@@ -88,9 +94,9 @@ fetcher(
             dungeonsByCharacters: analyse(dungeonsByCharacters),
             specsByCharacters: analyse(specsByCharacters),
         };
-        const dataText = JSON.stringify(data);
+        const dataFileText = JSON.stringify(dataFile);
 
-        return fs.writeFile(outputFilePath, dataText);
+        return fs.writeFile(outputFilePath, dataFileText);
     })
     .then()
     .catch((error: unknown) => {
