@@ -63,6 +63,8 @@ export default async (
     const usingSpecs = specializations.filter(({ id }) => usingSpecIDs.includes(id));
     const characterUsingSpecs = skipCharacterBest ? [] : usingSpecs;
 
+    const isTWWS1 = season.startsWith('season-tww-1');
+
     const topRuns: Run[] = [];
     await mapLimit(dungeonSlugs, 1, async (dungeon: string) => {
         for (let page = 0; page < maxPage; page += 1) {
@@ -185,12 +187,27 @@ export default async (
 
                             assert(challengeMapID !== undefined, `Failed to get challengeMapID for ${run.zoneId.toString()}`);
 
+                            // leaderboard api returns over-time score in tww s1 for runs that
+                            // are above 10 and rest time less than 90s,
+                            // making them as over-time score at 10,
+                            // add back level score is quick fixing without changing the tier
+                            const runScore = isTWWS1
+                                && run.mythicLevel > 10
+                                && run.score < 320
+                                && run.numChests > 0
+                                ? (
+                                    run.score
+                                    + (run.mythicLevel - 10) * 15
+                                    + (run.mythicLevel >= 12 ? 15 : 0)
+                                )
+                                : run.score;
+
                             topCharacterRuns.push({
                                 type: 'run',
                                 id: run.keystoneRunId,
                                 challengeMapID,
                                 level: run.mythicLevel,
-                                score: run.score,
+                                score: runScore,
                                 specs: [],
                             });
 
