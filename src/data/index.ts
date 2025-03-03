@@ -15,6 +15,7 @@ import { getMythicPlusStaticData } from './rio.ts';
 
 interface Season {
     slug: string,
+    expansion: number,
     dungeons: {
         challengeMapID: number,
         slug: string,
@@ -261,11 +262,12 @@ const expansionLength = expansions.getAllIDs().length;
 const seasons: Record<string, Season> = {};
 const shortNames = new Map<number, string>();
 await timesSeries(expansionLength, async (i: number) => {
-    const res = await getMythicPlusStaticData(i);
+    const res = await getMythicPlusStaticData(expansionLength - i);
     if ('seasons' in res) {
         res.seasons.forEach((season) => {
             seasons[season.slug] = {
                 slug: season.slug,
+                expansion: expansionLength - i,
                 dungeons: season.dungeons.map(({
                     id: rioID, challenge_mode_id: challengeMapID, slug,
                 }) => ({
