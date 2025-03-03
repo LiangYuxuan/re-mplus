@@ -1,6 +1,2121 @@
 {
+    "season-tww-2": {
+        "slug": "season-tww-2",
+        "expansion": 10,
+        "dungeons": [
+            {
+                "rioID": 15103,
+                "challengeMapID": 506,
+                "slug": "cinderbrew-meadery"
+            },
+            {
+                "rioID": 14882,
+                "challengeMapID": 504,
+                "slug": "darkflame-cleft"
+            },
+            {
+                "rioID": 800002,
+                "challengeMapID": 370,
+                "slug": "operation-mechagon-workshop"
+            },
+            {
+                "rioID": 15452,
+                "challengeMapID": 525,
+                "slug": "operation-floodgate"
+            },
+            {
+                "rioID": 14954,
+                "challengeMapID": 499,
+                "slug": "priory-of-the-sacred-flame"
+            },
+            {
+                "rioID": 8064,
+                "challengeMapID": 247,
+                "slug": "the-motherlode"
+            },
+            {
+                "rioID": 14938,
+                "challengeMapID": 500,
+                "slug": "the-rookery"
+            },
+            {
+                "rioID": 12841,
+                "challengeMapID": 382,
+                "slug": "theater-of-pain"
+            }
+        ]
+    },
+    "season-tww-2-ptr": {
+        "slug": "season-tww-2-ptr",
+        "expansion": 10,
+        "dungeons": [
+            {
+                "rioID": 15103,
+                "challengeMapID": 506,
+                "slug": "cinderbrew-meadery"
+            },
+            {
+                "rioID": 14882,
+                "challengeMapID": 504,
+                "slug": "darkflame-cleft"
+            },
+            {
+                "rioID": 800002,
+                "challengeMapID": 370,
+                "slug": "operation-mechagon-workshop"
+            },
+            {
+                "rioID": 15452,
+                "challengeMapID": 525,
+                "slug": "operation-floodgate"
+            },
+            {
+                "rioID": 14954,
+                "challengeMapID": 499,
+                "slug": "priory-of-the-sacred-flame"
+            },
+            {
+                "rioID": 8064,
+                "challengeMapID": 247,
+                "slug": "the-motherlode"
+            },
+            {
+                "rioID": 14938,
+                "challengeMapID": 500,
+                "slug": "the-rookery"
+            },
+            {
+                "rioID": 12841,
+                "challengeMapID": 382,
+                "slug": "theater-of-pain"
+            }
+        ]
+    },
+    "season-tww-1": {
+        "slug": "season-tww-1",
+        "expansion": 10,
+        "dungeons": [
+            {
+                "rioID": 15093,
+                "challengeMapID": 503,
+                "slug": "arakara-city-of-echoes"
+            },
+            {
+                "rioID": 14979,
+                "challengeMapID": 502,
+                "slug": "city-of-threads"
+            },
+            {
+                "rioID": 4950,
+                "challengeMapID": 507,
+                "slug": "grim-batol"
+            },
+            {
+                "rioID": 13334,
+                "challengeMapID": 375,
+                "slug": "mists-of-tirna-scithe"
+            },
+            {
+                "rioID": 9354,
+                "challengeMapID": 353,
+                "slug": "siege-of-boralus"
+            },
+            {
+                "rioID": 14971,
+                "challengeMapID": 505,
+                "slug": "the-dawnbreaker"
+            },
+            {
+                "rioID": 12916,
+                "challengeMapID": 376,
+                "slug": "the-necrotic-wake"
+            },
+            {
+                "rioID": 14883,
+                "challengeMapID": 501,
+                "slug": "the-stonevault"
+            }
+        ]
+    },
+    "season-tww-1-post": {
+        "slug": "season-tww-1-post",
+        "expansion": 10,
+        "dungeons": [
+            {
+                "rioID": 15093,
+                "challengeMapID": 503,
+                "slug": "arakara-city-of-echoes"
+            },
+            {
+                "rioID": 14979,
+                "challengeMapID": 502,
+                "slug": "city-of-threads"
+            },
+            {
+                "rioID": 4950,
+                "challengeMapID": 507,
+                "slug": "grim-batol"
+            },
+            {
+                "rioID": 13334,
+                "challengeMapID": 375,
+                "slug": "mists-of-tirna-scithe"
+            },
+            {
+                "rioID": 9354,
+                "challengeMapID": 353,
+                "slug": "siege-of-boralus"
+            },
+            {
+                "rioID": 14971,
+                "challengeMapID": 505,
+                "slug": "the-dawnbreaker"
+            },
+            {
+                "rioID": 12916,
+                "challengeMapID": 376,
+                "slug": "the-necrotic-wake"
+            },
+            {
+                "rioID": 14883,
+                "challengeMapID": 501,
+                "slug": "the-stonevault"
+            }
+        ]
+    },
+    "season-tww-1-break-the-meta": {
+        "slug": "season-tww-1-break-the-meta",
+        "expansion": 10,
+        "dungeons": [
+            {
+                "rioID": 15093,
+                "challengeMapID": 503,
+                "slug": "arakara-city-of-echoes"
+            },
+            {
+                "rioID": 14979,
+                "challengeMapID": 502,
+                "slug": "city-of-threads"
+            },
+            {
+                "rioID": 4950,
+                "challengeMapID": 507,
+                "slug": "grim-batol"
+            },
+            {
+                "rioID": 13334,
+                "challengeMapID": 375,
+                "slug": "mists-of-tirna-scithe"
+            },
+            {
+                "rioID": 9354,
+                "challengeMapID": 353,
+                "slug": "siege-of-boralus"
+            },
+            {
+                "rioID": 14971,
+                "challengeMapID": 505,
+                "slug": "the-dawnbreaker"
+            },
+            {
+                "rioID": 12916,
+                "challengeMapID": 376,
+                "slug": "the-necrotic-wake"
+            },
+            {
+                "rioID": 14883,
+                "challengeMapID": 501,
+                "slug": "the-stonevault"
+            }
+        ]
+    },
+    "season-tww-1-beta": {
+        "slug": "season-tww-1-beta",
+        "expansion": 10,
+        "dungeons": [
+            {
+                "rioID": 15093,
+                "challengeMapID": 503,
+                "slug": "arakara-city-of-echoes"
+            },
+            {
+                "rioID": 14979,
+                "challengeMapID": 502,
+                "slug": "city-of-threads"
+            },
+            {
+                "rioID": 4950,
+                "challengeMapID": 507,
+                "slug": "grim-batol"
+            },
+            {
+                "rioID": 13334,
+                "challengeMapID": 375,
+                "slug": "mists-of-tirna-scithe"
+            },
+            {
+                "rioID": 9354,
+                "challengeMapID": 353,
+                "slug": "siege-of-boralus"
+            },
+            {
+                "rioID": 14971,
+                "challengeMapID": 505,
+                "slug": "the-dawnbreaker"
+            },
+            {
+                "rioID": 12916,
+                "challengeMapID": 376,
+                "slug": "the-necrotic-wake"
+            },
+            {
+                "rioID": 14883,
+                "challengeMapID": 501,
+                "slug": "the-stonevault"
+            }
+        ]
+    },
+    "season-df-4-cutoffs": {
+        "slug": "season-df-4-cutoffs",
+        "expansion": 9,
+        "dungeons": [
+            {
+                "rioID": 14032,
+                "challengeMapID": 402,
+                "slug": "algethar-academy"
+            },
+            {
+                "rioID": 13991,
+                "challengeMapID": 405,
+                "slug": "brackenhide-hollow"
+            },
+            {
+                "rioID": 14082,
+                "challengeMapID": 406,
+                "slug": "halls-of-infusion"
+            },
+            {
+                "rioID": 14011,
+                "challengeMapID": 404,
+                "slug": "neltharus"
+            },
+            {
+                "rioID": 14063,
+                "challengeMapID": 399,
+                "slug": "ruby-life-pools"
+            },
+            {
+                "rioID": 13954,
+                "challengeMapID": 401,
+                "slug": "the-azure-vault"
+            },
+            {
+                "rioID": 13982,
+                "challengeMapID": 400,
+                "slug": "the-nokhud-offensive"
+            },
+            {
+                "rioID": 13968,
+                "challengeMapID": 403,
+                "slug": "uldaman-legacy-of-tyr"
+            }
+        ]
+    },
+    "season-df-4": {
+        "slug": "season-df-4",
+        "expansion": 9,
+        "dungeons": [
+            {
+                "rioID": 14032,
+                "challengeMapID": 402,
+                "slug": "algethar-academy"
+            },
+            {
+                "rioID": 13991,
+                "challengeMapID": 405,
+                "slug": "brackenhide-hollow"
+            },
+            {
+                "rioID": 14082,
+                "challengeMapID": 406,
+                "slug": "halls-of-infusion"
+            },
+            {
+                "rioID": 14011,
+                "challengeMapID": 404,
+                "slug": "neltharus"
+            },
+            {
+                "rioID": 14063,
+                "challengeMapID": 399,
+                "slug": "ruby-life-pools"
+            },
+            {
+                "rioID": 13954,
+                "challengeMapID": 401,
+                "slug": "the-azure-vault"
+            },
+            {
+                "rioID": 13982,
+                "challengeMapID": 400,
+                "slug": "the-nokhud-offensive"
+            },
+            {
+                "rioID": 13968,
+                "challengeMapID": 403,
+                "slug": "uldaman-legacy-of-tyr"
+            }
+        ]
+    },
+    "season-df-4-post": {
+        "slug": "season-df-4-post",
+        "expansion": 9,
+        "dungeons": [
+            {
+                "rioID": 14032,
+                "challengeMapID": 402,
+                "slug": "algethar-academy"
+            },
+            {
+                "rioID": 13991,
+                "challengeMapID": 405,
+                "slug": "brackenhide-hollow"
+            },
+            {
+                "rioID": 14082,
+                "challengeMapID": 406,
+                "slug": "halls-of-infusion"
+            },
+            {
+                "rioID": 14011,
+                "challengeMapID": 404,
+                "slug": "neltharus"
+            },
+            {
+                "rioID": 14063,
+                "challengeMapID": 399,
+                "slug": "ruby-life-pools"
+            },
+            {
+                "rioID": 13954,
+                "challengeMapID": 401,
+                "slug": "the-azure-vault"
+            },
+            {
+                "rioID": 13982,
+                "challengeMapID": 400,
+                "slug": "the-nokhud-offensive"
+            },
+            {
+                "rioID": 13968,
+                "challengeMapID": 403,
+                "slug": "uldaman-legacy-of-tyr"
+            }
+        ]
+    },
+    "season-df-4-break-the-meta": {
+        "slug": "season-df-4-break-the-meta",
+        "expansion": 9,
+        "dungeons": [
+            {
+                "rioID": 14032,
+                "challengeMapID": 402,
+                "slug": "algethar-academy"
+            },
+            {
+                "rioID": 13991,
+                "challengeMapID": 405,
+                "slug": "brackenhide-hollow"
+            },
+            {
+                "rioID": 14082,
+                "challengeMapID": 406,
+                "slug": "halls-of-infusion"
+            },
+            {
+                "rioID": 14011,
+                "challengeMapID": 404,
+                "slug": "neltharus"
+            },
+            {
+                "rioID": 14063,
+                "challengeMapID": 399,
+                "slug": "ruby-life-pools"
+            },
+            {
+                "rioID": 13954,
+                "challengeMapID": 401,
+                "slug": "the-azure-vault"
+            },
+            {
+                "rioID": 13982,
+                "challengeMapID": 400,
+                "slug": "the-nokhud-offensive"
+            },
+            {
+                "rioID": 13968,
+                "challengeMapID": 403,
+                "slug": "uldaman-legacy-of-tyr"
+            }
+        ]
+    },
+    "season-df-4-ptr": {
+        "slug": "season-df-4-ptr",
+        "expansion": 9,
+        "dungeons": [
+            {
+                "rioID": 14032,
+                "challengeMapID": 402,
+                "slug": "algethar-academy"
+            },
+            {
+                "rioID": 13991,
+                "challengeMapID": 405,
+                "slug": "brackenhide-hollow"
+            },
+            {
+                "rioID": 14082,
+                "challengeMapID": 406,
+                "slug": "halls-of-infusion"
+            },
+            {
+                "rioID": 14011,
+                "challengeMapID": 404,
+                "slug": "neltharus"
+            },
+            {
+                "rioID": 14063,
+                "challengeMapID": 399,
+                "slug": "ruby-life-pools"
+            },
+            {
+                "rioID": 13954,
+                "challengeMapID": 401,
+                "slug": "the-azure-vault"
+            },
+            {
+                "rioID": 13982,
+                "challengeMapID": 400,
+                "slug": "the-nokhud-offensive"
+            },
+            {
+                "rioID": 13968,
+                "challengeMapID": 403,
+                "slug": "uldaman-legacy-of-tyr"
+            }
+        ]
+    },
+    "season-df-3": {
+        "slug": "season-df-3",
+        "expansion": 9,
+        "dungeons": [
+            {
+                "rioID": 9028,
+                "challengeMapID": 244,
+                "slug": "ataldazar"
+            },
+            {
+                "rioID": 7805,
+                "challengeMapID": 199,
+                "slug": "black-rook-hold"
+            },
+            {
+                "rioID": 1000010,
+                "challengeMapID": 463,
+                "slug": "doti-galakronds-fall"
+            },
+            {
+                "rioID": 1000011,
+                "challengeMapID": 464,
+                "slug": "doti-murozonds-rise"
+            },
+            {
+                "rioID": 7673,
+                "challengeMapID": 198,
+                "slug": "darkheart-thicket"
+            },
+            {
+                "rioID": 7109,
+                "challengeMapID": 168,
+                "slug": "everbloom"
+            },
+            {
+                "rioID": 4738,
+                "challengeMapID": 456,
+                "slug": "throne-of-the-tides"
+            },
+            {
+                "rioID": 9424,
+                "challengeMapID": 248,
+                "slug": "waycrest-manor"
+            }
+        ]
+    },
+    "season-df-3-ptr": {
+        "slug": "season-df-3-ptr",
+        "expansion": 9,
+        "dungeons": [
+            {
+                "rioID": 9028,
+                "challengeMapID": 244,
+                "slug": "ataldazar"
+            },
+            {
+                "rioID": 7805,
+                "challengeMapID": 199,
+                "slug": "black-rook-hold"
+            },
+            {
+                "rioID": 1000010,
+                "challengeMapID": 463,
+                "slug": "doti-galakronds-fall"
+            },
+            {
+                "rioID": 1000011,
+                "challengeMapID": 464,
+                "slug": "doti-murozonds-rise"
+            },
+            {
+                "rioID": 7673,
+                "challengeMapID": 198,
+                "slug": "darkheart-thicket"
+            },
+            {
+                "rioID": 7109,
+                "challengeMapID": 168,
+                "slug": "everbloom"
+            },
+            {
+                "rioID": 4738,
+                "challengeMapID": 456,
+                "slug": "throne-of-the-tides"
+            },
+            {
+                "rioID": 9424,
+                "challengeMapID": 248,
+                "slug": "waycrest-manor"
+            }
+        ]
+    },
+    "season-df-3-meta-vs-meta": {
+        "slug": "season-df-3-meta-vs-meta",
+        "expansion": 9,
+        "dungeons": [
+            {
+                "rioID": 9028,
+                "challengeMapID": 244,
+                "slug": "ataldazar"
+            },
+            {
+                "rioID": 7805,
+                "challengeMapID": 199,
+                "slug": "black-rook-hold"
+            },
+            {
+                "rioID": 1000010,
+                "challengeMapID": 463,
+                "slug": "doti-galakronds-fall"
+            },
+            {
+                "rioID": 1000011,
+                "challengeMapID": 464,
+                "slug": "doti-murozonds-rise"
+            },
+            {
+                "rioID": 7673,
+                "challengeMapID": 198,
+                "slug": "darkheart-thicket"
+            },
+            {
+                "rioID": 7109,
+                "challengeMapID": 168,
+                "slug": "everbloom"
+            },
+            {
+                "rioID": 4738,
+                "challengeMapID": 456,
+                "slug": "throne-of-the-tides"
+            },
+            {
+                "rioID": 9424,
+                "challengeMapID": 248,
+                "slug": "waycrest-manor"
+            }
+        ]
+    },
+    "season-df-3-break-the-meta": {
+        "slug": "season-df-3-break-the-meta",
+        "expansion": 9,
+        "dungeons": [
+            {
+                "rioID": 9028,
+                "challengeMapID": 244,
+                "slug": "ataldazar"
+            },
+            {
+                "rioID": 7805,
+                "challengeMapID": 199,
+                "slug": "black-rook-hold"
+            },
+            {
+                "rioID": 1000010,
+                "challengeMapID": 463,
+                "slug": "doti-galakronds-fall"
+            },
+            {
+                "rioID": 1000011,
+                "challengeMapID": 464,
+                "slug": "doti-murozonds-rise"
+            },
+            {
+                "rioID": 7673,
+                "challengeMapID": 198,
+                "slug": "darkheart-thicket"
+            },
+            {
+                "rioID": 7109,
+                "challengeMapID": 168,
+                "slug": "everbloom"
+            },
+            {
+                "rioID": 4738,
+                "challengeMapID": 456,
+                "slug": "throne-of-the-tides"
+            },
+            {
+                "rioID": 9424,
+                "challengeMapID": 248,
+                "slug": "waycrest-manor"
+            }
+        ]
+    },
+    "season-df-2": {
+        "slug": "season-df-2",
+        "expansion": 9,
+        "dungeons": [
+            {
+                "rioID": 13991,
+                "challengeMapID": 405,
+                "slug": "brackenhide-hollow"
+            },
+            {
+                "rioID": 9164,
+                "challengeMapID": 245,
+                "slug": "freehold"
+            },
+            {
+                "rioID": 14082,
+                "challengeMapID": 406,
+                "slug": "halls-of-infusion"
+            },
+            {
+                "rioID": 7546,
+                "challengeMapID": 206,
+                "slug": "neltharions-lair"
+            },
+            {
+                "rioID": 14011,
+                "challengeMapID": 404,
+                "slug": "neltharus"
+            },
+            {
+                "rioID": 9391,
+                "challengeMapID": 251,
+                "slug": "the-underrot"
+            },
+            {
+                "rioID": 5035,
+                "challengeMapID": 438,
+                "slug": "the-vortex-pinnacle"
+            },
+            {
+                "rioID": 13968,
+                "challengeMapID": 403,
+                "slug": "uldaman-legacy-of-tyr"
+            }
+        ]
+    },
+    "season-df-2-post": {
+        "slug": "season-df-2-post",
+        "expansion": 9,
+        "dungeons": [
+            {
+                "rioID": 13991,
+                "challengeMapID": 405,
+                "slug": "brackenhide-hollow"
+            },
+            {
+                "rioID": 9164,
+                "challengeMapID": 245,
+                "slug": "freehold"
+            },
+            {
+                "rioID": 14082,
+                "challengeMapID": 406,
+                "slug": "halls-of-infusion"
+            },
+            {
+                "rioID": 7546,
+                "challengeMapID": 206,
+                "slug": "neltharions-lair"
+            },
+            {
+                "rioID": 14011,
+                "challengeMapID": 404,
+                "slug": "neltharus"
+            },
+            {
+                "rioID": 9391,
+                "challengeMapID": 251,
+                "slug": "the-underrot"
+            },
+            {
+                "rioID": 5035,
+                "challengeMapID": 438,
+                "slug": "the-vortex-pinnacle"
+            },
+            {
+                "rioID": 13968,
+                "challengeMapID": 403,
+                "slug": "uldaman-legacy-of-tyr"
+            }
+        ]
+    },
+    "season-df-2-post-1017": {
+        "slug": "season-df-2-post-1017",
+        "expansion": 9,
+        "dungeons": [
+            {
+                "rioID": 13991,
+                "challengeMapID": 405,
+                "slug": "brackenhide-hollow"
+            },
+            {
+                "rioID": 9164,
+                "challengeMapID": 245,
+                "slug": "freehold"
+            },
+            {
+                "rioID": 14082,
+                "challengeMapID": 406,
+                "slug": "halls-of-infusion"
+            },
+            {
+                "rioID": 7546,
+                "challengeMapID": 206,
+                "slug": "neltharions-lair"
+            },
+            {
+                "rioID": 14011,
+                "challengeMapID": 404,
+                "slug": "neltharus"
+            },
+            {
+                "rioID": 9391,
+                "challengeMapID": 251,
+                "slug": "the-underrot"
+            },
+            {
+                "rioID": 5035,
+                "challengeMapID": 438,
+                "slug": "the-vortex-pinnacle"
+            },
+            {
+                "rioID": 13968,
+                "challengeMapID": 403,
+                "slug": "uldaman-legacy-of-tyr"
+            }
+        ]
+    },
+    "season-df-2-post-1015": {
+        "slug": "season-df-2-post-1015",
+        "expansion": 9,
+        "dungeons": [
+            {
+                "rioID": 13991,
+                "challengeMapID": 405,
+                "slug": "brackenhide-hollow"
+            },
+            {
+                "rioID": 9164,
+                "challengeMapID": 245,
+                "slug": "freehold"
+            },
+            {
+                "rioID": 14082,
+                "challengeMapID": 406,
+                "slug": "halls-of-infusion"
+            },
+            {
+                "rioID": 7546,
+                "challengeMapID": 206,
+                "slug": "neltharions-lair"
+            },
+            {
+                "rioID": 14011,
+                "challengeMapID": 404,
+                "slug": "neltharus"
+            },
+            {
+                "rioID": 9391,
+                "challengeMapID": 251,
+                "slug": "the-underrot"
+            },
+            {
+                "rioID": 5035,
+                "challengeMapID": 438,
+                "slug": "the-vortex-pinnacle"
+            },
+            {
+                "rioID": 13968,
+                "challengeMapID": 403,
+                "slug": "uldaman-legacy-of-tyr"
+            }
+        ]
+    },
+    "season-df-2-break-the-meta": {
+        "slug": "season-df-2-break-the-meta",
+        "expansion": 9,
+        "dungeons": [
+            {
+                "rioID": 13991,
+                "challengeMapID": 405,
+                "slug": "brackenhide-hollow"
+            },
+            {
+                "rioID": 9164,
+                "challengeMapID": 245,
+                "slug": "freehold"
+            },
+            {
+                "rioID": 14082,
+                "challengeMapID": 406,
+                "slug": "halls-of-infusion"
+            },
+            {
+                "rioID": 7546,
+                "challengeMapID": 206,
+                "slug": "neltharions-lair"
+            },
+            {
+                "rioID": 14011,
+                "challengeMapID": 404,
+                "slug": "neltharus"
+            },
+            {
+                "rioID": 9391,
+                "challengeMapID": 251,
+                "slug": "the-underrot"
+            },
+            {
+                "rioID": 5035,
+                "challengeMapID": 438,
+                "slug": "the-vortex-pinnacle"
+            },
+            {
+                "rioID": 13968,
+                "challengeMapID": 403,
+                "slug": "uldaman-legacy-of-tyr"
+            }
+        ]
+    },
+    "season-df-1": {
+        "slug": "season-df-1",
+        "expansion": 9,
+        "dungeons": [
+            {
+                "rioID": 14032,
+                "challengeMapID": 402,
+                "slug": "algethar-academy"
+            },
+            {
+                "rioID": 8079,
+                "challengeMapID": 210,
+                "slug": "court-of-stars"
+            },
+            {
+                "rioID": 7672,
+                "challengeMapID": 200,
+                "slug": "halls-of-valor"
+            },
+            {
+                "rioID": 14063,
+                "challengeMapID": 399,
+                "slug": "ruby-life-pools"
+            },
+            {
+                "rioID": 6932,
+                "challengeMapID": 165,
+                "slug": "shadowmoon-burial-grounds"
+            },
+            {
+                "rioID": 5965,
+                "challengeMapID": 2,
+                "slug": "temple-of-the-jade-serpent"
+            },
+            {
+                "rioID": 13954,
+                "challengeMapID": 401,
+                "slug": "the-azure-vault"
+            },
+            {
+                "rioID": 13982,
+                "challengeMapID": 400,
+                "slug": "the-nokhud-offensive"
+            }
+        ]
+    },
+    "season-df-1-post": {
+        "slug": "season-df-1-post",
+        "expansion": 9,
+        "dungeons": [
+            {
+                "rioID": 14032,
+                "challengeMapID": 402,
+                "slug": "algethar-academy"
+            },
+            {
+                "rioID": 8079,
+                "challengeMapID": 210,
+                "slug": "court-of-stars"
+            },
+            {
+                "rioID": 7672,
+                "challengeMapID": 200,
+                "slug": "halls-of-valor"
+            },
+            {
+                "rioID": 14063,
+                "challengeMapID": 399,
+                "slug": "ruby-life-pools"
+            },
+            {
+                "rioID": 6932,
+                "challengeMapID": 165,
+                "slug": "shadowmoon-burial-grounds"
+            },
+            {
+                "rioID": 5965,
+                "challengeMapID": 2,
+                "slug": "temple-of-the-jade-serpent"
+            },
+            {
+                "rioID": 13954,
+                "challengeMapID": 401,
+                "slug": "the-azure-vault"
+            },
+            {
+                "rioID": 13982,
+                "challengeMapID": 400,
+                "slug": "the-nokhud-offensive"
+            }
+        ]
+    },
+    "season-df-1-break-the-meta": {
+        "slug": "season-df-1-break-the-meta",
+        "expansion": 9,
+        "dungeons": [
+            {
+                "rioID": 14032,
+                "challengeMapID": 402,
+                "slug": "algethar-academy"
+            },
+            {
+                "rioID": 8079,
+                "challengeMapID": 210,
+                "slug": "court-of-stars"
+            },
+            {
+                "rioID": 7672,
+                "challengeMapID": 200,
+                "slug": "halls-of-valor"
+            },
+            {
+                "rioID": 14063,
+                "challengeMapID": 399,
+                "slug": "ruby-life-pools"
+            },
+            {
+                "rioID": 6932,
+                "challengeMapID": 165,
+                "slug": "shadowmoon-burial-grounds"
+            },
+            {
+                "rioID": 5965,
+                "challengeMapID": 2,
+                "slug": "temple-of-the-jade-serpent"
+            },
+            {
+                "rioID": 13954,
+                "challengeMapID": 401,
+                "slug": "the-azure-vault"
+            },
+            {
+                "rioID": 13982,
+                "challengeMapID": 400,
+                "slug": "the-nokhud-offensive"
+            }
+        ]
+    },
+    "season-sl-4-post": {
+        "slug": "season-sl-4-post",
+        "expansion": 8,
+        "dungeons": [
+            {
+                "rioID": 6984,
+                "challengeMapID": 166,
+                "slug": "grimrail-depot"
+            },
+            {
+                "rioID": 6951,
+                "challengeMapID": 169,
+                "slug": "iron-docks"
+            },
+            {
+                "rioID": 800001,
+                "challengeMapID": 369,
+                "slug": "operation-mechagon-junkyard"
+            },
+            {
+                "rioID": 800002,
+                "challengeMapID": 370,
+                "slug": "operation-mechagon-workshop"
+            },
+            {
+                "rioID": 999998,
+                "challengeMapID": 227,
+                "slug": "return-to-karazhan-lower"
+            },
+            {
+                "rioID": 999999,
+                "challengeMapID": 234,
+                "slug": "return-to-karazhan-upper"
+            },
+            {
+                "rioID": 1000001,
+                "challengeMapID": 392,
+                "slug": "tazavesh-soleahs-gambit"
+            },
+            {
+                "rioID": 1000000,
+                "challengeMapID": 391,
+                "slug": "tazavesh-streets-of-wonder"
+            }
+        ]
+    },
+    "season-sl-4-patch-10-0": {
+        "slug": "season-sl-4-patch-10-0",
+        "expansion": 8,
+        "dungeons": [
+            {
+                "rioID": 6984,
+                "challengeMapID": 166,
+                "slug": "grimrail-depot"
+            },
+            {
+                "rioID": 6951,
+                "challengeMapID": 169,
+                "slug": "iron-docks"
+            },
+            {
+                "rioID": 800001,
+                "challengeMapID": 369,
+                "slug": "operation-mechagon-junkyard"
+            },
+            {
+                "rioID": 800002,
+                "challengeMapID": 370,
+                "slug": "operation-mechagon-workshop"
+            },
+            {
+                "rioID": 999998,
+                "challengeMapID": 227,
+                "slug": "return-to-karazhan-lower"
+            },
+            {
+                "rioID": 999999,
+                "challengeMapID": 234,
+                "slug": "return-to-karazhan-upper"
+            },
+            {
+                "rioID": 1000001,
+                "challengeMapID": 392,
+                "slug": "tazavesh-soleahs-gambit"
+            },
+            {
+                "rioID": 1000000,
+                "challengeMapID": 391,
+                "slug": "tazavesh-streets-of-wonder"
+            }
+        ]
+    },
+    "season-sl-4": {
+        "slug": "season-sl-4",
+        "expansion": 8,
+        "dungeons": [
+            {
+                "rioID": 6984,
+                "challengeMapID": 166,
+                "slug": "grimrail-depot"
+            },
+            {
+                "rioID": 6951,
+                "challengeMapID": 169,
+                "slug": "iron-docks"
+            },
+            {
+                "rioID": 800001,
+                "challengeMapID": 369,
+                "slug": "operation-mechagon-junkyard"
+            },
+            {
+                "rioID": 800002,
+                "challengeMapID": 370,
+                "slug": "operation-mechagon-workshop"
+            },
+            {
+                "rioID": 999998,
+                "challengeMapID": 227,
+                "slug": "return-to-karazhan-lower"
+            },
+            {
+                "rioID": 999999,
+                "challengeMapID": 234,
+                "slug": "return-to-karazhan-upper"
+            },
+            {
+                "rioID": 1000001,
+                "challengeMapID": 392,
+                "slug": "tazavesh-soleahs-gambit"
+            },
+            {
+                "rioID": 1000000,
+                "challengeMapID": 391,
+                "slug": "tazavesh-streets-of-wonder"
+            }
+        ]
+    },
+    "season-sl-4-legion-timewalking": {
+        "slug": "season-sl-4-legion-timewalking",
+        "expansion": 8,
+        "dungeons": [
+            {
+                "rioID": 7805,
+                "challengeMapID": 199,
+                "slug": "black-rook-hold"
+            },
+            {
+                "rioID": 8079,
+                "challengeMapID": 210,
+                "slug": "court-of-stars"
+            },
+            {
+                "rioID": 7673,
+                "challengeMapID": 198,
+                "slug": "darkheart-thicket"
+            },
+            {
+                "rioID": 8040,
+                "challengeMapID": 197,
+                "slug": "eye-of-azshara"
+            },
+            {
+                "rioID": 7546,
+                "challengeMapID": 206,
+                "slug": "neltharions-lair"
+            },
+            {
+                "rioID": 7787,
+                "challengeMapID": 207,
+                "slug": "vault-of-the-wardens"
+            }
+        ]
+    },
+    "season-sl-4-break-the-meta": {
+        "slug": "season-sl-4-break-the-meta",
+        "expansion": 8,
+        "dungeons": [
+            {
+                "rioID": 6984,
+                "challengeMapID": 166,
+                "slug": "grimrail-depot"
+            },
+            {
+                "rioID": 6951,
+                "challengeMapID": 169,
+                "slug": "iron-docks"
+            },
+            {
+                "rioID": 800001,
+                "challengeMapID": 369,
+                "slug": "operation-mechagon-junkyard"
+            },
+            {
+                "rioID": 800002,
+                "challengeMapID": 370,
+                "slug": "operation-mechagon-workshop"
+            },
+            {
+                "rioID": 999998,
+                "challengeMapID": 227,
+                "slug": "return-to-karazhan-lower"
+            },
+            {
+                "rioID": 999999,
+                "challengeMapID": 234,
+                "slug": "return-to-karazhan-upper"
+            },
+            {
+                "rioID": 1000001,
+                "challengeMapID": 392,
+                "slug": "tazavesh-soleahs-gambit"
+            },
+            {
+                "rioID": 1000000,
+                "challengeMapID": 391,
+                "slug": "tazavesh-streets-of-wonder"
+            }
+        ]
+    },
+    "season-sl-3": {
+        "slug": "season-sl-3",
+        "expansion": 8,
+        "dungeons": [
+            {
+                "rioID": 13309,
+                "challengeMapID": 377,
+                "slug": "de-other-side"
+            },
+            {
+                "rioID": 12831,
+                "challengeMapID": 378,
+                "slug": "halls-of-atonement"
+            },
+            {
+                "rioID": 13334,
+                "challengeMapID": 375,
+                "slug": "mists-of-tirna-scithe"
+            },
+            {
+                "rioID": 13228,
+                "challengeMapID": 379,
+                "slug": "plaguefall"
+            },
+            {
+                "rioID": 12842,
+                "challengeMapID": 380,
+                "slug": "sanguine-depths"
+            },
+            {
+                "rioID": 12837,
+                "challengeMapID": 381,
+                "slug": "spires-of-ascension"
+            },
+            {
+                "rioID": 1000001,
+                "challengeMapID": 392,
+                "slug": "tazavesh-soleahs-gambit"
+            },
+            {
+                "rioID": 1000000,
+                "challengeMapID": 391,
+                "slug": "tazavesh-streets-of-wonder"
+            },
+            {
+                "rioID": 12916,
+                "challengeMapID": 376,
+                "slug": "the-necrotic-wake"
+            },
+            {
+                "rioID": 12841,
+                "challengeMapID": 382,
+                "slug": "theater-of-pain"
+            }
+        ]
+    },
+    "season-sl-3-post-925": {
+        "slug": "season-sl-3-post-925",
+        "expansion": 8,
+        "dungeons": [
+            {
+                "rioID": 13309,
+                "challengeMapID": 377,
+                "slug": "de-other-side"
+            },
+            {
+                "rioID": 12831,
+                "challengeMapID": 378,
+                "slug": "halls-of-atonement"
+            },
+            {
+                "rioID": 13334,
+                "challengeMapID": 375,
+                "slug": "mists-of-tirna-scithe"
+            },
+            {
+                "rioID": 13228,
+                "challengeMapID": 379,
+                "slug": "plaguefall"
+            },
+            {
+                "rioID": 12842,
+                "challengeMapID": 380,
+                "slug": "sanguine-depths"
+            },
+            {
+                "rioID": 12837,
+                "challengeMapID": 381,
+                "slug": "spires-of-ascension"
+            },
+            {
+                "rioID": 1000001,
+                "challengeMapID": 392,
+                "slug": "tazavesh-soleahs-gambit"
+            },
+            {
+                "rioID": 1000000,
+                "challengeMapID": 391,
+                "slug": "tazavesh-streets-of-wonder"
+            },
+            {
+                "rioID": 12916,
+                "challengeMapID": 376,
+                "slug": "the-necrotic-wake"
+            },
+            {
+                "rioID": 12841,
+                "challengeMapID": 382,
+                "slug": "theater-of-pain"
+            }
+        ]
+    },
+    "season-sl-3-legion-timewalking": {
+        "slug": "season-sl-3-legion-timewalking",
+        "expansion": 8,
+        "dungeons": [
+            {
+                "rioID": 7805,
+                "challengeMapID": 199,
+                "slug": "black-rook-hold"
+            },
+            {
+                "rioID": 8079,
+                "challengeMapID": 210,
+                "slug": "court-of-stars"
+            },
+            {
+                "rioID": 7673,
+                "challengeMapID": 198,
+                "slug": "darkheart-thicket"
+            },
+            {
+                "rioID": 8040,
+                "challengeMapID": 197,
+                "slug": "eye-of-azshara"
+            },
+            {
+                "rioID": 7546,
+                "challengeMapID": 206,
+                "slug": "neltharions-lair"
+            },
+            {
+                "rioID": 7787,
+                "challengeMapID": 207,
+                "slug": "vault-of-the-wardens"
+            }
+        ]
+    },
+    "season-sl-2": {
+        "slug": "season-sl-2",
+        "expansion": 8,
+        "dungeons": [
+            {
+                "rioID": 13309,
+                "challengeMapID": 377,
+                "slug": "de-other-side"
+            },
+            {
+                "rioID": 12831,
+                "challengeMapID": 378,
+                "slug": "halls-of-atonement"
+            },
+            {
+                "rioID": 13334,
+                "challengeMapID": 375,
+                "slug": "mists-of-tirna-scithe"
+            },
+            {
+                "rioID": 13228,
+                "challengeMapID": 379,
+                "slug": "plaguefall"
+            },
+            {
+                "rioID": 12842,
+                "challengeMapID": 380,
+                "slug": "sanguine-depths"
+            },
+            {
+                "rioID": 12837,
+                "challengeMapID": 381,
+                "slug": "spires-of-ascension"
+            },
+            {
+                "rioID": 12916,
+                "challengeMapID": 376,
+                "slug": "the-necrotic-wake"
+            },
+            {
+                "rioID": 12841,
+                "challengeMapID": 382,
+                "slug": "theater-of-pain"
+            }
+        ]
+    },
+    "season-sl-2-post": {
+        "slug": "season-sl-2-post",
+        "expansion": 8,
+        "dungeons": [
+            {
+                "rioID": 13309,
+                "challengeMapID": 377,
+                "slug": "de-other-side"
+            },
+            {
+                "rioID": 12831,
+                "challengeMapID": 378,
+                "slug": "halls-of-atonement"
+            },
+            {
+                "rioID": 13334,
+                "challengeMapID": 375,
+                "slug": "mists-of-tirna-scithe"
+            },
+            {
+                "rioID": 13228,
+                "challengeMapID": 379,
+                "slug": "plaguefall"
+            },
+            {
+                "rioID": 12842,
+                "challengeMapID": 380,
+                "slug": "sanguine-depths"
+            },
+            {
+                "rioID": 12837,
+                "challengeMapID": 381,
+                "slug": "spires-of-ascension"
+            },
+            {
+                "rioID": 12916,
+                "challengeMapID": 376,
+                "slug": "the-necrotic-wake"
+            },
+            {
+                "rioID": 12841,
+                "challengeMapID": 382,
+                "slug": "theater-of-pain"
+            }
+        ]
+    },
+    "season-sl-2-post-915": {
+        "slug": "season-sl-2-post-915",
+        "expansion": 8,
+        "dungeons": [
+            {
+                "rioID": 13309,
+                "challengeMapID": 377,
+                "slug": "de-other-side"
+            },
+            {
+                "rioID": 12831,
+                "challengeMapID": 378,
+                "slug": "halls-of-atonement"
+            },
+            {
+                "rioID": 13334,
+                "challengeMapID": 375,
+                "slug": "mists-of-tirna-scithe"
+            },
+            {
+                "rioID": 13228,
+                "challengeMapID": 379,
+                "slug": "plaguefall"
+            },
+            {
+                "rioID": 12842,
+                "challengeMapID": 380,
+                "slug": "sanguine-depths"
+            },
+            {
+                "rioID": 12837,
+                "challengeMapID": 381,
+                "slug": "spires-of-ascension"
+            },
+            {
+                "rioID": 12916,
+                "challengeMapID": 376,
+                "slug": "the-necrotic-wake"
+            },
+            {
+                "rioID": 12841,
+                "challengeMapID": 382,
+                "slug": "theater-of-pain"
+            }
+        ]
+    },
+    "season-sl-2-legion-timewalking": {
+        "slug": "season-sl-2-legion-timewalking",
+        "expansion": 8,
+        "dungeons": [
+            {
+                "rioID": 7805,
+                "challengeMapID": 199,
+                "slug": "black-rook-hold"
+            },
+            {
+                "rioID": 8079,
+                "challengeMapID": 210,
+                "slug": "court-of-stars"
+            },
+            {
+                "rioID": 7673,
+                "challengeMapID": 198,
+                "slug": "darkheart-thicket"
+            },
+            {
+                "rioID": 8040,
+                "challengeMapID": 197,
+                "slug": "eye-of-azshara"
+            },
+            {
+                "rioID": 7546,
+                "challengeMapID": 206,
+                "slug": "neltharions-lair"
+            },
+            {
+                "rioID": 7787,
+                "challengeMapID": 207,
+                "slug": "vault-of-the-wardens"
+            }
+        ]
+    },
+    "season-sl-1-post": {
+        "slug": "season-sl-1-post",
+        "expansion": 8,
+        "dungeons": [
+            {
+                "rioID": 13309,
+                "challengeMapID": 377,
+                "slug": "de-other-side"
+            },
+            {
+                "rioID": 12831,
+                "challengeMapID": 378,
+                "slug": "halls-of-atonement"
+            },
+            {
+                "rioID": 13334,
+                "challengeMapID": 375,
+                "slug": "mists-of-tirna-scithe"
+            },
+            {
+                "rioID": 13228,
+                "challengeMapID": 379,
+                "slug": "plaguefall"
+            },
+            {
+                "rioID": 12842,
+                "challengeMapID": 380,
+                "slug": "sanguine-depths"
+            },
+            {
+                "rioID": 12837,
+                "challengeMapID": 381,
+                "slug": "spires-of-ascension"
+            },
+            {
+                "rioID": 12916,
+                "challengeMapID": 376,
+                "slug": "the-necrotic-wake"
+            },
+            {
+                "rioID": 12841,
+                "challengeMapID": 382,
+                "slug": "theater-of-pain"
+            }
+        ]
+    },
+    "season-sl-1": {
+        "slug": "season-sl-1",
+        "expansion": 8,
+        "dungeons": [
+            {
+                "rioID": 13309,
+                "challengeMapID": 377,
+                "slug": "de-other-side"
+            },
+            {
+                "rioID": 12831,
+                "challengeMapID": 378,
+                "slug": "halls-of-atonement"
+            },
+            {
+                "rioID": 13334,
+                "challengeMapID": 375,
+                "slug": "mists-of-tirna-scithe"
+            },
+            {
+                "rioID": 13228,
+                "challengeMapID": 379,
+                "slug": "plaguefall"
+            },
+            {
+                "rioID": 12842,
+                "challengeMapID": 380,
+                "slug": "sanguine-depths"
+            },
+            {
+                "rioID": 12837,
+                "challengeMapID": 381,
+                "slug": "spires-of-ascension"
+            },
+            {
+                "rioID": 12916,
+                "challengeMapID": 376,
+                "slug": "the-necrotic-wake"
+            },
+            {
+                "rioID": 12841,
+                "challengeMapID": 382,
+                "slug": "theater-of-pain"
+            }
+        ]
+    },
+    "season-bfa-4-post": {
+        "slug": "season-bfa-4-post",
+        "expansion": 7,
+        "dungeons": [
+            {
+                "rioID": 9028,
+                "challengeMapID": 244,
+                "slug": "ataldazar"
+            },
+            {
+                "rioID": 9164,
+                "challengeMapID": 245,
+                "slug": "freehold"
+            },
+            {
+                "rioID": 9526,
+                "challengeMapID": 249,
+                "slug": "kings-rest"
+            },
+            {
+                "rioID": 800001,
+                "challengeMapID": 369,
+                "slug": "operation-mechagon-junkyard"
+            },
+            {
+                "rioID": 800002,
+                "challengeMapID": 370,
+                "slug": "operation-mechagon-workshop"
+            },
+            {
+                "rioID": 9525,
+                "challengeMapID": 252,
+                "slug": "shrine-of-the-storm"
+            },
+            {
+                "rioID": 9354,
+                "challengeMapID": 353,
+                "slug": "siege-of-boralus"
+            },
+            {
+                "rioID": 9527,
+                "challengeMapID": 250,
+                "slug": "temple-of-sethraliss"
+            },
+            {
+                "rioID": 8064,
+                "challengeMapID": 247,
+                "slug": "the-motherlode"
+            },
+            {
+                "rioID": 9391,
+                "challengeMapID": 251,
+                "slug": "the-underrot"
+            },
+            {
+                "rioID": 9327,
+                "challengeMapID": 246,
+                "slug": "tol-dagor"
+            },
+            {
+                "rioID": 9424,
+                "challengeMapID": 248,
+                "slug": "waycrest-manor"
+            }
+        ]
+    },
+    "season-bfa-4": {
+        "slug": "season-bfa-4",
+        "expansion": 7,
+        "dungeons": [
+            {
+                "rioID": 9028,
+                "challengeMapID": 244,
+                "slug": "ataldazar"
+            },
+            {
+                "rioID": 9164,
+                "challengeMapID": 245,
+                "slug": "freehold"
+            },
+            {
+                "rioID": 9526,
+                "challengeMapID": 249,
+                "slug": "kings-rest"
+            },
+            {
+                "rioID": 800001,
+                "challengeMapID": 369,
+                "slug": "operation-mechagon-junkyard"
+            },
+            {
+                "rioID": 800002,
+                "challengeMapID": 370,
+                "slug": "operation-mechagon-workshop"
+            },
+            {
+                "rioID": 9525,
+                "challengeMapID": 252,
+                "slug": "shrine-of-the-storm"
+            },
+            {
+                "rioID": 9354,
+                "challengeMapID": 353,
+                "slug": "siege-of-boralus"
+            },
+            {
+                "rioID": 9527,
+                "challengeMapID": 250,
+                "slug": "temple-of-sethraliss"
+            },
+            {
+                "rioID": 8064,
+                "challengeMapID": 247,
+                "slug": "the-motherlode"
+            },
+            {
+                "rioID": 9391,
+                "challengeMapID": 251,
+                "slug": "the-underrot"
+            },
+            {
+                "rioID": 9327,
+                "challengeMapID": 246,
+                "slug": "tol-dagor"
+            },
+            {
+                "rioID": 9424,
+                "challengeMapID": 248,
+                "slug": "waycrest-manor"
+            }
+        ]
+    },
+    "season-bfa-3-post": {
+        "slug": "season-bfa-3-post",
+        "expansion": 7,
+        "dungeons": [
+            {
+                "rioID": 9028,
+                "challengeMapID": 244,
+                "slug": "ataldazar"
+            },
+            {
+                "rioID": 9164,
+                "challengeMapID": 245,
+                "slug": "freehold"
+            },
+            {
+                "rioID": 9526,
+                "challengeMapID": 249,
+                "slug": "kings-rest"
+            },
+            {
+                "rioID": 800001,
+                "challengeMapID": 369,
+                "slug": "operation-mechagon-junkyard"
+            },
+            {
+                "rioID": 800002,
+                "challengeMapID": 370,
+                "slug": "operation-mechagon-workshop"
+            },
+            {
+                "rioID": 9525,
+                "challengeMapID": 252,
+                "slug": "shrine-of-the-storm"
+            },
+            {
+                "rioID": 9354,
+                "challengeMapID": 353,
+                "slug": "siege-of-boralus"
+            },
+            {
+                "rioID": 9527,
+                "challengeMapID": 250,
+                "slug": "temple-of-sethraliss"
+            },
+            {
+                "rioID": 8064,
+                "challengeMapID": 247,
+                "slug": "the-motherlode"
+            },
+            {
+                "rioID": 9391,
+                "challengeMapID": 251,
+                "slug": "the-underrot"
+            },
+            {
+                "rioID": 9327,
+                "challengeMapID": 246,
+                "slug": "tol-dagor"
+            },
+            {
+                "rioID": 9424,
+                "challengeMapID": 248,
+                "slug": "waycrest-manor"
+            }
+        ]
+    },
+    "season-bfa-3": {
+        "slug": "season-bfa-3",
+        "expansion": 7,
+        "dungeons": [
+            {
+                "rioID": 9028,
+                "challengeMapID": 244,
+                "slug": "ataldazar"
+            },
+            {
+                "rioID": 9164,
+                "challengeMapID": 245,
+                "slug": "freehold"
+            },
+            {
+                "rioID": 9526,
+                "challengeMapID": 249,
+                "slug": "kings-rest"
+            },
+            {
+                "rioID": 9525,
+                "challengeMapID": 252,
+                "slug": "shrine-of-the-storm"
+            },
+            {
+                "rioID": 9354,
+                "challengeMapID": 353,
+                "slug": "siege-of-boralus"
+            },
+            {
+                "rioID": 9527,
+                "challengeMapID": 250,
+                "slug": "temple-of-sethraliss"
+            },
+            {
+                "rioID": 8064,
+                "challengeMapID": 247,
+                "slug": "the-motherlode"
+            },
+            {
+                "rioID": 9391,
+                "challengeMapID": 251,
+                "slug": "the-underrot"
+            },
+            {
+                "rioID": 9327,
+                "challengeMapID": 246,
+                "slug": "tol-dagor"
+            },
+            {
+                "rioID": 9424,
+                "challengeMapID": 248,
+                "slug": "waycrest-manor"
+            }
+        ]
+    },
+    "season-bfa-2-post": {
+        "slug": "season-bfa-2-post",
+        "expansion": 7,
+        "dungeons": [
+            {
+                "rioID": 9028,
+                "challengeMapID": 244,
+                "slug": "ataldazar"
+            },
+            {
+                "rioID": 9164,
+                "challengeMapID": 245,
+                "slug": "freehold"
+            },
+            {
+                "rioID": 9526,
+                "challengeMapID": 249,
+                "slug": "kings-rest"
+            },
+            {
+                "rioID": 9525,
+                "challengeMapID": 252,
+                "slug": "shrine-of-the-storm"
+            },
+            {
+                "rioID": 9354,
+                "challengeMapID": 353,
+                "slug": "siege-of-boralus"
+            },
+            {
+                "rioID": 9527,
+                "challengeMapID": 250,
+                "slug": "temple-of-sethraliss"
+            },
+            {
+                "rioID": 8064,
+                "challengeMapID": 247,
+                "slug": "the-motherlode"
+            },
+            {
+                "rioID": 9391,
+                "challengeMapID": 251,
+                "slug": "the-underrot"
+            },
+            {
+                "rioID": 9327,
+                "challengeMapID": 246,
+                "slug": "tol-dagor"
+            },
+            {
+                "rioID": 9424,
+                "challengeMapID": 248,
+                "slug": "waycrest-manor"
+            }
+        ]
+    },
+    "season-bfa-2": {
+        "slug": "season-bfa-2",
+        "expansion": 7,
+        "dungeons": [
+            {
+                "rioID": 9028,
+                "challengeMapID": 244,
+                "slug": "ataldazar"
+            },
+            {
+                "rioID": 9164,
+                "challengeMapID": 245,
+                "slug": "freehold"
+            },
+            {
+                "rioID": 9526,
+                "challengeMapID": 249,
+                "slug": "kings-rest"
+            },
+            {
+                "rioID": 9525,
+                "challengeMapID": 252,
+                "slug": "shrine-of-the-storm"
+            },
+            {
+                "rioID": 9354,
+                "challengeMapID": 353,
+                "slug": "siege-of-boralus"
+            },
+            {
+                "rioID": 9527,
+                "challengeMapID": 250,
+                "slug": "temple-of-sethraliss"
+            },
+            {
+                "rioID": 8064,
+                "challengeMapID": 247,
+                "slug": "the-motherlode"
+            },
+            {
+                "rioID": 9391,
+                "challengeMapID": 251,
+                "slug": "the-underrot"
+            },
+            {
+                "rioID": 9327,
+                "challengeMapID": 246,
+                "slug": "tol-dagor"
+            },
+            {
+                "rioID": 9424,
+                "challengeMapID": 248,
+                "slug": "waycrest-manor"
+            }
+        ]
+    },
+    "season-bfa-1": {
+        "slug": "season-bfa-1",
+        "expansion": 7,
+        "dungeons": [
+            {
+                "rioID": 9028,
+                "challengeMapID": 244,
+                "slug": "ataldazar"
+            },
+            {
+                "rioID": 9164,
+                "challengeMapID": 245,
+                "slug": "freehold"
+            },
+            {
+                "rioID": 9526,
+                "challengeMapID": 249,
+                "slug": "kings-rest"
+            },
+            {
+                "rioID": 9525,
+                "challengeMapID": 252,
+                "slug": "shrine-of-the-storm"
+            },
+            {
+                "rioID": 9354,
+                "challengeMapID": 353,
+                "slug": "siege-of-boralus"
+            },
+            {
+                "rioID": 9527,
+                "challengeMapID": 250,
+                "slug": "temple-of-sethraliss"
+            },
+            {
+                "rioID": 8064,
+                "challengeMapID": 247,
+                "slug": "the-motherlode"
+            },
+            {
+                "rioID": 9391,
+                "challengeMapID": 251,
+                "slug": "the-underrot"
+            },
+            {
+                "rioID": 9327,
+                "challengeMapID": 246,
+                "slug": "tol-dagor"
+            },
+            {
+                "rioID": 9424,
+                "challengeMapID": 248,
+                "slug": "waycrest-manor"
+            }
+        ]
+    },
     "season-pre-bfa": {
         "slug": "season-pre-bfa",
+        "expansion": 6,
         "dungeons": [
             {
                 "rioID": 7805,
@@ -71,6 +2186,7 @@
     },
     "season-post-legion": {
         "slug": "season-post-legion",
+        "expansion": 6,
         "dungeons": [
             {
                 "rioID": 7805,
@@ -141,6 +2257,7 @@
     },
     "season-7.3.2": {
         "slug": "season-7.3.2",
+        "expansion": 6,
         "dungeons": [
             {
                 "rioID": 7805,
@@ -211,6 +2328,7 @@
     },
     "season-7.3.0": {
         "slug": "season-7.3.0",
+        "expansion": 6,
         "dungeons": [
             {
                 "rioID": 7805,
@@ -281,6 +2399,7 @@
     },
     "season-7.2.5": {
         "slug": "season-7.2.5",
+        "expansion": 6,
         "dungeons": [
             {
                 "rioID": 7805,
@@ -351,6 +2470,7 @@
     },
     "season-7.2.0": {
         "slug": "season-7.2.0",
+        "expansion": 6,
         "dungeons": [
             {
                 "rioID": 7805,
@@ -416,2076 +2536,6 @@
                 "rioID": 7787,
                 "challengeMapID": 207,
                 "slug": "vault-of-the-wardens"
-            }
-        ]
-    },
-    "season-bfa-4-post": {
-        "slug": "season-bfa-4-post",
-        "dungeons": [
-            {
-                "rioID": 9028,
-                "challengeMapID": 244,
-                "slug": "ataldazar"
-            },
-            {
-                "rioID": 9164,
-                "challengeMapID": 245,
-                "slug": "freehold"
-            },
-            {
-                "rioID": 9526,
-                "challengeMapID": 249,
-                "slug": "kings-rest"
-            },
-            {
-                "rioID": 800001,
-                "challengeMapID": 369,
-                "slug": "operation-mechagon-junkyard"
-            },
-            {
-                "rioID": 800002,
-                "challengeMapID": 370,
-                "slug": "operation-mechagon-workshop"
-            },
-            {
-                "rioID": 9525,
-                "challengeMapID": 252,
-                "slug": "shrine-of-the-storm"
-            },
-            {
-                "rioID": 9354,
-                "challengeMapID": 353,
-                "slug": "siege-of-boralus"
-            },
-            {
-                "rioID": 9527,
-                "challengeMapID": 250,
-                "slug": "temple-of-sethraliss"
-            },
-            {
-                "rioID": 8064,
-                "challengeMapID": 247,
-                "slug": "the-motherlode"
-            },
-            {
-                "rioID": 9391,
-                "challengeMapID": 251,
-                "slug": "the-underrot"
-            },
-            {
-                "rioID": 9327,
-                "challengeMapID": 246,
-                "slug": "tol-dagor"
-            },
-            {
-                "rioID": 9424,
-                "challengeMapID": 248,
-                "slug": "waycrest-manor"
-            }
-        ]
-    },
-    "season-bfa-4": {
-        "slug": "season-bfa-4",
-        "dungeons": [
-            {
-                "rioID": 9028,
-                "challengeMapID": 244,
-                "slug": "ataldazar"
-            },
-            {
-                "rioID": 9164,
-                "challengeMapID": 245,
-                "slug": "freehold"
-            },
-            {
-                "rioID": 9526,
-                "challengeMapID": 249,
-                "slug": "kings-rest"
-            },
-            {
-                "rioID": 800001,
-                "challengeMapID": 369,
-                "slug": "operation-mechagon-junkyard"
-            },
-            {
-                "rioID": 800002,
-                "challengeMapID": 370,
-                "slug": "operation-mechagon-workshop"
-            },
-            {
-                "rioID": 9525,
-                "challengeMapID": 252,
-                "slug": "shrine-of-the-storm"
-            },
-            {
-                "rioID": 9354,
-                "challengeMapID": 353,
-                "slug": "siege-of-boralus"
-            },
-            {
-                "rioID": 9527,
-                "challengeMapID": 250,
-                "slug": "temple-of-sethraliss"
-            },
-            {
-                "rioID": 8064,
-                "challengeMapID": 247,
-                "slug": "the-motherlode"
-            },
-            {
-                "rioID": 9391,
-                "challengeMapID": 251,
-                "slug": "the-underrot"
-            },
-            {
-                "rioID": 9327,
-                "challengeMapID": 246,
-                "slug": "tol-dagor"
-            },
-            {
-                "rioID": 9424,
-                "challengeMapID": 248,
-                "slug": "waycrest-manor"
-            }
-        ]
-    },
-    "season-bfa-3-post": {
-        "slug": "season-bfa-3-post",
-        "dungeons": [
-            {
-                "rioID": 9028,
-                "challengeMapID": 244,
-                "slug": "ataldazar"
-            },
-            {
-                "rioID": 9164,
-                "challengeMapID": 245,
-                "slug": "freehold"
-            },
-            {
-                "rioID": 9526,
-                "challengeMapID": 249,
-                "slug": "kings-rest"
-            },
-            {
-                "rioID": 800001,
-                "challengeMapID": 369,
-                "slug": "operation-mechagon-junkyard"
-            },
-            {
-                "rioID": 800002,
-                "challengeMapID": 370,
-                "slug": "operation-mechagon-workshop"
-            },
-            {
-                "rioID": 9525,
-                "challengeMapID": 252,
-                "slug": "shrine-of-the-storm"
-            },
-            {
-                "rioID": 9354,
-                "challengeMapID": 353,
-                "slug": "siege-of-boralus"
-            },
-            {
-                "rioID": 9527,
-                "challengeMapID": 250,
-                "slug": "temple-of-sethraliss"
-            },
-            {
-                "rioID": 8064,
-                "challengeMapID": 247,
-                "slug": "the-motherlode"
-            },
-            {
-                "rioID": 9391,
-                "challengeMapID": 251,
-                "slug": "the-underrot"
-            },
-            {
-                "rioID": 9327,
-                "challengeMapID": 246,
-                "slug": "tol-dagor"
-            },
-            {
-                "rioID": 9424,
-                "challengeMapID": 248,
-                "slug": "waycrest-manor"
-            }
-        ]
-    },
-    "season-bfa-3": {
-        "slug": "season-bfa-3",
-        "dungeons": [
-            {
-                "rioID": 9028,
-                "challengeMapID": 244,
-                "slug": "ataldazar"
-            },
-            {
-                "rioID": 9164,
-                "challengeMapID": 245,
-                "slug": "freehold"
-            },
-            {
-                "rioID": 9526,
-                "challengeMapID": 249,
-                "slug": "kings-rest"
-            },
-            {
-                "rioID": 9525,
-                "challengeMapID": 252,
-                "slug": "shrine-of-the-storm"
-            },
-            {
-                "rioID": 9354,
-                "challengeMapID": 353,
-                "slug": "siege-of-boralus"
-            },
-            {
-                "rioID": 9527,
-                "challengeMapID": 250,
-                "slug": "temple-of-sethraliss"
-            },
-            {
-                "rioID": 8064,
-                "challengeMapID": 247,
-                "slug": "the-motherlode"
-            },
-            {
-                "rioID": 9391,
-                "challengeMapID": 251,
-                "slug": "the-underrot"
-            },
-            {
-                "rioID": 9327,
-                "challengeMapID": 246,
-                "slug": "tol-dagor"
-            },
-            {
-                "rioID": 9424,
-                "challengeMapID": 248,
-                "slug": "waycrest-manor"
-            }
-        ]
-    },
-    "season-bfa-2-post": {
-        "slug": "season-bfa-2-post",
-        "dungeons": [
-            {
-                "rioID": 9028,
-                "challengeMapID": 244,
-                "slug": "ataldazar"
-            },
-            {
-                "rioID": 9164,
-                "challengeMapID": 245,
-                "slug": "freehold"
-            },
-            {
-                "rioID": 9526,
-                "challengeMapID": 249,
-                "slug": "kings-rest"
-            },
-            {
-                "rioID": 9525,
-                "challengeMapID": 252,
-                "slug": "shrine-of-the-storm"
-            },
-            {
-                "rioID": 9354,
-                "challengeMapID": 353,
-                "slug": "siege-of-boralus"
-            },
-            {
-                "rioID": 9527,
-                "challengeMapID": 250,
-                "slug": "temple-of-sethraliss"
-            },
-            {
-                "rioID": 8064,
-                "challengeMapID": 247,
-                "slug": "the-motherlode"
-            },
-            {
-                "rioID": 9391,
-                "challengeMapID": 251,
-                "slug": "the-underrot"
-            },
-            {
-                "rioID": 9327,
-                "challengeMapID": 246,
-                "slug": "tol-dagor"
-            },
-            {
-                "rioID": 9424,
-                "challengeMapID": 248,
-                "slug": "waycrest-manor"
-            }
-        ]
-    },
-    "season-bfa-2": {
-        "slug": "season-bfa-2",
-        "dungeons": [
-            {
-                "rioID": 9028,
-                "challengeMapID": 244,
-                "slug": "ataldazar"
-            },
-            {
-                "rioID": 9164,
-                "challengeMapID": 245,
-                "slug": "freehold"
-            },
-            {
-                "rioID": 9526,
-                "challengeMapID": 249,
-                "slug": "kings-rest"
-            },
-            {
-                "rioID": 9525,
-                "challengeMapID": 252,
-                "slug": "shrine-of-the-storm"
-            },
-            {
-                "rioID": 9354,
-                "challengeMapID": 353,
-                "slug": "siege-of-boralus"
-            },
-            {
-                "rioID": 9527,
-                "challengeMapID": 250,
-                "slug": "temple-of-sethraliss"
-            },
-            {
-                "rioID": 8064,
-                "challengeMapID": 247,
-                "slug": "the-motherlode"
-            },
-            {
-                "rioID": 9391,
-                "challengeMapID": 251,
-                "slug": "the-underrot"
-            },
-            {
-                "rioID": 9327,
-                "challengeMapID": 246,
-                "slug": "tol-dagor"
-            },
-            {
-                "rioID": 9424,
-                "challengeMapID": 248,
-                "slug": "waycrest-manor"
-            }
-        ]
-    },
-    "season-bfa-1": {
-        "slug": "season-bfa-1",
-        "dungeons": [
-            {
-                "rioID": 9028,
-                "challengeMapID": 244,
-                "slug": "ataldazar"
-            },
-            {
-                "rioID": 9164,
-                "challengeMapID": 245,
-                "slug": "freehold"
-            },
-            {
-                "rioID": 9526,
-                "challengeMapID": 249,
-                "slug": "kings-rest"
-            },
-            {
-                "rioID": 9525,
-                "challengeMapID": 252,
-                "slug": "shrine-of-the-storm"
-            },
-            {
-                "rioID": 9354,
-                "challengeMapID": 353,
-                "slug": "siege-of-boralus"
-            },
-            {
-                "rioID": 9527,
-                "challengeMapID": 250,
-                "slug": "temple-of-sethraliss"
-            },
-            {
-                "rioID": 8064,
-                "challengeMapID": 247,
-                "slug": "the-motherlode"
-            },
-            {
-                "rioID": 9391,
-                "challengeMapID": 251,
-                "slug": "the-underrot"
-            },
-            {
-                "rioID": 9327,
-                "challengeMapID": 246,
-                "slug": "tol-dagor"
-            },
-            {
-                "rioID": 9424,
-                "challengeMapID": 248,
-                "slug": "waycrest-manor"
-            }
-        ]
-    },
-    "season-sl-4-post": {
-        "slug": "season-sl-4-post",
-        "dungeons": [
-            {
-                "rioID": 6984,
-                "challengeMapID": 166,
-                "slug": "grimrail-depot"
-            },
-            {
-                "rioID": 6951,
-                "challengeMapID": 169,
-                "slug": "iron-docks"
-            },
-            {
-                "rioID": 800001,
-                "challengeMapID": 369,
-                "slug": "operation-mechagon-junkyard"
-            },
-            {
-                "rioID": 800002,
-                "challengeMapID": 370,
-                "slug": "operation-mechagon-workshop"
-            },
-            {
-                "rioID": 999998,
-                "challengeMapID": 227,
-                "slug": "return-to-karazhan-lower"
-            },
-            {
-                "rioID": 999999,
-                "challengeMapID": 234,
-                "slug": "return-to-karazhan-upper"
-            },
-            {
-                "rioID": 1000001,
-                "challengeMapID": 392,
-                "slug": "tazavesh-soleahs-gambit"
-            },
-            {
-                "rioID": 1000000,
-                "challengeMapID": 391,
-                "slug": "tazavesh-streets-of-wonder"
-            }
-        ]
-    },
-    "season-sl-4-patch-10-0": {
-        "slug": "season-sl-4-patch-10-0",
-        "dungeons": [
-            {
-                "rioID": 6984,
-                "challengeMapID": 166,
-                "slug": "grimrail-depot"
-            },
-            {
-                "rioID": 6951,
-                "challengeMapID": 169,
-                "slug": "iron-docks"
-            },
-            {
-                "rioID": 800001,
-                "challengeMapID": 369,
-                "slug": "operation-mechagon-junkyard"
-            },
-            {
-                "rioID": 800002,
-                "challengeMapID": 370,
-                "slug": "operation-mechagon-workshop"
-            },
-            {
-                "rioID": 999998,
-                "challengeMapID": 227,
-                "slug": "return-to-karazhan-lower"
-            },
-            {
-                "rioID": 999999,
-                "challengeMapID": 234,
-                "slug": "return-to-karazhan-upper"
-            },
-            {
-                "rioID": 1000001,
-                "challengeMapID": 392,
-                "slug": "tazavesh-soleahs-gambit"
-            },
-            {
-                "rioID": 1000000,
-                "challengeMapID": 391,
-                "slug": "tazavesh-streets-of-wonder"
-            }
-        ]
-    },
-    "season-sl-4": {
-        "slug": "season-sl-4",
-        "dungeons": [
-            {
-                "rioID": 6984,
-                "challengeMapID": 166,
-                "slug": "grimrail-depot"
-            },
-            {
-                "rioID": 6951,
-                "challengeMapID": 169,
-                "slug": "iron-docks"
-            },
-            {
-                "rioID": 800001,
-                "challengeMapID": 369,
-                "slug": "operation-mechagon-junkyard"
-            },
-            {
-                "rioID": 800002,
-                "challengeMapID": 370,
-                "slug": "operation-mechagon-workshop"
-            },
-            {
-                "rioID": 999998,
-                "challengeMapID": 227,
-                "slug": "return-to-karazhan-lower"
-            },
-            {
-                "rioID": 999999,
-                "challengeMapID": 234,
-                "slug": "return-to-karazhan-upper"
-            },
-            {
-                "rioID": 1000001,
-                "challengeMapID": 392,
-                "slug": "tazavesh-soleahs-gambit"
-            },
-            {
-                "rioID": 1000000,
-                "challengeMapID": 391,
-                "slug": "tazavesh-streets-of-wonder"
-            }
-        ]
-    },
-    "season-sl-4-legion-timewalking": {
-        "slug": "season-sl-4-legion-timewalking",
-        "dungeons": [
-            {
-                "rioID": 7805,
-                "challengeMapID": 199,
-                "slug": "black-rook-hold"
-            },
-            {
-                "rioID": 8079,
-                "challengeMapID": 210,
-                "slug": "court-of-stars"
-            },
-            {
-                "rioID": 7673,
-                "challengeMapID": 198,
-                "slug": "darkheart-thicket"
-            },
-            {
-                "rioID": 8040,
-                "challengeMapID": 197,
-                "slug": "eye-of-azshara"
-            },
-            {
-                "rioID": 7546,
-                "challengeMapID": 206,
-                "slug": "neltharions-lair"
-            },
-            {
-                "rioID": 7787,
-                "challengeMapID": 207,
-                "slug": "vault-of-the-wardens"
-            }
-        ]
-    },
-    "season-sl-4-break-the-meta": {
-        "slug": "season-sl-4-break-the-meta",
-        "dungeons": [
-            {
-                "rioID": 6984,
-                "challengeMapID": 166,
-                "slug": "grimrail-depot"
-            },
-            {
-                "rioID": 6951,
-                "challengeMapID": 169,
-                "slug": "iron-docks"
-            },
-            {
-                "rioID": 800001,
-                "challengeMapID": 369,
-                "slug": "operation-mechagon-junkyard"
-            },
-            {
-                "rioID": 800002,
-                "challengeMapID": 370,
-                "slug": "operation-mechagon-workshop"
-            },
-            {
-                "rioID": 999998,
-                "challengeMapID": 227,
-                "slug": "return-to-karazhan-lower"
-            },
-            {
-                "rioID": 999999,
-                "challengeMapID": 234,
-                "slug": "return-to-karazhan-upper"
-            },
-            {
-                "rioID": 1000001,
-                "challengeMapID": 392,
-                "slug": "tazavesh-soleahs-gambit"
-            },
-            {
-                "rioID": 1000000,
-                "challengeMapID": 391,
-                "slug": "tazavesh-streets-of-wonder"
-            }
-        ]
-    },
-    "season-sl-3": {
-        "slug": "season-sl-3",
-        "dungeons": [
-            {
-                "rioID": 13309,
-                "challengeMapID": 377,
-                "slug": "de-other-side"
-            },
-            {
-                "rioID": 12831,
-                "challengeMapID": 378,
-                "slug": "halls-of-atonement"
-            },
-            {
-                "rioID": 13334,
-                "challengeMapID": 375,
-                "slug": "mists-of-tirna-scithe"
-            },
-            {
-                "rioID": 13228,
-                "challengeMapID": 379,
-                "slug": "plaguefall"
-            },
-            {
-                "rioID": 12842,
-                "challengeMapID": 380,
-                "slug": "sanguine-depths"
-            },
-            {
-                "rioID": 12837,
-                "challengeMapID": 381,
-                "slug": "spires-of-ascension"
-            },
-            {
-                "rioID": 1000001,
-                "challengeMapID": 392,
-                "slug": "tazavesh-soleahs-gambit"
-            },
-            {
-                "rioID": 1000000,
-                "challengeMapID": 391,
-                "slug": "tazavesh-streets-of-wonder"
-            },
-            {
-                "rioID": 12916,
-                "challengeMapID": 376,
-                "slug": "the-necrotic-wake"
-            },
-            {
-                "rioID": 12841,
-                "challengeMapID": 382,
-                "slug": "theater-of-pain"
-            }
-        ]
-    },
-    "season-sl-3-post-925": {
-        "slug": "season-sl-3-post-925",
-        "dungeons": [
-            {
-                "rioID": 13309,
-                "challengeMapID": 377,
-                "slug": "de-other-side"
-            },
-            {
-                "rioID": 12831,
-                "challengeMapID": 378,
-                "slug": "halls-of-atonement"
-            },
-            {
-                "rioID": 13334,
-                "challengeMapID": 375,
-                "slug": "mists-of-tirna-scithe"
-            },
-            {
-                "rioID": 13228,
-                "challengeMapID": 379,
-                "slug": "plaguefall"
-            },
-            {
-                "rioID": 12842,
-                "challengeMapID": 380,
-                "slug": "sanguine-depths"
-            },
-            {
-                "rioID": 12837,
-                "challengeMapID": 381,
-                "slug": "spires-of-ascension"
-            },
-            {
-                "rioID": 1000001,
-                "challengeMapID": 392,
-                "slug": "tazavesh-soleahs-gambit"
-            },
-            {
-                "rioID": 1000000,
-                "challengeMapID": 391,
-                "slug": "tazavesh-streets-of-wonder"
-            },
-            {
-                "rioID": 12916,
-                "challengeMapID": 376,
-                "slug": "the-necrotic-wake"
-            },
-            {
-                "rioID": 12841,
-                "challengeMapID": 382,
-                "slug": "theater-of-pain"
-            }
-        ]
-    },
-    "season-sl-3-legion-timewalking": {
-        "slug": "season-sl-3-legion-timewalking",
-        "dungeons": [
-            {
-                "rioID": 7805,
-                "challengeMapID": 199,
-                "slug": "black-rook-hold"
-            },
-            {
-                "rioID": 8079,
-                "challengeMapID": 210,
-                "slug": "court-of-stars"
-            },
-            {
-                "rioID": 7673,
-                "challengeMapID": 198,
-                "slug": "darkheart-thicket"
-            },
-            {
-                "rioID": 8040,
-                "challengeMapID": 197,
-                "slug": "eye-of-azshara"
-            },
-            {
-                "rioID": 7546,
-                "challengeMapID": 206,
-                "slug": "neltharions-lair"
-            },
-            {
-                "rioID": 7787,
-                "challengeMapID": 207,
-                "slug": "vault-of-the-wardens"
-            }
-        ]
-    },
-    "season-sl-2": {
-        "slug": "season-sl-2",
-        "dungeons": [
-            {
-                "rioID": 13309,
-                "challengeMapID": 377,
-                "slug": "de-other-side"
-            },
-            {
-                "rioID": 12831,
-                "challengeMapID": 378,
-                "slug": "halls-of-atonement"
-            },
-            {
-                "rioID": 13334,
-                "challengeMapID": 375,
-                "slug": "mists-of-tirna-scithe"
-            },
-            {
-                "rioID": 13228,
-                "challengeMapID": 379,
-                "slug": "plaguefall"
-            },
-            {
-                "rioID": 12842,
-                "challengeMapID": 380,
-                "slug": "sanguine-depths"
-            },
-            {
-                "rioID": 12837,
-                "challengeMapID": 381,
-                "slug": "spires-of-ascension"
-            },
-            {
-                "rioID": 12916,
-                "challengeMapID": 376,
-                "slug": "the-necrotic-wake"
-            },
-            {
-                "rioID": 12841,
-                "challengeMapID": 382,
-                "slug": "theater-of-pain"
-            }
-        ]
-    },
-    "season-sl-2-post": {
-        "slug": "season-sl-2-post",
-        "dungeons": [
-            {
-                "rioID": 13309,
-                "challengeMapID": 377,
-                "slug": "de-other-side"
-            },
-            {
-                "rioID": 12831,
-                "challengeMapID": 378,
-                "slug": "halls-of-atonement"
-            },
-            {
-                "rioID": 13334,
-                "challengeMapID": 375,
-                "slug": "mists-of-tirna-scithe"
-            },
-            {
-                "rioID": 13228,
-                "challengeMapID": 379,
-                "slug": "plaguefall"
-            },
-            {
-                "rioID": 12842,
-                "challengeMapID": 380,
-                "slug": "sanguine-depths"
-            },
-            {
-                "rioID": 12837,
-                "challengeMapID": 381,
-                "slug": "spires-of-ascension"
-            },
-            {
-                "rioID": 12916,
-                "challengeMapID": 376,
-                "slug": "the-necrotic-wake"
-            },
-            {
-                "rioID": 12841,
-                "challengeMapID": 382,
-                "slug": "theater-of-pain"
-            }
-        ]
-    },
-    "season-sl-2-post-915": {
-        "slug": "season-sl-2-post-915",
-        "dungeons": [
-            {
-                "rioID": 13309,
-                "challengeMapID": 377,
-                "slug": "de-other-side"
-            },
-            {
-                "rioID": 12831,
-                "challengeMapID": 378,
-                "slug": "halls-of-atonement"
-            },
-            {
-                "rioID": 13334,
-                "challengeMapID": 375,
-                "slug": "mists-of-tirna-scithe"
-            },
-            {
-                "rioID": 13228,
-                "challengeMapID": 379,
-                "slug": "plaguefall"
-            },
-            {
-                "rioID": 12842,
-                "challengeMapID": 380,
-                "slug": "sanguine-depths"
-            },
-            {
-                "rioID": 12837,
-                "challengeMapID": 381,
-                "slug": "spires-of-ascension"
-            },
-            {
-                "rioID": 12916,
-                "challengeMapID": 376,
-                "slug": "the-necrotic-wake"
-            },
-            {
-                "rioID": 12841,
-                "challengeMapID": 382,
-                "slug": "theater-of-pain"
-            }
-        ]
-    },
-    "season-sl-2-legion-timewalking": {
-        "slug": "season-sl-2-legion-timewalking",
-        "dungeons": [
-            {
-                "rioID": 7805,
-                "challengeMapID": 199,
-                "slug": "black-rook-hold"
-            },
-            {
-                "rioID": 8079,
-                "challengeMapID": 210,
-                "slug": "court-of-stars"
-            },
-            {
-                "rioID": 7673,
-                "challengeMapID": 198,
-                "slug": "darkheart-thicket"
-            },
-            {
-                "rioID": 8040,
-                "challengeMapID": 197,
-                "slug": "eye-of-azshara"
-            },
-            {
-                "rioID": 7546,
-                "challengeMapID": 206,
-                "slug": "neltharions-lair"
-            },
-            {
-                "rioID": 7787,
-                "challengeMapID": 207,
-                "slug": "vault-of-the-wardens"
-            }
-        ]
-    },
-    "season-sl-1-post": {
-        "slug": "season-sl-1-post",
-        "dungeons": [
-            {
-                "rioID": 13309,
-                "challengeMapID": 377,
-                "slug": "de-other-side"
-            },
-            {
-                "rioID": 12831,
-                "challengeMapID": 378,
-                "slug": "halls-of-atonement"
-            },
-            {
-                "rioID": 13334,
-                "challengeMapID": 375,
-                "slug": "mists-of-tirna-scithe"
-            },
-            {
-                "rioID": 13228,
-                "challengeMapID": 379,
-                "slug": "plaguefall"
-            },
-            {
-                "rioID": 12842,
-                "challengeMapID": 380,
-                "slug": "sanguine-depths"
-            },
-            {
-                "rioID": 12837,
-                "challengeMapID": 381,
-                "slug": "spires-of-ascension"
-            },
-            {
-                "rioID": 12916,
-                "challengeMapID": 376,
-                "slug": "the-necrotic-wake"
-            },
-            {
-                "rioID": 12841,
-                "challengeMapID": 382,
-                "slug": "theater-of-pain"
-            }
-        ]
-    },
-    "season-sl-1": {
-        "slug": "season-sl-1",
-        "dungeons": [
-            {
-                "rioID": 13309,
-                "challengeMapID": 377,
-                "slug": "de-other-side"
-            },
-            {
-                "rioID": 12831,
-                "challengeMapID": 378,
-                "slug": "halls-of-atonement"
-            },
-            {
-                "rioID": 13334,
-                "challengeMapID": 375,
-                "slug": "mists-of-tirna-scithe"
-            },
-            {
-                "rioID": 13228,
-                "challengeMapID": 379,
-                "slug": "plaguefall"
-            },
-            {
-                "rioID": 12842,
-                "challengeMapID": 380,
-                "slug": "sanguine-depths"
-            },
-            {
-                "rioID": 12837,
-                "challengeMapID": 381,
-                "slug": "spires-of-ascension"
-            },
-            {
-                "rioID": 12916,
-                "challengeMapID": 376,
-                "slug": "the-necrotic-wake"
-            },
-            {
-                "rioID": 12841,
-                "challengeMapID": 382,
-                "slug": "theater-of-pain"
-            }
-        ]
-    },
-    "season-df-4-cutoffs": {
-        "slug": "season-df-4-cutoffs",
-        "dungeons": [
-            {
-                "rioID": 14032,
-                "challengeMapID": 402,
-                "slug": "algethar-academy"
-            },
-            {
-                "rioID": 13991,
-                "challengeMapID": 405,
-                "slug": "brackenhide-hollow"
-            },
-            {
-                "rioID": 14082,
-                "challengeMapID": 406,
-                "slug": "halls-of-infusion"
-            },
-            {
-                "rioID": 14011,
-                "challengeMapID": 404,
-                "slug": "neltharus"
-            },
-            {
-                "rioID": 14063,
-                "challengeMapID": 399,
-                "slug": "ruby-life-pools"
-            },
-            {
-                "rioID": 13954,
-                "challengeMapID": 401,
-                "slug": "the-azure-vault"
-            },
-            {
-                "rioID": 13982,
-                "challengeMapID": 400,
-                "slug": "the-nokhud-offensive"
-            },
-            {
-                "rioID": 13968,
-                "challengeMapID": 403,
-                "slug": "uldaman-legacy-of-tyr"
-            }
-        ]
-    },
-    "season-df-4": {
-        "slug": "season-df-4",
-        "dungeons": [
-            {
-                "rioID": 14032,
-                "challengeMapID": 402,
-                "slug": "algethar-academy"
-            },
-            {
-                "rioID": 13991,
-                "challengeMapID": 405,
-                "slug": "brackenhide-hollow"
-            },
-            {
-                "rioID": 14082,
-                "challengeMapID": 406,
-                "slug": "halls-of-infusion"
-            },
-            {
-                "rioID": 14011,
-                "challengeMapID": 404,
-                "slug": "neltharus"
-            },
-            {
-                "rioID": 14063,
-                "challengeMapID": 399,
-                "slug": "ruby-life-pools"
-            },
-            {
-                "rioID": 13954,
-                "challengeMapID": 401,
-                "slug": "the-azure-vault"
-            },
-            {
-                "rioID": 13982,
-                "challengeMapID": 400,
-                "slug": "the-nokhud-offensive"
-            },
-            {
-                "rioID": 13968,
-                "challengeMapID": 403,
-                "slug": "uldaman-legacy-of-tyr"
-            }
-        ]
-    },
-    "season-df-4-post": {
-        "slug": "season-df-4-post",
-        "dungeons": [
-            {
-                "rioID": 14032,
-                "challengeMapID": 402,
-                "slug": "algethar-academy"
-            },
-            {
-                "rioID": 13991,
-                "challengeMapID": 405,
-                "slug": "brackenhide-hollow"
-            },
-            {
-                "rioID": 14082,
-                "challengeMapID": 406,
-                "slug": "halls-of-infusion"
-            },
-            {
-                "rioID": 14011,
-                "challengeMapID": 404,
-                "slug": "neltharus"
-            },
-            {
-                "rioID": 14063,
-                "challengeMapID": 399,
-                "slug": "ruby-life-pools"
-            },
-            {
-                "rioID": 13954,
-                "challengeMapID": 401,
-                "slug": "the-azure-vault"
-            },
-            {
-                "rioID": 13982,
-                "challengeMapID": 400,
-                "slug": "the-nokhud-offensive"
-            },
-            {
-                "rioID": 13968,
-                "challengeMapID": 403,
-                "slug": "uldaman-legacy-of-tyr"
-            }
-        ]
-    },
-    "season-df-4-break-the-meta": {
-        "slug": "season-df-4-break-the-meta",
-        "dungeons": [
-            {
-                "rioID": 14032,
-                "challengeMapID": 402,
-                "slug": "algethar-academy"
-            },
-            {
-                "rioID": 13991,
-                "challengeMapID": 405,
-                "slug": "brackenhide-hollow"
-            },
-            {
-                "rioID": 14082,
-                "challengeMapID": 406,
-                "slug": "halls-of-infusion"
-            },
-            {
-                "rioID": 14011,
-                "challengeMapID": 404,
-                "slug": "neltharus"
-            },
-            {
-                "rioID": 14063,
-                "challengeMapID": 399,
-                "slug": "ruby-life-pools"
-            },
-            {
-                "rioID": 13954,
-                "challengeMapID": 401,
-                "slug": "the-azure-vault"
-            },
-            {
-                "rioID": 13982,
-                "challengeMapID": 400,
-                "slug": "the-nokhud-offensive"
-            },
-            {
-                "rioID": 13968,
-                "challengeMapID": 403,
-                "slug": "uldaman-legacy-of-tyr"
-            }
-        ]
-    },
-    "season-df-4-ptr": {
-        "slug": "season-df-4-ptr",
-        "dungeons": [
-            {
-                "rioID": 14032,
-                "challengeMapID": 402,
-                "slug": "algethar-academy"
-            },
-            {
-                "rioID": 13991,
-                "challengeMapID": 405,
-                "slug": "brackenhide-hollow"
-            },
-            {
-                "rioID": 14082,
-                "challengeMapID": 406,
-                "slug": "halls-of-infusion"
-            },
-            {
-                "rioID": 14011,
-                "challengeMapID": 404,
-                "slug": "neltharus"
-            },
-            {
-                "rioID": 14063,
-                "challengeMapID": 399,
-                "slug": "ruby-life-pools"
-            },
-            {
-                "rioID": 13954,
-                "challengeMapID": 401,
-                "slug": "the-azure-vault"
-            },
-            {
-                "rioID": 13982,
-                "challengeMapID": 400,
-                "slug": "the-nokhud-offensive"
-            },
-            {
-                "rioID": 13968,
-                "challengeMapID": 403,
-                "slug": "uldaman-legacy-of-tyr"
-            }
-        ]
-    },
-    "season-df-3": {
-        "slug": "season-df-3",
-        "dungeons": [
-            {
-                "rioID": 9028,
-                "challengeMapID": 244,
-                "slug": "ataldazar"
-            },
-            {
-                "rioID": 7805,
-                "challengeMapID": 199,
-                "slug": "black-rook-hold"
-            },
-            {
-                "rioID": 1000010,
-                "challengeMapID": 463,
-                "slug": "doti-galakronds-fall"
-            },
-            {
-                "rioID": 1000011,
-                "challengeMapID": 464,
-                "slug": "doti-murozonds-rise"
-            },
-            {
-                "rioID": 7673,
-                "challengeMapID": 198,
-                "slug": "darkheart-thicket"
-            },
-            {
-                "rioID": 7109,
-                "challengeMapID": 168,
-                "slug": "everbloom"
-            },
-            {
-                "rioID": 4738,
-                "challengeMapID": 456,
-                "slug": "throne-of-the-tides"
-            },
-            {
-                "rioID": 9424,
-                "challengeMapID": 248,
-                "slug": "waycrest-manor"
-            }
-        ]
-    },
-    "season-df-3-ptr": {
-        "slug": "season-df-3-ptr",
-        "dungeons": [
-            {
-                "rioID": 9028,
-                "challengeMapID": 244,
-                "slug": "ataldazar"
-            },
-            {
-                "rioID": 7805,
-                "challengeMapID": 199,
-                "slug": "black-rook-hold"
-            },
-            {
-                "rioID": 1000010,
-                "challengeMapID": 463,
-                "slug": "doti-galakronds-fall"
-            },
-            {
-                "rioID": 1000011,
-                "challengeMapID": 464,
-                "slug": "doti-murozonds-rise"
-            },
-            {
-                "rioID": 7673,
-                "challengeMapID": 198,
-                "slug": "darkheart-thicket"
-            },
-            {
-                "rioID": 7109,
-                "challengeMapID": 168,
-                "slug": "everbloom"
-            },
-            {
-                "rioID": 4738,
-                "challengeMapID": 456,
-                "slug": "throne-of-the-tides"
-            },
-            {
-                "rioID": 9424,
-                "challengeMapID": 248,
-                "slug": "waycrest-manor"
-            }
-        ]
-    },
-    "season-df-3-meta-vs-meta": {
-        "slug": "season-df-3-meta-vs-meta",
-        "dungeons": [
-            {
-                "rioID": 9028,
-                "challengeMapID": 244,
-                "slug": "ataldazar"
-            },
-            {
-                "rioID": 7805,
-                "challengeMapID": 199,
-                "slug": "black-rook-hold"
-            },
-            {
-                "rioID": 1000010,
-                "challengeMapID": 463,
-                "slug": "doti-galakronds-fall"
-            },
-            {
-                "rioID": 1000011,
-                "challengeMapID": 464,
-                "slug": "doti-murozonds-rise"
-            },
-            {
-                "rioID": 7673,
-                "challengeMapID": 198,
-                "slug": "darkheart-thicket"
-            },
-            {
-                "rioID": 7109,
-                "challengeMapID": 168,
-                "slug": "everbloom"
-            },
-            {
-                "rioID": 4738,
-                "challengeMapID": 456,
-                "slug": "throne-of-the-tides"
-            },
-            {
-                "rioID": 9424,
-                "challengeMapID": 248,
-                "slug": "waycrest-manor"
-            }
-        ]
-    },
-    "season-df-3-break-the-meta": {
-        "slug": "season-df-3-break-the-meta",
-        "dungeons": [
-            {
-                "rioID": 9028,
-                "challengeMapID": 244,
-                "slug": "ataldazar"
-            },
-            {
-                "rioID": 7805,
-                "challengeMapID": 199,
-                "slug": "black-rook-hold"
-            },
-            {
-                "rioID": 1000010,
-                "challengeMapID": 463,
-                "slug": "doti-galakronds-fall"
-            },
-            {
-                "rioID": 1000011,
-                "challengeMapID": 464,
-                "slug": "doti-murozonds-rise"
-            },
-            {
-                "rioID": 7673,
-                "challengeMapID": 198,
-                "slug": "darkheart-thicket"
-            },
-            {
-                "rioID": 7109,
-                "challengeMapID": 168,
-                "slug": "everbloom"
-            },
-            {
-                "rioID": 4738,
-                "challengeMapID": 456,
-                "slug": "throne-of-the-tides"
-            },
-            {
-                "rioID": 9424,
-                "challengeMapID": 248,
-                "slug": "waycrest-manor"
-            }
-        ]
-    },
-    "season-df-2": {
-        "slug": "season-df-2",
-        "dungeons": [
-            {
-                "rioID": 13991,
-                "challengeMapID": 405,
-                "slug": "brackenhide-hollow"
-            },
-            {
-                "rioID": 9164,
-                "challengeMapID": 245,
-                "slug": "freehold"
-            },
-            {
-                "rioID": 14082,
-                "challengeMapID": 406,
-                "slug": "halls-of-infusion"
-            },
-            {
-                "rioID": 7546,
-                "challengeMapID": 206,
-                "slug": "neltharions-lair"
-            },
-            {
-                "rioID": 14011,
-                "challengeMapID": 404,
-                "slug": "neltharus"
-            },
-            {
-                "rioID": 9391,
-                "challengeMapID": 251,
-                "slug": "the-underrot"
-            },
-            {
-                "rioID": 5035,
-                "challengeMapID": 438,
-                "slug": "the-vortex-pinnacle"
-            },
-            {
-                "rioID": 13968,
-                "challengeMapID": 403,
-                "slug": "uldaman-legacy-of-tyr"
-            }
-        ]
-    },
-    "season-df-2-post": {
-        "slug": "season-df-2-post",
-        "dungeons": [
-            {
-                "rioID": 13991,
-                "challengeMapID": 405,
-                "slug": "brackenhide-hollow"
-            },
-            {
-                "rioID": 9164,
-                "challengeMapID": 245,
-                "slug": "freehold"
-            },
-            {
-                "rioID": 14082,
-                "challengeMapID": 406,
-                "slug": "halls-of-infusion"
-            },
-            {
-                "rioID": 7546,
-                "challengeMapID": 206,
-                "slug": "neltharions-lair"
-            },
-            {
-                "rioID": 14011,
-                "challengeMapID": 404,
-                "slug": "neltharus"
-            },
-            {
-                "rioID": 9391,
-                "challengeMapID": 251,
-                "slug": "the-underrot"
-            },
-            {
-                "rioID": 5035,
-                "challengeMapID": 438,
-                "slug": "the-vortex-pinnacle"
-            },
-            {
-                "rioID": 13968,
-                "challengeMapID": 403,
-                "slug": "uldaman-legacy-of-tyr"
-            }
-        ]
-    },
-    "season-df-2-post-1017": {
-        "slug": "season-df-2-post-1017",
-        "dungeons": [
-            {
-                "rioID": 13991,
-                "challengeMapID": 405,
-                "slug": "brackenhide-hollow"
-            },
-            {
-                "rioID": 9164,
-                "challengeMapID": 245,
-                "slug": "freehold"
-            },
-            {
-                "rioID": 14082,
-                "challengeMapID": 406,
-                "slug": "halls-of-infusion"
-            },
-            {
-                "rioID": 7546,
-                "challengeMapID": 206,
-                "slug": "neltharions-lair"
-            },
-            {
-                "rioID": 14011,
-                "challengeMapID": 404,
-                "slug": "neltharus"
-            },
-            {
-                "rioID": 9391,
-                "challengeMapID": 251,
-                "slug": "the-underrot"
-            },
-            {
-                "rioID": 5035,
-                "challengeMapID": 438,
-                "slug": "the-vortex-pinnacle"
-            },
-            {
-                "rioID": 13968,
-                "challengeMapID": 403,
-                "slug": "uldaman-legacy-of-tyr"
-            }
-        ]
-    },
-    "season-df-2-post-1015": {
-        "slug": "season-df-2-post-1015",
-        "dungeons": [
-            {
-                "rioID": 13991,
-                "challengeMapID": 405,
-                "slug": "brackenhide-hollow"
-            },
-            {
-                "rioID": 9164,
-                "challengeMapID": 245,
-                "slug": "freehold"
-            },
-            {
-                "rioID": 14082,
-                "challengeMapID": 406,
-                "slug": "halls-of-infusion"
-            },
-            {
-                "rioID": 7546,
-                "challengeMapID": 206,
-                "slug": "neltharions-lair"
-            },
-            {
-                "rioID": 14011,
-                "challengeMapID": 404,
-                "slug": "neltharus"
-            },
-            {
-                "rioID": 9391,
-                "challengeMapID": 251,
-                "slug": "the-underrot"
-            },
-            {
-                "rioID": 5035,
-                "challengeMapID": 438,
-                "slug": "the-vortex-pinnacle"
-            },
-            {
-                "rioID": 13968,
-                "challengeMapID": 403,
-                "slug": "uldaman-legacy-of-tyr"
-            }
-        ]
-    },
-    "season-df-2-break-the-meta": {
-        "slug": "season-df-2-break-the-meta",
-        "dungeons": [
-            {
-                "rioID": 13991,
-                "challengeMapID": 405,
-                "slug": "brackenhide-hollow"
-            },
-            {
-                "rioID": 9164,
-                "challengeMapID": 245,
-                "slug": "freehold"
-            },
-            {
-                "rioID": 14082,
-                "challengeMapID": 406,
-                "slug": "halls-of-infusion"
-            },
-            {
-                "rioID": 7546,
-                "challengeMapID": 206,
-                "slug": "neltharions-lair"
-            },
-            {
-                "rioID": 14011,
-                "challengeMapID": 404,
-                "slug": "neltharus"
-            },
-            {
-                "rioID": 9391,
-                "challengeMapID": 251,
-                "slug": "the-underrot"
-            },
-            {
-                "rioID": 5035,
-                "challengeMapID": 438,
-                "slug": "the-vortex-pinnacle"
-            },
-            {
-                "rioID": 13968,
-                "challengeMapID": 403,
-                "slug": "uldaman-legacy-of-tyr"
-            }
-        ]
-    },
-    "season-df-1": {
-        "slug": "season-df-1",
-        "dungeons": [
-            {
-                "rioID": 14032,
-                "challengeMapID": 402,
-                "slug": "algethar-academy"
-            },
-            {
-                "rioID": 8079,
-                "challengeMapID": 210,
-                "slug": "court-of-stars"
-            },
-            {
-                "rioID": 7672,
-                "challengeMapID": 200,
-                "slug": "halls-of-valor"
-            },
-            {
-                "rioID": 14063,
-                "challengeMapID": 399,
-                "slug": "ruby-life-pools"
-            },
-            {
-                "rioID": 6932,
-                "challengeMapID": 165,
-                "slug": "shadowmoon-burial-grounds"
-            },
-            {
-                "rioID": 5965,
-                "challengeMapID": 2,
-                "slug": "temple-of-the-jade-serpent"
-            },
-            {
-                "rioID": 13954,
-                "challengeMapID": 401,
-                "slug": "the-azure-vault"
-            },
-            {
-                "rioID": 13982,
-                "challengeMapID": 400,
-                "slug": "the-nokhud-offensive"
-            }
-        ]
-    },
-    "season-df-1-post": {
-        "slug": "season-df-1-post",
-        "dungeons": [
-            {
-                "rioID": 14032,
-                "challengeMapID": 402,
-                "slug": "algethar-academy"
-            },
-            {
-                "rioID": 8079,
-                "challengeMapID": 210,
-                "slug": "court-of-stars"
-            },
-            {
-                "rioID": 7672,
-                "challengeMapID": 200,
-                "slug": "halls-of-valor"
-            },
-            {
-                "rioID": 14063,
-                "challengeMapID": 399,
-                "slug": "ruby-life-pools"
-            },
-            {
-                "rioID": 6932,
-                "challengeMapID": 165,
-                "slug": "shadowmoon-burial-grounds"
-            },
-            {
-                "rioID": 5965,
-                "challengeMapID": 2,
-                "slug": "temple-of-the-jade-serpent"
-            },
-            {
-                "rioID": 13954,
-                "challengeMapID": 401,
-                "slug": "the-azure-vault"
-            },
-            {
-                "rioID": 13982,
-                "challengeMapID": 400,
-                "slug": "the-nokhud-offensive"
-            }
-        ]
-    },
-    "season-df-1-break-the-meta": {
-        "slug": "season-df-1-break-the-meta",
-        "dungeons": [
-            {
-                "rioID": 14032,
-                "challengeMapID": 402,
-                "slug": "algethar-academy"
-            },
-            {
-                "rioID": 8079,
-                "challengeMapID": 210,
-                "slug": "court-of-stars"
-            },
-            {
-                "rioID": 7672,
-                "challengeMapID": 200,
-                "slug": "halls-of-valor"
-            },
-            {
-                "rioID": 14063,
-                "challengeMapID": 399,
-                "slug": "ruby-life-pools"
-            },
-            {
-                "rioID": 6932,
-                "challengeMapID": 165,
-                "slug": "shadowmoon-burial-grounds"
-            },
-            {
-                "rioID": 5965,
-                "challengeMapID": 2,
-                "slug": "temple-of-the-jade-serpent"
-            },
-            {
-                "rioID": 13954,
-                "challengeMapID": 401,
-                "slug": "the-azure-vault"
-            },
-            {
-                "rioID": 13982,
-                "challengeMapID": 400,
-                "slug": "the-nokhud-offensive"
-            }
-        ]
-    },
-    "season-tww-2": {
-        "slug": "season-tww-2",
-        "dungeons": [
-            {
-                "rioID": 15103,
-                "challengeMapID": 506,
-                "slug": "cinderbrew-meadery"
-            },
-            {
-                "rioID": 14882,
-                "challengeMapID": 504,
-                "slug": "darkflame-cleft"
-            },
-            {
-                "rioID": 800002,
-                "challengeMapID": 370,
-                "slug": "operation-mechagon-workshop"
-            },
-            {
-                "rioID": 15452,
-                "challengeMapID": 525,
-                "slug": "operation-floodgate"
-            },
-            {
-                "rioID": 14954,
-                "challengeMapID": 499,
-                "slug": "priory-of-the-sacred-flame"
-            },
-            {
-                "rioID": 8064,
-                "challengeMapID": 247,
-                "slug": "the-motherlode"
-            },
-            {
-                "rioID": 14938,
-                "challengeMapID": 500,
-                "slug": "the-rookery"
-            },
-            {
-                "rioID": 12841,
-                "challengeMapID": 382,
-                "slug": "theater-of-pain"
-            }
-        ]
-    },
-    "season-tww-2-ptr": {
-        "slug": "season-tww-2-ptr",
-        "dungeons": [
-            {
-                "rioID": 15103,
-                "challengeMapID": 506,
-                "slug": "cinderbrew-meadery"
-            },
-            {
-                "rioID": 14882,
-                "challengeMapID": 504,
-                "slug": "darkflame-cleft"
-            },
-            {
-                "rioID": 800002,
-                "challengeMapID": 370,
-                "slug": "operation-mechagon-workshop"
-            },
-            {
-                "rioID": 15452,
-                "challengeMapID": 525,
-                "slug": "operation-floodgate"
-            },
-            {
-                "rioID": 14954,
-                "challengeMapID": 499,
-                "slug": "priory-of-the-sacred-flame"
-            },
-            {
-                "rioID": 8064,
-                "challengeMapID": 247,
-                "slug": "the-motherlode"
-            },
-            {
-                "rioID": 14938,
-                "challengeMapID": 500,
-                "slug": "the-rookery"
-            },
-            {
-                "rioID": 12841,
-                "challengeMapID": 382,
-                "slug": "theater-of-pain"
-            }
-        ]
-    },
-    "season-tww-1": {
-        "slug": "season-tww-1",
-        "dungeons": [
-            {
-                "rioID": 15093,
-                "challengeMapID": 503,
-                "slug": "arakara-city-of-echoes"
-            },
-            {
-                "rioID": 14979,
-                "challengeMapID": 502,
-                "slug": "city-of-threads"
-            },
-            {
-                "rioID": 4950,
-                "challengeMapID": 507,
-                "slug": "grim-batol"
-            },
-            {
-                "rioID": 13334,
-                "challengeMapID": 375,
-                "slug": "mists-of-tirna-scithe"
-            },
-            {
-                "rioID": 9354,
-                "challengeMapID": 353,
-                "slug": "siege-of-boralus"
-            },
-            {
-                "rioID": 14971,
-                "challengeMapID": 505,
-                "slug": "the-dawnbreaker"
-            },
-            {
-                "rioID": 12916,
-                "challengeMapID": 376,
-                "slug": "the-necrotic-wake"
-            },
-            {
-                "rioID": 14883,
-                "challengeMapID": 501,
-                "slug": "the-stonevault"
-            }
-        ]
-    },
-    "season-tww-1-post": {
-        "slug": "season-tww-1-post",
-        "dungeons": [
-            {
-                "rioID": 15093,
-                "challengeMapID": 503,
-                "slug": "arakara-city-of-echoes"
-            },
-            {
-                "rioID": 14979,
-                "challengeMapID": 502,
-                "slug": "city-of-threads"
-            },
-            {
-                "rioID": 4950,
-                "challengeMapID": 507,
-                "slug": "grim-batol"
-            },
-            {
-                "rioID": 13334,
-                "challengeMapID": 375,
-                "slug": "mists-of-tirna-scithe"
-            },
-            {
-                "rioID": 9354,
-                "challengeMapID": 353,
-                "slug": "siege-of-boralus"
-            },
-            {
-                "rioID": 14971,
-                "challengeMapID": 505,
-                "slug": "the-dawnbreaker"
-            },
-            {
-                "rioID": 12916,
-                "challengeMapID": 376,
-                "slug": "the-necrotic-wake"
-            },
-            {
-                "rioID": 14883,
-                "challengeMapID": 501,
-                "slug": "the-stonevault"
-            }
-        ]
-    },
-    "season-tww-1-break-the-meta": {
-        "slug": "season-tww-1-break-the-meta",
-        "dungeons": [
-            {
-                "rioID": 15093,
-                "challengeMapID": 503,
-                "slug": "arakara-city-of-echoes"
-            },
-            {
-                "rioID": 14979,
-                "challengeMapID": 502,
-                "slug": "city-of-threads"
-            },
-            {
-                "rioID": 4950,
-                "challengeMapID": 507,
-                "slug": "grim-batol"
-            },
-            {
-                "rioID": 13334,
-                "challengeMapID": 375,
-                "slug": "mists-of-tirna-scithe"
-            },
-            {
-                "rioID": 9354,
-                "challengeMapID": 353,
-                "slug": "siege-of-boralus"
-            },
-            {
-                "rioID": 14971,
-                "challengeMapID": 505,
-                "slug": "the-dawnbreaker"
-            },
-            {
-                "rioID": 12916,
-                "challengeMapID": 376,
-                "slug": "the-necrotic-wake"
-            },
-            {
-                "rioID": 14883,
-                "challengeMapID": 501,
-                "slug": "the-stonevault"
-            }
-        ]
-    },
-    "season-tww-1-beta": {
-        "slug": "season-tww-1-beta",
-        "dungeons": [
-            {
-                "rioID": 15093,
-                "challengeMapID": 503,
-                "slug": "arakara-city-of-echoes"
-            },
-            {
-                "rioID": 14979,
-                "challengeMapID": 502,
-                "slug": "city-of-threads"
-            },
-            {
-                "rioID": 4950,
-                "challengeMapID": 507,
-                "slug": "grim-batol"
-            },
-            {
-                "rioID": 13334,
-                "challengeMapID": 375,
-                "slug": "mists-of-tirna-scithe"
-            },
-            {
-                "rioID": 9354,
-                "challengeMapID": 353,
-                "slug": "siege-of-boralus"
-            },
-            {
-                "rioID": 14971,
-                "challengeMapID": 505,
-                "slug": "the-dawnbreaker"
-            },
-            {
-                "rioID": 12916,
-                "challengeMapID": 376,
-                "slug": "the-necrotic-wake"
-            },
-            {
-                "rioID": 14883,
-                "challengeMapID": 501,
-                "slug": "the-stonevault"
             }
         ]
     }
