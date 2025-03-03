@@ -1,317 +1,163 @@
-import seasons from '../data/generated/seasons.json' with { type: 'json' };
+import assert from 'node:assert';
 
-interface BlizzardScoreRule {
-    type: 'blizzard',
-    baseScores: number[],
-    levelScore: number,
-    timeModifier: number,
-    depletionPunishment: number,
-    depletionMaxLevel: number,
-    allWeeksMultiplier: number,
+import seasons from '../data/generated/seasons.json' with { type: 'json' };
+import specializations from '../data/generated/specializations.json' with { type: 'json' };
+import { getMythicPlusStaticData } from '../data/rio.ts';
+
+interface SeasonInfo {
+    dungeonMinLevel: number,
+    characterMinScore: number,
+    skipCharacterBest: boolean,
+    usingSpecIDs: number[],
+    includePostSeason: boolean,
 }
 
-interface SeasonEntry {
+interface SeasonAdditionData {
     prefix: string,
-    rule: BlizzardScoreRule,
+    seasonEndsDate: Date,
     maxRewardLevel: number,
-    ignoreSpecs: number[],
+    maxRewardScore: number,
     skipCharacterBest?: boolean,
 }
 
-const tww1: BlizzardScoreRule = {
-    type: 'blizzard',
-    baseScores: [
-        165,
-        180,
-        205,
-        220,
-        235,
-        265,
-        280,
-        295,
-        320,
-        335,
-        365,
-    ],
-    levelScore: 15,
-    timeModifier: 15,
-    depletionPunishment: 15,
-    depletionMaxLevel: 10,
-    allWeeksMultiplier: 1,
-};
+interface SpecializationIntroduceData {
+    id: number,
+    prefix: string,
+}
 
-const df4: BlizzardScoreRule = {
-    type: 'blizzard',
-    baseScores: [
-        94,
-        101,
-        108,
-        125,
-        132,
-        139,
-        146,
-        153,
-        170,
-    ],
-    levelScore: 7,
-    timeModifier: 5,
-    depletionPunishment: 5,
-    depletionMaxLevel: 10,
-    allWeeksMultiplier: 2,
-};
-
-const df2: BlizzardScoreRule = {
-    type: 'blizzard',
-    baseScores: [
-        40,
-        45,
-        50,
-        55,
-        60,
-        75,
-        80,
-        85,
-        90,
-        97,
-        104,
-        111,
-        128,
-    ],
-    levelScore: 7,
-    timeModifier: 5,
-    depletionPunishment: 5,
-    depletionMaxLevel: 20,
-    allWeeksMultiplier: 2,
-};
-
-const df1: BlizzardScoreRule = {
-    type: 'blizzard',
-    baseScores: [
-        40,
-        45,
-        55,
-        60,
-        65,
-        75,
-        80,
-        85,
-        100,
-    ],
-    levelScore: 7,
-    timeModifier: 5,
-    depletionPunishment: 5,
-    depletionMaxLevel: 20,
-    allWeeksMultiplier: 2,
-};
-
-const sl2: BlizzardScoreRule = {
-    type: 'blizzard',
-    baseScores: [
-        40,
-        45,
-        55,
-        60,
-        65,
-        75,
-        80,
-        85,
-        100,
-    ],
-    levelScore: 5,
-    timeModifier: 5,
-    depletionPunishment: 5,
-    depletionMaxLevel: Infinity,
-    allWeeksMultiplier: 2,
-};
-
-const rio: BlizzardScoreRule = {
-    type: 'blizzard',
-    baseScores: [
-        20,
-        30,
-        40,
-        50,
-        60,
-        70,
-        80,
-        90,
-        100,
-        110,
-        121,
-        133,
-        146,
-        161,
-        177,
-        195,
-        214,
-        236,
-        259,
-        285,
-        314,
-        345,
-        380,
-        418,
-        459,
-        505,
-        556,
-        612,
-        673,
-    ],
-    levelScore: 0,
-    timeModifier: 0,
-    depletionPunishment: 0,
-    depletionMaxLevel: 0,
-    allWeeksMultiplier: 1,
-};
-
-const seasonRules: SeasonEntry[] = [
+const seasonsAddition: SeasonAdditionData[] = [
     {
         prefix: 'season-tww-1',
-        rule: tww1,
+        seasonEndsDate: new Date('2025-02-25T15:00:00Z'),
         maxRewardLevel: 10,
-        ignoreSpecs: [],
+        maxRewardScore: 2500,
     },
     {
         prefix: 'season-df-4',
-        rule: df4,
+        seasonEndsDate: new Date('2024-07-23T15:00:00Z'),
         maxRewardLevel: 10,
-        ignoreSpecs: [],
+        maxRewardScore: 2500,
     },
     {
         prefix: 'season-df-3',
-        rule: df2,
+        seasonEndsDate: new Date('2024-04-23T15:00:00Z'),
         maxRewardLevel: 20,
-        ignoreSpecs: [],
+        maxRewardScore: 2500,
     },
     {
         prefix: 'season-df-2',
-        rule: df2,
+        seasonEndsDate: new Date('2023-11-07T15:00:00Z'),
         maxRewardLevel: 20,
-        ignoreSpecs: [],
+        maxRewardScore: 2500,
     },
     {
         prefix: 'season-df-1',
-        rule: df1,
+        seasonEndsDate: new Date('2023-05-02T15:00:00Z'),
         maxRewardLevel: 20,
-        ignoreSpecs: [
-            1473, // Augmentation Evoker
-        ],
+        maxRewardScore: 2500,
     },
     {
         prefix: 'season-sl-4',
-        rule: sl2,
+        seasonEndsDate: new Date('2022-10-25T15:00:00Z'),
         maxRewardLevel: 15,
-        ignoreSpecs: [
-            1467, // Devastation Evoker
-            1468, // Preservation Evoker
-            1473, // Augmentation Evoker
-        ],
+        maxRewardScore: 2000,
     },
     {
         prefix: 'season-sl-3',
-        rule: sl2,
+        seasonEndsDate: new Date('2022-08-02T15:00:00Z'),
         maxRewardLevel: 15,
-        ignoreSpecs: [
-            1467, // Devastation Evoker
-            1468, // Preservation Evoker
-            1473, // Augmentation Evoker
-        ],
+        maxRewardScore: 3000,
     },
     {
         prefix: 'season-sl-2',
-        rule: sl2,
+        seasonEndsDate: new Date('2022-02-22T15:00:00Z'),
         maxRewardLevel: 15,
-        ignoreSpecs: [
-            1467, // Devastation Evoker
-            1468, // Preservation Evoker
-            1473, // Augmentation Evoker
-        ],
+        maxRewardScore: 2000,
     },
     {
         prefix: 'season-sl-1',
-        rule: rio,
+        seasonEndsDate: new Date('2021-06-29T15:00:00Z'),
         maxRewardLevel: 15,
-        ignoreSpecs: [
-            1467, // Devastation Evoker
-            1468, // Preservation Evoker
-            1473, // Augmentation Evoker
-        ],
+        maxRewardScore: 1288, // Keystone Master 15 -> 161, 161 * 8 = 1288
     },
     {
         prefix: 'season-bfa-4',
-        rule: rio,
+        seasonEndsDate: new Date('2020-10-13T15:00:00Z'),
         maxRewardLevel: 15,
-        ignoreSpecs: [
-            1467, // Devastation Evoker
-            1468, // Preservation Evoker
-            1473, // Augmentation Evoker
-        ],
+        maxRewardScore: 1932, // Keystone Master 15 -> 161, 161 * 12 = 1932
     },
     {
         prefix: 'season-bfa-3',
-        rule: rio,
+        seasonEndsDate: new Date('2020-01-14T15:00:00Z'),
         maxRewardLevel: 10,
-        ignoreSpecs: [
-            1467, // Devastation Evoker
-            1468, // Preservation Evoker
-            1473, // Augmentation Evoker
-        ],
+        maxRewardScore: 1000, // Keystone Master 10 -> 100, 100 * 10 = 1000
     },
     {
         prefix: 'season-bfa-2',
-        rule: rio,
+        seasonEndsDate: new Date('2019-06-25T15:00:00Z'),
         maxRewardLevel: 10,
-        ignoreSpecs: [
-            1467, // Devastation Evoker
-            1468, // Preservation Evoker
-            1473, // Augmentation Evoker
-        ],
+        maxRewardScore: 0,
         skipCharacterBest: true,
     },
     {
         prefix: 'season-bfa-1',
-        rule: rio,
+        seasonEndsDate: new Date('2019-01-22T15:00:00Z'),
         maxRewardLevel: 10,
-        ignoreSpecs: [
-            1467, // Devastation Evoker
-            1468, // Preservation Evoker
-            1473, // Augmentation Evoker
-        ],
+        maxRewardScore: 0,
         skipCharacterBest: true,
     },
 ];
 
-const getSeasonInfo = (
-    slug: keyof typeof seasons,
-    overrideLevel = 0,
-) => {
-    const entry = seasonRules.find((e) => slug.startsWith(e.prefix));
+const specializationsIntroduce: SpecializationIntroduceData[] = [
+    {
+        id: 1473, // Augmentation Evoker
+        prefix: 'season-df-2',
+    },
+    {
+        id: 1468, // Preservation Evoker
+        prefix: 'season-df-1',
+    },
+    {
+        id: 1467, // Devastation Evoker
+        prefix: 'season-df-1',
+    },
+];
+
+const getSeasonInfo = async (slug: keyof typeof seasons): Promise<SeasonInfo> => {
+    const entry = seasonsAddition.find((e) => slug.startsWith(e.prefix));
     if (!entry) {
         return {
-            level: overrideLevel,
-            score: 250, // Keystone Master
-            allWeeksMultiplier: 1,
-            ignoreSpecs: [],
+            dungeonMinLevel: 0,
+            characterMinScore: 0,
+            skipCharacterBest: false,
+            usingSpecIDs: specializations.map(({ id }) => id),
+            includePostSeason: false,
         };
     }
 
-    const {
-        rule, maxRewardLevel, ignoreSpecs, skipCharacterBest,
-    } = entry;
-    const { baseScores, levelScore, allWeeksMultiplier } = rule;
-    const providedLevel = baseScores.length + 1;
+    const seasonData = seasons[slug];
+    const staticData = await getMythicPlusStaticData(seasonData.expansion);
+    const seasonStaticData = staticData.seasons.find((s) => s.slug === slug);
+    assert(seasonStaticData, `Season ${slug} not found in static data`);
 
-    const level = overrideLevel > 0 ? overrideLevel : maxRewardLevel;
-
-    const score = baseScores[Math.min(level, providedLevel) - 2]
-        + Math.max(0, level - providedLevel) * levelScore;
+    const entryIndex = seasonsAddition.findIndex((e) => slug.startsWith(e.prefix));
+    const ignoreSpecIDs = specializationsIntroduce
+        .filter(({ prefix }) => {
+            const index = seasonsAddition.findIndex((e) => prefix === e.prefix);
+            return index < entryIndex;
+        })
+        .map(({ id }) => id);
 
     return {
-        level,
-        score,
-        allWeeksMultiplier,
-        ignoreSpecs,
-        skipCharacterBest,
+        dungeonMinLevel: entry.maxRewardLevel,
+        characterMinScore: entry.maxRewardScore,
+        skipCharacterBest: entry.skipCharacterBest === true,
+        usingSpecIDs: specializations
+            .filter(({ id }) => !ignoreSpecIDs.includes(id))
+            .map(({ id }) => id),
+        includePostSeason: seasonStaticData.ends.us !== undefined
+            ? new Date(seasonStaticData.ends.us) > entry.seasonEndsDate
+            : false,
     };
 };
 

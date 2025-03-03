@@ -10,6 +10,7 @@ import {
     RIO_MAX_PAGE,
     RIO_CURRENT_SEASON,
     RIO_CURRENT_SEASON_MIN_LEVEL,
+    RIO_CURRENT_SEASON_MIN_PER_DUNGEON_SCORE,
 } from './config.ts';
 import fetcher from './fetcher.ts';
 import getSeasonInfo from './season.ts';
@@ -20,12 +21,12 @@ const outputFilePath = path.resolve(process.argv[2]);
 
 const {
     season,
-    level: runMinLevel,
-    score: runMinScore,
-    allWeeksMultiplier,
-    ignoreSpecs,
+    dungeonMinLevel,
+    characterMinScore,
     skipCharacterBest,
-} = (() => {
+    usingSpecIDs,
+    includePostSeason,
+} = await (async () => {
     const useOldSeason = process.argv.length > 3;
     if (useOldSeason) {
         const inputSeason = process.argv[3];
@@ -34,7 +35,7 @@ const {
         }
 
         const slug = inputSeason as keyof typeof seasons;
-        const info = getSeasonInfo(slug);
+        const info = await getSeasonInfo(slug);
 
         return {
             season: slug,
@@ -42,27 +43,28 @@ const {
         };
     }
 
-    const info = getSeasonInfo(RIO_CURRENT_SEASON, RIO_CURRENT_SEASON_MIN_LEVEL);
+    const info = await getSeasonInfo(RIO_CURRENT_SEASON);
 
     return {
         season: RIO_CURRENT_SEASON,
         ...info,
+        dungeonMinLevel: RIO_CURRENT_SEASON_MIN_LEVEL,
+        characterMinScore: seasons[RIO_CURRENT_SEASON].dungeons.length
+            * RIO_CURRENT_SEASON_MIN_PER_DUNGEON_SCORE,
     };
 })();
 
 fetcher(
     RIO_MAX_PAGE,
     season,
-    runMinLevel,
-    runMinScore,
-    allWeeksMultiplier,
-    ignoreSpecs,
+    dungeonMinLevel,
+    characterMinScore,
     skipCharacterBest,
+    usingSpecIDs,
 )
     .then(({
         date,
-        dungeonMinLevel,
-        characterMinScore,
+        statistics,
         dungeonsByRuns,
         specsByRuns,
         dungeonsByCharacters,
@@ -73,14 +75,14 @@ fetcher(
             config: {
                 maxPage: RIO_MAX_PAGE,
                 season,
-                runMinLevel,
-                runMinScore,
-                allWeeksMultiplier,
-                ignoreSpecs,
+                dungeonMinLevel,
+                characterMinScore,
                 skipCharacterBest,
             },
-            dungeonMinLevel,
-            characterMinScore,
+            statistics: {
+                ...statistics,
+                includePostSeason,
+            },
             dungeonsByRuns: analyse(dungeonsByRuns),
             specsByRuns: analyse(specsByRuns),
             dungeonsByCharacters: analyse(dungeonsByCharacters),

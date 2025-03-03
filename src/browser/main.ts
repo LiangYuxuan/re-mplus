@@ -55,17 +55,11 @@ const selectorData: SelectorData[] = [
             },
             {
                 name: getLocaleString('config-min-level'),
-                value: data.config.runMinLevel.toString(),
-            },
-            {
-                name: getLocaleString('config-min-score'),
-                value: data.config.runMinScore.toString(),
+                value: data.config.dungeonMinLevel.toString(),
             },
             {
                 name: getLocaleString('dungeon-min-level'),
-                value: data.dungeonMinLevel.min === data.dungeonMinLevel.max
-                    ? data.dungeonMinLevel.min.toString()
-                    : `${data.dungeonMinLevel.min.toString()} - ${data.dungeonMinLevel.max.toString()}`,
+                value: data.statistics.dungeonMinLevel.toString(),
             },
         ]),
     },
@@ -74,7 +68,7 @@ const selectorData: SelectorData[] = [
         select: (data: AnalyseDataFile) => ({
             dungeons: data.dungeonsByCharacters,
             specs: data.specsByCharacters,
-            isMissing: data.config.skipCharacterBest === true,
+            isMissing: data.config.skipCharacterBest,
         }),
         configs: (data: AnalyseDataFile) => ([
             {
@@ -86,16 +80,12 @@ const selectorData: SelectorData[] = [
                 value: data.config.maxPage.toString(),
             },
             {
-                name: getLocaleString('config-min-level'),
-                value: data.config.runMinLevel.toString(),
-            },
-            {
                 name: getLocaleString('config-min-score'),
-                value: data.config.runMinScore.toString(),
+                value: data.config.characterMinScore.toString(),
             },
             {
                 name: getLocaleString('character-min-score'),
-                value: data.characterMinScore.toString(),
+                value: data.statistics.characterMinScore.toString(),
             },
         ]),
     },

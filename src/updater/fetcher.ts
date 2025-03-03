@@ -45,11 +45,10 @@ const getSpecTopCharacters = async (
 export default async (
     maxPage: number,
     season: keyof typeof seasons,
-    runMinLevel: number,
-    runMinScore: number,
-    allWeeksMultiplier: number,
-    ignoreSpecs: number[] = [],
-    skipCharacterBest?: boolean,
+    dungeonMinLevel: number,
+    characterMinScore: number,
+    skipCharacterBest: boolean,
+    usingSpecIDs: number[],
 ): Promise<RioData> => {
     const seasonData = seasons[season];
 
@@ -61,8 +60,8 @@ export default async (
         seasonData.dungeons.map((d) => [d.rioID, d.challengeMapID] as const),
     );
 
-    const usingSpecs = specializations.filter(({ id }) => !ignoreSpecs.includes(id));
-    const characterUsingSpecs = skipCharacterBest === true ? [] : usingSpecs;
+    const usingSpecs = specializations.filter(({ id }) => usingSpecIDs.includes(id));
+    const characterUsingSpecs = skipCharacterBest ? [] : usingSpecs;
 
     const topRuns: Run[] = [];
     await mapLimit(dungeonSlugs, 1, async (dungeon: string) => {
@@ -87,7 +86,7 @@ export default async (
                 const challengeMapID = run.dungeon.map_challenge_mode_id;
                 const specs = run.roster.map(({ character }) => character.spec.id);
 
-                if (level >= runMinLevel && score >= runMinScore) {
+                if (level >= dungeonMinLevel) {
                     topRuns.push({
                         type: 'run',
                         id,
@@ -99,7 +98,7 @@ export default async (
                 }
             });
 
-            if (runs[runs.length - 1].score < runMinScore) {
+            if (runs[runs.length - 1].run.mythic_level < dungeonMinLevel) {
                 break;
             }
         }
@@ -147,10 +146,7 @@ export default async (
             lastCharactersData.rankings.rankedCharacters.length - 1
         ].score
         : 0;
-    const characterMinScore = Math.max(
-        runMinScore * allWeeksMultiplier * dungeonCount,
-        lastCharacterScore,
-    );
+    const characterScoreThreshold = Math.max(characterMinScore, lastCharacterScore);
 
     const recordedRuns = new Set<number>();
     const topCharacterRuns: Run[] = [];
@@ -175,25 +171,16 @@ export default async (
             }
 
             characters.forEach(({ score, runs, character: { path } }) => {
-                if (score >= characterMinScore && runs.length >= dungeonCount) {
-                    const isAllDungeonsValid = runs.every((run) => run.mythicLevel >= runMinLevel
-                        && run.score >= runMinScore);
-
-                    if (isAllDungeonsValid) {
-                        specCharacters.push({
-                            type: 'character',
-                            path: path.replace(/^\/characters\//, ''),
-                            score,
-                            spec: id,
-                        });
-                    }
+                if (score >= characterScoreThreshold && runs.length >= dungeonCount) {
+                    specCharacters.push({
+                        type: 'character',
+                        path: path.replace(/^\/characters\//, ''),
+                        score,
+                        spec: id,
+                    });
 
                     runs.forEach((run) => {
-                        if (
-                            !recordedRuns.has(run.keystoneRunId)
-                            && run.mythicLevel >= runMinLevel
-                            && run.score >= runMinScore
-                        ) {
+                        if (!recordedRuns.has(run.keystoneRunId)) {
                             const challengeMapID = rioID2MapID.get(run.zoneId);
 
                             assert(challengeMapID !== undefined, `Failed to get challengeMapID for ${run.zoneId.toString()}`);
@@ -213,7 +200,7 @@ export default async (
                 }
             });
 
-            if (characters[characters.length - 1].score < characterMinScore) {
+            if (characters[characters.length - 1].score < characterScoreThreshold) {
                 break;
             }
         }
@@ -252,11 +239,10 @@ export default async (
 
     const data: RioData = {
         date: new Date().toISOString(),
-        dungeonMinLevel: {
-            min: dungeonMinLevels.length === 0 ? 0 : Math.min(...dungeonMinLevels),
-            max: dungeonMinLevels.length === 0 ? 0 : Math.max(...dungeonMinLevels),
+        statistics: {
+            dungeonMinLevel: dungeonMinLevels.length === 0 ? 0 : Math.min(...dungeonMinLevels),
+            characterMinScore: characterScoreThreshold,
         },
-        characterMinScore,
         dungeonsByRuns,
         specsByRuns,
         dungeonsByCharacters,
