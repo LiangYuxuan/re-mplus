@@ -31,7 +31,8 @@ interface SelectorData {
     select: (data: AnalyseDataFile) => {
         dungeons: AnalyseResult[],
         specs: AnalyseResult[],
-        isMissing: boolean,
+        skipCharacterBest: boolean,
+        includePostSeason: boolean,
     },
     configs: (data: AnalyseDataFile) => ConfigDisplay[],
 }
@@ -42,7 +43,8 @@ const selectorData: SelectorData[] = [
         select: (data: AnalyseDataFile) => ({
             dungeons: data.dungeonsByRuns,
             specs: data.specsByRuns,
-            isMissing: false,
+            skipCharacterBest: false,
+            includePostSeason: data.statistics.includePostSeason,
         }),
         configs: (data: AnalyseDataFile) => ([
             {
@@ -68,7 +70,8 @@ const selectorData: SelectorData[] = [
         select: (data: AnalyseDataFile) => ({
             dungeons: data.dungeonsByCharacters,
             specs: data.specsByCharacters,
-            isMissing: data.config.skipCharacterBest,
+            skipCharacterBest: data.config.skipCharacterBest,
+            includePostSeason: data.statistics.includePostSeason,
         }),
         configs: (data: AnalyseDataFile) => ([
             {
@@ -299,20 +302,33 @@ const renderDetailTable = (
 
 const renderPage = (
     missingAlert: HTMLDivElement,
+    postSeasonAlert: HTMLDivElement,
     tierContent: HTMLDivElement,
     dataFile: AnalyseDataFile,
 ) => {
     tierContent.replaceChildren();
 
-    const { dungeons, specs, isMissing } = selectorData[SELECTOR_USING_INDEX].select(dataFile);
+    const {
+        dungeons,
+        specs,
+        skipCharacterBest,
+        includePostSeason,
+    } = selectorData[SELECTOR_USING_INDEX].select(dataFile);
 
-    if (isMissing) {
+    if (skipCharacterBest) {
         tierContent.classList.remove('tier-list');
         tierContent.classList.add('tier-detail');
 
         missingAlert.classList.remove('hidden');
+        postSeasonAlert.classList.add('hidden');
 
         return;
+    }
+
+    if (includePostSeason) {
+        postSeasonAlert.classList.remove('hidden');
+    } else {
+        postSeasonAlert.classList.add('hidden');
     }
 
     missingAlert.classList.add('hidden');
@@ -419,12 +435,14 @@ const updatePageDisplay = (
     subTitle: HTMLDivElement,
     lastUpdated: HTMLDivElement,
     buttonContainer: HTMLDivElement,
-    dataFile: AnalyseDataFile,
+    dataFile: AnalyseDataFile | undefined,
 ) => {
     // eslint-disable-next-line no-param-reassign
     subTitle.textContent = selectorData[SELECTOR_USING_INDEX].label();
     // eslint-disable-next-line no-param-reassign
-    lastUpdated.textContent = new Date(dataFile.date).toLocaleString();
+    lastUpdated.textContent = dataFile
+        ? new Date(dataFile.date).toLocaleString()
+        : '';
 
     [...buttonContainer.children].forEach((child, index) => {
         if (buttonData.length > index) {
@@ -437,9 +455,7 @@ const updatePageDisplay = (
     });
 };
 
-const initializePage = async () => {
-    let dataFile = await (await fetch('data.json')).json() as AnalyseDataFile;
-
+const initializePage = () => {
     const title = document.getElementById('title');
     if (!(title instanceof HTMLDivElement)) {
         console.error('Failing to find #title');
@@ -470,9 +486,21 @@ const initializePage = async () => {
         return;
     }
 
+    const loadDataError = document.getElementById('loadDataError');
+    if (!(loadDataError instanceof HTMLDivElement)) {
+        console.error('Failing to find #loadDataError');
+        return;
+    }
+
     const missingAlert = document.getElementById('missingAlert');
     if (!(missingAlert instanceof HTMLDivElement)) {
         console.error('Failing to find #missingAlert');
+        return;
+    }
+
+    const postSeasonAlert = document.getElementById('postSeasonAlert');
+    if (!(postSeasonAlert instanceof HTMLDivElement)) {
+        console.error('Failing to find #postSeasonAlert');
         return;
     }
 
@@ -482,18 +510,42 @@ const initializePage = async () => {
         return;
     }
 
-    const refresh = () => {
-        fetch(seasonSelector.value === 'current' ? 'data.json' : `legacy/${seasonSelector.value}.json`)
-            .then((res) => res.json())
-            .then((newDataFile: AnalyseDataFile) => {
-                dataFile = newDataFile;
+    let dataFile: AnalyseDataFile | undefined;
 
-                updatePageDisplay(subTitle, lastUpdated, buttonContainer, dataFile);
-                renderPage(missingAlert, tierContent, dataFile);
-            })
-            .catch((error: unknown) => {
-                console.error(error);
-            });
+    const refresh = () => fetch(seasonSelector.value === 'current' ? 'data.json' : `legacy/${seasonSelector.value}.json`)
+        .then((res) => res.json())
+        .then((newDataFile: AnalyseDataFile) => {
+            dataFile = newDataFile;
+
+            loadDataError.classList.add('hidden');
+
+            const currentSeasonOption = [...seasonSelector.options].find((option) => option.value === 'current');
+            if (seasonSelector.value === 'current' && currentSeasonOption) {
+                currentSeasonOption.textContent = `${getLocaleString('current-season')} - ${getSeasonName(dataFile.config.season)}`;
+            }
+
+            updatePageDisplay(subTitle, lastUpdated, buttonContainer, dataFile);
+            renderPage(missingAlert, postSeasonAlert, tierContent, dataFile);
+        })
+        .catch((error: unknown) => {
+            dataFile = undefined;
+
+            tierContent.classList.remove('tier-list');
+            tierContent.classList.add('tier-detail');
+            tierContent.replaceChildren();
+
+            loadDataError.classList.remove('hidden');
+            missingAlert.classList.add('hidden');
+            postSeasonAlert.classList.add('hidden');
+
+            updatePageDisplay(subTitle, lastUpdated, buttonContainer, dataFile);
+
+            throw error;
+        });
+
+    const doRefresh = () => {
+        refresh()
+            .catch(console.error);
     };
 
     [...buttonContainer.children].forEach((child, index) => {
@@ -501,13 +553,16 @@ const initializePage = async () => {
             child.setAttribute('title', buttonData[index].getTitle());
 
             if (buttonData[index].isRefresh !== undefined) {
-                child.addEventListener('click', refresh);
+                child.addEventListener('click', doRefresh);
             } else if (buttonData[index].onClick) {
                 child.addEventListener('click', () => {
                     buttonData[index].onClick?.();
 
                     updatePageDisplay(subTitle, lastUpdated, buttonContainer, dataFile);
-                    renderPage(missingAlert, tierContent, dataFile);
+
+                    if (dataFile) {
+                        renderPage(missingAlert, postSeasonAlert, tierContent, dataFile);
+                    }
                 });
             }
         }
@@ -516,19 +571,20 @@ const initializePage = async () => {
     [...seasonSelector.options].forEach((option) => {
         if (option.value === 'current') {
             // eslint-disable-next-line no-param-reassign
-            option.textContent = `${getLocaleString('current-season')} - ${getSeasonName(dataFile.config.season)}`;
+            option.textContent = getLocaleString('current-season');
         } else {
             // eslint-disable-next-line no-param-reassign
             option.textContent = getSeasonName(option.value);
         }
     });
-
-    seasonSelector.addEventListener('change', refresh);
-    missingAlert.textContent = getLocaleString('missing-character-best-record');
+    seasonSelector.addEventListener('change', doRefresh);
 
     title.textContent = getLocaleString('title');
-    updatePageDisplay(subTitle, lastUpdated, buttonContainer, dataFile);
-    renderPage(missingAlert, tierContent, dataFile);
+    loadDataError.textContent = getLocaleString('load-data-error');
+    missingAlert.textContent = getLocaleString('missing-character-best-record');
+    postSeasonAlert.textContent = getLocaleString('include-post-season');
+
+    doRefresh();
 };
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -536,8 +592,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.title = getLocaleString('title');
 
-    initializePage()
-        .catch((error: unknown) => {
-            console.error(error);
-        });
+    initializePage();
 });

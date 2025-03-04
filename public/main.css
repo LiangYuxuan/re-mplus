@@ -67,8 +67,18 @@
     display: none;
 }
 
-.card .missing {
+.card .error {
     width: 100%;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 0;
+    background-color: rgb(253, 236, 234);
+    border: 1px solid rgb(250, 204, 202);
+    text-align: center;
+}
+
+.card .warning {
+    width: 100%;
+    margin-bottom: 0.5rem;
     padding: 0.5rem 0;
     background-color: rgb(254, 247, 237);
     border: 1px solid rgb(250, 224, 181);
