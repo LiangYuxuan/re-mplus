@@ -55,7 +55,6 @@ export default {
     dungeons: new Map(dungeons.map(({ id, en }) => [id, en] as const)),
     seasons: new Map([
         ['season-tww-2', 'The War Within Season 2'],
-        ['season-tww-1-post', 'The War Within Season 1 Post Season'],
         ['season-tww-1', 'The War Within Season 1'],
         ['season-df-4-cutoffs', 'Dragonflight Season 4'],
         ['season-df-3', 'Dragonflight Season 3'],
