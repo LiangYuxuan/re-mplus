@@ -21,10 +21,10 @@
     "jimp": "^1.6.0"
   },
   "devDependencies": {
-    "@rhyster/eslint-config": "^1.7.14",
+    "@rhyster/eslint-config": "^1.7.15",
     "@types/async": "^3.2.24",
     "@types/node": "^22.13.14",
-    "esbuild": "^0.25.1",
+    "esbuild": "^0.25.2",
     "eslint": "^9.23.0",
     "serve": "^14.2.4",
     "tsx": "^4.19.3",
