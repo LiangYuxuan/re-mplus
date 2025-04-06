@@ -16,19 +16,19 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "@rhyster/wow-casc-dbc": "^2.11.9",
+    "@rhyster/wow-casc-dbc": "^2.11.10",
     "async": "^3.2.6",
     "jimp": "^1.6.0"
   },
   "devDependencies": {
-    "@rhyster/eslint-config": "^1.7.15",
+    "@rhyster/eslint-config": "^1.7.17",
     "@types/async": "^3.2.24",
     "@types/node": "^22.14.0",
     "esbuild": "^0.25.2",
-    "eslint": "^9.23.0",
+    "eslint": "^9.24.0",
     "serve": "^14.2.4",
     "tsx": "^4.19.3",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.3"
   },
   "packageManager": "pnpm@10.7.1"
 }
