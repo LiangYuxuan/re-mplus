@@ -32,7 +32,7 @@ jobs:
 
       - run: pnpm build:public
 
-      - uses: appleboy/scp-action@v0.1.7
+      - uses: appleboy/scp-action@v1.0.0
         with:
           host: ${{ secrets.REMOTE_HOST }}
           port: ${{ secrets.REMOTE_PORT }}
@@ -42,7 +42,7 @@ jobs:
           target: ${{ secrets.REMOTE_TARGET_CRON }}
           strip_components: 1
 
-      - uses: appleboy/scp-action@v0.1.7
+      - uses: appleboy/scp-action@v1.0.0
         with:
           host: ${{ secrets.REMOTE_HOST }}
           port: ${{ secrets.REMOTE_PORT }}
