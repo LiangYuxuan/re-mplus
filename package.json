@@ -16,12 +16,12 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "@rhyster/wow-casc-dbc": "^2.11.24",
+    "@rhyster/wow-casc-dbc": "^2.11.25",
     "async": "^3.2.6",
     "jimp": "^1.6.0"
   },
   "devDependencies": {
-    "@rhyster/eslint-config": "^1.7.29",
+    "@rhyster/eslint-config": "^1.7.30",
     "@types/async": "^3.2.24",
     "@types/node": "^22.16.0",
     "esbuild": "^0.25.5",
