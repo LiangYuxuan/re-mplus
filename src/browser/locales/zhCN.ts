@@ -159,6 +159,7 @@ export default {
     specializations: new Map(specializations.map(({ id, cn }) => [id, cn] as const)),
     dungeons: new Map(dungeons.map(({ id, cn }) => [id, cn] as const)),
     seasons: new Map([
+        ['season-tww-3', '地心之战 第三赛季'],
         ['season-tww-2', '地心之战 第二赛季'],
         ['season-tww-1', '地心之战 第一赛季'],
         ['season-df-4-cutoffs', '巨龙时代 第四赛季'],
