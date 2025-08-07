@@ -155,6 +155,7 @@ export default {
         [506, '酒庄'],
         [507, '格瑞'],
         [525, '水闸'],
+        [542, '圆顶'],
     ]),
     specializations: new Map(specializations.map(({ id, cn }) => [id, cn] as const)),
     dungeons: new Map(dungeons.map(({ id, cn }) => [id, cn] as const)),
