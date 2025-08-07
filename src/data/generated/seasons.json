@@ -1,4 +1,96 @@
 {
+    "season-tww-3": {
+        "slug": "season-tww-3",
+        "expansion": 10,
+        "dungeons": [
+            {
+                "rioID": 15093,
+                "challengeMapID": 503,
+                "slug": "arakara-city-of-echoes"
+            },
+            {
+                "rioID": 16104,
+                "challengeMapID": 542,
+                "slug": "ecodome-aldani"
+            },
+            {
+                "rioID": 12831,
+                "challengeMapID": 378,
+                "slug": "halls-of-atonement"
+            },
+            {
+                "rioID": 15452,
+                "challengeMapID": 525,
+                "slug": "operation-floodgate"
+            },
+            {
+                "rioID": 14954,
+                "challengeMapID": 499,
+                "slug": "priory-of-the-sacred-flame"
+            },
+            {
+                "rioID": 1000001,
+                "challengeMapID": 392,
+                "slug": "tazavesh-soleahs-gambit"
+            },
+            {
+                "rioID": 1000000,
+                "challengeMapID": 391,
+                "slug": "tazavesh-streets-of-wonder"
+            },
+            {
+                "rioID": 14971,
+                "challengeMapID": 505,
+                "slug": "the-dawnbreaker"
+            }
+        ]
+    },
+    "season-tww-3-ptr": {
+        "slug": "season-tww-3-ptr",
+        "expansion": 10,
+        "dungeons": [
+            {
+                "rioID": 15093,
+                "challengeMapID": 503,
+                "slug": "arakara-city-of-echoes"
+            },
+            {
+                "rioID": 16104,
+                "challengeMapID": 542,
+                "slug": "ecodome-aldani"
+            },
+            {
+                "rioID": 12831,
+                "challengeMapID": 378,
+                "slug": "halls-of-atonement"
+            },
+            {
+                "rioID": 15452,
+                "challengeMapID": 525,
+                "slug": "operation-floodgate"
+            },
+            {
+                "rioID": 14954,
+                "challengeMapID": 499,
+                "slug": "priory-of-the-sacred-flame"
+            },
+            {
+                "rioID": 1000001,
+                "challengeMapID": 392,
+                "slug": "tazavesh-soleahs-gambit"
+            },
+            {
+                "rioID": 1000000,
+                "challengeMapID": 391,
+                "slug": "tazavesh-streets-of-wonder"
+            },
+            {
+                "rioID": 14971,
+                "challengeMapID": 505,
+                "slug": "the-dawnbreaker"
+            }
+        ]
+    },
     "season-tww-2": {
         "slug": "season-tww-2",
         "expansion": 10,
@@ -47,6 +139,144 @@
     },
     "season-tww-2-ptr": {
         "slug": "season-tww-2-ptr",
+        "expansion": 10,
+        "dungeons": [
+            {
+                "rioID": 15103,
+                "challengeMapID": 506,
+                "slug": "cinderbrew-meadery"
+            },
+            {
+                "rioID": 14882,
+                "challengeMapID": 504,
+                "slug": "darkflame-cleft"
+            },
+            {
+                "rioID": 800002,
+                "challengeMapID": 370,
+                "slug": "operation-mechagon-workshop"
+            },
+            {
+                "rioID": 15452,
+                "challengeMapID": 525,
+                "slug": "operation-floodgate"
+            },
+            {
+                "rioID": 14954,
+                "challengeMapID": 499,
+                "slug": "priory-of-the-sacred-flame"
+            },
+            {
+                "rioID": 8064,
+                "challengeMapID": 247,
+                "slug": "the-motherlode"
+            },
+            {
+                "rioID": 14938,
+                "challengeMapID": 500,
+                "slug": "the-rookery"
+            },
+            {
+                "rioID": 12841,
+                "challengeMapID": 382,
+                "slug": "theater-of-pain"
+            }
+        ]
+    },
+    "season-tww-2-break-the-meta": {
+        "slug": "season-tww-2-break-the-meta",
+        "expansion": 10,
+        "dungeons": [
+            {
+                "rioID": 15103,
+                "challengeMapID": 506,
+                "slug": "cinderbrew-meadery"
+            },
+            {
+                "rioID": 14882,
+                "challengeMapID": 504,
+                "slug": "darkflame-cleft"
+            },
+            {
+                "rioID": 800002,
+                "challengeMapID": 370,
+                "slug": "operation-mechagon-workshop"
+            },
+            {
+                "rioID": 15452,
+                "challengeMapID": 525,
+                "slug": "operation-floodgate"
+            },
+            {
+                "rioID": 14954,
+                "challengeMapID": 499,
+                "slug": "priory-of-the-sacred-flame"
+            },
+            {
+                "rioID": 8064,
+                "challengeMapID": 247,
+                "slug": "the-motherlode"
+            },
+            {
+                "rioID": 14938,
+                "challengeMapID": 500,
+                "slug": "the-rookery"
+            },
+            {
+                "rioID": 12841,
+                "challengeMapID": 382,
+                "slug": "theater-of-pain"
+            }
+        ]
+    },
+    "season-tww-2-meta-vs-meta": {
+        "slug": "season-tww-2-meta-vs-meta",
+        "expansion": 10,
+        "dungeons": [
+            {
+                "rioID": 15103,
+                "challengeMapID": 506,
+                "slug": "cinderbrew-meadery"
+            },
+            {
+                "rioID": 14882,
+                "challengeMapID": 504,
+                "slug": "darkflame-cleft"
+            },
+            {
+                "rioID": 800002,
+                "challengeMapID": 370,
+                "slug": "operation-mechagon-workshop"
+            },
+            {
+                "rioID": 15452,
+                "challengeMapID": 525,
+                "slug": "operation-floodgate"
+            },
+            {
+                "rioID": 14954,
+                "challengeMapID": 499,
+                "slug": "priory-of-the-sacred-flame"
+            },
+            {
+                "rioID": 8064,
+                "challengeMapID": 247,
+                "slug": "the-motherlode"
+            },
+            {
+                "rioID": 14938,
+                "challengeMapID": 500,
+                "slug": "the-rookery"
+            },
+            {
+                "rioID": 12841,
+                "challengeMapID": 382,
+                "slug": "theater-of-pain"
+            }
+        ]
+    },
+    "season-tww-2-post": {
+        "slug": "season-tww-2-post",
         "expansion": 10,
         "dungeons": [
             {

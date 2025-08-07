@@ -430,5 +430,16 @@
         "en": "Operation: Floodgate",
         "cn": "水闸行动",
         "shortName": "FLOOD"
+    },
+    {
+        "id": 541,
+        "en": "The Stonecore",
+        "cn": "巨石之核"
+    },
+    {
+        "id": 542,
+        "en": "Eco-Dome Al'dani",
+        "cn": "奥尔达尼生态圆顶",
+        "shortName": "EDA"
     }
 ]
