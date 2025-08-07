@@ -28,11 +28,7 @@ interface SpecializationIntroduceData {
 const seasonsAddition: SeasonAdditionData[] = [
     {
         prefix: 'season-tww-2',
-        // this season is ended at 2025-08-05, but the static data shows it ends at 2025-08-12.
-        // however, mythic plus is actually not available after 2025-08-05 though 2025-08-12,
-        // so we use 2025-08-12 as the end date to match the static data to avoid post-season flag,
-        // if the static data is updated to 2025-08-05, we can change it back to 2025-08-05.
-        seasonEndsDate: new Date('2025-08-12T15:00:00Z'),
+        seasonEndsDate: new Date('2025-08-05T15:00:00Z'),
         maxRewardLevel: 10,
         maxRewardScore: 2500,
     },
