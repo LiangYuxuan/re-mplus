@@ -24,7 +24,7 @@
     "@rhyster/eslint-config": "^1.8.22",
     "@types/async": "^3.2.25",
     "@types/node": "^24.10.4",
-    "esbuild": "^0.27.1",
+    "esbuild": "^0.27.2",
     "eslint": "^9.39.2",
     "serve": "^14.2.5",
     "tsx": "^4.21.0",
