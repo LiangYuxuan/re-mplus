@@ -310,5 +310,13 @@
         "specName": "augmentation",
         "en": "Augmentation Evoker",
         "cn": "增辉 唤魔师"
+    },
+    {
+        "id": 1480,
+        "role": "ranged",
+        "className": "demon-hunter",
+        "specName": "devourer",
+        "en": "Devourer Demon Hunter",
+        "cn": "噬灭 恶魔猎手"
     }
 ]

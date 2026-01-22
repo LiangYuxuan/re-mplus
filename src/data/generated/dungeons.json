@@ -48,7 +48,8 @@
     {
         "id": 161,
         "en": "Skyreach",
-        "cn": "通天峰"
+        "cn": "通天峰",
+        "shortName": "SR"
     },
     {
         "id": 163,
@@ -441,5 +442,35 @@
         "en": "Eco-Dome Al'dani",
         "cn": "奥尔达尼生态圆顶",
         "shortName": "EDA"
+    },
+    {
+        "id": 556,
+        "en": "Pit of Saron",
+        "cn": "萨隆矿坑",
+        "shortName": "POS"
+    },
+    {
+        "id": 557,
+        "en": "Windrunner Spire",
+        "cn": "风行者之塔",
+        "shortName": "WS"
+    },
+    {
+        "id": 558,
+        "en": "Magisters' Terrace",
+        "cn": "魔导师平台",
+        "shortName": "MT"
+    },
+    {
+        "id": 559,
+        "en": "Nexus-Point Xenas",
+        "cn": "节点希纳斯",
+        "shortName": "NPX"
+    },
+    {
+        "id": 560,
+        "en": "Maisara Caverns",
+        "cn": "迈萨拉洞窟",
+        "shortName": "MC"
     }
 ]

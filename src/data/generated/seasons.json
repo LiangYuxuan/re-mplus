@@ -1,4 +1,96 @@
 {
+    "season-mn-1": {
+        "slug": "season-mn-1",
+        "expansion": 11,
+        "dungeons": [
+            {
+                "rioID": 14032,
+                "challengeMapID": 402,
+                "slug": "algethar-academy"
+            },
+            {
+                "rioID": 15829,
+                "challengeMapID": 558,
+                "slug": "magisters-terrace"
+            },
+            {
+                "rioID": 16395,
+                "challengeMapID": 560,
+                "slug": "maisara-caverns"
+            },
+            {
+                "rioID": 16573,
+                "challengeMapID": 559,
+                "slug": "nexuspoint-xenas"
+            },
+            {
+                "rioID": 4813,
+                "challengeMapID": 556,
+                "slug": "pit-of-saron"
+            },
+            {
+                "rioID": 8910,
+                "challengeMapID": 239,
+                "slug": "seat-of-the-triumvirate"
+            },
+            {
+                "rioID": 6988,
+                "challengeMapID": 161,
+                "slug": "skyreach"
+            },
+            {
+                "rioID": 15808,
+                "challengeMapID": 557,
+                "slug": "windrunner-spire"
+            }
+        ]
+    },
+    "season-tww-3-cutoffs": {
+        "slug": "season-tww-3-cutoffs",
+        "expansion": 10,
+        "dungeons": [
+            {
+                "rioID": 15093,
+                "challengeMapID": 503,
+                "slug": "arakara-city-of-echoes"
+            },
+            {
+                "rioID": 16104,
+                "challengeMapID": 542,
+                "slug": "ecodome-aldani"
+            },
+            {
+                "rioID": 12831,
+                "challengeMapID": 378,
+                "slug": "halls-of-atonement"
+            },
+            {
+                "rioID": 15452,
+                "challengeMapID": 525,
+                "slug": "operation-floodgate"
+            },
+            {
+                "rioID": 14954,
+                "challengeMapID": 499,
+                "slug": "priory-of-the-sacred-flame"
+            },
+            {
+                "rioID": 1000001,
+                "challengeMapID": 392,
+                "slug": "tazavesh-soleahs-gambit"
+            },
+            {
+                "rioID": 1000000,
+                "challengeMapID": 391,
+                "slug": "tazavesh-streets-of-wonder"
+            },
+            {
+                "rioID": 14971,
+                "challengeMapID": 505,
+                "slug": "the-dawnbreaker"
+            }
+        ]
+    },
     "season-tww-3": {
         "slug": "season-tww-3",
         "expansion": 10,
@@ -45,8 +137,8 @@
             }
         ]
     },
-    "season-tww-3-ptr": {
-        "slug": "season-tww-3-ptr",
+    "season-tww-3-break-the-meta": {
+        "slug": "season-tww-3-break-the-meta",
         "expansion": 10,
         "dungeons": [
             {
@@ -91,54 +183,150 @@
             }
         ]
     },
-    "season-tww-2": {
-        "slug": "season-tww-2",
+    "season-tww-3-legion-remix": {
+        "slug": "season-tww-3-legion-remix",
         "expansion": 10,
         "dungeons": [
             {
-                "rioID": 15103,
-                "challengeMapID": 506,
-                "slug": "cinderbrew-meadery"
+                "rioID": 7805,
+                "challengeMapID": 199,
+                "slug": "black-rook-hold"
             },
             {
-                "rioID": 14882,
-                "challengeMapID": 504,
-                "slug": "darkflame-cleft"
+                "rioID": 8527,
+                "challengeMapID": 233,
+                "slug": "cathedral-of-eternal-night"
             },
             {
-                "rioID": 800002,
-                "challengeMapID": 370,
-                "slug": "operation-mechagon-workshop"
+                "rioID": 8079,
+                "challengeMapID": 210,
+                "slug": "court-of-stars"
             },
             {
-                "rioID": 15452,
-                "challengeMapID": 525,
-                "slug": "operation-floodgate"
+                "rioID": 7673,
+                "challengeMapID": 198,
+                "slug": "darkheart-thicket"
             },
             {
-                "rioID": 14954,
-                "challengeMapID": 499,
-                "slug": "priory-of-the-sacred-flame"
+                "rioID": 8040,
+                "challengeMapID": 197,
+                "slug": "eye-of-azshara"
             },
             {
-                "rioID": 8064,
-                "challengeMapID": 247,
-                "slug": "the-motherlode"
+                "rioID": 7672,
+                "challengeMapID": 200,
+                "slug": "halls-of-valor"
             },
             {
-                "rioID": 14938,
-                "challengeMapID": 500,
-                "slug": "the-rookery"
+                "rioID": 7812,
+                "challengeMapID": 208,
+                "slug": "maw-of-souls"
             },
             {
-                "rioID": 12841,
-                "challengeMapID": 382,
-                "slug": "theater-of-pain"
+                "rioID": 7546,
+                "challengeMapID": 206,
+                "slug": "neltharions-lair"
+            },
+            {
+                "rioID": 999998,
+                "challengeMapID": 227,
+                "slug": "return-to-karazhan-lower"
+            },
+            {
+                "rioID": 999999,
+                "challengeMapID": 234,
+                "slug": "return-to-karazhan-upper"
+            },
+            {
+                "rioID": 8910,
+                "challengeMapID": 239,
+                "slug": "seat-of-the-triumvirate"
+            },
+            {
+                "rioID": 7855,
+                "challengeMapID": 209,
+                "slug": "the-arcway"
+            },
+            {
+                "rioID": 7787,
+                "challengeMapID": 207,
+                "slug": "vault-of-the-wardens"
             }
         ]
     },
-    "season-tww-2-ptr": {
-        "slug": "season-tww-2-ptr",
+    "season-tww-3-legion-remix-1-player": {
+        "slug": "season-tww-3-legion-remix-1-player",
+        "expansion": 10,
+        "dungeons": [
+            {
+                "rioID": 7805,
+                "challengeMapID": 199,
+                "slug": "black-rook-hold"
+            },
+            {
+                "rioID": 8527,
+                "challengeMapID": 233,
+                "slug": "cathedral-of-eternal-night"
+            },
+            {
+                "rioID": 8079,
+                "challengeMapID": 210,
+                "slug": "court-of-stars"
+            },
+            {
+                "rioID": 7673,
+                "challengeMapID": 198,
+                "slug": "darkheart-thicket"
+            },
+            {
+                "rioID": 8040,
+                "challengeMapID": 197,
+                "slug": "eye-of-azshara"
+            },
+            {
+                "rioID": 7672,
+                "challengeMapID": 200,
+                "slug": "halls-of-valor"
+            },
+            {
+                "rioID": 7812,
+                "challengeMapID": 208,
+                "slug": "maw-of-souls"
+            },
+            {
+                "rioID": 7546,
+                "challengeMapID": 206,
+                "slug": "neltharions-lair"
+            },
+            {
+                "rioID": 999998,
+                "challengeMapID": 227,
+                "slug": "return-to-karazhan-lower"
+            },
+            {
+                "rioID": 999999,
+                "challengeMapID": 234,
+                "slug": "return-to-karazhan-upper"
+            },
+            {
+                "rioID": 8910,
+                "challengeMapID": 239,
+                "slug": "seat-of-the-triumvirate"
+            },
+            {
+                "rioID": 7855,
+                "challengeMapID": 209,
+                "slug": "the-arcway"
+            },
+            {
+                "rioID": 7787,
+                "challengeMapID": 207,
+                "slug": "vault-of-the-wardens"
+            }
+        ]
+    },
+    "season-tww-2": {
+        "slug": "season-tww-2",
         "expansion": 10,
         "dungeons": [
             {
@@ -231,52 +419,6 @@
     },
     "season-tww-2-meta-vs-meta": {
         "slug": "season-tww-2-meta-vs-meta",
-        "expansion": 10,
-        "dungeons": [
-            {
-                "rioID": 15103,
-                "challengeMapID": 506,
-                "slug": "cinderbrew-meadery"
-            },
-            {
-                "rioID": 14882,
-                "challengeMapID": 504,
-                "slug": "darkflame-cleft"
-            },
-            {
-                "rioID": 800002,
-                "challengeMapID": 370,
-                "slug": "operation-mechagon-workshop"
-            },
-            {
-                "rioID": 15452,
-                "challengeMapID": 525,
-                "slug": "operation-floodgate"
-            },
-            {
-                "rioID": 14954,
-                "challengeMapID": 499,
-                "slug": "priory-of-the-sacred-flame"
-            },
-            {
-                "rioID": 8064,
-                "challengeMapID": 247,
-                "slug": "the-motherlode"
-            },
-            {
-                "rioID": 14938,
-                "challengeMapID": 500,
-                "slug": "the-rookery"
-            },
-            {
-                "rioID": 12841,
-                "challengeMapID": 382,
-                "slug": "theater-of-pain"
-            }
-        ]
-    },
-    "season-tww-2-post": {
-        "slug": "season-tww-2-post",
         "expansion": 10,
         "dungeons": [
             {
@@ -415,52 +557,6 @@
     },
     "season-tww-1-break-the-meta": {
         "slug": "season-tww-1-break-the-meta",
-        "expansion": 10,
-        "dungeons": [
-            {
-                "rioID": 15093,
-                "challengeMapID": 503,
-                "slug": "arakara-city-of-echoes"
-            },
-            {
-                "rioID": 14979,
-                "challengeMapID": 502,
-                "slug": "city-of-threads"
-            },
-            {
-                "rioID": 4950,
-                "challengeMapID": 507,
-                "slug": "grim-batol"
-            },
-            {
-                "rioID": 13334,
-                "challengeMapID": 375,
-                "slug": "mists-of-tirna-scithe"
-            },
-            {
-                "rioID": 9354,
-                "challengeMapID": 353,
-                "slug": "siege-of-boralus"
-            },
-            {
-                "rioID": 14971,
-                "challengeMapID": 505,
-                "slug": "the-dawnbreaker"
-            },
-            {
-                "rioID": 12916,
-                "challengeMapID": 376,
-                "slug": "the-necrotic-wake"
-            },
-            {
-                "rioID": 14883,
-                "challengeMapID": 501,
-                "slug": "the-stonevault"
-            }
-        ]
-    },
-    "season-tww-1-beta": {
-        "slug": "season-tww-1-beta",
         "expansion": 10,
         "dungeons": [
             {
