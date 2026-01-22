@@ -23,9 +23,16 @@ interface SeasonAdditionData {
 interface SpecializationIntroduceData {
     id: number,
     prefix: string,
+    addition: string[],
 }
 
 const seasonsAddition: SeasonAdditionData[] = [
+    {
+        prefix: 'season-tww-3',
+        seasonEndsDate: new Date('2026-01-20T15:00:00Z'),
+        maxRewardLevel: 10,
+        maxRewardScore: 2500,
+    },
     {
         prefix: 'season-tww-2',
         seasonEndsDate: new Date('2025-08-05T15:00:00Z'),
@@ -116,16 +123,32 @@ const seasonsAddition: SeasonAdditionData[] = [
 
 const specializationsIntroduce: SpecializationIntroduceData[] = [
     {
+        id: 1480, // Devourer Demon Hunter
+        prefix: 'season-mn-1',
+        addition: [
+            'season-tww-3',
+        ],
+    },
+    {
         id: 1473, // Augmentation Evoker
         prefix: 'season-df-2',
+        addition: [],
     },
     {
         id: 1468, // Preservation Evoker
         prefix: 'season-df-1',
+        addition: [
+            'season-sl-4-post',
+            'season-sl-4-patch-10-0',
+        ],
     },
     {
         id: 1467, // Devastation Evoker
         prefix: 'season-df-1',
+        addition: [
+            'season-sl-4-post',
+            'season-sl-4-patch-10-0',
+        ],
     },
 ];
 
@@ -148,7 +171,11 @@ const getSeasonInfo = async (slug: keyof typeof seasons): Promise<SeasonInfo> =>
 
     const entryIndex = seasonsAddition.findIndex((e) => slug.startsWith(e.prefix));
     const ignoreSpecIDs = specializationsIntroduce
-        .filter(({ prefix }) => {
+        .filter(({ prefix, addition }) => {
+            if (addition.includes(slug)) {
+                return false;
+            }
+
             const index = seasonsAddition.findIndex((e) => prefix === e.prefix);
             return index < entryIndex;
         })
