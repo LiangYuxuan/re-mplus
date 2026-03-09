@@ -55,7 +55,6 @@ export default {
     dungeons: new Map(dungeons.map(({ id, en }) => [id, en] as const)),
     seasons: new Map([
         ['season-mn-1', 'Midnight Season 1'],
-        ['season-tww-3', 'The War Within Season 3 (With Pre Patch)'],
         ['season-tww-3-cutoffs', 'The War Within Season 3'],
         ['season-tww-2', 'The War Within Season 2'],
         ['season-tww-1', 'The War Within Season 1'],

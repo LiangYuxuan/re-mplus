@@ -167,7 +167,6 @@ export default {
     dungeons: new Map(dungeons.map(({ id, cn }) => [id, cn] as const)),
     seasons: new Map([
         ['season-mn-1', '至暗之夜 第一赛季'],
-        ['season-tww-3', '地心之战 第三赛季 (含前夕)'],
         ['season-tww-3-cutoffs', '地心之战 第三赛季'],
         ['season-tww-2', '地心之战 第二赛季'],
         ['season-tww-1', '地心之战 第一赛季'],
