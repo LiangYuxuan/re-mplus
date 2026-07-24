@@ -28,7 +28,7 @@
     "eslint": "^10.7.0",
     "serve": "^14.2.6",
     "tsx": "^4.23.1",
-    "typescript": "^6.0.3"
+    "typescript": "^7.0.2"
   },
   "packageManager": "pnpm@11.15.1"
 }
