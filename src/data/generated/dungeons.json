@@ -472,5 +472,40 @@
         "en": "Maisara Caverns",
         "cn": "迈萨拉洞窟",
         "shortName": "MC"
+    },
+    {
+        "id": 583,
+        "en": "Seat of the Triumvirate",
+        "cn": "执政团之座"
+    },
+    {
+        "id": 584,
+        "en": "The Blinding Vale",
+        "cn": "夺目谷",
+        "shortName": "BV"
+    },
+    {
+        "id": 585,
+        "en": "Voidscar Arena",
+        "cn": "虚空之痕竞技场",
+        "shortName": "VSA"
+    },
+    {
+        "id": 586,
+        "en": "Den of Nalorakk",
+        "cn": "纳洛拉克的洞穴",
+        "shortName": "DON"
+    },
+    {
+        "id": 587,
+        "en": "Murder Row",
+        "cn": "密谋小径",
+        "shortName": "MR"
+    },
+    {
+        "id": 588,
+        "en": "Altar of Fangs",
+        "cn": "毒牙祭坛",
+        "shortName": "AOF"
     }
 ]
