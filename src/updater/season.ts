@@ -28,6 +28,12 @@ interface SpecializationIntroduceData {
 
 const seasonsAddition: SeasonAdditionData[] = [
     {
+        prefix: 'season-mn-1',
+        seasonEndsDate: new Date('2026-08-11T15:00:00Z'),
+        maxRewardLevel: 10,
+        maxRewardScore: 3400,
+    },
+    {
         prefix: 'season-tww-3',
         seasonEndsDate: new Date('2026-01-20T15:00:00Z'),
         maxRewardLevel: 10,
@@ -125,9 +131,7 @@ const specializationsIntroduce: SpecializationIntroduceData[] = [
     {
         id: 1480, // Devourer Demon Hunter
         prefix: 'season-mn-1',
-        addition: [
-            'season-tww-3',
-        ],
+        addition: [],
     },
     {
         id: 1473, // Augmentation Evoker
