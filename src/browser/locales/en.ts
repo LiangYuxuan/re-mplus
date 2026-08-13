@@ -54,6 +54,7 @@ export default {
     specializations: new Map(specializations.map(({ id, en }) => [id, en] as const)),
     dungeons: new Map(dungeons.map(({ id, en }) => [id, en] as const)),
     seasons: new Map([
+        ['season-mn-2', 'Midnight Season 2'],
         ['season-mn-1', 'Midnight Season 1'],
         ['season-tww-3-cutoffs', 'The War Within Season 3'],
         ['season-tww-2', 'The War Within Season 2'],
