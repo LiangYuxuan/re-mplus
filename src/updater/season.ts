@@ -31,13 +31,13 @@ const seasonsAddition: SeasonAdditionData[] = [
         prefix: 'season-tww-3',
         seasonEndsDate: new Date('2026-01-20T15:00:00Z'),
         maxRewardLevel: 10,
-        maxRewardScore: 2500,
+        maxRewardScore: 3000,
     },
     {
         prefix: 'season-tww-2',
         seasonEndsDate: new Date('2025-08-05T15:00:00Z'),
         maxRewardLevel: 10,
-        maxRewardScore: 2500,
+        maxRewardScore: 3000,
     },
     {
         prefix: 'season-tww-1',
