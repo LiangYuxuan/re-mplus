@@ -23,12 +23,12 @@
   "devDependencies": {
     "@rhyster/eslint-config": "^2.0.31",
     "@types/async": "^3.2.26",
-    "@types/node": "^24.13.4",
+    "@types/node": "^24.13.5",
     "esbuild": "^0.28.2",
     "eslint": "^10.10.0",
     "serve": "^14.2.6",
     "tsx": "^4.23.13",
     "typescript": "^6.0.3"
   },
-  "packageManager": "pnpm@12.4.1"
+  "packageManager": "pnpm@12.4.2"
 }
