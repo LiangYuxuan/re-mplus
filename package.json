@@ -16,7 +16,7 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "@rhyster/wow-casc-dbc": "^2.16.11",
+    "@rhyster/wow-casc-dbc": "^2.16.12",
     "async": "^3.2.6",
     "jimp": "^1.6.1"
   },
@@ -27,7 +27,7 @@
     "esbuild": "^0.28.2",
     "eslint": "^10.11.0",
     "serve": "^14.2.6",
-    "tsx": "^4.23.13",
+    "tsx": "^4.23.15",
     "typescript": "^6.0.3"
   },
   "packageManager": "pnpm@12.5.1"
