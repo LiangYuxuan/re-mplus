@@ -71,12 +71,12 @@ export default async (
             console.info(`Fetching ${dungeon} page ${(page + 1).toString()}/${maxPage.toString()}`);
 
             // eslint-disable-next-line no-await-in-loop
-            const data = await retry(
+            const runs = await retry(
                 { times: 3, interval: 1000 },
-                async () => getDungeonTopRuns(season, dungeon, page),
+                async () => (
+                    await getDungeonTopRuns(season, dungeon, page)
+                ).rankings.rankedGroups,
             );
-
-            const runs = data.rankings.rankedGroups;
 
             if (runs.length === 0) {
                 break;
@@ -139,13 +139,15 @@ export default async (
     });
 
     const characterMaxPage = maxPage * 5;
-    const lastCharactersData = await retry(
+    const rankedCharacters = await retry(
         { times: 3, interval: 1000 },
-        async () => getTopCharacters(season, characterMaxPage - 1),
+        async () => (
+            await getTopCharacters(season, characterMaxPage - 1)
+        ).rankings.rankedCharacters,
     );
-    const lastCharacterScore = lastCharactersData.rankings.rankedCharacters.length > 0
-        ? lastCharactersData.rankings.rankedCharacters[
-            lastCharactersData.rankings.rankedCharacters.length - 1
+    const lastCharacterScore = rankedCharacters.length > 0
+        ? rankedCharacters[
+            rankedCharacters.length - 1
         ].score
         : 0;
     const characterScoreThreshold = Math.max(characterMinScore, lastCharacterScore);
@@ -161,12 +163,12 @@ export default async (
             console.info(`Fetching ${specName} ${className} page ${(page + 1).toString()}/${characterMaxPage.toString()}`);
 
             // eslint-disable-next-line no-await-in-loop
-            const data = await retry(
+            const characters = await retry(
                 { times: 3, interval: 1000 },
-                async () => getSpecTopCharacters(season, className, specName, page),
+                async () => (
+                    await getSpecTopCharacters(season, className, specName, page)
+                ).rankings.rankedCharacters,
             );
-
-            const characters = data.rankings.rankedCharacters;
 
             if (characters.length === 0) {
                 break;
