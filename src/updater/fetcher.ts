@@ -72,7 +72,7 @@ export default async (
 
             // eslint-disable-next-line no-await-in-loop
             const runs = await retry(
-                { times: 3, interval: 1000 },
+                { times: 10, interval: 5000 },
                 async () => (
                     await getDungeonTopRuns(season, dungeon, page)
                 ).rankings.rankedGroups,
@@ -140,7 +140,7 @@ export default async (
 
     const characterMaxPage = maxPage * 5;
     const rankedCharacters = await retry(
-        { times: 3, interval: 1000 },
+        { times: 10, interval: 5000 },
         async () => (
             await getTopCharacters(season, characterMaxPage - 1)
         ).rankings.rankedCharacters,
@@ -164,7 +164,7 @@ export default async (
 
             // eslint-disable-next-line no-await-in-loop
             const characters = await retry(
-                { times: 3, interval: 1000 },
+                { times: 10, interval: 5000 },
                 async () => (
                     await getSpecTopCharacters(season, className, specName, page)
                 ).rankings.rankedCharacters,
