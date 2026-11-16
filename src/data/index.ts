@@ -55,9 +55,9 @@ const root = path.resolve(fileURLToPath(import.meta.url), '..', '..', '..');
 const client = new CASCClient('us', latestVersion.product, latestVersion.version);
 await client.init();
 
-console.info(new Date().toISOString(), '[INFO]: Loading remote TACT keys');
+console.info(Temporal.Now.instant().toString(), '[INFO]: Loading remote TACT keys');
 await client.loadRemoteTACTKeys();
-console.info(new Date().toISOString(), '[INFO]: Loaded remote TACT keys');
+console.info(Temporal.Now.instant().toString(), '[INFO]: Loaded remote TACT keys');
 
 const loadFile = async (fileDataID: number, localeFlag: number) => {
     const cKeys = client.getContentKeysByFileDataID(fileDataID);
@@ -103,7 +103,7 @@ const blpFileCutToPNG = async (fileDataID: number) => {
     return png;
 };
 
-console.info(new Date().toISOString(), '[INFO]: Loading DB2 files');
+console.info(Temporal.Now.instant().toString(), '[INFO]: Loading DB2 files');
 const [
     expansions,
     journalInstance,
@@ -123,9 +123,9 @@ const [
     loadDB2(1361031, CASCClient.LocaleFlags.enUS), // dbfilesclient/chrclasses.db2
     loadDB2(1361031, CASCClient.LocaleFlags.zhCN), // dbfilesclient/chrclasses.db2
 ]);
-console.info(new Date().toISOString(), '[INFO]: Loaded DB2 files');
+console.info(Temporal.Now.instant().toString(), '[INFO]: Loaded DB2 files');
 
-console.info(new Date().toISOString(), '[INFO]: Parsing DB2 files');
+console.info(Temporal.Now.instant().toString(), '[INFO]: Parsing DB2 files');
 const mapID2IconID = new Map<number, number>(journalInstance.getAllIDs().map((id) => {
     const row = journalInstance.getRowData(id);
     const mapID = row?.MapID as number;
@@ -255,9 +255,9 @@ const specializations = chrSpecialization.getAllIDs().map((id) => {
         cn: `${nameCN} ${classNameCN}`,
     };
 }).filter((spec) => spec !== undefined);
-console.info(new Date().toISOString(), '[INFO]: Parsed DB2 files');
+console.info(Temporal.Now.instant().toString(), '[INFO]: Parsed DB2 files');
 
-console.info(new Date().toISOString(), '[INFO]: Parsing Raider.IO static data');
+console.info(Temporal.Now.instant().toString(), '[INFO]: Parsing Raider.IO static data');
 const expansionLength = expansions.getAllIDs().length;
 const seasons: Record<string, Season> = {};
 const shortNames = new Map<number, string>();
@@ -303,9 +303,9 @@ await timesSeries(expansionLength, async (i: number) => {
         });
     }
 });
-console.info(new Date().toISOString(), '[INFO]: Parsed Raider.IO static data');
+console.info(Temporal.Now.instant().toString(), '[INFO]: Parsed Raider.IO static data');
 
-console.info(new Date().toISOString(), '[INFO]: Generating data files');
+console.info(Temporal.Now.instant().toString(), '[INFO]: Generating data files');
 const dungeons = [...challengeMapID2Name.entries()].map(([id, name]) => {
     const shortName = shortNames.get(id);
     const cn = challengeMapID2NameCN.get(id);
@@ -324,9 +324,9 @@ await fs.mkdir(path.join(root, 'src', 'data', 'generated'), { recursive: true })
 await fs.writeFile(path.join(root, 'src', 'data', 'generated', 'seasons.json'), JSON.stringify(seasons, null, 4));
 await fs.writeFile(path.join(root, 'src', 'data', 'generated', 'dungeons.json'), JSON.stringify(dungeons, null, 4));
 await fs.writeFile(path.join(root, 'src', 'data', 'generated', 'specializations.json'), JSON.stringify(specializations, null, 4));
-console.info(new Date().toISOString(), '[INFO]: Generated data files');
+console.info(Temporal.Now.instant().toString(), '[INFO]: Generated data files');
 
-console.info(new Date().toISOString(), '[INFO]: Downloading icons');
+console.info(Temporal.Now.instant().toString(), '[INFO]: Downloading icons');
 await fs.mkdir(path.join(root, 'public', 'static', 'dungeons'), { recursive: true });
 await Promise.all(challengeMapID2IconID.entries().map(async ([id, iconID]) => {
     const png = await blpFileCutToPNG(iconID);
@@ -341,4 +341,4 @@ await Promise.all(specializations.map(async ({ id }) => {
     const png = await blpFileCutToPNG(iconID);
     await fs.writeFile(path.join(root, 'public', 'static', 'specializations', `${id.toString()}.png`), png);
 }));
-console.info(new Date().toISOString(), '[INFO]: Downloaded icons');
+console.info(Temporal.Now.instant().toString(), '[INFO]: Downloaded icons');
