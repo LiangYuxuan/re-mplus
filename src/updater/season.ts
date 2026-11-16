@@ -14,7 +14,7 @@ interface SeasonInfo {
 
 interface SeasonAdditionData {
     prefix: string,
-    seasonEndsDate: Date,
+    seasonEndsDate: Temporal.Instant,
     maxRewardLevel: number,
     maxRewardScore: number,
     skipCharacterBest?: boolean,
@@ -29,98 +29,98 @@ interface SpecializationIntroduceData {
 const seasonsAddition: SeasonAdditionData[] = [
     {
         prefix: 'season-mn-1',
-        seasonEndsDate: new Date('2026-08-11T15:00:00Z'),
+        seasonEndsDate: Temporal.Instant.from('2026-08-11T15:00:00Z'),
         maxRewardLevel: 10,
         maxRewardScore: 3400,
     },
     {
         prefix: 'season-tww-3',
-        seasonEndsDate: new Date('2026-01-20T15:00:00Z'),
+        seasonEndsDate: Temporal.Instant.from('2026-01-20T15:00:00Z'),
         maxRewardLevel: 10,
         maxRewardScore: 3000,
     },
     {
         prefix: 'season-tww-2',
-        seasonEndsDate: new Date('2025-08-05T15:00:00Z'),
+        seasonEndsDate: Temporal.Instant.from('2025-08-05T15:00:00Z'),
         maxRewardLevel: 10,
         maxRewardScore: 3000,
     },
     {
         prefix: 'season-tww-1',
-        seasonEndsDate: new Date('2025-02-25T15:00:00Z'),
+        seasonEndsDate: Temporal.Instant.from('2025-02-25T15:00:00Z'),
         maxRewardLevel: 10,
         maxRewardScore: 2500,
     },
     {
         prefix: 'season-df-4',
-        seasonEndsDate: new Date('2024-07-23T15:00:00Z'),
+        seasonEndsDate: Temporal.Instant.from('2024-07-23T15:00:00Z'),
         maxRewardLevel: 10,
         maxRewardScore: 2500,
     },
     {
         prefix: 'season-df-3',
-        seasonEndsDate: new Date('2024-04-23T15:00:00Z'),
+        seasonEndsDate: Temporal.Instant.from('2024-04-23T15:00:00Z'),
         maxRewardLevel: 20,
         maxRewardScore: 2500,
     },
     {
         prefix: 'season-df-2',
-        seasonEndsDate: new Date('2023-11-07T15:00:00Z'),
+        seasonEndsDate: Temporal.Instant.from('2023-11-07T15:00:00Z'),
         maxRewardLevel: 20,
         maxRewardScore: 2500,
     },
     {
         prefix: 'season-df-1',
-        seasonEndsDate: new Date('2023-05-02T15:00:00Z'),
+        seasonEndsDate: Temporal.Instant.from('2023-05-02T15:00:00Z'),
         maxRewardLevel: 20,
         maxRewardScore: 2500,
     },
     {
         prefix: 'season-sl-4',
-        seasonEndsDate: new Date('2022-10-25T15:00:00Z'),
+        seasonEndsDate: Temporal.Instant.from('2022-10-25T15:00:00Z'),
         maxRewardLevel: 15,
         maxRewardScore: 2000,
     },
     {
         prefix: 'season-sl-3',
-        seasonEndsDate: new Date('2022-08-02T15:00:00Z'),
+        seasonEndsDate: Temporal.Instant.from('2022-08-02T15:00:00Z'),
         maxRewardLevel: 15,
         maxRewardScore: 3000,
     },
     {
         prefix: 'season-sl-2',
-        seasonEndsDate: new Date('2022-02-22T15:00:00Z'),
+        seasonEndsDate: Temporal.Instant.from('2022-02-22T15:00:00Z'),
         maxRewardLevel: 15,
         maxRewardScore: 2000,
     },
     {
         prefix: 'season-sl-1',
-        seasonEndsDate: new Date('2021-06-29T15:00:00Z'),
+        seasonEndsDate: Temporal.Instant.from('2021-06-29T15:00:00Z'),
         maxRewardLevel: 15,
         maxRewardScore: 1288, // Keystone Master 15 -> 161, 161 * 8 = 1288
     },
     {
         prefix: 'season-bfa-4',
-        seasonEndsDate: new Date('2020-10-13T15:00:00Z'),
+        seasonEndsDate: Temporal.Instant.from('2020-10-13T15:00:00Z'),
         maxRewardLevel: 15,
         maxRewardScore: 1932, // Keystone Master 15 -> 161, 161 * 12 = 1932
     },
     {
         prefix: 'season-bfa-3',
-        seasonEndsDate: new Date('2020-01-14T15:00:00Z'),
+        seasonEndsDate: Temporal.Instant.from('2020-01-14T15:00:00Z'),
         maxRewardLevel: 10,
         maxRewardScore: 1000, // Keystone Master 10 -> 100, 100 * 10 = 1000
     },
     {
         prefix: 'season-bfa-2',
-        seasonEndsDate: new Date('2019-06-25T15:00:00Z'),
+        seasonEndsDate: Temporal.Instant.from('2019-06-25T15:00:00Z'),
         maxRewardLevel: 10,
         maxRewardScore: 0,
         skipCharacterBest: true,
     },
     {
         prefix: 'season-bfa-1',
-        seasonEndsDate: new Date('2019-01-22T15:00:00Z'),
+        seasonEndsDate: Temporal.Instant.from('2019-01-22T15:00:00Z'),
         maxRewardLevel: 10,
         maxRewardScore: 0,
         skipCharacterBest: true,
@@ -193,7 +193,10 @@ const getSeasonInfo = async (slug: keyof typeof seasons): Promise<SeasonInfo> =>
             .filter(({ id }) => !ignoreSpecIDs.includes(id))
             .map(({ id }) => id),
         includePostSeason: seasonStaticData.ends.us !== undefined
-            ? new Date(seasonStaticData.ends.us) > entry.seasonEndsDate
+            ? Temporal.Instant.compare(
+                Temporal.Instant.from(seasonStaticData.ends.us),
+                entry.seasonEndsDate,
+            ) === 1
             : false,
     };
 };

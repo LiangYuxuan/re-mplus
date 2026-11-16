@@ -441,7 +441,7 @@ const updatePageDisplay = (
     subTitle.textContent = selectorData[SELECTOR_USING_INDEX].label();
     // eslint-disable-next-line no-param-reassign
     lastUpdated.textContent = dataFile
-        ? new Date(dataFile.date).toLocaleString()
+        ? Temporal.Instant.from(dataFile.date).toLocaleString()
         : '';
 
     [...buttonContainer.children].forEach((child, index) => {

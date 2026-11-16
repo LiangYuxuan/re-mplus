@@ -257,7 +257,7 @@ export default async (
         .filter((level) => level !== undefined);
 
     const data: RioData = {
-        date: new Date().toISOString(),
+        date: Temporal.Now.instant().toString(),
         statistics: {
             dungeonMinLevel: dungeonMinLevels.length === 0 ? 0 : Math.min(...dungeonMinLevels),
             characterMinScore: characterScoreThreshold,
