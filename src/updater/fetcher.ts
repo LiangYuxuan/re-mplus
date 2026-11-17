@@ -5,12 +5,12 @@ import { mapLimit, retry } from 'async';
 import seasons from '../data/generated/seasons.json' with { type: 'json' };
 import specializations from '../data/generated/specializations.json' with { type: 'json' };
 
-import type Characters from './types/Characters.ts';
-import type Runs from './types/Runs.ts';
-import type Specs from './types/Specs.ts';
 import type {
     Run, Character, AnalyseInput, RioData,
 } from '../core/types.ts';
+import type Characters from './types/Characters.ts';
+import type Runs from './types/Runs.ts';
+import type Specs from './types/Specs.ts';
 
 const getDungeonTopRuns = async (
     season: string,
